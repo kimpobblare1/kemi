@@ -350,6 +350,11 @@ function eok(rawWon){ // 원 -> 억원
   if (isNaN(num)) return '-';
   return Math.round(num / 1e8).toLocaleString('ko-KR');
 }
+function eokFromManwon(manwon){ // 만원 -> 억원 (신용잔고금액 전용, 단위가 다름)
+  const num = Number(manwon);
+  if (isNaN(num)) return '-';
+  return Math.round(num / 10000).toLocaleString('ko-KR');
+}
 function heatColor(ratio, max){
   const t = Math.max(0, Math.min((Number(ratio) || 0) / max, 1));
   const from = [140, 84, 84];   // 낮을 때: 은은한 톤
@@ -444,7 +449,7 @@ function render(data){
       <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
       <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
       <td class="num-cell"><span style="color:${heatColor(r.loanBalanceRate, 10)};font-weight:700">${Number(r.loanBalanceRate).toFixed(2)}%</span></td>
-      <td class="num-cell">${eok(r.loanBalanceAmt)}</td>
+      <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
     </tr>`, 5);
 
   // 홈 - 공매도 금액 TOP10 (비중이 아니라 실제 금액 기준 재정렬)
@@ -466,7 +471,7 @@ function render(data){
       <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
       <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
       <td class="num-cell"><span style="color:${heatColor(r.loanBalanceRate, 10)};font-weight:700">${Number(r.loanBalanceRate).toFixed(2)}%</span></td>
-      <td class="num-cell">${eok(r.loanBalanceAmt)}</td>
+      <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
     </tr>`, 5);
 
   // TOP30 - 공매도
@@ -483,7 +488,7 @@ function render(data){
     <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
     <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
     <td class="num-cell"><span style="color:${heatColor(r.loanBalanceRate, 10)};font-weight:700">${Number(r.loanBalanceRate).toFixed(2)}%</span></td>
-    <td class="num-cell">${eok(r.loanBalanceAmt)}</td></tr>`, 6);
+    <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 6);
 
   // TOP30 - 시가총액
   renderRows('cap-tbody', data.marketCapTop, (r, i) => `
