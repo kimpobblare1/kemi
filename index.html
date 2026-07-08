@@ -124,14 +124,14 @@
   .chg-down{ color:var(--down); }
   .rank-cell{ color:var(--text-soft); width:28px; }
 
-  .heat-cell{ position:relative; }
-  .heat-fill{ position:absolute; inset:0; z-index:0; }
-  .heat-cell > span{ position:relative; z-index:1; }
-
   /* ---------- TOP30 pages ---------- */
   .top30-note{
     font-family:var(--font-mono); font-size:10.5px; color:var(--accent);
     background:var(--accent-soft); border-radius:6px; padding:8px 12px; margin-bottom:16px; display:inline-block;
+  }
+  .metric-note{
+    font-size:11px; color:var(--text-soft); padding:9px 16px; margin:0;
+    border-top:1px solid var(--border); background:var(--surface-2);
   }
 
   @media (max-width:760px){
@@ -163,7 +163,7 @@
       <button class="side-link" data-page="down" onclick="showPage('down')"><span class="side-dot"></span>하락률</button>
     </nav>
 
-    <div class="sidebar-foot">개미데이터 v0.1<br>NXT 실시간가 기준</div>
+    <div class="sidebar-foot">개미데이터 v0.1</div>
   </aside>
 
   <div class="main">
@@ -172,7 +172,7 @@
     <!-- ================= HOME ================= -->
     <section id="page-home" class="page active">
       <h2 class="page-title">시장 스냅샷</h2>
-      <p class="page-sub">코스피·코스닥 수급 현황과 공매도·신용잔고 TOP10 (NXT 실시간가 · ETF 제외)</p>
+      <p class="page-sub">코스피·코스닥 수급 현황과 공매도·신용잔고 TOP10 (ETF 제외)</p>
 
       <div class="index-grid">
         <div class="index-card">
@@ -203,16 +203,37 @@
         <div class="panel">
           <div class="panel-head"><h3>공매도 비중 TOP10</h3><span class="rank-badge">LIVE</span></div>
           <table class="data-table">
-            <thead><tr><th>종목명</th><th class="num-th">공매도비중</th><th class="num-th">현재가</th><th class="num-th">공매도금액(억)</th></tr></thead>
-            <tbody id="home-short-tbody"><tr><td colspan="4">불러오는 중...</td></tr></tbody>
+            <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
+            <tbody id="home-short-tbody"><tr><td colspan="5">불러오는 중...</td></tr></tbody>
           </table>
+          <p class="metric-note">공매도비중 = 당일 거래량 대비 공매도 거래량의 비율이에요.</p>
         </div>
         <div class="panel">
           <div class="panel-head"><h3>신용잔고 비율 TOP10</h3><span class="rank-badge">LIVE</span></div>
           <table class="data-table">
-            <thead><tr><th>종목명</th><th class="num-th">신용잔고비율</th><th class="num-th">현재가</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
-            <tbody id="home-credit-tbody"><tr><td colspan="4">불러오는 중...</td></tr></tbody>
+            <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
+            <tbody id="home-credit-tbody"><tr><td colspan="5">불러오는 중...</td></tr></tbody>
           </table>
+          <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요.</p>
+        </div>
+      </div>
+
+      <div class="two-col-home">
+        <div class="panel">
+          <div class="panel-head"><h3>공매도 금액 TOP10</h3><span class="rank-badge">LIVE</span></div>
+          <table class="data-table">
+            <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
+            <tbody id="home-short-value-tbody"><tr><td colspan="5">불러오는 중...</td></tr></tbody>
+          </table>
+          <p class="metric-note">공매도 금액이 큰 순서대로 정렬했어요 (비중이 아니라 실제 거래대금 기준).</p>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>신용잔고 금액 TOP10</h3><span class="rank-badge">LIVE</span></div>
+          <table class="data-table">
+            <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
+            <tbody id="home-credit-value-tbody"><tr><td colspan="5">불러오는 중...</td></tr></tbody>
+          </table>
+          <p class="metric-note">신용잔고 금액이 큰 순서대로 정렬했어요 (비율이 아니라 실제 잔고 금액 기준).</p>
         </div>
       </div>
     </section>
@@ -227,6 +248,7 @@
           <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
           <tbody id="short-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
+        <p class="metric-note">공매도비중 = 당일 거래량 대비 공매도 거래량의 비율이에요.</p>
       </div>
     </section>
 
@@ -240,13 +262,13 @@
           <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
           <tbody id="credit-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
+        <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요.</p>
       </div>
     </section>
 
     <!-- ================= 시가총액 TOP30 ================= -->
     <section id="page-cap" class="page">
       <h2 class="page-title">시가총액 TOP 30</h2>
-      <p class="page-sub">NXT 실시간가 기준</p>
       <div class="top30-note">※ KIS API 자체 상한이 30건이라 더 늘릴 수 없어요</div>
       <div class="panel">
         <table class="data-table">
@@ -259,7 +281,7 @@
     <!-- ================= 거래량 TOP30 ================= -->
     <section id="page-volume" class="page">
       <h2 class="page-title">거래량 TOP 30</h2>
-      <p class="page-sub">NXT 실시간가 기준 · ETF 제외</p>
+      <p class="page-sub">ETF 제외</p>
       <div class="top30-note">※ KIS API 상 한 번에 최대 30건까지만 제공돼요</div>
       <div class="panel">
         <table class="data-table">
@@ -272,7 +294,7 @@
     <!-- ================= 상승률 TOP30 ================= -->
     <section id="page-up" class="page">
       <h2 class="page-title">상승률 TOP 30</h2>
-      <p class="page-sub">NXT 실시간가 기준 · ETF 제외</p>
+      <p class="page-sub">ETF 제외</p>
       <div class="top30-note">※ KIS API 상 한 번에 최대 30건까지만 제공돼요</div>
       <div class="panel">
         <table class="data-table">
@@ -285,7 +307,7 @@
     <!-- ================= 하락률 TOP30 ================= -->
     <section id="page-down" class="page">
       <h2 class="page-title">하락률 TOP 30</h2>
-      <p class="page-sub">NXT 실시간가 기준 · ETF 제외</p>
+      <p class="page-sub">ETF 제외</p>
       <div class="top30-note">※ KIS API 상 한 번에 최대 30건까지만 제공돼요</div>
       <div class="panel">
         <table class="data-table">
@@ -328,10 +350,12 @@ function eok(rawWon){ // 원 -> 억원
   if (isNaN(num)) return '-';
   return Math.round(num / 1e8).toLocaleString('ko-KR');
 }
-function heatBg(ratio, max){
-  const num = Math.max(0, Math.min(Number(ratio) || 0, max));
-  const alpha = (num / max) * 0.55;
-  return `rgba(255,77,79,${alpha.toFixed(2)})`;
+function heatColor(ratio, max){
+  const t = Math.max(0, Math.min((Number(ratio) || 0) / max, 1));
+  const from = [140, 84, 84];   // 낮을 때: 은은한 톤
+  const to = [255, 77, 79];    // 높을 때: 선명한 빨강(--up)
+  const mix = from.map((f, i) => Math.round(f + (to[i] - f) * t));
+  return `rgb(${mix.join(',')})`;
 }
 function renderRows(tbodyId, rows, rowFn, colspan){
   const tbody = document.getElementById(tbodyId);
@@ -375,13 +399,17 @@ function flowAmountText(flow){
 function render(data){
   // 지수
   if (data.indices?.kospi){
-    document.getElementById('kospi-value').textContent = fmtNum(data.indices.kospi.value);
+    const valEl = document.getElementById('kospi-value');
+    valEl.textContent = fmtNum(data.indices.kospi.value);
+    valEl.className = 'index-value ' + pctClass(data.indices.kospi.changePct);
     const el = document.getElementById('kospi-change');
     el.textContent = fmtPct(data.indices.kospi.changePct);
     el.className = 'index-change ' + pctClass(data.indices.kospi.changePct);
   }
   if (data.indices?.kosdaq){
-    document.getElementById('kosdaq-value').textContent = fmtNum(data.indices.kosdaq.value);
+    const valEl = document.getElementById('kosdaq-value');
+    valEl.textContent = fmtNum(data.indices.kosdaq.value);
+    valEl.className = 'index-value ' + pctClass(data.indices.kosdaq.changePct);
     const el = document.getElementById('kosdaq-change');
     el.textContent = fmtPct(data.indices.kosdaq.changePct);
     el.className = 'index-change ' + pctClass(data.indices.kosdaq.changePct);
@@ -399,38 +427,62 @@ function render(data){
     });
   });
 
-  // 홈 - 공매도 TOP10 (히트맵)
+  // 홈 - 공매도 비중 TOP10
   renderRows('home-short-tbody', (data.shortSaleTop || []).slice(0, 10), (r) => `
     <tr>
       <td class="name-cell">${r.name}</td>
-      <td class="num-cell heat-cell" style="background:${heatBg(r.shortVolumeRatio, 20)}"><span>${Number(r.shortVolumeRatio).toFixed(2)}%</span></td>
-      <td class="num-cell">${fmtNum(r.price)}</td>
+      <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
+      <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
+      <td class="num-cell"><span style="color:${heatColor(r.shortVolumeRatio, 20)};font-weight:700">${Number(r.shortVolumeRatio).toFixed(2)}%</span></td>
       <td class="num-cell">${eok(r.shortValue)}</td>
-    </tr>`, 4);
+    </tr>`, 5);
 
-  // 홈 - 신용잔고 TOP10 (히트맵)
+  // 홈 - 신용잔고 비율 TOP10
   renderRows('home-credit-tbody', (data.creditBalanceTop || []).slice(0, 10), (r) => `
     <tr>
       <td class="name-cell">${r.name}</td>
-      <td class="num-cell heat-cell" style="background:${heatBg(r.loanBalanceRate, 10)}"><span>${Number(r.loanBalanceRate).toFixed(2)}%</span></td>
-      <td class="num-cell">${fmtNum(r.price)}</td>
+      <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
+      <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
+      <td class="num-cell"><span style="color:${heatColor(r.loanBalanceRate, 10)};font-weight:700">${Number(r.loanBalanceRate).toFixed(2)}%</span></td>
       <td class="num-cell">${eok(r.loanBalanceAmt)}</td>
-    </tr>`, 4);
+    </tr>`, 5);
+
+  // 홈 - 공매도 금액 TOP10 (비중이 아니라 실제 금액 기준 재정렬)
+  const shortByValue = [...(data.shortSaleTop || [])].sort((a, b) => Number(b.shortValue) - Number(a.shortValue)).slice(0, 10);
+  renderRows('home-short-value-tbody', shortByValue, (r) => `
+    <tr>
+      <td class="name-cell">${r.name}</td>
+      <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
+      <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
+      <td class="num-cell"><span style="color:${heatColor(r.shortVolumeRatio, 20)};font-weight:700">${Number(r.shortVolumeRatio).toFixed(2)}%</span></td>
+      <td class="num-cell">${eok(r.shortValue)}</td>
+    </tr>`, 5);
+
+  // 홈 - 신용잔고 금액 TOP10 (비율이 아니라 실제 금액 기준 재정렬)
+  const creditByValue = [...(data.creditBalanceTop || [])].sort((a, b) => Number(b.loanBalanceAmt) - Number(a.loanBalanceAmt)).slice(0, 10);
+  renderRows('home-credit-value-tbody', creditByValue, (r) => `
+    <tr>
+      <td class="name-cell">${r.name}</td>
+      <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
+      <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
+      <td class="num-cell"><span style="color:${heatColor(r.loanBalanceRate, 10)};font-weight:700">${Number(r.loanBalanceRate).toFixed(2)}%</span></td>
+      <td class="num-cell">${eok(r.loanBalanceAmt)}</td>
+    </tr>`, 5);
 
   // TOP30 - 공매도
   renderRows('short-tbody', data.shortSaleTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    <td class="num-cell">${fmtNum(r.price)}</td>
+    <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
     <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
-    <td class="num-cell heat-cell" style="background:${heatBg(r.shortVolumeRatio, 20)}"><span>${Number(r.shortVolumeRatio).toFixed(2)}%</span></td>
+    <td class="num-cell"><span style="color:${heatColor(r.shortVolumeRatio, 20)};font-weight:700">${Number(r.shortVolumeRatio).toFixed(2)}%</span></td>
     <td class="num-cell">${eok(r.shortValue)}</td></tr>`, 6);
 
   // TOP30 - 신용잔고
   renderRows('credit-tbody', data.creditBalanceTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    <td class="num-cell">${fmtNum(r.price)}</td>
+    <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
     <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
-    <td class="num-cell heat-cell" style="background:${heatBg(r.loanBalanceRate, 10)}"><span>${Number(r.loanBalanceRate).toFixed(2)}%</span></td>
+    <td class="num-cell"><span style="color:${heatColor(r.loanBalanceRate, 10)};font-weight:700">${Number(r.loanBalanceRate).toFixed(2)}%</span></td>
     <td class="num-cell">${eok(r.loanBalanceAmt)}</td></tr>`, 6);
 
   // TOP30 - 시가총액
