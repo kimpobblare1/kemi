@@ -488,7 +488,7 @@ function render(data){
   // TOP30 - 시가총액
   renderRows('cap-tbody', data.marketCapTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    <td class="num-cell">${fmtNum(r.price)}</td>
+    <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
     <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
     <td class="num-cell">${fmtNum(r.marketCap)}</td>
     <td class="num-cell">${Number(r.weightPct).toFixed(2)}%</td></tr>`, 6);
@@ -496,21 +496,21 @@ function render(data){
   // TOP30 - 거래량
   renderRows('volume-tbody', data.volumeTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    <td class="num-cell">${fmtNum(r.price)}</td>
+    <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
     <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
     <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 5);
 
   // TOP30 - 상승률
   renderRows('up-tbody', data.fluctuationUpTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    <td class="num-cell">${fmtNum(r.price)}</td>
+    <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
     <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
     <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 5);
 
   // TOP30 - 하락률
   renderRows('down-tbody', data.fluctuationDownTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    <td class="num-cell">${fmtNum(r.price)}</td>
+    <td class="num-cell ${pctClass(r.changePct)}">${fmtNum(r.price)}</td>
     <td class="num-cell ${pctClass(r.changePct)}">${fmtPct(r.changePct)}</td>
     <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 5);
 }
