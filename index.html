@@ -191,6 +191,12 @@
   }
 
   .app-footer{ text-align:center; font-size:11px; color:var(--text-soft); padding:28px 0 4px; }
+  .flow-toggle-row{ display:flex; gap:8px; margin-bottom:16px; }
+  .flow-toggle-btn{
+    padding:8px 22px; border-radius:8px; border:1px solid var(--border); background:var(--surface);
+    color:var(--text-soft); font-weight:700; font-size:13px; cursor:pointer;
+  }
+  .flow-toggle-btn.active{ background:var(--accent); color:#fff; border-color:var(--accent); }
   .app-footer .footer-links{ display:flex; justify-content:center; gap:14px; margin-bottom:10px; }
   .app-footer .footer-links a{ color:var(--text-soft); text-decoration:none; }
   .app-footer .footer-links a:hover{ color:var(--accent); }
@@ -267,10 +273,8 @@
       <button class="tab-link" data-page="volume" onclick="showPage('volume')">거래량</button>
       <button class="tab-link" data-page="up" onclick="showPage('up')">상승률</button>
       <button class="tab-link" data-page="down" onclick="showPage('down')">하락률</button>
-      <button class="tab-link" data-page="instbuy" onclick="showPage('instbuy')">기관순매수</button>
-      <button class="tab-link" data-page="instsell" onclick="showPage('instsell')">기관순매도</button>
-      <button class="tab-link" data-page="foreignbuy" onclick="showPage('foreignbuy')">외국인순매수</button>
-      <button class="tab-link" data-page="foreignsell" onclick="showPage('foreignsell')">외국인순매도</button>
+      <button class="tab-link" data-page="instflow" onclick="showPage('instflow')">기관매매</button>
+      <button class="tab-link" data-page="foreignflow" onclick="showPage('foreignflow')">외국인매매</button>
     </div>
   </nav>
 </header>
@@ -497,61 +501,37 @@
     </div>
   </section>
 
-  <!-- ================= 기관순매수 TOP100 ================= -->
-  <section id="page-instbuy" class="page">
-    <h2 class="page-title">기관 순매수 TOP 100</h2>
+  <!-- ================= 기관 매매 TOP100 (순매수/순매도 토글) ================= -->
+  <section id="page-instflow" class="page">
+    <h2 class="page-title">기관 매매 TOP 100</h2>
     <p class="page-sub">ETF 제외 · 조건검색 기반</p>
-    <div class="info-note">ℹ️ 실제 순매수 금액은 제공되지 않아요. 오늘 "기관 순매수" 조건에 해당하는 종목 목록이에요.</div>
+    <div class="flow-toggle-row">
+      <button class="flow-toggle-btn active" data-category="inst" data-view="buy" onclick="setFlowView('inst','buy')">순매수</button>
+      <button class="flow-toggle-btn" data-category="inst" data-view="sell" onclick="setFlowView('inst','sell')">순매도</button>
+    </div>
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
         <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
-        <tbody id="instbuy-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+        <tbody id="instflow-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
       </table>
       </div>
     </div>
   </section>
 
-  <!-- ================= 기관순매도 TOP100 ================= -->
-  <section id="page-instsell" class="page">
-    <h2 class="page-title">기관 순매도 TOP 100</h2>
+  <!-- ================= 외국인 매매 TOP100 (순매수/순매도 토글) ================= -->
+  <section id="page-foreignflow" class="page">
+    <h2 class="page-title">외국인 매매 TOP 100</h2>
     <p class="page-sub">ETF 제외 · 조건검색 기반</p>
-    <div class="info-note">ℹ️ 실제 순매도 금액은 제공되지 않아요. 오늘 "기관 순매도" 조건에 해당하는 종목 목록이에요.</div>
-    <div class="panel">
-      <div class="table-scroll">
-      <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
-        <tbody id="instsell-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
-      </table>
-      </div>
+    <div class="flow-toggle-row">
+      <button class="flow-toggle-btn active" data-category="foreign" data-view="buy" onclick="setFlowView('foreign','buy')">순매수</button>
+      <button class="flow-toggle-btn" data-category="foreign" data-view="sell" onclick="setFlowView('foreign','sell')">순매도</button>
     </div>
-  </section>
-
-  <!-- ================= 외국인순매수 TOP100 ================= -->
-  <section id="page-foreignbuy" class="page">
-    <h2 class="page-title">외국인 순매수 TOP 100</h2>
-    <p class="page-sub">ETF 제외 · 조건검색 기반</p>
-    <div class="info-note">ℹ️ 실제 순매수 금액은 제공되지 않아요. 오늘 "외국인 순매수" 조건에 해당하는 종목 목록이에요.</div>
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
         <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
-        <tbody id="foreignbuy-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
-      </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 외국인순매도 TOP100 ================= -->
-  <section id="page-foreignsell" class="page">
-    <h2 class="page-title">외국인 순매도 TOP 100</h2>
-    <p class="page-sub">ETF 제외 · 조건검색 기반</p>
-    <div class="info-note">ℹ️ 실제 순매도 금액은 제공되지 않아요. 오늘 "외국인 순매도" 조건에 해당하는 종목 목록이에요.</div>
-    <div class="panel">
-      <div class="table-scroll">
-      <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
-        <tbody id="foreignsell-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+        <tbody id="foreignflow-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
       </table>
       </div>
     </div>
@@ -584,7 +564,7 @@ function showPage(id){
 // 외부 링크(예: 칼럼 글의 "홈에서 보기")가 특정 탭으로 바로 이동할 수 있도록 시작 시 해시 확인
 // (이 스크립트는 body 맨 끝에 있어 DOM이 이미 준비된 상태 — DOMContentLoaded를 기다릴 필요 없이 바로 실행)
 (function initFromHash(){
-  const validPages = ['home','short','shortvalue','credit','creditvalue','cap','volume','up','down','instbuy','instsell','foreignbuy','foreignsell'];
+  const validPages = ['home','short','shortvalue','credit','creditvalue','cap','volume','up','down','instflow','foreignflow'];
   const hash = (location.hash || '').replace('#', '');
   if (validPages.includes(hash) && hash !== 'home') {
     showPage(hash);
@@ -671,6 +651,11 @@ function ratioChip(ratio, max){
   const c = heatColors(ratio, max);
   return `<span class="ratio-chip" style="color:${c.fg};background:${c.bg};border:1px solid ${c.border}">${text}</span>`;
 }
+// 공통 row 템플릿 헬퍼 — 현재가는 검정 고정, 변동금액/등락률만 색상+화살표 (여러 render 함수에서 공용)
+const priceCell = (r) => `<td class="num-cell">${fmtNum(r.price)}</td>`;
+const changeCell = (r) => `<td class="num-cell ${pctClass(r.changePct)}">${trendSymbol(r.changePct)} ${fmtChangeAmtAbs(r.change)}</td>`;
+const pctCell = (r) => `<td class="num-cell ${pctClass(r.changePct)}">${trendSymbol(r.changePct)} ${fmtPctAbs(r.changePct)}</td>`;
+
 function renderRows(tbodyId, rows, rowFn, colspan){
   const tbody = document.getElementById(tbodyId);
   if (!tbody) return;
@@ -796,10 +781,7 @@ function render(data){
     });
   });
 
-  // 공통 row 템플릿 헬퍼 — 현재가는 검정 고정, 변동금액/등락률만 색상+화살표
-  const priceCell = (r) => `<td class="num-cell">${fmtNum(r.price)}</td>`;
-  const changeCell = (r) => `<td class="num-cell ${pctClass(r.changePct)}">${trendSymbol(r.changePct)} ${fmtChangeAmtAbs(r.change)}</td>`;
-  const pctCell = (r) => `<td class="num-cell ${pctClass(r.changePct)}">${trendSymbol(r.changePct)} ${fmtPctAbs(r.changePct)}</td>`;
+  // 공통 row 템플릿 헬퍼는 이제 전역 함수(priceCell/changeCell/pctCell)로 분리됨
 
   // 홈 - 공매도 비중 TOP10
   renderRows('home-short-tbody', (data.shortSaleTop || []).slice(0, 10), (r) => `
@@ -917,34 +899,34 @@ function render(data){
     ${pctCell(r)}
     <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
 
-  // TOP100 - 기관 순매수/순매도, 외국인 순매수/순매도 (조건검색 기반, 금액 없이 종목 목록만)
-  renderRows('instbuy-tbody', data.institutionBuyTop, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
+  // TOP100 - 기관/외국인 순매수·순매도 (조건검색 기반, 금액 없이 종목 목록만) - 순매수/순매도 토글로 전환
+  renderFlowViews(data);
+}
 
-  renderRows('instsell-tbody', data.institutionSellTop, (r, i) => `
+function renderFlowRows(tbodyId, rows){
+  renderRows(tbodyId, rows, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
     ${priceCell(r)}
     ${changeCell(r)}
     ${pctCell(r)}
     <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
+}
 
-  renderRows('foreignbuy-tbody', data.foreignBuyTop, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
+let instFlowView = 'buy';
+let foreignFlowView = 'buy';
 
-  renderRows('foreignsell-tbody', data.foreignSellTop, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
+function renderFlowViews(data){
+  if (!data) return;
+  renderFlowRows('instflow-tbody', instFlowView === 'buy' ? data.institutionBuyTop : data.institutionSellTop);
+  renderFlowRows('foreignflow-tbody', foreignFlowView === 'buy' ? data.foreignBuyTop : data.foreignSellTop);
+}
+
+function setFlowView(category, view){
+  if (category === 'inst') instFlowView = view; else foreignFlowView = view;
+  document.querySelectorAll(`.flow-toggle-btn[data-category="${category}"]`).forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.view === view);
+  });
+  renderFlowViews(lastAntData);
 }
 
 loadAntData();
