@@ -185,6 +185,9 @@
   }
 
   .app-footer{ text-align:center; font-size:11px; color:var(--text-soft); padding:28px 0 4px; }
+  .app-footer .footer-links{ display:flex; justify-content:center; gap:14px; margin-bottom:10px; }
+  .app-footer .footer-links a{ color:var(--text-soft); text-decoration:none; }
+  .app-footer .footer-links a:hover{ color:var(--accent); }
 
   /* ---------- DARK MODE TOGGLE ---------- */
   .theme-toggle-wrap{ display:flex; align-items:center; gap:9px; margin-bottom:18px; }
@@ -470,7 +473,13 @@
     </div>
   </section>
 
-  <footer class="app-footer">개미데이터 v0.3 · 실시간 코스피 공매도·신용잔고 상위종목</footer>
+  <footer class="app-footer">
+    <div class="footer-links">
+      <a href="/about.html">소개</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+    </div>
+    개미데이터 v0.3 · 실시간 코스피 공매도·신용잔고 상위종목
+  </footer>
 </main>
 
 <script>
