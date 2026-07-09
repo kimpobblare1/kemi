@@ -476,6 +476,9 @@
   <footer class="app-footer">
     <div class="footer-links">
       <a href="/about.html">소개</a>
+      <a href="/guide.html">용어 가이드</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/blog.html">칼럼</a>
       <a href="/privacy.html">개인정보처리방침</a>
     </div>
     개미데이터 v0.3 · 실시간 코스피 공매도·신용잔고 상위종목
@@ -490,8 +493,19 @@ function showPage(id){
   document.querySelectorAll('.tab-link').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   document.querySelector('.tab-link[data-page="' + id + '"]').classList.add('active');
+  if (history.replaceState) history.replaceState(null, '', '#' + id);
   window.scrollTo({top:0, behavior:'instant'});
 }
+
+// 외부 링크(예: 칼럼 글의 "홈에서 보기")가 특정 탭으로 바로 이동할 수 있도록 시작 시 해시 확인
+// (이 스크립트는 body 맨 끝에 있어 DOM이 이미 준비된 상태 — DOMContentLoaded를 기다릴 필요 없이 바로 실행)
+(function initFromHash(){
+  const validPages = ['home','short','shortvalue','credit','creditvalue','cap','volume','up','down'];
+  const hash = (location.hash || '').replace('#', '');
+  if (validPages.includes(hash) && hash !== 'home') {
+    showPage(hash);
+  }
+})();
 
 function fmtNum(n){
   const num = Number(n);
