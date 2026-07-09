@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>주식 용어 가이드 — 공매도·신용잔고·시가총액 뜻 | 개미데이터</title>
+<meta name="description" content="공매도비중, 신용잔고비율, 시가총액, 거래량, 등락률이 무엇인지, 숫자가 높거나 낮으면 무엇을 의미하는지 초보 투자자도 쉽게 이해할 수 있도록 설명합니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F6F7F9; --border:#E8EAED;
+    --text:#16181C; --text-soft:#8A8F98; --accent:#B85C08; --accent-soft:#FCF1E1;
+    --up:#E5484D; --down:#3B82F6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Pretendard', -apple-system, sans-serif; line-height:1.75; font-size:15px;
+  }
+  .wrap{ max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--text-soft); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:24px; }
+  .back:hover{ color:var(--accent); }
+  h1{ font-size:24px; font-weight:800; margin:0 0 6px; }
+  .lead{ color:var(--text-soft); font-size:14px; margin:0 0 28px; }
+  .toc{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 20px; margin-bottom:32px; }
+  .toc-title{ font-size:12.5px; font-weight:700; color:var(--text-soft); margin-bottom:8px; }
+  .toc ol{ margin:0; padding-left:18px; font-size:13.5px; }
+  .toc li{ margin-bottom:4px; }
+  .toc a{ color:var(--text); text-decoration:none; }
+  .toc a:hover{ color:var(--accent); }
+  section{ margin-top:42px; scroll-margin-top:20px; }
+  h2{ font-size:18px; font-weight:800; margin:0 0 4px; display:flex; align-items:center; gap:8px; }
+  .term-tag{ font-size:11px; font-weight:700; background:var(--accent-soft); color:var(--accent); padding:2px 9px; border-radius:999px; }
+  h3{ font-size:14.5px; font-weight:700; margin:20px 0 8px; color:var(--text); }
+  p{ margin:0 0 14px; }
+  ul{ margin:0 0 14px; padding-left:20px; }
+  li{ margin-bottom:6px; }
+  .example{ background:var(--surface); border-left:3px solid var(--accent); border-radius:8px; padding:12px 16px; font-size:13.5px; color:var(--text-soft); margin:14px 0; }
+  .caution{ background:#FDECEC; border-left:3px solid var(--up); border-radius:8px; padding:12px 16px; font-size:13.5px; margin:14px 0; }
+  a{ color:var(--accent); }
+  .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; flex-wrap:wrap; }
+  .footer-nav a{ color:var(--text-soft); text-decoration:none; }
+  .footer-nav a:hover{ color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">← 개미데이터 홈으로</a>
+  <h1>주식 용어 가이드</h1>
+  <p class="lead">개미데이터에 나오는 지표들, 하나씩 쉽게 풀어드릴게요.</p>
+
+  <div class="toc">
+    <div class="toc-title">목차</div>
+    <ol>
+      <li><a href="#short-sale">공매도 · 공매도비중</a></li>
+      <li><a href="#credit">신용잔고 · 신용잔고비율</a></li>
+      <li><a href="#market-cap">시가총액</a></li>
+      <li><a href="#volume">거래량</a></li>
+      <li><a href="#change-rate">등락률</a></li>
+    </ol>
+  </div>
+
+  <section id="short-sale">
+    <h2>공매도 · 공매도비중 <span class="term-tag">TERM</span></h2>
+    <p>
+      공매도는 주식을 가지고 있지 않은 상태에서 먼저 팔고, 나중에 주가가 내려가면 싸게 사서 갚아
+      차익을 남기는 투자 기법이에요. "주가가 떨어질 것"이라는 예상에 베팅하는 방식이라고 보시면 돼요.
+    </p>
+    <h3>공매도비중이란?</h3>
+    <p>
+      공매도비중은 <strong>그날 거래된 전체 물량 중 공매도로 체결된 비중</strong>을 뜻해요. 예를 들어
+      오늘 어떤 종목이 100만 주 거래됐는데 그중 20만 주가 공매도였다면, 공매도비중은 20%가 돼요.
+    </p>
+    <div class="example">
+      💡 공매도비중이 높다는 건 "그만큼 많은 투자자·기관이 이 종목의 주가 하락에 베팅하고 있다"는
+      신호로 해석하는 경우가 많아요.
+    </div>
+    <h3>어떻게 활용하나요?</h3>
+    <ul>
+      <li>공매도비중이 갑자기 급등한 종목 → 악재 뉴스나 실적 우려가 반영됐을 가능성</li>
+      <li>공매도비중이 꾸준히 높은 종목 → 헤지(위험 회피)나 차익거래 목적일 수도 있음 (반드시 악재는 아님)</li>
+      <li>주가가 계속 오르는데 공매도비중도 높다면 → 나중에 공매도 세력이 손절하며 주가가 더 오르는 "숏스퀴즈" 가능성도 있음</li>
+    </ul>
+    <div class="caution">
+      ⚠️ 공매도비중이 높다고 무조건 "곧 떨어질 종목"은 아니에요. 다른 지표(등락률, 거래량, 뉴스)와
+      같이 봐야 정확한 판단에 가까워져요.
+    </div>
+  </section>
+
+  <section id="credit">
+    <h2>신용잔고 · 신용잔고비율 <span class="term-tag">TERM</span></h2>
+    <p>
+      신용잔고는 <strong>증권사에서 돈을 빌려서(신용융자) 주식을 산 뒤, 아직 갚지 않고 남아있는
+      주식 수량</strong>을 말해요. "빚내서 산 주식이 얼마나 남아있나"를 보여주는 지표예요.
+    </p>
+    <h3>신용잔고비율이란?</h3>
+    <p>
+      신용잔고비율은 <strong>그 종목의 전체 상장주식 수 대비, 신용융자로 보유 중인 주식의 비율</strong>이에요.
+      비율이 높을수록 "빚내서 산 물량"의 비중이 크다는 뜻이에요.
+    </p>
+    <div class="example">
+      💡 신용잔고비율이 높은 종목은 흔히 "가까운 시일 내 매도 압박이 있을 수 있는 종목"으로 주의
+      깊게 보는 지표로 활용돼요.
+    </div>
+    <h3>왜 위험 신호로 보나요?</h3>
+    <p>
+      신용융자는 정해진 기간 안에 갚아야 하고, 주가가 일정 수준 이상 떨어지면 증권사가 강제로
+      주식을 팔아버리는 "반대매매"가 발생할 수 있어요. 신용잔고비율이 높은 상태에서 주가가 급락하면,
+      반대매매 물량이 쏟아지며 낙폭이 더 커지는 경우가 있어요.
+    </p>
+    <div class="caution">
+      ⚠️ 신용잔고비율이 높다고 해서 반드시 폭락하는 건 아니에요. 다만 변동성이 큰 종목일 가능성이
+      높으니, 투자 전 좀 더 신중하게 살펴보는 참고 지표로 활용하시길 권해요.
+    </div>
+  </section>
+
+  <section id="market-cap">
+    <h2>시가총액 <span class="term-tag">TERM</span></h2>
+    <p>
+      시가총액은 <strong>현재 주가 × 전체 상장주식 수</strong>로 계산되는, "이 회사의 시장 가치가
+      전체 얼마인지"를 나타내는 숫자예요. 시가총액이 클수록 대형주, 작을수록 중소형주로 분류돼요.
+    </p>
+    <ul>
+      <li>시가총액이 큰 종목 → 상대적으로 주가 변동성이 낮고 안정적인 경향</li>
+      <li>시가총액이 작은 종목 → 적은 자금으로도 주가가 크게 움직일 수 있어 변동성이 큰 경향</li>
+    </ul>
+  </section>
+
+  <section id="volume">
+    <h2>거래량 <span class="term-tag">TERM</span></h2>
+    <p>
+      거래량은 <strong>하루 동안 그 종목이 실제로 사고 팔린 주식의 수</strong>예요. 거래량이 평소보다
+      갑자기 많이 늘었다면, 그 종목에 특별한 이슈(뉴스, 실적, 수급 변화)가 있었을 가능성이 커요.
+    </p>
+    <div class="example">
+      💡 같은 등락률이라도 거래량이 많을 때 나온 상승·하락이, 거래량이 적을 때보다 더 의미 있는
+      신호로 해석되는 경우가 많아요.
+    </div>
+  </section>
+
+  <section id="change-rate">
+    <h2>등락률 <span class="term-tag">TERM</span></h2>
+    <p>
+      등락률은 <strong>전날 종가 대비 오늘 주가가 몇 % 오르거나 내렸는지</strong>를 나타내요. 개미데이터에서는
+      상승은 빨간색 화살표(▲), 하락은 파란색 화살표(▼)로 표시하고 있어요.
+    </p>
+    <p>
+      변동금액은 등락률을 %가 아니라 실제 원(₩) 단위로 보여주는 값이에요. 예를 들어 등락률
+      +1.5%가 변동금액으로는 "+1,200원"처럼 표시되는 식이에요.
+    </p>
+  </section>
+
+  <div class="footer-nav">
+    <a href="/">홈</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/about.html">소개</a>
+    <a href="/privacy.html">개인정보처리방침</a>
+  </div>
+</div>
+</body>
+</html>
