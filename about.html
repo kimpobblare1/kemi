@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사이트 소개 — 개미데이터</title>
+<meta name="description" content="개미데이터는 개인 투자자를 위한 코스피·코스닥 실시간 공매도, 신용잔고, 시가총액, 거래량, 등락률 TOP 종목 정보 서비스입니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F6F7F9; --border:#E8EAED;
+    --text:#16181C; --text-soft:#8A8F98; --accent:#B85C08; --accent-soft:#FCF1E1;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Pretendard', -apple-system, sans-serif; line-height:1.7; font-size:15px;
+  }
+  .wrap{ max-width:720px; margin:0 auto; padding:32px 20px 80px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--text-soft); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:24px; }
+  .back:hover{ color:var(--accent); }
+  h1{ font-size:24px; font-weight:800; margin:0 0 6px; }
+  .lead{ color:var(--text-soft); font-size:14px; margin:0 0 32px; }
+  h2{ font-size:17px; font-weight:700; margin:36px 0 10px; }
+  p{ margin:0 0 14px; }
+  ul{ margin:0 0 14px; padding-left:20px; }
+  li{ margin-bottom:6px; }
+  .card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin:20px 0; }
+  .disclaimer{ background:var(--accent-soft); border-radius:10px; padding:14px 18px; font-size:13.5px; color:#7A4306; margin-top:32px; }
+  a{ color:var(--accent); }
+  .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; }
+  .footer-nav a{ color:var(--text-soft); text-decoration:none; }
+  .footer-nav a:hover{ color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">← 개미데이터 홈으로</a>
+  <h1>개미데이터 소개</h1>
+  <p class="lead">개인 투자자("개미")를 위한 국내주식 실시간 데이터 서비스</p>
+
+  <h2>어떤 사이트인가요?</h2>
+  <p>
+    개미데이터는 개인 투자자가 증권사 HTS·MTS를 따로 켜지 않아도 코스피·코스닥 시장의 핵심 지표를
+    빠르게 확인할 수 있도록 만든 무료 데이터 서비스입니다. 코스피·코스닥 지수와 수급 현황은 물론,
+    공매도 비중·금액, 신용잔고 비율·금액, 시가총액, 거래량, 상승률·하락률 상위 종목까지 한 화면에서
+    확인할 수 있습니다.
+  </p>
+
+  <h2>어떤 데이터를 제공하나요?</h2>
+  <ul>
+    <li>코스피·코스닥 지수 및 개인·외국인·기관 수급 현황</li>
+    <li>공매도 비중·거래대금 TOP 종목 (KRX 공시 기준, 15:40 이전엔 전일 확정치 표시)</li>
+    <li>신용잔고 비율·금액 TOP 종목</li>
+    <li>시가총액·거래량·등락률(상승/하락) TOP 30 종목</li>
+  </ul>
+  <p>
+    모든 데이터는 ETF·ETN을 제외한 국내 상장 종목을 기준으로 하며, 페이지 접속 시 자동으로 최신
+    데이터를 불러오고 이후 30초마다 자동으로 갱신됩니다.
+  </p>
+
+  <h2>데이터 출처</h2>
+  <div class="card">
+    <p style="margin:0;">
+      한국투자증권 Open API(KIS Developers)를 통해 한국거래소(KRX)가 공시하는 시세·순위 데이터를
+      가져와 가공합니다. 공매도·신용잔고와 같이 규정상 공시 시점이 정해진 데이터는 그 시점 이전까지
+      전일 확정치가 표시될 수 있습니다.
+    </p>
+  </div>
+
+  <h2>운영자</h2>
+  <p>
+    개미데이터는 [운영자 이름/닉네임을 입력해주세요]이 개인적으로 기획·운영하는 비상업 프로젝트로
+    시작했습니다.
+  </p>
+
+  <div class="disclaimer">
+    ⚠️ 본 사이트에서 제공하는 모든 정보는 투자 참고 자료이며, 투자 판단과 그에 따른 책임은
+    이용자 본인에게 있습니다. 개미데이터는 특정 종목의 매수·매도를 추천하지 않습니다.
+  </div>
+
+  <div class="footer-nav">
+    <a href="/">홈</a>
+    <a href="/privacy.html">개인정보처리방침</a>
+  </div>
+</div>
+</body>
+</html>
