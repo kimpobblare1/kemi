@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<script>
+  // 저장된 다크모드 설정을 CSS 적용 전에 먼저 반영해서 화면 깜빡임(FOUC) 방지
+  (function(){
+    try {
+      var saved = localStorage.getItem('antdata-theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var isDark = saved ? saved === 'dark' : prefersDark;
+      if (isDark) document.documentElement.classList.add('dark');
+    } catch(e) {}
+  })();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>개미데이터 — 실시간 코스피 공매도·신용잔고 상위종목</title>
@@ -42,6 +53,24 @@
     --font-sans:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono:'Pretendard', monospace;
     --max-w:1000px;
+  }
+  :root.dark{
+    --bg:#0A0D12;
+    --surface:#12161D;
+    --surface-2:#171C25;
+    --border:#242B37;
+    --text:#E6E9EF;
+    --text-soft:#828A9A;
+    --accent:#E8A33D;
+    --accent-soft:rgba(232,163,61,0.14);
+    --up:#FF4D4F;
+    --up-soft:rgba(255,77,79,0.14);
+    --down:#4C8DFF;
+    --down-soft:rgba(76,141,255,0.14);
+    --flat:#6B7280;
+  }
+  body, .panel, .index-card, .topbar, .tab-nav, .status-bar, .switch, .switch-thumb{
+    transition:background-color .18s, color .18s, border-color .18s;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -155,6 +184,21 @@
 
   .app-footer{ text-align:center; font-size:11px; color:var(--text-soft); padding:28px 0 4px; }
 
+  /* ---------- DARK MODE TOGGLE ---------- */
+  .theme-toggle-wrap{ display:flex; align-items:center; gap:9px; margin-bottom:18px; }
+  .theme-toggle-label{ font-size:12.5px; color:var(--text-soft); font-weight:600; }
+  .switch{
+    width:44px; height:25px; border-radius:999px; background:var(--border);
+    position:relative; border:none; padding:0; flex-shrink:0; cursor:pointer;
+  }
+  .switch .switch-thumb{
+    position:absolute; top:2px; left:2px; width:21px; height:21px; border-radius:50%;
+    background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.25);
+    transition:transform .18s; display:flex; align-items:center; justify-content:center; font-size:12px;
+  }
+  .switch[aria-checked="true"]{ background:var(--accent); }
+  .switch[aria-checked="true"] .switch-thumb{ transform:translateX(19px); }
+
   @media (max-width:640px){
     .topbar-inner{ padding:12px 14px 10px; }
     .tab-nav-inner{ padding:0 14px; gap:16px; }
@@ -205,7 +249,9 @@
     <div class="tab-nav-inner">
       <button class="tab-link active" data-page="home" onclick="showPage('home')">홈</button>
       <button class="tab-link" data-page="short" onclick="showPage('short')">공매도비중</button>
+      <button class="tab-link" data-page="shortvalue" onclick="showPage('shortvalue')">공매도금액</button>
       <button class="tab-link" data-page="credit" onclick="showPage('credit')">신용잔고</button>
+      <button class="tab-link" data-page="creditvalue" onclick="showPage('creditvalue')">신용잔고금액</button>
       <button class="tab-link" data-page="cap" onclick="showPage('cap')">시가총액</button>
       <button class="tab-link" data-page="volume" onclick="showPage('volume')">거래량</button>
       <button class="tab-link" data-page="up" onclick="showPage('up')">상승률</button>
@@ -221,6 +267,13 @@
   <section id="page-home" class="page active">
     <h2 class="page-title">시장 스냅샷</h2>
     <p class="page-sub">코스피·코스닥 수급 현황과 공매도·신용잔고 TOP10 (ETF 제외)</p>
+
+    <div class="theme-toggle-wrap">
+      <span class="theme-toggle-label">다크 모드</span>
+      <button class="switch" id="theme-toggle" role="switch" aria-checked="false" aria-label="다크 모드 전환" onclick="toggleTheme()">
+        <span class="switch-thumb">☀️</span>
+      </button>
+    </div>
 
     <div class="index-grid">
       <div class="index-card">
@@ -249,15 +302,15 @@
 
     <div class="two-col-home" style="margin-bottom:14px;">
       <div class="panel">
-        <div class="panel-head"><h3>공매도 비중 TOP10</h3><span class="rank-badge">LIVE</span></div>
+        <div class="panel-head"><h3>공매도 금액 TOP10</h3><span class="rank-badge">LIVE</span></div>
         <div class="info-note" style="margin:12px 16px 0;">⏰ 공매도 데이터는 15:40 이전엔 전일 확정치예요</div>
         <div class="table-scroll">
         <table class="data-table">
           <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
-          <tbody id="home-short-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+          <tbody id="home-short-value-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
         </div>
-        <p class="metric-note">공매도비중 = 당일 거래량 대비 공매도 거래량의 비율이에요.</p>
+        <p class="metric-note">공매도 금액이 큰 순서대로 정렬했어요 (비중이 아니라 실제 거래대금 기준).</p>
       </div>
       <div class="panel">
         <div class="panel-head"><h3>신용잔고 비율 TOP10</h3><span class="rank-badge">LIVE</span></div>
@@ -274,15 +327,15 @@
 
     <div class="two-col-home">
       <div class="panel">
-        <div class="panel-head"><h3>공매도 금액 TOP10</h3><span class="rank-badge">LIVE</span></div>
+        <div class="panel-head"><h3>공매도 비중 TOP10</h3><span class="rank-badge">LIVE</span></div>
         <div class="info-note" style="margin:12px 16px 0;">⏰ 공매도 데이터는 15:40 이전엔 전일 확정치예요</div>
         <div class="table-scroll">
         <table class="data-table">
           <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
-          <tbody id="home-short-value-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+          <tbody id="home-short-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
         </div>
-        <p class="metric-note">공매도 금액이 큰 순서대로 정렬했어요 (비중이 아니라 실제 거래대금 기준).</p>
+        <p class="metric-note">공매도비중 = 당일 거래량 대비 공매도 거래량의 비율이에요.</p>
       </div>
       <div class="panel">
         <div class="panel-head"><h3>신용잔고 금액 TOP10</h3><span class="rank-badge">LIVE</span></div>
@@ -314,6 +367,22 @@
     </div>
   </section>
 
+  <!-- ================= 공매도금액 TOP30 ================= -->
+  <section id="page-shortvalue" class="page">
+    <h2 class="page-title">공매도 금액 TOP 30</h2>
+    <p class="page-sub">당일 공매도 거래대금 기준</p>
+    <div class="info-note">⏰ 공매도 데이터는 KRX 규정상 15:40 이전에는 전일 확정치가 표시돼요 (당일 데이터는 15:40 이후 공개)</div>
+    <div class="panel">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
+        <tbody id="shortvalue-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
+      </table>
+      </div>
+      <p class="metric-note">공매도 거래대금이 큰 순서대로 정렬했어요 (비중이 아니라 실제 금액 기준).</p>
+    </div>
+  </section>
+
   <!-- ================= 신용잔고 TOP30 ================= -->
   <section id="page-credit" class="page">
     <h2 class="page-title">신용잔고 비율 TOP 30</h2>
@@ -326,6 +395,21 @@
       </table>
       </div>
       <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요.</p>
+    </div>
+  </section>
+
+  <!-- ================= 신용잔고금액 TOP30 ================= -->
+  <section id="page-creditvalue" class="page">
+    <h2 class="page-title">신용잔고 금액 TOP 30</h2>
+    <p class="page-sub">신용융자 잔고 금액 기준</p>
+    <div class="panel">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
+        <tbody id="creditvalue-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
+      </table>
+      </div>
+      <p class="metric-note">신용잔고 금액이 큰 순서대로 정렬했어요 (비율이 아니라 실제 잔고 금액 기준).</p>
     </div>
   </section>
 
@@ -439,16 +523,18 @@ function eokFromManwon(manwon){ // 만원 -> 억원 (신용잔고금액 전용, 
   if (isNaN(num)) return '-';
   return Math.round(num / 10000).toLocaleString('ko-KR');
 }
-// 공매도비중/신용잔고비율 전용 배지 색상 — 빨강/파랑/검정과 겹치지 않는 amber 계열
+// 공매도비중/신용잔고비율 전용 배지 색상 — 빨강/파랑/검정과 겹치지 않는 amber 계열 (다크모드에서도 잘 보이도록 분기)
 function heatColors(ratio, max){
+  const dark = document.documentElement.classList.contains('dark');
   const t = Math.max(0, Math.min((Number(ratio) || 0) / max, 1));
-  const fgFrom = [214, 158, 46];
-  const fgTo   = [176, 92, 8];
+  const fgFrom = dark ? [232, 180, 120] : [214, 158, 46];
+  const fgTo   = dark ? [232, 163, 61]  : [176, 92, 8];
   const fg = fgFrom.map((f, i) => Math.round(f + (fgTo[i] - f) * t));
+  const baseRgb = dark ? '232,163,61' : '194,118,12';
   return {
     fg: `rgb(${fg.join(',')})`,
-    bg: 'rgba(194,118,12,0.09)',
-    border: `rgba(194,118,12,${(0.22 + 0.4 * t).toFixed(2)})`,
+    bg: `rgba(${baseRgb},${dark ? 0.16 : 0.09})`,
+    border: `rgba(${baseRgb},${(0.24 + 0.4 * t).toFixed(2)})`,
   };
 }
 function ratioChip(ratio, max){
@@ -467,6 +553,33 @@ function renderRows(tbodyId, rows, rowFn, colspan){
   tbody.innerHTML = rows.map(rowFn).join('');
 }
 
+// ---------- 다크모드 토글 ----------
+let lastAntData = null;
+function setTheme(isDark){
+  document.documentElement.classList.toggle('dark', isDark);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle){
+    toggle.setAttribute('aria-checked', String(isDark));
+    const thumb = toggle.querySelector('.switch-thumb');
+    if (thumb) thumb.textContent = isDark ? '🌙' : '☀️';
+  }
+  try { localStorage.setItem('antdata-theme', isDark ? 'dark' : 'light'); } catch(e) {}
+  // 공매도비중/신용잔고비율 배지 색상이 테마에 따라 달라지므로, 데이터가 이미 로드되어 있으면 즉시 다시 그림
+  if (lastAntData) render(lastAntData);
+}
+function toggleTheme(){
+  setTheme(!document.documentElement.classList.contains('dark'));
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const isDark = document.documentElement.classList.contains('dark');
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle){
+    toggle.setAttribute('aria-checked', String(isDark));
+    const thumb = toggle.querySelector('.switch-thumb');
+    if (thumb) thumb.textContent = isDark ? '🌙' : '☀️';
+  }
+});
+
 let loading = false;
 async function loadAntData(){
   if (loading) return;
@@ -477,6 +590,7 @@ async function loadAntData(){
     const res = await fetch(ANT_API_URL);
     const json = await res.json();
     if (!json.ok) throw new Error(json.error || '알 수 없는 오류');
+    lastAntData = json.data;
     render(json.data);
     const updated = new Date(json.data.updatedAt).toLocaleString('ko-KR');
     bar.textContent = (json.cached ? '🔄 ' : '● ') + 'LIVE · 기준시각 ' + updated + (json.cached ? ' (캐시)' : '');
@@ -586,8 +700,28 @@ function render(data){
     <td class="num-cell">${ratioChip(r.shortVolumeRatio, 20)}</td>
     <td class="num-cell">${eok(r.shortValue)}</td></tr>`, 7);
 
+  // TOP30 - 공매도 금액 (비중이 아니라 거래대금 기준으로 재정렬)
+  const shortValueTop30 = [...(data.shortSaleTop || [])].sort((a, b) => Number(b.shortValue) - Number(a.shortValue));
+  renderRows('shortvalue-tbody', shortValueTop30, (r, i) => `
+    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
+    ${changeCell(r)}
+    ${pctCell(r)}
+    <td class="num-cell">${ratioChip(r.shortVolumeRatio, 20)}</td>
+    <td class="num-cell">${eok(r.shortValue)}</td></tr>`, 7);
+
   // TOP30 - 신용잔고
   renderRows('credit-tbody', data.creditBalanceTop, (r, i) => `
+    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
+    ${changeCell(r)}
+    ${pctCell(r)}
+    <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
+    <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 7);
+
+  // TOP30 - 신용잔고 금액 (비율이 아니라 잔고금액 기준으로 재정렬)
+  const creditValueTop30 = [...(data.creditBalanceTop || [])].sort((a, b) => Number(b.loanBalanceAmt) - Number(a.loanBalanceAmt));
+  renderRows('creditvalue-tbody', creditValueTop30, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
     ${priceCell(r)}
     ${changeCell(r)}
