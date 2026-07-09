@@ -131,6 +131,7 @@
   /* ---------- HOME: INDEX CARDS ---------- */
   .index-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-bottom:22px; }
   .daily-badge{ font-size:10px; font-weight:700; color:var(--accent); background:var(--accent-soft); padding:2px 7px; border-radius:999px; }
+  .credit-asof{ font-size:10.5px; color:var(--text-soft); margin:2px 0 10px; }
   .credit-sub-row{ display:flex; gap:18px; border-top:1px solid var(--border); padding-top:8px; margin-top:2px; }
   .credit-sub-item .flow-label{ margin-bottom:3px; }
   .credit-sub-item .credit-sub-value{ font-size:12px; font-weight:700; color:var(--text); }
@@ -313,6 +314,7 @@
           <div><div class="index-name">신용잔고 · 시장전체</div><div class="index-value" id="market-credit-value">-</div></div>
           <span class="daily-badge">일간</span>
         </div>
+        <div class="credit-asof" id="market-credit-asof">-</div>
         <div class="index-change" id="market-credit-change" style="margin-bottom:10px;">-</div>
         <div class="credit-sub-row">
           <div class="credit-sub-item"><div class="flow-label">고객예탁금</div><div class="credit-sub-value" id="market-credit-deposit">-</div></div>
@@ -564,6 +566,11 @@ function fmtEokAmt(eokVal){ // 억원 그대로 표시 (예: 9,289억)
   if (isNaN(num)) return '-';
   return Math.round(num).toLocaleString('ko-KR') + '억';
 }
+function fmtBsopDate(yyyymmdd){ // "20240430" -> "04/30 기준"
+  const s = String(yyyymmdd || '');
+  if (s.length !== 8) return '';
+  return `${s.slice(4,6)}/${s.slice(6,8)} 기준`;
+}
 function eok(rawWon){ // 원 -> 억원
   const num = Number(rawWon);
   if (isNaN(num)) return '-';
@@ -683,6 +690,7 @@ function render(data){
   if (data.marketCredit){
     const mc = data.marketCredit;
     document.getElementById('market-credit-value').textContent = fmtEokToJo(mc.creditLoanBalance);
+    document.getElementById('market-credit-asof').textContent = `⏰ ${fmtBsopDate(mc.date)} · 실시간 아님 (하루 1회 갱신)`;
     const el = document.getElementById('market-credit-change');
     if (mc.change === null){
       el.textContent = '전일 대비 데이터 없음';
