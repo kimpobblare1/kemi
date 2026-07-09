@@ -92,7 +92,7 @@
   .index-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
   .index-name{ font-family:var(--font-mono); font-weight:700; font-size:13px; color:var(--text-soft); letter-spacing:.03em; }
   .index-value{ font-family:var(--font-mono); font-weight:700; font-size:26px; color:#fff; }
-  .index-change{ font-family:var(--font-mono); font-size:12.5px; font-weight:600; text-align:right; }
+  .index-change{ font-family:var(--font-mono); font-size:12.5px; font-weight:600; text-align:right; white-space:nowrap; }
   .flow-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; border-top:1px solid var(--border); padding-top:12px; }
   .flow-item{ text-align:center; }
   .flow-label{ font-size:10.5px; color:var(--text-soft); margin-bottom:4px; }
@@ -125,7 +125,7 @@
   .rank-cell{ color:var(--text-soft); width:28px; }
 
   /* ---------- TOP30 pages ---------- */
-  .top30-note{
+  .info-note{
     font-family:var(--font-mono); font-size:10.5px; color:var(--accent);
     background:var(--accent-soft); border-radius:6px; padding:8px 12px; margin-bottom:16px; display:inline-block;
   }
@@ -202,6 +202,7 @@
       <div class="two-col-home">
         <div class="panel">
           <div class="panel-head"><h3>공매도 비중 TOP10</h3><span class="rank-badge">LIVE</span></div>
+          <div class="info-note" style="margin:12px 16px 0;">⏰ 공매도 데이터는 15:40 이전엔 전일 확정치예요</div>
           <table class="data-table">
             <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
             <tbody id="home-short-tbody"><tr><td colspan="5">불러오는 중...</td></tr></tbody>
@@ -221,6 +222,7 @@
       <div class="two-col-home">
         <div class="panel">
           <div class="panel-head"><h3>공매도 금액 TOP10</h3><span class="rank-badge">LIVE</span></div>
+          <div class="info-note" style="margin:12px 16px 0;">⏰ 공매도 데이터는 15:40 이전엔 전일 확정치예요</div>
           <table class="data-table">
             <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
             <tbody id="home-short-value-tbody"><tr><td colspan="5">불러오는 중...</td></tr></tbody>
@@ -242,7 +244,7 @@
     <section id="page-short" class="page">
       <h2 class="page-title">공매도 비중 TOP 30</h2>
       <p class="page-sub">당일 거래량 대비 공매도 비중 기준</p>
-      <div class="top30-note">※ KIS API 상 한 번에 최대 30건까지만 제공돼요</div>
+      <div class="info-note">⏰ 공매도 데이터는 KRX 규정상 15:40 이전에는 전일 확정치가 표시돼요 (당일 데이터는 15:40 이후 공개)</div>
       <div class="panel">
         <table class="data-table">
           <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
@@ -256,7 +258,6 @@
     <section id="page-credit" class="page">
       <h2 class="page-title">신용잔고 비율 TOP 30</h2>
       <p class="page-sub">융자 잔고 비율 기준</p>
-      <div class="top30-note">※ KIS API 상 한 번에 최대 30건까지만 제공돼요</div>
       <div class="panel">
         <table class="data-table">
           <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
@@ -269,7 +270,6 @@
     <!-- ================= 시가총액 TOP30 ================= -->
     <section id="page-cap" class="page">
       <h2 class="page-title">시가총액 TOP 30</h2>
-      <div class="top30-note">※ KIS API 자체 상한이 30건이라 더 늘릴 수 없어요</div>
       <div class="panel">
         <table class="data-table">
           <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">시가총액(억)</th><th class="num-th">시장비중</th></tr></thead>
@@ -282,7 +282,6 @@
     <section id="page-volume" class="page">
       <h2 class="page-title">거래량 TOP 30</h2>
       <p class="page-sub">ETF 제외</p>
-      <div class="top30-note">※ KIS API 상 한 번에 최대 30건까지만 제공돼요</div>
       <div class="panel">
         <table class="data-table">
           <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
@@ -295,7 +294,6 @@
     <section id="page-up" class="page">
       <h2 class="page-title">상승률 TOP 30</h2>
       <p class="page-sub">ETF 제외</p>
-      <div class="top30-note">※ KIS API 상 한 번에 최대 30건까지만 제공돼요</div>
       <div class="panel">
         <table class="data-table">
           <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
@@ -308,7 +306,6 @@
     <section id="page-down" class="page">
       <h2 class="page-title">하락률 TOP 30</h2>
       <p class="page-sub">ETF 제외</p>
-      <div class="top30-note">※ KIS API 상 한 번에 최대 30건까지만 제공돼요</div>
       <div class="panel">
         <table class="data-table">
           <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
@@ -339,6 +336,11 @@ function fmtPct(p){
   const num = Number(p);
   if (isNaN(num)) return '-';
   return (num > 0 ? '+' : '') + num.toFixed(2) + '%';
+}
+function fmtPoint(p){ // 지수 변동폭(포인트) 표시용 — 코스피/코스닥이 몇 포인트 움직였는지
+  const num = Number(p);
+  if (isNaN(num)) return '-';
+  return (num > 0 ? '+' : '') + num.toFixed(2);
 }
 function pctClass(p){
   const num = Number(p);
@@ -408,7 +410,7 @@ function render(data){
     valEl.textContent = fmtNum(data.indices.kospi.value);
     valEl.className = 'index-value ' + pctClass(data.indices.kospi.changePct);
     const el = document.getElementById('kospi-change');
-    el.textContent = fmtPct(data.indices.kospi.changePct);
+    el.textContent = fmtPoint(data.indices.kospi.change) + ' (' + fmtPct(data.indices.kospi.changePct) + ')';
     el.className = 'index-change ' + pctClass(data.indices.kospi.changePct);
   }
   if (data.indices?.kosdaq){
@@ -416,7 +418,7 @@ function render(data){
     valEl.textContent = fmtNum(data.indices.kosdaq.value);
     valEl.className = 'index-value ' + pctClass(data.indices.kosdaq.changePct);
     const el = document.getElementById('kosdaq-change');
-    el.textContent = fmtPct(data.indices.kosdaq.changePct);
+    el.textContent = fmtPoint(data.indices.kosdaq.change) + ' (' + fmtPct(data.indices.kosdaq.changePct) + ')';
     el.className = 'index-change ' + pctClass(data.indices.kosdaq.changePct);
   }
 
