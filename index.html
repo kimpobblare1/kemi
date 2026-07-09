@@ -267,6 +267,10 @@
       <button class="tab-link" data-page="volume" onclick="showPage('volume')">거래량</button>
       <button class="tab-link" data-page="up" onclick="showPage('up')">상승률</button>
       <button class="tab-link" data-page="down" onclick="showPage('down')">하락률</button>
+      <button class="tab-link" data-page="instbuy" onclick="showPage('instbuy')">기관순매수</button>
+      <button class="tab-link" data-page="instsell" onclick="showPage('instsell')">기관순매도</button>
+      <button class="tab-link" data-page="foreignbuy" onclick="showPage('foreignbuy')">외국인순매수</button>
+      <button class="tab-link" data-page="foreignsell" onclick="showPage('foreignsell')">외국인순매도</button>
     </div>
   </nav>
 </header>
@@ -440,20 +444,20 @@
 
   <!-- ================= 시가총액 TOP30 ================= -->
   <section id="page-cap" class="page">
-    <h2 class="page-title">시가총액 TOP 30</h2>
+    <h2 class="page-title">시가총액 TOP 100</h2>
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">시가총액(억)</th><th class="num-th">시장비중</th></tr></thead>
-        <tbody id="cap-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">시가총액(억)</th></tr></thead>
+        <tbody id="cap-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
       </table>
       </div>
     </div>
   </section>
 
-  <!-- ================= 거래량 TOP30 ================= -->
+  <!-- ================= 거래량 TOP100 ================= -->
   <section id="page-volume" class="page">
-    <h2 class="page-title">거래량 TOP 30</h2>
+    <h2 class="page-title">거래량 TOP 100</h2>
     <p class="page-sub">ETF 제외</p>
     <div class="panel">
       <div class="table-scroll">
@@ -465,9 +469,9 @@
     </div>
   </section>
 
-  <!-- ================= 상승률 TOP30 ================= -->
+  <!-- ================= 상승률 TOP100 ================= -->
   <section id="page-up" class="page">
-    <h2 class="page-title">상승률 TOP 30</h2>
+    <h2 class="page-title">상승률 TOP 100</h2>
     <p class="page-sub">ETF 제외</p>
     <div class="panel">
       <div class="table-scroll">
@@ -479,15 +483,75 @@
     </div>
   </section>
 
-  <!-- ================= 하락률 TOP30 ================= -->
+  <!-- ================= 하락률 TOP100 ================= -->
   <section id="page-down" class="page">
-    <h2 class="page-title">하락률 TOP 30</h2>
+    <h2 class="page-title">하락률 TOP 100</h2>
     <p class="page-sub">ETF 제외</p>
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
         <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
         <tbody id="down-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 기관순매수 TOP100 ================= -->
+  <section id="page-instbuy" class="page">
+    <h2 class="page-title">기관 순매수 TOP 100</h2>
+    <p class="page-sub">ETF 제외 · 조건검색 기반</p>
+    <div class="info-note">ℹ️ 실제 순매수 금액은 제공되지 않아요. 오늘 "기관 순매수" 조건에 해당하는 종목 목록이에요.</div>
+    <div class="panel">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
+        <tbody id="instbuy-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 기관순매도 TOP100 ================= -->
+  <section id="page-instsell" class="page">
+    <h2 class="page-title">기관 순매도 TOP 100</h2>
+    <p class="page-sub">ETF 제외 · 조건검색 기반</p>
+    <div class="info-note">ℹ️ 실제 순매도 금액은 제공되지 않아요. 오늘 "기관 순매도" 조건에 해당하는 종목 목록이에요.</div>
+    <div class="panel">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
+        <tbody id="instsell-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 외국인순매수 TOP100 ================= -->
+  <section id="page-foreignbuy" class="page">
+    <h2 class="page-title">외국인 순매수 TOP 100</h2>
+    <p class="page-sub">ETF 제외 · 조건검색 기반</p>
+    <div class="info-note">ℹ️ 실제 순매수 금액은 제공되지 않아요. 오늘 "외국인 순매수" 조건에 해당하는 종목 목록이에요.</div>
+    <div class="panel">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
+        <tbody id="foreignbuy-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 외국인순매도 TOP100 ================= -->
+  <section id="page-foreignsell" class="page">
+    <h2 class="page-title">외국인 순매도 TOP 100</h2>
+    <p class="page-sub">ETF 제외 · 조건검색 기반</p>
+    <div class="info-note">ℹ️ 실제 순매도 금액은 제공되지 않아요. 오늘 "외국인 순매도" 조건에 해당하는 종목 목록이에요.</div>
+    <div class="panel">
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
+        <tbody id="foreignsell-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
       </table>
       </div>
     </div>
@@ -520,7 +584,7 @@ function showPage(id){
 // 외부 링크(예: 칼럼 글의 "홈에서 보기")가 특정 탭으로 바로 이동할 수 있도록 시작 시 해시 확인
 // (이 스크립트는 body 맨 끝에 있어 DOM이 이미 준비된 상태 — DOMContentLoaded를 기다릴 필요 없이 바로 실행)
 (function initFromHash(){
-  const validPages = ['home','short','shortvalue','credit','creditvalue','cap','volume','up','down'];
+  const validPages = ['home','short','shortvalue','credit','creditvalue','cap','volume','up','down','instbuy','instsell','foreignbuy','foreignsell'];
   const hash = (location.hash || '').replace('#', '');
   if (validPages.includes(hash) && hash !== 'home') {
     showPage(hash);
@@ -821,16 +885,15 @@ function render(data){
     <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
     <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 7);
 
-  // TOP30 - 시가총액
+  // TOP100 - 시가총액 (조건검색 기반, 시장비중 필드는 이 데이터소스에 없어서 컬럼 제거됨)
   renderRows('cap-tbody', data.marketCapTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
     ${priceCell(r)}
     ${changeCell(r)}
     ${pctCell(r)}
-    <td class="num-cell">${fmtNum(r.marketCap)}</td>
-    <td class="num-cell">${Number(r.weightPct).toFixed(2)}%</td></tr>`, 7);
+    <td class="num-cell">${fmtNum(r.marketCap)}</td></tr>`, 6);
 
-  // TOP30 - 거래량
+  // TOP100 - 거래량
   renderRows('volume-tbody', data.volumeTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
     ${priceCell(r)}
@@ -838,7 +901,7 @@ function render(data){
     ${pctCell(r)}
     <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
 
-  // TOP30 - 상승률
+  // TOP100 - 상승률
   renderRows('up-tbody', data.fluctuationUpTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
     ${priceCell(r)}
@@ -846,8 +909,37 @@ function render(data){
     ${pctCell(r)}
     <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
 
-  // TOP30 - 하락률
+  // TOP100 - 하락률
   renderRows('down-tbody', data.fluctuationDownTop, (r, i) => `
+    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
+    ${changeCell(r)}
+    ${pctCell(r)}
+    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
+
+  // TOP100 - 기관 순매수/순매도, 외국인 순매수/순매도 (조건검색 기반, 금액 없이 종목 목록만)
+  renderRows('instbuy-tbody', data.institutionBuyTop, (r, i) => `
+    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
+    ${changeCell(r)}
+    ${pctCell(r)}
+    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
+
+  renderRows('instsell-tbody', data.institutionSellTop, (r, i) => `
+    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
+    ${changeCell(r)}
+    ${pctCell(r)}
+    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
+
+  renderRows('foreignbuy-tbody', data.foreignBuyTop, (r, i) => `
+    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
+    ${changeCell(r)}
+    ${pctCell(r)}
+    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
+
+  renderRows('foreignsell-tbody', data.foreignSellTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
     ${priceCell(r)}
     ${changeCell(r)}
