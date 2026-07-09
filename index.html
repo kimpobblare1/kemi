@@ -766,6 +766,8 @@ function render(data){
 }
 
 loadAntData();
+// 30초마다 자동으로 다시 불러와서 실시간처럼 유지 (백엔드 60초 캐시와 맞물려 최대 60~90초 이내 최신 상태 유지)
+setInterval(loadAntData, 30000);
 </script>
 </body>
 </html>
