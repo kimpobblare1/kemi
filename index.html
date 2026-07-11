@@ -111,7 +111,12 @@
     background:none; border:none; white-space:nowrap; flex-shrink:0;
     padding:12px 2px; font-size:13.5px; font-weight:600; color:var(--text-soft);
     border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .12s, border-color .12s;
-    text-decoration:none; display:inline-block;
+    text-decoration:none; display:inline-block; position:relative;
+  }
+  .new-badge{
+    position:absolute; top:2px; right:-22px; background:var(--up); color:#fff;
+    font-size:9px; font-weight:800; padding:1.5px 4px; border-radius:6px; letter-spacing:.02em;
+    line-height:1.4;
   }
   .tab-link:hover{ color:var(--text); }
   .tab-link.active{ color:var(--text); border-bottom-color:var(--text); font-weight:700; }
@@ -273,7 +278,7 @@
       <button class="tab-link" data-page="fluctuation" onclick="showPage('fluctuation')">등락률</button>
       <button class="tab-link" data-page="instflow" onclick="showPage('instflow')">기관매매</button>
       <button class="tab-link" data-page="foreignflow" onclick="showPage('foreignflow')">외국인매매</button>
-      <a class="tab-link" href="/market-brief.html">시황분석</a>
+      <a class="tab-link" href="/market-brief.html">시황분석<span class="new-badge">NEW</span></a>
     </div>
   </nav>
 </header>
@@ -343,15 +348,15 @@
         <p class="metric-note">공매도 금액이 큰 순서대로 정렬했어요 (비중이 아니라 실제 거래대금 기준).</p>
       </div>
       <div class="panel">
-        <div class="panel-head"><h3>신용잔고 비율 TOP10</h3><span class="daily-badge" data-asof="credit">일간</span></div>
+        <div class="panel-head"><h3>신용잔고 금액 TOP10</h3><span class="daily-badge" data-asof="credit">일간</span></div>
         <div class="info-note" style="margin:12px 16px 12px;">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
         <div class="table-scroll">
         <table class="data-table">
           <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
-          <tbody id="home-credit-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+          <tbody id="home-credit-value-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
         </div>
-        <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요.</p>
+        <p class="metric-note">신용잔고 금액이 큰 순서대로 정렬했어요 (비율이 아니라 실제 잔고 금액 기준).</p>
       </div>
     </div>
 
@@ -368,15 +373,15 @@
         <p class="metric-note">공매도비중 = 당일 거래량 대비 공매도 거래량의 비율이에요.</p>
       </div>
       <div class="panel">
-        <div class="panel-head"><h3>신용잔고 금액 TOP10</h3><span class="daily-badge" data-asof="credit">일간</span></div>
+        <div class="panel-head"><h3>신용잔고 비율 TOP10</h3><span class="daily-badge" data-asof="credit">일간</span></div>
         <div class="info-note" style="margin:12px 16px 12px;">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
         <div class="table-scroll">
         <table class="data-table">
           <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
-          <tbody id="home-credit-value-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+          <tbody id="home-credit-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
         </div>
-        <p class="metric-note">신용잔고 금액이 큰 순서대로 정렬했어요 (비율이 아니라 실제 잔고 금액 기준).</p>
+        <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요.</p>
       </div>
     </div>
   </section>
