@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시황분석 — 개미데이터</title>
+<meta name="description" content="개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 바탕으로 정리하는 시황분석 모음.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F6F7F9; --border:#E8EAED;
+    --text:#16181C; --text-soft:#8A8F98; --accent:#B85C08; --accent-soft:#FCF1E1;
+    --up:#E5484D; --down:#3B82F6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Pretendard', -apple-system, sans-serif; line-height:1.7; font-size:15px;
+  }
+  .wrap{ max-width:720px; margin:0 auto; padding:32px 20px 80px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--text-soft); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:24px; }
+  .back:hover{ color:var(--accent); }
+  h1{ font-size:24px; font-weight:800; margin:0 0 6px; }
+  .lead{ color:var(--text-soft); font-size:14px; margin:0 0 32px; }
+  .post-card{
+    display:block; border:1px solid var(--border); border-radius:12px; padding:20px 22px;
+    text-decoration:none; color:var(--text); margin-bottom:14px; transition:border-color .15s;
+  }
+  .post-card:hover{ border-color:var(--accent); }
+  .post-meta{ font-size:12px; color:var(--text-soft); margin-bottom:8px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .post-meta .tag{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  .post-idx{ font-size:12.5px; font-weight:700; }
+  .post-idx.up{ color:var(--up); }
+  .post-idx.down{ color:var(--down); }
+  .post-title{ font-size:16.5px; font-weight:700; margin:0 0 6px; }
+  .post-excerpt{ font-size:13.5px; color:var(--text-soft); margin:0; }
+  .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; flex-wrap:wrap; }
+  .footer-nav a{ color:var(--text-soft); text-decoration:none; }
+  .footer-nav a:hover{ color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">← 개미데이터 홈으로</a>
+  <h1>시황분석</h1>
+  <p class="lead">매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리해서 올려드려요.</p>
+
+  <a class="post-card" href="/brief-2026-07-10.html">
+    <div class="post-meta">
+      <span class="tag">시황분석</span>2026.07.10
+      <span class="post-idx up">코스피 ▲2.52%</span>
+      <span class="post-idx up">코스닥 ▲5.47%</span>
+    </div>
+    <p class="post-title">코스피·코스닥 동반 급등, 기관이 지수를 끌어올렸다</p>
+    <p class="post-excerpt">개인·외국인은 양쪽 시장에서 모두 순매도했는데 기관 홀로 1조 7천억 원 넘게 순매수하며 지수를 밀어올린 하루. 신용잔고는 오히려 줄어 빚투 확산에 기댄 상승은 아니었다는 신호도 함께 짚었어요.</p>
+  </a>
+
+  <div class="footer-nav">
+    <a href="/">홈</a>
+    <a href="/blog.html">칼럼</a>
+    <a href="/guide.html">용어 가이드</a>
+    <a href="/faq.html">FAQ</a>
+  </div>
+</div>
+</body>
+</html>
