@@ -225,10 +225,23 @@
   @media (max-width:640px){
     .topbar-inner{ padding:12px 14px 10px; }
     .tab-nav-inner{ padding:0 14px; gap:16px; }
-    .status-bar{ padding:7px 14px; }
-    .main-content{ padding:18px 14px 48px; }
-    .index-value{ font-size:22px; }
-    .page-title{ font-size:17px; }
+    .status-bar{ padding:5px 14px; }
+    .main-content{ padding:12px 14px 48px; }
+    .index-value{ font-size:19px; }
+    .page-title{ font-size:17px; margin-bottom:2px; }
+    .page-sub{ margin-bottom:10px; }
+    .theme-toggle-wrap{ margin-bottom:10px; }
+    /* KOSPI·KOSDAQ는 나란히 2열로, 신용잔고 카드는 그 아래 한 줄 전체로 — 세로 공간을 크게 줄여서
+       TOP10 패널이 스크롤 없이 최대한 보이도록 함 */
+    .index-grid{ grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+    .credit-card{ grid-column:1 / -1; }
+    .index-card{ padding:12px 12px; }
+    .index-name{ font-size:11px; }
+    .flow-row{ margin-top:8px; padding-top:8px; }
+    .credit-asof{ font-size:9.5px; margin:1px 0 6px; }
+    .credit-sub-row{ gap:14px; padding-top:6px; }
+    .two-col-home{ gap:10px; }
+    .two-col-home + .two-col-home{ margin-top:10px; }
   }
 </style>
 </head>
