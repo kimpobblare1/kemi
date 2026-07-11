@@ -265,14 +265,11 @@
   <nav class="tab-nav">
     <div class="tab-nav-inner">
       <button class="tab-link active" data-page="home" onclick="showPage('home')">홈</button>
-      <button class="tab-link" data-page="short" onclick="showPage('short')">공매도비중</button>
-      <button class="tab-link" data-page="shortvalue" onclick="showPage('shortvalue')">공매도금액</button>
-      <button class="tab-link" data-page="credit" onclick="showPage('credit')">신용잔고비율</button>
-      <button class="tab-link" data-page="creditvalue" onclick="showPage('creditvalue')">신용잔고금액</button>
+      <button class="tab-link" data-page="shortflow" onclick="showPage('shortflow')">공매도</button>
+      <button class="tab-link" data-page="creditflow" onclick="showPage('creditflow')">신용잔고</button>
       <button class="tab-link" data-page="cap" onclick="showPage('cap')">시가총액</button>
       <button class="tab-link" data-page="volume" onclick="showPage('volume')">거래량</button>
-      <button class="tab-link" data-page="up" onclick="showPage('up')">상승률</button>
-      <button class="tab-link" data-page="down" onclick="showPage('down')">하락률</button>
+      <button class="tab-link" data-page="fluctuation" onclick="showPage('fluctuation')">등락률</button>
       <button class="tab-link" data-page="instflow" onclick="showPage('instflow')">기관매매</button>
       <button class="tab-link" data-page="foreignflow" onclick="showPage('foreignflow')">외국인매매</button>
     </div>
@@ -383,72 +380,48 @@
   </section>
 
   <!-- ================= 공매도비율 TOP30 ================= -->
-  <section id="page-short" class="page">
-    <h2 class="page-title">공매도 비중 TOP 30</h2>
-    <p class="page-sub">당일 거래량 대비 공매도 비중 기준</p>
+  <section id="page-shortflow" class="page">
+    <h2 class="page-title">공매도 TOP 30</h2>
+    <p class="page-sub" id="shortflow-sub">당일 거래량 대비 공매도 비중 기준</p>
     <div class="info-note">⏰ 공매도 데이터는 <span class="asof-ref" data-metric="short">-</span> 기준이에요</div>
+    <div class="flow-toggle-row">
+      <button class="flow-toggle-btn active" data-category="short" data-view="ratio" onclick="setFlowView('short','ratio')">비중순</button>
+      <button class="flow-toggle-btn" data-category="short" data-view="value" onclick="setFlowView('short','value')">금액순</button>
+    </div>
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
         <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
-        <tbody id="short-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
+        <tbody id="shortflow-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
       </table>
       </div>
       <p class="metric-note">공매도비중 = 당일 거래량 대비 공매도 거래량의 비율이에요.</p>
     </div>
   </section>
 
-  <!-- ================= 공매도금액 TOP30 ================= -->
-  <section id="page-shortvalue" class="page">
-    <h2 class="page-title">공매도 금액 TOP 30</h2>
-    <p class="page-sub">당일 공매도 거래대금 기준</p>
-    <div class="info-note">⏰ 공매도 데이터는 <span class="asof-ref" data-metric="short">-</span> 기준이에요</div>
-    <div class="panel">
-      <div class="table-scroll">
-      <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
-        <tbody id="shortvalue-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
-      </table>
-      </div>
-      <p class="metric-note">공매도 거래대금이 큰 순서대로 정렬했어요 (비중이 아니라 실제 금액 기준).</p>
-    </div>
-  </section>
-
-  <!-- ================= 신용잔고 TOP30 ================= -->
-  <section id="page-credit" class="page">
-    <h2 class="page-title">신용잔고 비율 TOP 30</h2>
-    <p class="page-sub">융자 잔고 비율 기준</p>
+  <!-- ================= 신용잔고 TOP30 (비율/금액 토글) ================= -->
+  <section id="page-creditflow" class="page">
+    <h2 class="page-title">신용잔고 TOP 30</h2>
+    <p class="page-sub" id="creditflow-sub">융자 잔고 비율 기준</p>
     <div class="info-note">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
+    <div class="flow-toggle-row">
+      <button class="flow-toggle-btn active" data-category="credit" data-view="ratio" onclick="setFlowView('credit','ratio')">비율순</button>
+      <button class="flow-toggle-btn" data-category="credit" data-view="value" onclick="setFlowView('credit','value')">금액순</button>
+    </div>
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
         <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
-        <tbody id="credit-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
+        <tbody id="creditflow-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
       </table>
       </div>
       <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요.</p>
     </div>
   </section>
 
-  <!-- ================= 신용잔고금액 TOP30 ================= -->
-  <section id="page-creditvalue" class="page">
-    <h2 class="page-title">신용잔고 금액 TOP 30</h2>
-    <p class="page-sub">신용융자 잔고 금액 기준</p>
-    <div class="info-note">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
-    <div class="panel">
-      <div class="table-scroll">
-      <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
-        <tbody id="creditvalue-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
-      </table>
-      </div>
-      <p class="metric-note">신용잔고 금액이 큰 순서대로 정렬했어요 (비율이 아니라 실제 잔고 금액 기준).</p>
-    </div>
-  </section>
-
-  <!-- ================= 시가총액 TOP30 ================= -->
+  <!-- ================= 시가총액 TOP50 ================= -->
   <section id="page-cap" class="page">
-    <h2 class="page-title">시가총액 TOP 100</h2>
+    <h2 class="page-title">시가총액 TOP 50</h2>
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
@@ -459,9 +432,9 @@
     </div>
   </section>
 
-  <!-- ================= 거래량 TOP100 ================= -->
+  <!-- ================= 거래량 TOP50 ================= -->
   <section id="page-volume" class="page">
-    <h2 class="page-title">거래량 TOP 100</h2>
+    <h2 class="page-title">거래량 TOP 50</h2>
     <p class="page-sub">ETF 제외</p>
     <div class="panel">
       <div class="table-scroll">
@@ -473,29 +446,19 @@
     </div>
   </section>
 
-  <!-- ================= 상승률 TOP100 ================= -->
-  <section id="page-up" class="page">
-    <h2 class="page-title">상승률 TOP 100</h2>
+  <!-- ================= 등락률 TOP50 (상승/하락 토글) ================= -->
+  <section id="page-fluctuation" class="page">
+    <h2 class="page-title">등락률 TOP 50</h2>
     <p class="page-sub">ETF 제외</p>
-    <div class="panel">
-      <div class="table-scroll">
-      <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
-        <tbody id="up-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
-      </table>
-      </div>
+    <div class="flow-toggle-row">
+      <button class="flow-toggle-btn active" data-category="fluctuation" data-view="up" onclick="setFlowView('fluctuation','up')">상승률</button>
+      <button class="flow-toggle-btn" data-category="fluctuation" data-view="down" onclick="setFlowView('fluctuation','down')">하락률</button>
     </div>
-  </section>
-
-  <!-- ================= 하락률 TOP100 ================= -->
-  <section id="page-down" class="page">
-    <h2 class="page-title">하락률 TOP 100</h2>
-    <p class="page-sub">ETF 제외</p>
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
         <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">거래량</th></tr></thead>
-        <tbody id="down-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+        <tbody id="fluctuation-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
       </table>
       </div>
     </div>
@@ -564,7 +527,7 @@ function showPage(id){
 // 외부 링크(예: 칼럼 글의 "홈에서 보기")가 특정 탭으로 바로 이동할 수 있도록 시작 시 해시 확인
 // (이 스크립트는 body 맨 끝에 있어 DOM이 이미 준비된 상태 — DOMContentLoaded를 기다릴 필요 없이 바로 실행)
 (function initFromHash(){
-  const validPages = ['home','short','shortvalue','credit','creditvalue','cap','volume','up','down','instflow','foreignflow'];
+  const validPages = ['home','shortflow','creditflow','cap','volume','fluctuation','instflow','foreignflow'];
   const hash = (location.hash || '').replace('#', '');
   if (validPages.includes(hash) && hash !== 'home') {
     showPage(hash);
@@ -830,44 +793,6 @@ function render(data){
       <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
     </tr>`, 6);
 
-  // TOP30 - 공매도
-  renderRows('short-tbody', data.shortSaleTop, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${ratioChip(r.shortVolumeRatio, 20)}</td>
-    <td class="num-cell">${eok(r.shortValue)}</td></tr>`, 7);
-
-  // TOP30 - 공매도 금액 (비중이 아니라 거래대금 기준으로 재정렬)
-  const shortValueTop30 = [...(data.shortSaleTop || [])].sort((a, b) => Number(b.shortValue) - Number(a.shortValue));
-  renderRows('shortvalue-tbody', shortValueTop30, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${ratioChip(r.shortVolumeRatio, 20)}</td>
-    <td class="num-cell">${eok(r.shortValue)}</td></tr>`, 7);
-
-  // TOP30 - 신용잔고
-  renderRows('credit-tbody', data.creditBalanceTop, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
-    <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 7);
-
-  // TOP30 - 신용잔고 금액 (비율이 아니라 잔고금액 기준으로 재정렬)
-  const creditValueTop30 = [...(data.creditBalanceTop || [])].sort((a, b) => Number(b.loanBalanceAmt) - Number(a.loanBalanceAmt));
-  renderRows('creditvalue-tbody', creditValueTop30, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
-    <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 7);
-
   // TOP100 - 시가총액 (조건검색 기반, 시장비중 필드는 이 데이터소스에 없어서 컬럼 제거됨)
   renderRows('cap-tbody', data.marketCapTop, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
@@ -884,24 +809,28 @@ function render(data){
     ${pctCell(r)}
     <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
 
-  // TOP100 - 상승률
-  renderRows('up-tbody', data.fluctuationUpTop, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
-
-  // TOP100 - 하락률
-  renderRows('down-tbody', data.fluctuationDownTop, (r, i) => `
-    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
-    ${priceCell(r)}
-    ${changeCell(r)}
-    ${pctCell(r)}
-    <td class="num-cell">${fmtNum(r.volume)}</td></tr>`, 6);
-
-  // TOP100 - 기관/외국인 순매수·순매도 (조건검색 기반, 금액 없이 종목 목록만) - 순매수/순매도 토글로 전환
+  // 공매도/신용잔고/등락률/기관·외국인 매매 - 전부 토글로 전환
   renderFlowViews(data);
+}
+
+function renderShortFlow(rows){
+  renderRows('shortflow-tbody', rows, (r, i) => `
+    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
+    ${changeCell(r)}
+    ${pctCell(r)}
+    <td class="num-cell">${ratioChip(r.shortVolumeRatio, 20)}</td>
+    <td class="num-cell">${eok(r.shortValue)}</td></tr>`, 7);
+}
+
+function renderCreditFlow(rows){
+  renderRows('creditflow-tbody', rows, (r, i) => `
+    <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
+    ${changeCell(r)}
+    ${pctCell(r)}
+    <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
+    <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 7);
 }
 
 function renderFlowRows(tbodyId, rows){
@@ -915,15 +844,37 @@ function renderFlowRows(tbodyId, rows){
 
 let instFlowView = 'buy';
 let foreignFlowView = 'buy';
+let shortFlowView = 'ratio';
+let creditFlowView = 'ratio';
+let fluctuationFlowView = 'up';
 
 function renderFlowViews(data){
   if (!data) return;
   renderFlowRows('instflow-tbody', instFlowView === 'buy' ? data.institutionBuyTop : data.institutionSellTop);
   renderFlowRows('foreignflow-tbody', foreignFlowView === 'buy' ? data.foreignBuyTop : data.foreignSellTop);
+
+  // 공매도 - 비중순(기본) / 금액순(재정렬)
+  const shortByValue = [...(data.shortSaleTop || [])].sort((a, b) => Number(b.shortValue) - Number(a.shortValue));
+  renderShortFlow(shortFlowView === 'ratio' ? data.shortSaleTop : shortByValue);
+  const shortSubEl = document.getElementById('shortflow-sub');
+  if (shortSubEl) shortSubEl.textContent = shortFlowView === 'ratio' ? '당일 거래량 대비 공매도 비중 기준' : '당일 공매도 거래대금이 큰 순서 기준';
+
+  // 신용잔고 - 비율순(기본) / 금액순(재정렬)
+  const creditByValue = [...(data.creditBalanceTop || [])].sort((a, b) => Number(b.loanBalanceAmt) - Number(a.loanBalanceAmt));
+  renderCreditFlow(creditFlowView === 'ratio' ? data.creditBalanceTop : creditByValue);
+  const creditSubEl = document.getElementById('creditflow-sub');
+  if (creditSubEl) creditSubEl.textContent = creditFlowView === 'ratio' ? '융자 잔고 비율 기준' : '신용융자 잔고 금액이 큰 순서 기준';
+
+  // 등락률 - 상승률(기본) / 하락률
+  renderFlowRows('fluctuation-tbody', fluctuationFlowView === 'up' ? data.fluctuationUpTop : data.fluctuationDownTop);
 }
 
 function setFlowView(category, view){
-  if (category === 'inst') instFlowView = view; else foreignFlowView = view;
+  if (category === 'inst') instFlowView = view;
+  else if (category === 'foreign') foreignFlowView = view;
+  else if (category === 'short') shortFlowView = view;
+  else if (category === 'credit') creditFlowView = view;
+  else if (category === 'fluctuation') fluctuationFlowView = view;
   document.querySelectorAll(`.flow-toggle-btn[data-category="${category}"]`).forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.view === view);
   });
