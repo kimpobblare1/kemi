@@ -111,6 +111,7 @@
     background:none; border:none; white-space:nowrap; flex-shrink:0;
     padding:12px 2px; font-size:13.5px; font-weight:600; color:var(--text-soft);
     border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .12s, border-color .12s;
+    text-decoration:none; display:inline-block;
   }
   .tab-link:hover{ color:var(--text); }
   .tab-link.active{ color:var(--text); border-bottom-color:var(--text); font-weight:700; }
@@ -272,6 +273,7 @@
       <button class="tab-link" data-page="fluctuation" onclick="showPage('fluctuation')">등락률</button>
       <button class="tab-link" data-page="instflow" onclick="showPage('instflow')">기관매매</button>
       <button class="tab-link" data-page="foreignflow" onclick="showPage('foreignflow')">외국인매매</button>
+      <a class="tab-link" href="/market-brief.html">시황분석</a>
     </div>
   </nav>
 </header>
