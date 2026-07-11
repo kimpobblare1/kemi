@@ -171,11 +171,13 @@
     border-bottom:1px solid var(--border); white-space:nowrap;
   }
   .data-table th.num-th{ text-align:right; }
+  .data-table th.amount-th{ text-align:left; }
   .data-table td{ padding:9px 10px; border-bottom:1px solid var(--border); }
   .data-table td.name-cell{ font-weight:600; color:var(--text); white-space:nowrap; }
   .data-table tr:last-child td{ border-bottom:none; }
   .data-table tr:hover td{ background:var(--surface-2); }
   .num-cell{ text-align:right; color:var(--text); white-space:nowrap; }
+  .amount-cell{ text-align:left; }
   .chg-up{ color:var(--up); }
   .chg-down{ color:var(--down); }
   .chg-flat{ color:var(--flat); }
@@ -354,7 +356,7 @@
         <div class="info-note" style="margin:12px 16px 12px;">⏰ 공매도 데이터는 <span class="asof-ref" data-metric="short">-</span> 기준이에요</div>
         <div class="table-scroll">
         <table class="data-table">
-          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
+          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th amount-th">공매도금액(억)</th></tr></thead>
           <tbody id="home-short-value-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
         </div>
@@ -365,7 +367,7 @@
         <div class="info-note" style="margin:12px 16px 12px;">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
         <div class="table-scroll">
         <table class="data-table">
-          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
+          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
           <tbody id="home-credit-value-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
         </div>
@@ -379,7 +381,7 @@
         <div class="info-note" style="margin:12px 16px 12px;">⏰ 공매도 데이터는 <span class="asof-ref" data-metric="short">-</span> 기준이에요</div>
         <div class="table-scroll">
         <table class="data-table">
-          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
+          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th amount-th">공매도금액(억)</th></tr></thead>
           <tbody id="home-short-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
         </div>
@@ -390,7 +392,7 @@
         <div class="info-note" style="margin:12px 16px 12px;">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
         <div class="table-scroll">
         <table class="data-table">
-          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
+          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
           <tbody id="home-credit-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
         </table>
         </div>
@@ -411,7 +413,7 @@
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th">공매도금액(억)</th></tr></thead>
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">공매도비중</th><th class="num-th amount-th">공매도금액(억)</th></tr></thead>
         <tbody id="shortflow-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
       </table>
       </div>
@@ -431,7 +433,7 @@
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">신용잔고금액(억)</th></tr></thead>
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
         <tbody id="creditflow-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
       </table>
       </div>
@@ -774,7 +776,7 @@ function render(data){
       ${changeCell(r)}
       ${pctCell(r)}
       <td class="num-cell">${ratioChip(r.shortVolumeRatio, 20)}</td>
-      <td class="num-cell">${eok(r.shortValue)}</td>
+      <td class="num-cell amount-cell">${eok(r.shortValue)}</td>
     </tr>`, 6);
 
   // 홈 - 신용잔고 비율 TOP10
@@ -785,7 +787,7 @@ function render(data){
       ${changeCell(r)}
       ${pctCell(r)}
       <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
-      <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
+      <td class="num-cell amount-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
     </tr>`, 6);
 
   // 홈 - 공매도 금액 TOP10 (비중이 아니라 실제 금액 기준 재정렬)
@@ -797,7 +799,7 @@ function render(data){
       ${changeCell(r)}
       ${pctCell(r)}
       <td class="num-cell">${ratioChip(r.shortVolumeRatio, 20)}</td>
-      <td class="num-cell">${eok(r.shortValue)}</td>
+      <td class="num-cell amount-cell">${eok(r.shortValue)}</td>
     </tr>`, 6);
 
   // 홈 - 신용잔고 금액 TOP10 (비율이 아니라 실제 금액 기준 재정렬)
@@ -809,7 +811,7 @@ function render(data){
       ${changeCell(r)}
       ${pctCell(r)}
       <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
-      <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
+      <td class="num-cell amount-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
     </tr>`, 6);
 
   // TOP100 - 시가총액 (조건검색 기반, 시장비중 필드는 이 데이터소스에 없어서 컬럼 제거됨)
@@ -839,7 +841,7 @@ function renderShortFlow(rows){
     ${changeCell(r)}
     ${pctCell(r)}
     <td class="num-cell">${ratioChip(r.shortVolumeRatio, 20)}</td>
-    <td class="num-cell">${eok(r.shortValue)}</td></tr>`, 7);
+    <td class="num-cell amount-cell">${eok(r.shortValue)}</td></tr>`, 7);
 }
 
 function renderCreditFlow(rows){
@@ -849,7 +851,7 @@ function renderCreditFlow(rows){
     ${changeCell(r)}
     ${pctCell(r)}
     <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
-    <td class="num-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 7);
+    <td class="num-cell amount-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 7);
 }
 
 function renderFlowRows(tbodyId, rows){
