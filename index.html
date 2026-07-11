@@ -605,15 +605,21 @@ function fmtBsopDate(yyyymmdd){ // "20240430" -> "04/30 기준"
   const ymd = fmtYmd(yyyymmdd);
   return ymd ? `${ymd} 기준` : '';
 }
-function eok(rawWon){ // 원 -> 억원
+function eok(rawWon){ // 원 -> 억원 (1억 미만이라 반올림하면 0이 되는 경우엔 소수점 둘째자리까지 표시)
   const num = Number(rawWon);
   if (isNaN(num)) return '-';
-  return Math.round(num / 1e8).toLocaleString('ko-KR');
+  const eokVal = num / 1e8;
+  const rounded = Math.round(eokVal);
+  if (rounded === 0 && eokVal !== 0) return eokVal.toFixed(2);
+  return rounded.toLocaleString('ko-KR');
 }
-function eokFromManwon(manwon){ // 만원 -> 억원 (신용잔고금액 전용, 단위가 다름)
+function eokFromManwon(manwon){ // 만원 -> 억원 (신용잔고금액 전용, 단위가 다름) — 마찬가지로 0 처리 시 소수점 둘째자리
   const num = Number(manwon);
   if (isNaN(num)) return '-';
-  return Math.round(num / 10000).toLocaleString('ko-KR');
+  const eokVal = num / 10000;
+  const rounded = Math.round(eokVal);
+  if (rounded === 0 && eokVal !== 0) return eokVal.toFixed(2);
+  return rounded.toLocaleString('ko-KR');
 }
 // 공매도비중/신용잔고비율 전용 배지 색상 — 빨강/파랑/검정과 겹치지 않는 amber 계열 (다크모드에서도 잘 보이도록 분기)
 function heatColors(ratio, max){
