@@ -21,16 +21,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.gemidata.co.kr/blog.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.gemidata.co.kr/column-short-sale-ratio.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.gemidata.co.kr/market-brief.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
