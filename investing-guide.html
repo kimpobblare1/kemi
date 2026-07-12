@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="alternate" type="application/rss+xml" title="개미데이터 시황분석 RSS" href="https://www.gemidata.co.kr/rss.xml">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20stroke%3D%22%23B85C08%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M24%2027%20Q13%2025%208%2018%22/%3E%3Cpath%20d%3D%22M22%2032%20Q9%2032%205%2032%22/%3E%3Cpath%20d%3D%22M24%2037%20Q13%2041%209%2048%22/%3E%3Cpath%20d%3D%22M40%2027%20Q51%2025%2056%2018%22/%3E%3Cpath%20d%3D%22M42%2032%20Q55%2032%2059%2032%22/%3E%3Cpath%20d%3D%22M40%2037%20Q51%2041%2055%2048%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%23B85C08%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M27%2011%20Q22%204%2019%202%22/%3E%3Cpath%20d%3D%22M37%2011%20Q42%204%2045%202%22/%3E%3C/g%3E%3Ccircle%20cx%3D%2219%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%23B85C08%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%23B85C08%22/%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2248.5%22%20rx%3D%2213.2%22%20ry%3D%2212.6%22%20fill%3D%22%23B85C08%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%228.4%22%20fill%3D%22%23B85C08%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2215%22%20r%3D%228.8%22%20fill%3D%22%23B85C08%22/%3E%3Ccircle%20cx%3D%2224.8%22%20cy%3D%2216.8%22%20r%3D%221.7%22%20fill%3D%22%23F5A868%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%2239.2%22%20cy%3D%2216.8%22%20r%3D%221.7%22%20fill%3D%22%23F5A868%22%20opacity%3D%220.6%22/%3E%3Ccircle%20cx%3D%2228.2%22%20cy%3D%2213.6%22%20r%3D%222.1%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2235.8%22%20cy%3D%2213.6%22%20r%3D%222.1%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2228.6%22%20cy%3D%2214%22%20r%3D%221.05%22%20fill%3D%22%232B1607%22/%3E%3Ccircle%20cx%3D%2236.2%22%20cy%3D%2214%22%20r%3D%221.05%22%20fill%3D%22%232B1607%22/%3E%3Cpath%20d%3D%22M29%2018.6%20Q32%2020.6%2035%2018.6%22%20stroke%3D%22%237A3D05%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<title>투자 가이드 — 공매도·신용잔고·미수금으로 판단하는 법 | 개미데이터</title>
+<meta name="description" content="공매도비중, 신용잔고비율, 미수금 같은 개미데이터 지표를 실제 투자 판단에 어떻게 참고할 수 있는지 정리했습니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F6F7F9; --border:#E8EAED;
+    --text:#16181C; --text-soft:#8A8F98; --accent:#B85C08; --accent-soft:#FCF1E1;
+    --up:#E5484D; --down:#3B82F6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Pretendard', -apple-system, sans-serif; line-height:1.75; font-size:15px;
+  }
+  .wrap{ max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--text-soft); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:24px; }
+  .back:hover{ color:var(--accent); }
+  h1{ font-size:24px; font-weight:800; margin:0 0 6px; }
+  .lead{ color:var(--text-soft); font-size:14px; margin:0 0 28px; }
+  .toc{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 20px; margin-bottom:32px; }
+  .toc-title{ font-size:12.5px; font-weight:700; color:var(--text-soft); margin-bottom:8px; }
+  .toc ol{ margin:0; padding-left:18px; font-size:13.5px; }
+  .toc li{ margin-bottom:4px; }
+  .toc a{ color:var(--text); text-decoration:none; }
+  .toc a:hover{ color:var(--accent); }
+  section{ margin-top:42px; scroll-margin-top:20px; }
+  h2{ font-size:18px; font-weight:800; margin:0 0 4px; display:flex; align-items:center; gap:8px; }
+  .term-tag{ font-size:11px; font-weight:700; background:var(--accent-soft); color:var(--accent); padding:2px 9px; border-radius:999px; }
+  h3{ font-size:14.5px; font-weight:700; margin:20px 0 8px; color:var(--text); }
+  p{ margin:0 0 14px; }
+  ul, ol.steps{ margin:0 0 14px; padding-left:20px; }
+  li{ margin-bottom:6px; }
+  .example{ background:var(--surface); border-left:3px solid var(--accent); border-radius:8px; padding:12px 16px; font-size:13.5px; color:var(--text-soft); margin:14px 0; }
+  .caution{ background:#FDECEC; border-left:3px solid var(--up); border-radius:8px; padding:12px 16px; font-size:13.5px; margin:14px 0; }
+  .checklist{ background:var(--surface); border-radius:12px; padding:18px 20px; margin:14px 0; }
+  .checklist li{ list-style:none; margin-bottom:10px; padding-left:26px; position:relative; }
+  .checklist li::before{ content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:800; }
+  table{ width:100%; border-collapse:collapse; margin:14px 0; font-size:13.5px; }
+  th, td{ padding:8px 10px; text-align:left; border-bottom:1px solid var(--border); }
+  th{ font-size:11.5px; color:var(--text-soft); font-weight:700; }
+  a{ color:var(--accent); }
+  .disclaimer-box{ font-size:12.5px; color:var(--text-soft); background:var(--surface); border-radius:8px; padding:14px 18px; margin:32px 0 0; }
+  .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; flex-wrap:wrap; }
+  .footer-nav a{ color:var(--text-soft); text-decoration:none; }
+  .footer-nav a:hover{ color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">← 개미데이터 홈으로</a>
+  <h1>투자 가이드</h1>
+  <p class="lead">개미데이터에 나오는 공매도·신용잔고·미수금 데이터를, 실제 투자 판단에 어떻게 참고할 수 있는지 정리했어요.</p>
+
+  <div class="caution">
+    ⚠️ 이 페이지는 특정 종목의 매수·매도를 추천하지 않아요. 데이터를 <strong>어떤 관점에서 참고할 수 있는지</strong>에 대한 안내이고,
+    최종 투자 판단과 책임은 투자자 본인에게 있습니다. 각 지표의 정확한 뜻이 궁금하시면
+    <a href="/guide.html">용어 가이드</a>를 먼저 봐주세요.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">목차</div>
+    <ol>
+      <li><a href="#short-sale">공매도비중, 어떻게 참고할까</a></li>
+      <li><a href="#credit">신용잔고비율, 어떻게 참고할까</a></li>
+      <li><a href="#market-wide">시장 전체 신용잔고·고객예탁금·미수금 함께 보기</a></li>
+      <li><a href="#combo">지표를 같이 볼 때 — 조합 해석</a></li>
+      <li><a href="#checklist">초보 투자자를 위한 체크리스트</a></li>
+    </ol>
+  </div>
+
+  <section id="short-sale">
+    <h2>공매도비중, 어떻게 참고할까 <span class="term-tag">활용</span></h2>
+    <p>
+      공매도비중이 높다는 건 그날 그 종목을 파는 쪽에 <strong>"주가가 떨어질 것"</strong>이라고 베팅한
+      물량이 많았다는 뜻이에요. 다만 숫자 하나만 보고 "떨어질 종목"이라고 단정하기보다는, 아래 두 가지를
+      같이 봐야 훨씬 입체적으로 해석돼요.
+    </p>
+    <h3>1) 오늘 주가가 오른 날인지, 내린 날인지</h3>
+    <ul>
+      <li><strong>주가는 내리고 공매도비중도 높다</strong> → 시장 참여자들의 하락 베팅과 실제 결과가 일치한
+        날이에요. 이 흐름이 며칠 더 이어지는지 지켜볼 만해요.</li>
+      <li><strong>주가는 오르는데 공매도비중도 높다</strong> → 급등 국면에서 숏 포지션 정리(숏커버링)나
+        신규 진입이 같이 일어난 경우가 많아요. 하루 이벤트일 수도 있어서 다음 날 추이를 같이 봐야 해요.</li>
+    </ul>
+    <h3>2) 평소 대비 튀는 숫자인지</h3>
+    <p>
+      개미데이터 <a href="/#shortflow">공매도 TOP</a> 화면에서, 2~3위와 비교했을 때 유독 한 종목만
+      압도적으로 높다면 눈여겨볼 신호예요. 반면 상위권 전체가 고만고만하게 몰려있으면, 그 자체로는
+      특별한 이슈라기보다 시장 전반의 자연스러운 분포일 수 있어요.
+    </p>
+    <div class="example">
+      💡 팁: 공매도비중이 급증한 날엔, 그 종목에 실제로 어떤 뉴스나 공시가 있었는지 검색해보는 습관을
+      들이면 좋아요. 뚜렷한 재료가 없다면 "이유를 알 수 없는 수급 변화"로 분류해두고 좀 더 지켜보는
+      쪽을 권해요.
+    </div>
+  </section>
+
+  <section id="credit">
+    <h2>신용잔고비율, 어떻게 참고할까 <span class="term-tag">활용</span></h2>
+    <p>
+      신용잔고비율은 그 종목을 <strong>"빚내서 사둔" 투자자가 얼마나 되는지</strong>를 보여줘요. 이 숫자가
+      높을수록 알아둬야 할 게 하나 있어요 — 주가가 조정을 받으면 반대매매(강제 청산) 물량이 한꺼번에
+      나올 수 있어서, 하락 속도가 더 가팔라질 수 있다는 점이에요.
+    </p>
+    <h3>상승 국면 vs 하락 국면에서 다르게 읽기</h3>
+    <table>
+      <thead><tr><th>상황</th><th>참고할 점</th></tr></thead>
+      <tbody>
+        <tr><td>신용잔고비율 높음 + 주가 상승 중</td><td>추가 상승 시 차익실현 매물이 더 강하게 나올 수 있어요</td></tr>
+        <tr><td>신용잔고비율 높음 + 주가 하락 중</td><td>반대매매 압력으로 하락폭이 커질 가능성을 염두에 둘 만해요</td></tr>
+      </tbody>
+    </table>
+    <p>
+      비율(%)과 금액(억 원) 두 정렬을 같이 보는 것도 도움이 돼요. 비율은 낮은데 금액이 큰 종목은
+      시가총액 자체가 큰 대형주인 경우가 많고, 비율도 높고 금액도 큰 종목은 상대적으로 더 눈여겨볼
+      만해요.
+    </p>
+  </section>
+
+  <section id="market-wide">
+    <h2>시장 전체 신용잔고·고객예탁금·미수금 함께 보기 <span class="term-tag">활용</span></h2>
+    <p>
+      개별 종목이 아니라 <strong>시장 전체 분위기</strong>를 파악하고 싶을 때는 홈 화면의 "신용잔고 ·
+      시장전체" 카드를 참고하면 좋아요. 세 지표를 같이 놓고 보면 이렇게 정리할 수 있어요.
+    </p>
+    <div class="checklist">
+      <ul>
+        <li><strong>신용융자잔고가 늘어나는 추세</strong> → 시장에 빚투(레버리지 투자)가 확산되고 있다는
+          신호예요. 지수가 오르는 국면이라면 과열 여부를 한 번쯤 점검해볼 만해요.</li>
+        <li><strong>고객예탁금이 늘어나는 추세</strong> → 투자 대기 자금이 쌓이고 있다는 뜻이라, 시장에
+          추가로 유입될 수 있는 여력이 있다는 신호로 해석되곤 해요.</li>
+        <li><strong>미수금이 급증</strong> → 결제일에 대금을 못 갚는 투자자가 늘고 있다는 뜻이에요. 이후
+          반대매매(미수동결계좌 처리)로 단기 변동성이 커질 수 있다는 신호로 참고돼요.</li>
+      </ul>
+    </div>
+    <div class="example">
+      💡 팁: 지수가 급등한 날인데 신용잔고는 오히려 줄었다면, 그 상승이 "빚내서 산 물량"이 아니라
+      자기자금이나 기관 수급 위주로 만들어졌을 가능성을 시사해요 — 상대적으로 더 건강한 상승으로
+      해석되는 경우가 많아요.
+    </div>
+  </section>
+
+  <section id="combo">
+    <h2>지표를 같이 볼 때 — 조합 해석 <span class="term-tag">활용</span></h2>
+    <p>
+      한 종목에서 공매도비중과 신용잔고비율이 <strong>둘 다 높게</strong> 나온다면, 이건 "하락에
+      베팅하는 쪽"과 "빚내서 상승에 베팅하는 쪽"이 동시에 몰려있다는 뜻이에요. 이런 종목은 방향에
+      상관없이 <strong>변동성 자체가 커질 가능성</strong>이 있는 종목으로 분류해두는 게 좋아요.
+    </p>
+    <ul>
+      <li>공매도비중 ↑ + 신용잔고비율 ↑ → 의견이 첨예하게 갈리는 종목. 뉴스·실적 발표 등 이벤트 전후로
+        더 크게 흔들릴 수 있어요.</li>
+      <li>공매도비중 ↑ + 신용잔고비율 낮음 → 하락 베팅은 많은데 빚투는 적은 상태. 상대적으로 반대매매發
+        급락 리스크는 덜한 편이에요.</li>
+      <li>공매도비중 낮음 + 신용잔고비율 ↑ → 빚투 매수는 많은데 공매도는 적은 상태. 조정 시 반대매매
+        물량이 부각될 수 있는 종목이에요.</li>
+    </ul>
+  </section>
+
+  <section id="checklist">
+    <h2>초보 투자자를 위한 체크리스트 <span class="term-tag">활용</span></h2>
+    <div class="checklist">
+      <ul>
+        <li>관심 종목이 공매도·신용잔고 TOP 화면에 새로 올라왔는지 매일 확인해보기</li>
+        <li>숫자가 튀는 날엔 "왜 튀었는지" 뉴스·공시를 직접 검색해보는 습관 들이기</li>
+        <li>비율(%)과 금액(억 원) 두 가지를 같이 보고, 시가총액 규모도 함께 고려하기</li>
+        <li>시장 전체 신용잔고·고객예탁금·미수금 추세를 통해 "지금이 과열 국면인지" 감 잡기</li>
+        <li>지표 하나만으로 판단하지 말고, 최소 2~3개 지표를 종합해서 참고하기</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="disclaimer-box">
+    📊 이 가이드에서 다루는 해석 방식은 일반적으로 통용되는 참고 관점을 정리한 것이며, 특정한 결과를
+    보장하지 않아요. 개미데이터는 데이터를 정리해서 보여드릴 뿐, 투자 조언을 제공하지 않습니다.
+    투자 결정과 그 결과에 대한 책임은 전적으로 투자자 본인에게 있습니다.
+  </div>
+
+  <div class="footer-nav">
+    <a href="/">홈</a>
+    <a href="/guide.html">용어 가이드</a>
+    <a href="/market-brief.html">시황분석</a>
+    <a href="/faq.html">FAQ</a>
+  </div>
+</div>
+</body>
+</html>
