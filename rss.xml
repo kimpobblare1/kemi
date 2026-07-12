@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>개미데이터 — 시황분석</title>
+  <link>https://www.gemidata.co.kr/</link>
+  <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
+  <language>ko-kr</language>
+  <lastBuildDate>Sat, 11 Jul 2026 12:00:00 +0900</lastBuildDate>
+  <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피·코스닥 동반 급등, 기관이 지수를 끌어올렸다</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-10.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-10.html</guid>
+    <pubDate>Fri, 10 Jul 2026 18:00:00 +0900</pubDate>
+    <description>개인·외국인은 코스피·코스닥 양쪽에서 모두 순매도했는데 기관 홀로 1조 7천억 원 넘게 순매수하며 지수를 밀어올린 하루. 신용잔고는 오히려 줄어 빚투 확산에 기댄 상승은 아니었다는 신호도 함께 짚었고, KT의 공매도비중 급증 이슈도 정리했습니다.</description>
+  </item>
+
+</channel>
+</rss>
