@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Sat, 11 Jul 2026 12:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Mon, 14 Jul 2026 09:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 -8.95% 대폭락, 개인만 홀로 받아냈다</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-13.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-13.html</guid>
+    <pubDate>Mon, 13 Jul 2026 18:00:00 +0900</pubDate>
+    <description>개인만 순매수, 외국인·기관은 동반 순매도한 급락장. 삼성전자·삼성전기·SK스퀘어가 기관·외국인 매매 상위권에 동시에 등장했고, 공매도·신용잔고 데이터는 아직 급락을 반영하지 못한 상태예요.</description>
+  </item>
 
   <item>
     <title>코스피·코스닥 동반 급등, 기관이 지수를 끌어올렸다</title>
