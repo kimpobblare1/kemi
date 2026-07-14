@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Mon, 14 Jul 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 14 Jul 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 6,856 반등, 코스닥은 사이드카 발동</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-14.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-14.html</guid>
+    <pubDate>Tue, 14 Jul 2026 18:00:00 +0900</pubDate>
+    <description>기관이 삼성전자·SK하이닉스 등 대형주를 강하게 순매수하며 코스피를 방어했고, 코스닥은 장중 매도 사이드카까지 발동되며 하락. 기관·외국인 매매 방향이 종목별로 크게 엇갈린 하루였어요.</description>
+  </item>
 
   <item>
     <title>코스피 -8.95% 대폭락, 개인만 홀로 받아냈다</title>
