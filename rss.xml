@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 14 Jul 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 15 Jul 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 6.24% 폭등, 반도체가 지수를 끌어올렸다</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-15.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-15.html</guid>
+    <pubDate>Wed, 15 Jul 2026 18:00:00 +0900</pubDate>
+    <description>외국인·기관 동반 순매수에 코스피·코스닥 모두 매수 사이드카가 발동될 만큼 급반등. SK하이닉스·삼성전자에 기관·외국인 매수가 동시에 몰렸고, 신용잔고는 급등에도 오히려 감소했어요.</description>
+  </item>
 
   <item>
     <title>코스피 6,856 반등, 코스닥은 사이드카 발동</title>
