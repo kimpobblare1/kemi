@@ -351,6 +351,23 @@
       </div>
     </div>
 
+    <div class="panel" style="margin-bottom:14px;">
+      <div class="panel-head"><h3>수급 일치 종목</h3><span class="rank-badge">기관·외국인 동시매매</span></div>
+      <div class="info-note" style="margin:12px 16px 12px;">💡 기관·외국인이 같은 방향으로 동시에 사고판 종목이에요 (ETF 제외)</div>
+      <div class="flow-toggle-row">
+        <button class="flow-toggle-btn active" id="matched-buy-btn" onclick="setMatchedView('buy')">동시 순매수</button>
+        <button class="flow-toggle-btn" id="matched-sell-btn" onclick="setMatchedView('sell')">동시 순매도</button>
+      </div>
+      <div class="table-scroll" style="min-height:260px;">
+      <table class="data-table">
+        <thead><tr><th>종목명</th><th class="num-th">기관</th><th class="num-th">외국인</th></tr></thead>
+        <tbody id="matched-flow-tbody"><tr><td colspan="3">불러오는 중...</td></tr></tbody>
+      </table>
+      </div>
+      <button class="metric-note" id="matched-more-btn" onclick="toggleMatchedMore()" style="background:none;border:none;cursor:pointer;color:var(--accent);font-weight:700;padding:8px 16px;display:none;">더보기</button>
+      <p class="metric-note" id="matched-empty-note" style="display:none;">오늘은 기관·외국인이 같은 방향으로 동시에 매매한 종목이 없어요.</p>
+    </div>
+
     <div class="two-col-home" style="margin-bottom:14px;">
       <div class="panel">
         <div class="panel-head"><h3>공매도 금액 TOP10</h3><span class="rank-badge" data-asof="short">LIVE</span></div>
@@ -623,6 +640,14 @@ function eokFromManwon(manwon){ // 만원 -> 억원 (신용잔고금액 전용, 
   if (rounded === 0 && eokVal !== 0) return eokVal.toFixed(2);
   return rounded.toLocaleString('ko-KR');
 }
+function fmtEokSignedFromMillion(millionWon){ // 백만원(부호 있음) -> "+1,234억" / "-987억" (기관·외국인 순매수금액 전용)
+  const num = Number(millionWon);
+  if (isNaN(num)) return '-';
+  const eokVal = num / 100;
+  const rounded = Math.round(eokVal);
+  const sign = rounded > 0 ? '+' : (rounded < 0 ? '-' : '');
+  return sign + Math.abs(rounded).toLocaleString('ko-KR') + '억';
+}
 // 공매도비중/신용잔고비율 전용 배지 색상 — 빨강/파랑/검정과 겹치지 않는 amber 계열 (다크모드에서도 잘 보이도록 분기)
 function heatColors(ratio, max){
   const dark = document.documentElement.classList.contains('dark');
@@ -876,11 +901,54 @@ let foreignFlowView = 'buy';
 let shortFlowView = 'ratio';
 let creditFlowView = 'ratio';
 let fluctuationFlowView = 'up';
+let matchedFlowView = 'buy';
+let matchedExpanded = false;
+const MATCHED_COLLAPSED_COUNT = 5;
+
+function renderMatchedFlow(rows){
+  const tbody = document.getElementById('matched-flow-tbody');
+  const moreBtn = document.getElementById('matched-more-btn');
+  const emptyNote = document.getElementById('matched-empty-note');
+  if (!tbody) return;
+  const list = rows || [];
+  if (list.length === 0) {
+    tbody.innerHTML = '';
+    if (moreBtn) moreBtn.style.display = 'none';
+    if (emptyNote) emptyNote.style.display = 'block';
+    return;
+  }
+  if (emptyNote) emptyNote.style.display = 'none';
+  const shown = matchedExpanded ? list : list.slice(0, MATCHED_COLLAPSED_COUNT);
+  tbody.innerHTML = shown.map((r) => `
+    <tr><td class="name-cell">${r.name}</td>
+    <td class="num-cell">${fmtEokSignedFromMillion(r.institutionAmount)}</td>
+    <td class="num-cell">${fmtEokSignedFromMillion(r.foreignAmount)}</td></tr>`).join('');
+  if (moreBtn) {
+    if (list.length > MATCHED_COLLAPSED_COUNT) {
+      moreBtn.style.display = 'block';
+      moreBtn.textContent = matchedExpanded ? '접기' : `더보기 (${list.length - MATCHED_COLLAPSED_COUNT})`;
+    } else {
+      moreBtn.style.display = 'none';
+    }
+  }
+}
+function toggleMatchedMore(){
+  matchedExpanded = !matchedExpanded;
+  renderMatchedFlow(matchedFlowView === 'buy' ? lastAntData?.matchedBuyTop : lastAntData?.matchedSellTop);
+}
+function setMatchedView(view){
+  matchedFlowView = view;
+  matchedExpanded = false;
+  document.getElementById('matched-buy-btn').classList.toggle('active', view === 'buy');
+  document.getElementById('matched-sell-btn').classList.toggle('active', view === 'sell');
+  renderMatchedFlow(view === 'buy' ? lastAntData?.matchedBuyTop : lastAntData?.matchedSellTop);
+}
 
 function renderFlowViews(data){
   if (!data) return;
   renderFlowRows('instflow-tbody', instFlowView === 'buy' ? data.institutionBuyTop : data.institutionSellTop);
   renderFlowRows('foreignflow-tbody', foreignFlowView === 'buy' ? data.foreignBuyTop : data.foreignSellTop);
+  renderMatchedFlow(matchedFlowView === 'buy' ? data.matchedBuyTop : data.matchedSellTop);
 
   // 공매도 - 비중순(기본) / 금액순(재정렬)
   const shortByValue = [...(data.shortSaleTop || [])].sort((a, b) => Number(b.shortValue) - Number(a.shortValue));
