@@ -360,8 +360,8 @@
       </div>
       <div class="table-scroll" style="min-height:260px;">
       <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">기관</th><th class="num-th">외국인</th></tr></thead>
-        <tbody id="matched-flow-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">기관</th><th class="num-th">외국인</th></tr></thead>
+        <tbody id="matched-flow-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
       </table>
       </div>
       <button class="metric-note" id="matched-more-btn" onclick="toggleMatchedMore()" style="background:none;border:none;cursor:pointer;color:var(--accent);font-weight:700;padding:8px 16px;display:none;">더보기</button>
@@ -930,6 +930,7 @@ function renderMatchedFlow(rows){
   const shown = matchedExpanded ? list : list.slice(0, MATCHED_COLLAPSED_COUNT);
   tbody.innerHTML = shown.map((r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
+    ${priceCell(r)}
     ${changeCell(r)}
     ${pctCell(r)}
     <td class="num-cell">${fmtEokSignedFromMillion(r.institutionAmount)}</td>
