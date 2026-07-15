@@ -723,7 +723,7 @@ async function loadAntData(){
     lastAntData = json.data;
     render(json.data);
     const updated = new Date(json.data.updatedAt).toLocaleString('ko-KR');
-    bar.textContent = (json.cached ? '🔄 ' : '● ') + 'LIVE · 기준시각 ' + updated + (json.cached ? ' (캐시)' : '');
+    bar.textContent = (json.cached ? '🔄 ' : '● ') + 'LIVE · 기준시각 ' + updated;
   } catch (err) {
     console.error(err);
     bar.textContent = '⚠ 데이터를 불러오지 못했어요: ' + err.message;
