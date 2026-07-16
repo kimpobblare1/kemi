@@ -213,6 +213,15 @@
   .credit-trend-latest-value{ font-size:13px; font-weight:800; color:var(--text); margin-left:6px; }
   .credit-trend-chart-block svg{ display:block; width:100%; height:auto; }
   #credit-trend-loading{ padding:16px; }
+  .credit-trend-tooltip{
+    position:fixed; z-index:200; pointer-events:none; background:var(--text); color:#fff;
+    font-size:12px; font-weight:600; padding:6px 10px; border-radius:6px; white-space:nowrap;
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+  }
+  .credit-trend-chart-block svg .axis-label{ font-size:9px; fill:var(--text-soft); }
+  .credit-trend-chart-block svg .hover-line{ stroke:var(--text-soft); stroke-width:1; stroke-dasharray:3,3; opacity:0; }
+  .credit-trend-chart-block svg .hover-dot{ opacity:0; }
+  #credit-trend-toggle-head:hover{ background:var(--surface); }
   .app-footer .footer-links{ display:flex; justify-content:center; gap:14px; margin-bottom:10px; }
   .app-footer .footer-links a{ color:var(--text-soft); text-decoration:none; }
   .app-footer .footer-links a:hover{ color:var(--accent); }
@@ -359,29 +368,35 @@
     </div>
 
     <div class="panel" style="margin-bottom:14px;">
-      <div class="panel-head"><h3>신용잔고·예탁금·미수금 추이</h3><span class="rank-badge">시장 전체</span></div>
-      <div class="flow-toggle-row" id="credit-trend-period-row">
-        <button class="flow-toggle-btn active" data-period="30" onclick="setCreditTrendPeriod('30')">30일</button>
-        <button class="flow-toggle-btn" data-period="180" onclick="setCreditTrendPeriod('180')">6개월</button>
-        <button class="flow-toggle-btn" data-period="365" onclick="setCreditTrendPeriod('365')">1년</button>
-        <button class="flow-toggle-btn" data-period="1825" onclick="setCreditTrendPeriod('1825')">5년</button>
+      <div class="panel-head" id="credit-trend-toggle-head" onclick="toggleCreditTrendPanel()" style="cursor:pointer;">
+        <h3>신용잔고·예탁금·미수금 추이</h3>
+        <span class="rank-badge" id="credit-trend-chevron">펼치기 ▾</span>
       </div>
-      <div id="credit-trend-loading" class="metric-note">불러오는 중...</div>
-      <div id="credit-trend-charts" style="display:none;">
-        <div class="credit-trend-chart-block">
-          <div class="credit-trend-chart-label">신용융자잔고 <span id="credit-trend-credit-latest" class="credit-trend-latest-value"></span></div>
-          <div id="credit-trend-credit-svg"></div>
+      <div id="credit-trend-body" style="display:none;">
+        <div class="flow-toggle-row" id="credit-trend-period-row">
+          <button class="flow-toggle-btn active" data-period="30" onclick="setCreditTrendPeriod('30')">30일</button>
+          <button class="flow-toggle-btn" data-period="180" onclick="setCreditTrendPeriod('180')">6개월</button>
+          <button class="flow-toggle-btn" data-period="365" onclick="setCreditTrendPeriod('365')">1년</button>
+          <button class="flow-toggle-btn" data-period="1825" onclick="setCreditTrendPeriod('1825')">5년</button>
         </div>
-        <div class="credit-trend-chart-block">
-          <div class="credit-trend-chart-label">고객예탁금 <span id="credit-trend-deposit-latest" class="credit-trend-latest-value"></span></div>
-          <div id="credit-trend-deposit-svg"></div>
-        </div>
-        <div class="credit-trend-chart-block">
-          <div class="credit-trend-chart-label">미수금 <span id="credit-trend-unsettled-latest" class="credit-trend-latest-value"></span></div>
-          <div id="credit-trend-unsettled-svg"></div>
+        <div id="credit-trend-loading" class="metric-note">불러오는 중...</div>
+        <div id="credit-trend-charts" style="display:none;">
+          <div class="credit-trend-chart-block">
+            <div class="credit-trend-chart-label">신용융자잔고 <span id="credit-trend-credit-latest" class="credit-trend-latest-value"></span></div>
+            <div id="credit-trend-credit-svg"></div>
+          </div>
+          <div class="credit-trend-chart-block">
+            <div class="credit-trend-chart-label">고객예탁금 <span id="credit-trend-deposit-latest" class="credit-trend-latest-value"></span></div>
+            <div id="credit-trend-deposit-svg"></div>
+          </div>
+          <div class="credit-trend-chart-block">
+            <div class="credit-trend-chart-label">미수금 <span id="credit-trend-unsettled-latest" class="credit-trend-latest-value"></span></div>
+            <div id="credit-trend-unsettled-svg"></div>
+          </div>
         </div>
       </div>
     </div>
+    <div id="credit-trend-tooltip" class="credit-trend-tooltip" style="display:none;"></div>
 
     <div class="panel" style="margin-bottom:14px;">
       <div class="panel-head"><h3>수급 일치 종목</h3><span class="rank-badge">기관·외국인 동시매매</span></div>
@@ -768,6 +783,19 @@ async function loadAntData(){
 // ---------- 신용잔고·예탁금·미수금 추이 차트 ----------
 let creditTrendSeries = null; // 전체 기간(최대 5년) 원본 데이터, 한 번만 불러와서 캐싱
 let creditTrendPeriod = 30; // 기본 30일
+let creditTrendLoaded = false; // 지연 로딩 여부 (펼치기 전엔 안 불러옴)
+
+function toggleCreditTrendPanel(){
+  const body = document.getElementById('credit-trend-body');
+  const chevron = document.getElementById('credit-trend-chevron');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  chevron.textContent = isOpen ? '펼치기 ▾' : '접기 ▴';
+  if (!isOpen && !creditTrendLoaded) {
+    creditTrendLoaded = true;
+    loadCreditTrend(); // 처음 펼칠 때만 불러옴 (하루 1번만 바뀌는 데이터라 매번 미리 불러올 필요 없음)
+  }
+}
 
 async function loadCreditTrend(){
   try {
@@ -818,33 +846,84 @@ function renderCreditTrendCharts(){
 function setLatestLabel(elId, eokVal){
   const el = document.getElementById(elId);
   if (!el) return;
-  el.textContent = eokVal == null ? '' : fmtEokToJo(eokVal);
+  el.textContent = eokVal == null ? '' : `${fmtEokToJo(eokVal)} (현재 기준)`;
+}
+
+function fmtTrendDateShort(ymd){ // 'YYYYMMDD' -> 'YY.MM.DD'
+  return `${ymd.slice(2,4)}.${ymd.slice(4,6)}.${ymd.slice(6,8)}`;
 }
 
 // 값(억원 단위) 배열을 받아 심플한 SVG 라인차트를 그려서 컨테이너에 꽂아넣음 (외부 라이브러리 없이 직접 구현)
+// 하단에 날짜 축(듬성듬성), 마우스 오버 시 해당 지점 날짜·값 툴팁 표시 포함
 function drawTrendLine(containerId, points, field, color){
   const container = document.getElementById(containerId);
   if (!container) return;
-  const vals = points.map((p) => Number(p[field])).filter((v) => !isNaN(v));
-  if (vals.length < 2) { container.innerHTML = '<div class="metric-note">데이터가 부족해요</div>'; return; }
+  const vals = points.map((p) => Number(p[field]));
+  if (vals.filter((v) => !isNaN(v)).length < 2) { container.innerHTML = '<div class="metric-note">데이터가 부족해요</div>'; return; }
 
-  const W = 600, H = 100, PAD = 6;
+  const W = 600, H = 130, PAD = 6, CHART_H = 90, AXIS_Y = 112;
   const min = Math.min(...vals), max = Math.max(...vals);
   const range = (max - min) || 1;
-  const stepX = (W - PAD * 2) / (vals.length - 1);
+  const stepX = points.length > 1 ? (W - PAD * 2) / (points.length - 1) : 0;
   const coords = vals.map((v, i) => {
     const x = PAD + i * stepX;
-    const y = PAD + (H - PAD * 2) * (1 - (v - min) / range);
+    const y = PAD + CHART_H * (1 - (v - min) / range);
     return [x, y];
   });
   const linePath = coords.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
-  const areaPath = `${linePath} L${coords[coords.length-1][0].toFixed(1)},${H-PAD} L${coords[0][0].toFixed(1)},${H-PAD} Z`;
+  const areaPath = `${linePath} L${coords[coords.length-1][0].toFixed(1)},${PAD+CHART_H} L${coords[0][0].toFixed(1)},${PAD+CHART_H} Z`;
+
+  // 날짜 축 라벨: 너무 촘촘하지 않게 최대 5개만 (처음/끝 포함, 균등 간격)
+  const LABEL_COUNT = Math.min(5, points.length);
+  const labelIdxs = Array.from({length: LABEL_COUNT}, (_, i) => Math.round(i * (points.length - 1) / (LABEL_COUNT - 1 || 1)));
+  const uniqueLabelIdxs = [...new Set(labelIdxs)];
+  const axisLabels = uniqueLabelIdxs.map((i) => {
+    const anchor = i === 0 ? 'start' : (i === points.length - 1 ? 'end' : 'middle');
+    return `<text class="axis-label" x="${coords[i][0].toFixed(1)}" y="${AXIS_Y}" text-anchor="${anchor}">${fmtTrendDateShort(points[i].date)}</text>`;
+  }).join('');
 
   container.innerHTML = `
     <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
       <path d="${areaPath}" fill="${color}" opacity="0.08" stroke="none"></path>
       <path d="${linePath}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+      ${axisLabels}
+      <line class="hover-line" x1="0" y1="${PAD}" x2="0" y2="${PAD+CHART_H}"></line>
+      <circle class="hover-dot" r="3.5" fill="${color}" stroke="#fff" stroke-width="1.5"></circle>
+      <rect x="0" y="0" width="${W}" height="${PAD+CHART_H}" fill="transparent" class="hover-capture"></rect>
     </svg>`;
+
+  const svgEl = container.querySelector('svg');
+  const hoverLine = container.querySelector('.hover-line');
+  const hoverDot = container.querySelector('.hover-dot');
+  const captureRect = container.querySelector('.hover-capture');
+  const tooltip = document.getElementById('credit-trend-tooltip');
+
+  function showAt(clientX, clientY){
+    const rect = svgEl.getBoundingClientRect();
+    const relX = ((clientX - rect.left) / rect.width) * W;
+    let idx = Math.round((relX - PAD) / (stepX || 1));
+    idx = Math.max(0, Math.min(points.length - 1, idx));
+    const [x, y] = coords[idx];
+    hoverLine.setAttribute('x1', x); hoverLine.setAttribute('x2', x);
+    hoverLine.style.opacity = '1';
+    hoverDot.setAttribute('cx', x); hoverDot.setAttribute('cy', y);
+    hoverDot.style.opacity = '1';
+    if (tooltip) {
+      tooltip.style.display = 'block';
+      tooltip.textContent = `${fmtTrendDateShort(points[idx].date)} · ${fmtEokToJo(vals[idx])}`;
+      tooltip.style.left = (clientX + 12) + 'px';
+      tooltip.style.top = (clientY - 30) + 'px';
+    }
+  }
+  function hide(){
+    hoverLine.style.opacity = '0';
+    hoverDot.style.opacity = '0';
+    if (tooltip) tooltip.style.display = 'none';
+  }
+  captureRect.addEventListener('mousemove', (e) => showAt(e.clientX, e.clientY));
+  captureRect.addEventListener('mouseleave', hide);
+  captureRect.addEventListener('touchmove', (e) => { if (e.touches[0]) showAt(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+  captureRect.addEventListener('touchend', hide);
 }
 
 function flowAmountText(flow){
@@ -1122,7 +1201,7 @@ function setFlowView(category, view){
 loadAntData();
 // 30초마다 자동으로 다시 불러와서 실시간처럼 유지 (백엔드 60초 캐시와 맞물려 최대 60~90초 이내 최신 상태 유지)
 setInterval(loadAntData, 30000);
-loadCreditTrend(); // 신용잔고 추이는 하루 1번만 갱신되는 데이터라 최초 1회만 불러오면 충분함
+// 신용잔고 추이는 toggleCreditTrendPanel()에서 처음 펼칠 때 지연 로딩함 (하루 1번만 바뀌는 데이터라 미리 불러올 필요 없음)
 </script>
 </body>
 </html>
