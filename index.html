@@ -673,11 +673,11 @@ const priceCell = (r) => `<td class="num-cell">${fmtNum(r.price)}</td>`;
 const changeCell = (r) => `<td class="num-cell ${pctClass(r.changePct)}">${trendSymbol(r.changePct)} ${fmtChangeAmtAbs(r.change)}</td>`;
 const pctCell = (r) => `<td class="num-cell ${pctClass(r.changePct)}">${trendSymbol(r.changePct)} ${fmtPctAbs(r.changePct)}</td>`;
 
-function renderRows(tbodyId, rows, rowFn, colspan){
+function renderRows(tbodyId, rows, rowFn, colspan, emptyMessage){
   const tbody = document.getElementById(tbodyId);
   if (!tbody) return;
   if (!rows || rows.length === 0){
-    tbody.innerHTML = `<tr><td colspan="${colspan}" style="text-align:center;color:var(--text-soft);">데이터가 없습니다</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="${colspan}" style="text-align:center;color:var(--text-soft);">${emptyMessage || '데이터가 없습니다'}</td></tr>`;
     return;
   }
   tbody.innerHTML = rows.map(rowFn).join('');
@@ -897,12 +897,15 @@ function renderFlowRows(tbodyId, rows){
 }
 
 function renderInstForeignFlowRows(tbodyId, rows, amountField){
+  const emptyMessage = amountField === 'institutionNetBuyAmount'
+    ? '⏰ 기관 매매 데이터는 오늘 10:00 이후부터 순차적으로 집계돼요 (하루 4회 입력, 실시간 아님)'
+    : '⏰ 외국인 매매 데이터는 오늘 09:30 이후부터 순차적으로 집계돼요 (하루 4회 입력, 실시간 아님)';
   renderRows(tbodyId, rows, (r, i) => `
     <tr><td class="rank-cell">${i+1}</td><td class="name-cell">${r.name}</td>
     ${priceCell(r)}
     ${changeCell(r)}
     ${pctCell(r)}
-    <td class="num-cell amount-cell">${fmtEokSignedFromMillion(r[amountField])}</td></tr>`, 6);
+    <td class="num-cell amount-cell">${fmtEokSignedFromMillion(r[amountField])}</td></tr>`, 6, emptyMessage);
 }
 
 let instFlowView = 'buy';
@@ -914,7 +917,7 @@ let matchedFlowView = 'buy';
 let matchedExpanded = false;
 const MATCHED_COLLAPSED_COUNT = 5;
 
-function renderMatchedFlow(rows){
+function renderMatchedFlow(rows, isTooEarly){
   const tbody = document.getElementById('matched-flow-tbody');
   const moreBtn = document.getElementById('matched-more-btn');
   const emptyNote = document.getElementById('matched-empty-note');
@@ -923,7 +926,12 @@ function renderMatchedFlow(rows){
   if (list.length === 0) {
     tbody.innerHTML = '';
     if (moreBtn) moreBtn.style.display = 'none';
-    if (emptyNote) emptyNote.style.display = 'block';
+    if (emptyNote) {
+      emptyNote.textContent = isTooEarly
+        ? '⏰ 기관·외국인 매매 데이터가 아직 집계 전이에요 (외국인 09:30, 기관 10:00 이후부터 순차 반영) — 그 이후에 다시 확인해보세요.'
+        : '오늘은 기관·외국인이 같은 방향으로 동시에 매매한 종목이 없어요.';
+      emptyNote.style.display = 'block';
+    }
     return;
   }
   if (emptyNote) emptyNote.style.display = 'none';
@@ -944,23 +952,29 @@ function renderMatchedFlow(rows){
     }
   }
 }
+function isMatchedFlowTooEarly(data){
+  // 기관/외국인 원본 리스트가 전부 비어있으면 = 아직 그날 첫 집계 시각(외국인 09:30, 기관 10:00) 전이라는 뜻
+  if (!data) return false;
+  return (data.institutionBuyTop?.length ?? 0) === 0 && (data.institutionSellTop?.length ?? 0) === 0
+    && (data.foreignBuyTop?.length ?? 0) === 0 && (data.foreignSellTop?.length ?? 0) === 0;
+}
 function toggleMatchedMore(){
   matchedExpanded = !matchedExpanded;
-  renderMatchedFlow(matchedFlowView === 'buy' ? lastAntData?.matchedBuyTop : lastAntData?.matchedSellTop);
+  renderMatchedFlow(matchedFlowView === 'buy' ? lastAntData?.matchedBuyTop : lastAntData?.matchedSellTop, isMatchedFlowTooEarly(lastAntData));
 }
 function setMatchedView(view){
   matchedFlowView = view;
   matchedExpanded = false;
   document.getElementById('matched-buy-btn').classList.toggle('active', view === 'buy');
   document.getElementById('matched-sell-btn').classList.toggle('active', view === 'sell');
-  renderMatchedFlow(view === 'buy' ? lastAntData?.matchedBuyTop : lastAntData?.matchedSellTop);
+  renderMatchedFlow(view === 'buy' ? lastAntData?.matchedBuyTop : lastAntData?.matchedSellTop, isMatchedFlowTooEarly(lastAntData));
 }
 
 function renderFlowViews(data){
   if (!data) return;
   renderInstForeignFlowRows('instflow-tbody', instFlowView === 'buy' ? data.institutionBuyTop : data.institutionSellTop, 'institutionNetBuyAmount');
   renderInstForeignFlowRows('foreignflow-tbody', foreignFlowView === 'buy' ? data.foreignBuyTop : data.foreignSellTop, 'foreignNetBuyAmount');
-  renderMatchedFlow(matchedFlowView === 'buy' ? data.matchedBuyTop : data.matchedSellTop);
+  renderMatchedFlow(matchedFlowView === 'buy' ? data.matchedBuyTop : data.matchedSellTop, isMatchedFlowTooEarly(data));
 
   // 공매도 - 비중순(기본) / 금액순(재정렬)
   const shortByValue = [...(data.shortSaleTop || [])].sort((a, b) => Number(b.shortValue) - Number(a.shortValue));
