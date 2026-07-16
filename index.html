@@ -206,6 +206,13 @@
     color:var(--text-soft); font-weight:700; font-size:13px; cursor:pointer;
   }
   .flow-toggle-btn.active{ background:var(--accent); color:#fff; border-color:var(--accent); }
+  .flow-toggle-row{ padding:0 16px; }
+  #credit-trend-period-row{ padding:12px 16px 0; margin-bottom:8px; }
+  .credit-trend-chart-block{ padding:8px 16px 16px; }
+  .credit-trend-chart-label{ font-size:13px; font-weight:700; color:var(--text-soft); margin-bottom:6px; }
+  .credit-trend-latest-value{ font-size:13px; font-weight:800; color:var(--text); margin-left:6px; }
+  .credit-trend-chart-block svg{ display:block; width:100%; height:auto; }
+  #credit-trend-loading{ padding:16px; }
   .app-footer .footer-links{ display:flex; justify-content:center; gap:14px; margin-bottom:10px; }
   .app-footer .footer-links a{ color:var(--text-soft); text-decoration:none; }
   .app-footer .footer-links a:hover{ color:var(--accent); }
@@ -347,6 +354,31 @@
         <div class="credit-sub-row">
           <div class="credit-sub-item"><div class="flow-label">고객예탁금</div><div class="credit-sub-value" id="market-credit-deposit">-</div></div>
           <div class="credit-sub-item"><div class="flow-label">미수금</div><div class="credit-sub-value" id="market-credit-unsettled">-</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:14px;">
+      <div class="panel-head"><h3>신용잔고·예탁금·미수금 추이</h3><span class="rank-badge">시장 전체</span></div>
+      <div class="flow-toggle-row" id="credit-trend-period-row">
+        <button class="flow-toggle-btn active" data-period="30" onclick="setCreditTrendPeriod('30')">30일</button>
+        <button class="flow-toggle-btn" data-period="180" onclick="setCreditTrendPeriod('180')">6개월</button>
+        <button class="flow-toggle-btn" data-period="365" onclick="setCreditTrendPeriod('365')">1년</button>
+        <button class="flow-toggle-btn" data-period="1825" onclick="setCreditTrendPeriod('1825')">5년</button>
+      </div>
+      <div id="credit-trend-loading" class="metric-note">불러오는 중...</div>
+      <div id="credit-trend-charts" style="display:none;">
+        <div class="credit-trend-chart-block">
+          <div class="credit-trend-chart-label">신용융자잔고 <span id="credit-trend-credit-latest" class="credit-trend-latest-value"></span></div>
+          <div id="credit-trend-credit-svg"></div>
+        </div>
+        <div class="credit-trend-chart-block">
+          <div class="credit-trend-chart-label">고객예탁금 <span id="credit-trend-deposit-latest" class="credit-trend-latest-value"></span></div>
+          <div id="credit-trend-deposit-svg"></div>
+        </div>
+        <div class="credit-trend-chart-block">
+          <div class="credit-trend-chart-label">미수금 <span id="credit-trend-unsettled-latest" class="credit-trend-latest-value"></span></div>
+          <div id="credit-trend-unsettled-svg"></div>
         </div>
       </div>
     </div>
@@ -554,6 +586,7 @@
 
 <script>
 const ANT_API_URL = 'https://kemidata-813625362143.asia-northeast3.run.app';
+const CREDIT_TREND_API_URL = 'https://kemidata-credittrend-813625362143.asia-northeast3.run.app';
 
 function showPage(id){
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -730,6 +763,88 @@ async function loadAntData(){
   } finally {
     loading = false;
   }
+}
+
+// ---------- 신용잔고·예탁금·미수금 추이 차트 ----------
+let creditTrendSeries = null; // 전체 기간(최대 5년) 원본 데이터, 한 번만 불러와서 캐싱
+let creditTrendPeriod = 30; // 기본 30일
+
+async function loadCreditTrend(){
+  try {
+    const res = await fetch(CREDIT_TREND_API_URL);
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error || '알 수 없는 오류');
+    creditTrendSeries = json.data.series || [];
+    renderCreditTrendCharts();
+  } catch (err) {
+    console.error('신용잔고 추이 로드 실패:', err);
+    const loadingEl = document.getElementById('credit-trend-loading');
+    if (loadingEl) loadingEl.textContent = '⚠ 추이 데이터를 불러오지 못했어요.';
+  }
+}
+
+function setCreditTrendPeriod(days){
+  creditTrendPeriod = Number(days);
+  document.querySelectorAll('#credit-trend-period-row .flow-toggle-btn').forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.period === String(days));
+  });
+  renderCreditTrendCharts();
+}
+
+function renderCreditTrendCharts(){
+  const loadingEl = document.getElementById('credit-trend-loading');
+  const chartsEl = document.getElementById('credit-trend-charts');
+  if (!creditTrendSeries || creditTrendSeries.length === 0) return;
+  if (loadingEl) loadingEl.style.display = 'none';
+  if (chartsEl) chartsEl.style.display = 'block';
+
+  const cutoff = Date.now() - creditTrendPeriod * 24 * 60 * 60 * 1000;
+  const filtered = creditTrendSeries.filter((r) => {
+    const y = r.date.slice(0,4), m = r.date.slice(4,6), d = r.date.slice(6,8);
+    return new Date(`${y}-${m}-${d}T00:00:00+09:00`).getTime() >= cutoff;
+  });
+  const points = filtered.length >= 2 ? filtered : creditTrendSeries.slice(-30); // 데이터 너무 적으면 최근 30개로 대체
+
+  drawTrendLine('credit-trend-credit-svg', points, 'creditLoanBalance', '#B85C08');
+  drawTrendLine('credit-trend-deposit-svg', points, 'custDeposit', '#3B82F6');
+  drawTrendLine('credit-trend-unsettled-svg', points, 'unsettledAmt', '#E5484D');
+
+  const last = points[points.length - 1];
+  setLatestLabel('credit-trend-credit-latest', last?.creditLoanBalance);
+  setLatestLabel('credit-trend-deposit-latest', last?.custDeposit);
+  setLatestLabel('credit-trend-unsettled-latest', last?.unsettledAmt);
+}
+
+function setLatestLabel(elId, eokVal){
+  const el = document.getElementById(elId);
+  if (!el) return;
+  el.textContent = eokVal == null ? '' : fmtEokToJo(eokVal);
+}
+
+// 값(억원 단위) 배열을 받아 심플한 SVG 라인차트를 그려서 컨테이너에 꽂아넣음 (외부 라이브러리 없이 직접 구현)
+function drawTrendLine(containerId, points, field, color){
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const vals = points.map((p) => Number(p[field])).filter((v) => !isNaN(v));
+  if (vals.length < 2) { container.innerHTML = '<div class="metric-note">데이터가 부족해요</div>'; return; }
+
+  const W = 600, H = 100, PAD = 6;
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const range = (max - min) || 1;
+  const stepX = (W - PAD * 2) / (vals.length - 1);
+  const coords = vals.map((v, i) => {
+    const x = PAD + i * stepX;
+    const y = PAD + (H - PAD * 2) * (1 - (v - min) / range);
+    return [x, y];
+  });
+  const linePath = coords.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+  const areaPath = `${linePath} L${coords[coords.length-1][0].toFixed(1)},${H-PAD} L${coords[0][0].toFixed(1)},${H-PAD} Z`;
+
+  container.innerHTML = `
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      <path d="${areaPath}" fill="${color}" opacity="0.08" stroke="none"></path>
+      <path d="${linePath}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+    </svg>`;
 }
 
 function flowAmountText(flow){
@@ -1007,6 +1122,7 @@ function setFlowView(category, view){
 loadAntData();
 // 30초마다 자동으로 다시 불러와서 실시간처럼 유지 (백엔드 60초 캐시와 맞물려 최대 60~90초 이내 최신 상태 유지)
 setInterval(loadAntData, 30000);
+loadCreditTrend(); // 신용잔고 추이는 하루 1번만 갱신되는 데이터라 최초 1회만 불러오면 충분함
 </script>
 </body>
 </html>
