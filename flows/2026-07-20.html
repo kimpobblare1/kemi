@@ -31,12 +31,13 @@
   .up{ color:var(--up); font-weight:700; }
   .down{ color:var(--down); font-weight:700; }
   table{ width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:14px; }
-  th, td{ padding:9px 10px; text-align:right; border-bottom:1px solid var(--border); }
-  th:first-child, td:first-child{ text-align:left; }
+  th, td{ padding:9px 10px; text-align:left; border-bottom:1px solid var(--border); }
   th{ font-size:12px; color:var(--text-soft); font-weight:700; }
   .example{ background:var(--surface); border-left:3px solid var(--accent); border-radius:8px; padding:14px 18px; font-size:14px; color:var(--text); margin:16px 0; }
   .example b{ color: var(--accent); }
   .caution{ background:#FDECEC; border-left:3px solid var(--up); border-radius:8px; padding:14px 18px; font-size:14px; margin:16px 0; }
+  td.hl{ background:var(--accent-soft); position:relative; }
+  td.hl::after{ content:'★ 교차'; display:inline-block; margin-left:8px; font-size:10.5px; font-weight:800; color:var(--accent); vertical-align:middle; }
   .disclaimer{ font-size:12.5px; color:var(--text-soft); background:var(--surface); border-radius:8px; padding:12px 16px; margin:28px 0 0; }
   a{ color:var(--accent); }
   .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; flex-wrap:wrap; }
@@ -123,15 +124,20 @@
     같은 종목을 두고 기관·외국인의 판단이 정반대로 갈린 게 특히 눈에 띄어요.
   </p>
 
+  <div class="example">
+    ★ 표시가 붙은 종목은 기관·외국인 TOP5 사이에 <b>같은 종목이 겹쳐서 나온 경우</b>예요.
+    한쪽만 봐서는 안 보이는 수급 엇갈림(또는 쏠림)을 바로 확인할 수 있어요.
+  </div>
+
   <h2>기관 순매수·순매도 TOP5</h2>
   <table>
-    <thead><tr><th>순위</th><th>기관 순매수</th><th>기관 순매도</th></tr></thead>
+    <thead><tr><th>기관 순매수</th><th>기관 순매도</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>SK <span class="up">+220억</span></td><td>SK하이닉스 <span class="down">-1,535억</span></td></tr>
-      <tr><td>2</td><td>S-Oil <span class="up">+167억</span></td><td>삼성전자 <span class="down">-625억</span></td></tr>
-      <tr><td>3</td><td>현대차 <span class="up">+140억</span></td><td>삼성SDI <span class="down">-116억</span></td></tr>
-      <tr><td>4</td><td>샘씨엔에스 <span class="up">+132억</span></td><td>테스 <span class="down">-85억</span></td></tr>
-      <tr><td>5</td><td>SK이노베이션 <span class="up">+130억</span></td><td>ISC <span class="down">-84억</span></td></tr>
+      <tr><td>1 SK <span class="up">+220억</span></td><td class="hl">1 SK하이닉스 <span class="down">-1,535억</span></td></tr>
+      <tr><td>2 S-Oil <span class="up">+167억</span></td><td class="hl">2 삼성전자 <span class="down">-625억</span></td></tr>
+      <tr><td class="hl">3 현대차 <span class="up">+140억</span></td><td>3 삼성SDI <span class="down">-116억</span></td></tr>
+      <tr><td>4 샘씨엔에스 <span class="up">+132억</span></td><td>4 테스 <span class="down">-85억</span></td></tr>
+      <tr><td>5 SK이노베이션 <span class="up">+130억</span></td><td>5 ISC <span class="down">-84억</span></td></tr>
     </tbody>
   </table>
   <p>
@@ -142,13 +148,13 @@
 
   <h2>외국인 순매수·순매도 TOP5</h2>
   <table>
-    <thead><tr><th>순위</th><th>외국인 순매수</th><th>외국인 순매도</th></tr></thead>
+    <thead><tr><th>외국인 순매수</th><th>외국인 순매도</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>SK하이닉스 <span class="up">+5,257억</span></td><td>현대차 <span class="down">-790억</span></td></tr>
-      <tr><td>2</td><td>삼성전자 <span class="up">+4,577억</span></td><td>SK스퀘어 <span class="down">-683억</span></td></tr>
-      <tr><td>3</td><td>삼성전자우 <span class="up">+1,337억</span></td><td>원익IPS <span class="down">-419억</span></td></tr>
-      <tr><td>4</td><td>하나금융지주 <span class="up">+470억</span></td><td>한화오션 <span class="down">-409억</span></td></tr>
-      <tr><td>5</td><td>삼성물산 <span class="up">+251억</span></td><td>한화에어로스페이스 <span class="down">-341억</span></td></tr>
+      <tr><td class="hl">1 SK하이닉스 <span class="up">+5,257억</span></td><td class="hl">1 현대차 <span class="down">-790억</span></td></tr>
+      <tr><td class="hl">2 삼성전자 <span class="up">+4,577억</span></td><td>2 SK스퀘어 <span class="down">-683억</span></td></tr>
+      <tr><td>3 삼성전자우 <span class="up">+1,337억</span></td><td>3 원익IPS <span class="down">-419억</span></td></tr>
+      <tr><td>4 하나금융지주 <span class="up">+470억</span></td><td>4 한화오션 <span class="down">-409억</span></td></tr>
+      <tr><td>5 삼성물산 <span class="up">+251억</span></td><td>5 한화에어로스페이스 <span class="down">-341억</span></td></tr>
     </tbody>
   </table>
   <p>
