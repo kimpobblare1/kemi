@@ -52,13 +52,16 @@
   .flow-block-title{ font-size:14px; font-weight:800; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
   .flow-block-title .dir-buy{ color:var(--up); }
   .flow-block-title .dir-sell{ color:var(--down); }
-  table.flow-table{ width:100%; border-collapse:collapse; font-size:13px; }
-  table.flow-table th{ text-align:left; font-size:10.5px; color:var(--text-soft); font-weight:700; padding:5px 6px; border-bottom:1px solid var(--border); }
+  table.flow-table{ width:100%; border-collapse:collapse; font-size:12px; }
+  table.flow-table th{ text-align:left; font-size:10px; color:var(--text-soft); font-weight:700; padding:5px 4px; border-bottom:1px solid var(--border); white-space:nowrap; }
   table.flow-table th.num-th{ text-align:right; }
-  table.flow-table td{ padding:6px; border-bottom:1px solid var(--border); }
+  table.flow-table td{ padding:6px 4px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  .flow-table-scroll{ overflow-x:auto; }
   table.flow-table td.num-td{ text-align:right; font-weight:700; font-variant-numeric:tabular-nums; }
   table.flow-table tr:last-child td{ border-bottom:none; }
   .rank-num{ color:var(--text-soft); font-weight:700; margin-right:4px; }
+  .num-td.up-color{ color:var(--up); }
+  .num-td.down-color{ color:var(--down); }
 
   .status-note{ text-align:center; color:var(--text-soft); font-size:14px; padding:40px 0; }
 
@@ -188,15 +191,39 @@ function fmtEok(millionWon){ // 백만원(부호있음) -> "+1,234억" / "-987�
   return sign + Math.abs(eokVal).toLocaleString('ko-KR') + '억';
 }
 
+function fmtNum(n){
+  const num = Number(n);
+  if (isNaN(num)) return '-';
+  return num.toLocaleString('ko-KR');
+}
+function trendSymbol(pct){
+  const p = Number(pct);
+  if (isNaN(p) || p === 0) return '보합';
+  return p > 0 ? '▲' : '▼';
+}
+function trendColorClass(pct){
+  const p = Number(pct);
+  if (isNaN(p) || p === 0) return '';
+  return p > 0 ? 'up-color' : 'down-color';
+}
+
 function buildFlowTable(title, dirClass, dirLabel, rows, amountField){
-  const rowsHtml = (rows || []).map((r, i) => `
-    <tr><td><span class="rank-num">${i+1}</span>${r.name}</td><td class="num-td">${fmtEok(r[amountField])}</td></tr>
-  `).join('') || '<tr><td colspan="2" style="color:var(--text-soft);">데이터 없음</td></tr>';
+  const rowsHtml = (rows || []).map((r, i) => {
+    const cls = trendColorClass(r.changePct);
+    return `
+    <tr>
+      <td><span class="rank-num">${i+1}</span>${r.name}</td>
+      <td class="num-td">${fmtNum(r.price)}</td>
+      <td class="num-td ${cls}">${trendSymbol(r.changePct)} ${fmtNum(Math.abs(Number(r.change)))}</td>
+      <td class="num-td ${cls}">${trendSymbol(r.changePct)} ${Math.abs(Number(r.changePct)).toFixed(2)}%</td>
+      <td class="num-td">${fmtEok(r[amountField])}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="5" style="color:var(--text-soft);">데이터 없음</td></tr>';
   return `
     <div class="flow-block">
       <div class="flow-block-title"><span class="${dirClass}">${title}</span></div>
       <table class="flow-table">
-        <thead><tr><th>종목명</th><th class="num-th">${dirLabel}금액</th></tr></thead>
+        <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">${dirLabel}금액</th></tr></thead>
         <tbody>${rowsHtml}</tbody>
       </table>
     </div>`;
