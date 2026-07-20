@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 16 Jul 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Mon, 20 Jul 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>SK하이닉스·삼성전자, 기관은 팔고 외국인은 대량 매수</title>
+    <link>https://www.gemidata.co.kr/flows/2026-07-20.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-07-20.html</guid>
+    <pubDate>Mon, 20 Jul 2026 18:00:00 +0900</pubDate>
+    <description>기관 순매도 1·2위(SK하이닉스·삼성전자)가 외국인 순매수 1·2위와 정확히 겹쳤어요. 현대차도 기관 순매수·외국인 순매도로 엇갈린 하루, 기관·외국인 매매 TOP5를 정리했습니다.</description>
+  </item>
 
   <item>
     <title>코스피 6.37% 또 급락, 반도체 악재에 사이드카 재발동</title>
