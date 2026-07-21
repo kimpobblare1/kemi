@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Mon, 20 Jul 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 21 Jul 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 3.56% 반등, 삼성전자·SK하이닉스가 이끌었다</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-21.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-21.html</guid>
+    <pubDate>Tue, 21 Jul 2026 18:00:00 +0900</pubDate>
+    <description>이번 주 계속된 급락 이후 큰 폭 반등. 삼성전자는 기관·외국인 모두 순매수 1위로 방향이 일치했지만, SK하이닉스는 기관은 사고 외국인은 대량 매도하며 정반대로 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>AI 과열 우려에 코스피·코스닥 동반 사이드카, 이번 주만 세 번째 급락</title>
