@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 21 Jul 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 22 Jul 2026 21:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>SK하이닉스 1.5조 외국인 매수, 기관은 정반대</title>
+    <link>https://www.gemidata.co.kr/flows/2026-07-22.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-07-22.html</guid>
+    <pubDate>Wed, 22 Jul 2026 21:00:00 +0900</pubDate>
+    <description>외국인이 SK하이닉스에 1조 5,207억 원을 순매수(TOP5 압도적 1위)했지만, 기관은 같은 종목을 순매도 1위로 잡았어요. 삼성전자도 똑같이 엇갈린 하루를 정리했습니다.</description>
+  </item>
+
+  <item>
+    <title>코스피 장중 +5% 매수 사이드카, 결국 +0.74% 마감</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-22.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-22.html</guid>
+    <pubDate>Wed, 22 Jul 2026 21:00:00 +0900</pubDate>
+    <description>낮 12시반 코스피가 +5.22%까지 급등하며 매수 사이드카 발동, 이후 상승분 대부분 반납. 외국인은 SK하이닉스·삼성전자를 대량 순매수했지만 기관은 정반대로 대량 순매도했어요.</description>
+  </item>
 
   <item>
     <title>삼성전자 동시 매수, SK하이닉스는 정반대</title>
