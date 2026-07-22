@@ -223,6 +223,7 @@
     box-shadow:0 4px 12px rgba(0,0,0,.2);
   }
   .credit-trend-chart-block svg .axis-label{ font-size:9px; fill:var(--text-soft); }
+  .credit-trend-chart-block svg .grid-line{ stroke:var(--border); stroke-width:1; }
   .credit-trend-chart-block svg .hover-line{ stroke:var(--text-soft); stroke-width:1; stroke-dasharray:3,3; opacity:0; }
   .credit-trend-chart-block svg .hover-dot{ opacity:0; }
   #credit-trend-toggle-head:hover{ background:var(--surface); }
@@ -885,17 +886,28 @@ function drawTrendLine(containerId, points, field, color){
   const vals = points.map((p) => Number(p[field]));
   if (vals.filter((v) => !isNaN(v)).length < 2) { container.innerHTML = '<div class="metric-note">데이터가 부족해요</div>'; return; }
 
-  const W = 600, H = 130, PAD = 6, CHART_H = 90, AXIS_Y = 112;
+  const W = 600, H = 130, PAD_L = 46, PAD_R = 6, PAD_T = 10, CHART_H = 84, AXIS_Y = 112;
   const min = Math.min(...vals), max = Math.max(...vals);
   const range = (max - min) || 1;
-  const stepX = points.length > 1 ? (W - PAD * 2) / (points.length - 1) : 0;
+  const stepX = points.length > 1 ? (W - PAD_L - PAD_R) / (points.length - 1) : 0;
   const coords = vals.map((v, i) => {
-    const x = PAD + i * stepX;
-    const y = PAD + CHART_H * (1 - (v - min) / range);
+    const x = PAD_L + i * stepX;
+    const y = PAD_T + CHART_H * (1 - (v - min) / range);
     return [x, y];
   });
   const linePath = coords.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
-  const areaPath = `${linePath} L${coords[coords.length-1][0].toFixed(1)},${PAD+CHART_H} L${coords[0][0].toFixed(1)},${PAD+CHART_H} Z`;
+  const areaPath = `${linePath} L${coords[coords.length-1][0].toFixed(1)},${PAD_T+CHART_H} L${coords[0][0].toFixed(1)},${PAD_T+CHART_H} Z`;
+
+  // 가로 보조선 + Y축 값 라벨 (아래부터 위로 4단계: 최소값 ~ 최대값)
+  const GRID_LEVELS = 4;
+  let gridLines = '';
+  for (let i = 0; i < GRID_LEVELS; i++) {
+    const ratio = i / (GRID_LEVELS - 1); // 0(아래) ~ 1(위)
+    const y = PAD_T + CHART_H * (1 - ratio);
+    const val = min + range * ratio;
+    gridLines += `<line class="grid-line" x1="${PAD_L}" y1="${y.toFixed(1)}" x2="${W - PAD_R}" y2="${y.toFixed(1)}"></line>`;
+    gridLines += `<text class="axis-label" x="${PAD_L - 8}" y="${(y + 3).toFixed(1)}" text-anchor="end">${fmtEokToJo(val)}</text>`;
+  }
 
   // 날짜 축 라벨: 너무 촘촘하지 않게 최대 5개만 (처음/끝 포함, 균등 간격)
   const LABEL_COUNT = Math.min(5, points.length);
@@ -908,12 +920,13 @@ function drawTrendLine(containerId, points, field, color){
 
   container.innerHTML = `
     <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      ${gridLines}
       <path d="${areaPath}" fill="${color}" opacity="0.08" stroke="none"></path>
       <path d="${linePath}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
       ${axisLabels}
-      <line class="hover-line" x1="0" y1="${PAD}" x2="0" y2="${PAD+CHART_H}"></line>
+      <line class="hover-line" x1="0" y1="${PAD_T}" x2="0" y2="${PAD_T+CHART_H}"></line>
       <circle class="hover-dot" r="3.5" fill="${color}" stroke="#fff" stroke-width="1.5"></circle>
-      <rect x="0" y="0" width="${W}" height="${PAD+CHART_H}" fill="transparent" class="hover-capture"></rect>
+      <rect x="${PAD_L}" y="0" width="${W - PAD_L - PAD_R}" height="${PAD_T+CHART_H}" fill="transparent" class="hover-capture"></rect>
     </svg>`;
 
   const svgEl = container.querySelector('svg');
@@ -925,7 +938,7 @@ function drawTrendLine(containerId, points, field, color){
   function showAt(clientX, clientY){
     const rect = svgEl.getBoundingClientRect();
     const relX = ((clientX - rect.left) / rect.width) * W;
-    let idx = Math.round((relX - PAD) / (stepX || 1));
+    let idx = Math.round((relX - PAD_L) / (stepX || 1));
     idx = Math.max(0, Math.min(points.length - 1, idx));
     const [x, y] = coords[idx];
     hoverLine.setAttribute('x1', x); hoverLine.setAttribute('x2', x);
