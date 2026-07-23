@@ -46,6 +46,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.gemidata.co.kr/briefs/2026-07-23.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.gemidata.co.kr/briefs/2026-07-22.html</loc>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
