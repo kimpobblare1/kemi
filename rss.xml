@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 22 Jul 2026 21:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 23 Jul 2026 20:30:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 4.40% 급등 7,096선, 코스닥 매수 사이드카</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-23.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-23.html</guid>
+    <pubDate>Thu, 23 Jul 2026 20:30:00 +0900</pubDate>
+    <description>알파벳 CapEx 가이던스 확인 후 AI 인프라 투자 기대감 확산, 외국인 4거래일 연속 순매수(누적 약 7조 원). SK하이닉스는 외국인 순매수 1위인데 기관은 순매도 1위로 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>SK하이닉스 1.5조 외국인 매수, 기관은 정반대</title>
