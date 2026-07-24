@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 23 Jul 2026 20:30:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 24 Jul 2026 19:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>SK하이닉스·삼성전자 동반 매도로 돌아섰다</title>
+    <link>https://www.gemidata.co.kr/flows/2026-07-24.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-07-24.html</guid>
+    <pubDate>Fri, 24 Jul 2026 19:00:00 +0900</pubDate>
+    <description>SK하이닉스·삼성전자가 기관·외국인 순매도 1·2위를 동시에 차지했어요. 지난 나흘 엇갈리던 흐름이 오늘은 깨졌고, 삼성바이오로직스는 반대로 순매수 1위를 동시에 차지했어요.</description>
+  </item>
+
+  <item>
+    <title>중동 리스크에 코스피·코스닥 동반 매도 사이드카, 5%대 급락</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-24.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-24.html</guid>
+    <pubDate>Fri, 24 Jul 2026 19:00:00 +0900</pubDate>
+    <description>미·이란 군사 충돌 우려로 유가·美 국채금리 급등. 개인 홀로 5조 원 넘게 순매수하며 방어했지만 외국인·기관 동반 매도. 신용잔고·미수금은 감소, 예탁금은 증가해 위험 신호는 오히려 완화됐어요.</description>
+  </item>
 
   <item>
     <title>SK하이닉스 1조 외국인 매수, 기관은 나흘째 정반대</title>
