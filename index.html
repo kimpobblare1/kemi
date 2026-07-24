@@ -227,6 +227,20 @@
   .credit-trend-chart-block svg .hover-line{ stroke:var(--text-soft); stroke-width:1; stroke-dasharray:3,3; opacity:0; }
   .credit-trend-chart-block svg .hover-dot{ opacity:0; }
   #credit-trend-toggle-head:hover{ background:var(--surface); }
+  .click-hint{
+    position:absolute; top:-22px; right:16px; font-size:11px; font-weight:800;
+    color:var(--up); white-space:nowrap; pointer-events:none;
+  }
+  @keyframes credit-trend-pulse{
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(15,155,142,0.45); }
+    50% { transform: scale(1.06); box-shadow: 0 0 0 5px rgba(15,155,142,0); }
+  }
+  @keyframes credit-trend-hint-bounce{
+    0%, 100% { transform: translateY(0); opacity:1; }
+    50% { transform: translateY(-3px); opacity:0.7; }
+  }
+  #credit-trend-chevron.attn{ animation: credit-trend-pulse 1.6s ease-in-out infinite; }
+  .click-hint.attn{ animation: credit-trend-hint-bounce 1.6s ease-in-out infinite; }
   .app-footer .footer-links{ display:flex; justify-content:center; gap:14px; margin-bottom:10px; }
   .app-footer .footer-links a{ color:var(--text-soft); text-decoration:none; }
   .app-footer .footer-links a:hover{ color:var(--accent); }
@@ -335,7 +349,7 @@
       <button class="tab-link" data-page="foreignflow" onclick="showPage('foreignflow')">외국인매매</button>
       <a class="tab-link" href="/market-brief.html">시황분석<span class="new-badge">NEW</span></a>
       <a class="tab-link" href="/flow-archive.html">TOP5 조회</a>
-      <a class="tab-link" href="/flows.html">기관외국인분석</a>
+      <a class="tab-link" href="/flows.html">기관외국인분석<span class="new-badge">NEW</span></a>
     </div>
   </nav>
 </header>
@@ -393,9 +407,10 @@
     </div>
 
     <div class="panel" style="margin-bottom:14px;">
-      <div class="panel-head" id="credit-trend-toggle-head" onclick="toggleCreditTrendPanel()" style="cursor:pointer;">
+      <div class="panel-head" id="credit-trend-toggle-head" onclick="toggleCreditTrendPanel()" style="cursor:pointer; position:relative;">
         <h3>신용잔고·예탁금·미수금 추이</h3>
-        <span class="rank-badge" id="credit-trend-chevron">펼치기 ▾</span>
+        <span class="click-hint attn" id="credit-trend-click-hint">👆 클릭해보세요!</span>
+        <span class="rank-badge attn" id="credit-trend-chevron">펼치기 ▾</span>
       </div>
       <div id="credit-trend-body" style="display:none;">
         <div class="flow-toggle-row" id="credit-trend-period-row">
@@ -813,9 +828,12 @@ let creditTrendLoaded = false; // 지연 로딩 여부 (펼치기 전엔 안 불
 function toggleCreditTrendPanel(){
   const body = document.getElementById('credit-trend-body');
   const chevron = document.getElementById('credit-trend-chevron');
+  const hint = document.getElementById('credit-trend-click-hint');
   const isOpen = body.style.display !== 'none';
   body.style.display = isOpen ? 'none' : 'block';
   chevron.textContent = isOpen ? '펼치기 ▾' : '접기 ▴';
+  chevron.classList.remove('attn'); // 한 번이라도 클릭했으면 더 이상 깜빡일 필요 없음
+  if (hint) hint.remove();
   if (!isOpen && !creditTrendLoaded) {
     creditTrendLoaded = true;
     loadCreditTrend(); // 처음 펼칠 때만 불러옴 (하루 1번만 바뀌는 데이터라 매번 미리 불러올 필요 없음)
