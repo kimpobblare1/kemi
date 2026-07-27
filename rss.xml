@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 24 Jul 2026 19:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Mon, 27 Jul 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>네이버 급등에도 외국인은 순매도</title>
+    <link>https://www.gemidata.co.kr/flows/2026-07-27.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-07-27.html</guid>
+    <pubDate>Mon, 27 Jul 2026 20:00:00 +0900</pubDate>
+    <description>외국인이 삼성전자에서만 1조 1,278억 원을 순매도(TOP5 압도적 1위)했어요. +10.60% 급등한 네이버조차 기관은 사고 외국인은 팔며 시각이 갈렸어요.</description>
+  </item>
+
+  <item>
+    <title>네이버 +10.6%, 코스피·코스닥 동반 상승</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-27.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-27.html</guid>
+    <pubDate>Mon, 27 Jul 2026 20:00:00 +0900</pubDate>
+    <description>네이버가 엔비디아 3대주주 편입설에 +10.60% 급등. 외국인은 삼성전자·SK하이닉스를 대량 순매도했지만 개인·기관이 그 물량을 받아내며 지수를 방어했어요.</description>
+  </item>
 
   <item>
     <title>롤러코스터 한 주, 결국 코스피는 제자리였다</title>
