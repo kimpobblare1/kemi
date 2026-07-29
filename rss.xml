@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 28 Jul 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 29 Jul 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>삼성전자는 동조, SK하이닉스는 여전히 엇갈림</title>
+    <link>https://www.gemidata.co.kr/flows/2026-07-29.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-07-29.html</guid>
+    <pubDate>Wed, 29 Jul 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자는 기관 순매수 1위·외국인 순매수 2위로 모처럼 동조했어요. SK하이닉스는 기관 매수·외국인 매도로 여전히 엇갈렸고, 삼성전자우는 반대 방향이었어요.</description>
+  </item>
+
+  <item>
+    <title>아침엔 올랐는데 또 급락, 코스피·코스닥 동반 매도 사이드카</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-29.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-29.html</guid>
+    <pubDate>Wed, 29 Jul 2026 20:00:00 +0900</pubDate>
+    <description>장중 +3.40%까지 올랐다가 급락 반전, 등락폭 544포인트. 이번 주 세 번째 롤러코스터 장이에요. 삼성전자는 기관·외국인 모두 순매수했지만 SK하이닉스는 여전히 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>검은 화요일, 코스피 10.84% 폭락에 서킷브레이커 발동</title>
