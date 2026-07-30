@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 29 Jul 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 30 Jul 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>6000선 눈앞서 또 반납, “희망고문” 장세 계속</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-30.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-30.html</guid>
+    <pubDate>Thu, 30 Jul 2026 20:00:00 +0900</pubDate>
+    <description>장중 5,976선까지 올라 6000선 회복을 시도했으나 반납. 최근 사흘간 코스피 17% 급락, 7월 들어 역대 낙폭 상위 15위에 세 차례 등극했어요. SK스퀘어는 오늘도 기관·외국인이 엇갈렸어요.</description>
+  </item>
+
+  <item>
+    <title>SK스퀘어, 외국인 매수·기관 매도 또 엇갈림</title>
+    <link>https://www.gemidata.co.kr/flows/2026-07-30.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-07-30.html</guid>
+    <pubDate>Thu, 30 Jul 2026 20:00:00 +0900</pubDate>
+    <description>SK스퀘어는 외국인 순매수 1위·기관 순매도 1위로 또다시 정반대였어요. SK하이닉스도 기관 매수·외국인 매도로 엇갈렸고, 셀트리온·삼성전자우는 방향이 일치했어요.</description>
+  </item>
 
   <item>
     <title>삼성전자는 동조, SK하이닉스는 여전히 엇갈림</title>
