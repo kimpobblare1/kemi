@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 30 Jul 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 31 Jul 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>역대 최대 17.91% 폭등, 코스피 “불기둥” 반등</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-31.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-31.html</guid>
+    <pubDate>Fri, 31 Jul 2026 20:00:00 +0900</pubDate>
+    <description>코스피가 하루 만에 +17.91% 폭등하며 역대 최대 상승률·상승폭을 경신했어요. 외국인이 SK하이닉스·삼성전자에 역대급 매수, 기관도 동조했어요. 개장 직후 매수 사이드카가 발동됐어요.</description>
+  </item>
 
   <item>
     <title>6000선 눈앞서 또 반납, “희망고문” 장세 계속</title>
@@ -14,6 +22,14 @@
     <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-30.html</guid>
     <pubDate>Thu, 30 Jul 2026 20:00:00 +0900</pubDate>
     <description>장중 5,976선까지 올라 6000선 회복을 시도했으나 반납. 최근 사흘간 코스피 17% 급락, 7월 들어 역대 낙폭 상위 15위에 세 차례 등극했어요. SK스퀘어는 오늘도 기관·외국인이 엇갈렸어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스·삼성전자, 완벽한 동조</title>
+    <link>https://www.gemidata.co.kr/flows/2026-07-31.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-07-31.html</guid>
+    <pubDate>Fri, 31 Jul 2026 20:00:00 +0900</pubDate>
+    <description>외국인이 SK하이닉스·삼성전자에 8조 원 넘게 순매수했어요. 기관도 같은 두 종목을 순매수 1·2위로 담으며 완벽하게 동조했어요. 최근 반복되던 엇갈림이 사라진 하루예요.</description>
   </item>
 
   <item>
