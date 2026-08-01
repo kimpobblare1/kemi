@@ -473,11 +473,11 @@
         <div class="info-note" style="margin:12px 16px 12px;">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
         <div class="table-scroll">
         <table class="data-table">
-          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
-          <tbody id="home-credit-value-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">시총대비</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
+          <tbody id="home-credit-value-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
         </table>
         </div>
-        <p class="metric-note">신용잔고 금액이 큰 순서대로 정렬했어요 (비율이 아니라 실제 잔고 금액 기준).</p>
+        <p class="metric-note">신용잔고 금액이 큰 순서대로 정렬했어요 (비율이 아니라 실제 잔고 금액 기준). 시총대비 = 신용잔고금액 ÷ 실시간 시가총액.</p>
       </div>
     </div>
 
@@ -498,11 +498,11 @@
         <div class="info-note" style="margin:12px 16px 12px;">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
         <div class="table-scroll">
         <table class="data-table">
-          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
-          <tbody id="home-credit-tbody"><tr><td colspan="6">불러오는 중...</td></tr></tbody>
+          <thead><tr><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">시총대비</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
+          <tbody id="home-credit-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
         </table>
         </div>
-        <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요.</p>
+        <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요. 시총대비 = 신용잔고금액 ÷ 실시간 시가총액으로 계산한 참고용 보조 지표예요.</p>
       </div>
     </div>
   </section>
@@ -539,11 +539,11 @@
     <div class="panel">
       <div class="table-scroll">
       <table class="data-table">
-        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
-        <tbody id="creditflow-tbody"><tr><td colspan="7">불러오는 중...</td></tr></tbody>
+        <thead><tr><th>#</th><th>종목명</th><th class="num-th">현재가</th><th class="num-th">변동금액</th><th class="num-th">등락률</th><th class="num-th">신용잔고비율</th><th class="num-th">시총대비</th><th class="num-th amount-th">신용잔고금액(억)</th></tr></thead>
+        <tbody id="creditflow-tbody"><tr><td colspan="8">불러오는 중...</td></tr></tbody>
       </table>
       </div>
-      <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요.</p>
+      <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요(KRX 공식 정의). 시총대비 = 신용잔고금액 ÷ 실시간 시가총액으로 계산한 참고용 보조 지표예요.</p>
     </div>
   </section>
 
@@ -1070,8 +1070,9 @@ function render(data){
       ${changeCell(r)}
       ${pctCell(r)}
       <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
+      <td class="num-cell">${ratioChip(r.marketCapBasedRate, 10)}</td>
       <td class="num-cell amount-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
-    </tr>`, 6);
+    </tr>`, 7);
 
   // 홈 - 공매도 금액 TOP10 (비중이 아니라 실제 금액 기준 재정렬)
   const shortByValue = [...(data.shortSaleTop || [])].sort((a, b) => Number(b.shortValue) - Number(a.shortValue)).slice(0, 10);
@@ -1094,8 +1095,9 @@ function render(data){
       ${changeCell(r)}
       ${pctCell(r)}
       <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
+      <td class="num-cell">${ratioChip(r.marketCapBasedRate, 10)}</td>
       <td class="num-cell amount-cell">${eokFromManwon(r.loanBalanceAmt)}</td>
-    </tr>`, 6);
+    </tr>`, 7);
 
   // TOP100 - 시가총액 (조건검색 기반, 시장비중 필드는 이 데이터소스에 없어서 컬럼 제거됨)
   renderRows('cap-tbody', data.marketCapTop, (r, i) => `
@@ -1134,7 +1136,8 @@ function renderCreditFlow(rows){
     ${changeCell(r)}
     ${pctCell(r)}
     <td class="num-cell">${ratioChip(r.loanBalanceRate, 10)}</td>
-    <td class="num-cell amount-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 7);
+    <td class="num-cell">${ratioChip(r.marketCapBasedRate, 10)}</td>
+    <td class="num-cell amount-cell">${eokFromManwon(r.loanBalanceAmt)}</td></tr>`, 8);
 }
 
 function renderFlowRows(tbodyId, rows){
