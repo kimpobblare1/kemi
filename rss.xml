@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 31 Jul 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 02 Aug 2026 12:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>역대급 폭락과 폭등이 함께 나온 주, 그런데도 결과는 하락</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-07-31-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-07-31-weekly.html</guid>
+    <pubDate>Sun, 02 Aug 2026 12:00:00 +0900</pubDate>
+    <description>역대 최대 낙폭(-10.84%)과 역대 최대 상승률(+17.91%)이 같은 주에 모두 나왔어요. 그런데도 주간 순변동은 코스피 -1.42%, 코스닥 -3.80%로 하락 마감. SK하이닉스 수급 롤러코스터를 정리했습니다.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스 닷새간의 반전 드라마</title>
+    <link>https://www.gemidata.co.kr/flows/2026-07-31-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-07-31-weekly.html</guid>
+    <pubDate>Sun, 02 Aug 2026 12:00:00 +0900</pubDate>
+    <description>SK하이닉스는 나흘 연속 기관·외국인 수급이 정반대였다가 금요일 하루 만에 완벽 동조로 급반전했어요. SK스퀘어는 한 주 내내 반대 패턴을 보였고요. 한 주간 기관·외국인 TOP5를 결산했습니다.</description>
+  </item>
 
   <item>
     <title>역대 최대 17.91% 폭등, 코스피 “불기둥” 반등</title>
