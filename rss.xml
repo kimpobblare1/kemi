@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Sun, 02 Aug 2026 12:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Mon, 03 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>폭등 다음 날은 차익실현, 코스피 5.12% 하락</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-03.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-03.html</guid>
+    <pubDate>Mon, 03 Aug 2026 20:00:00 +0900</pubDate>
+    <description>지난 금요일 역대급 폭등 이후 차익실현 물량 출회. 개인은 홀로 순매수하며 방어했지만 외국인·기관은 SK하이닉스·삼성전자를 동반 순매도했어요. 신용잔고는 하루 만에 10% 급감했어요.</description>
+  </item>
+
+  <item>
+    <title>금요일과 정반대, 손잡고 팔았다</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-03.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-03.html</guid>
+    <pubDate>Mon, 03 Aug 2026 20:00:00 +0900</pubDate>
+    <description>외국인이 SK하이닉스에서만 1조 6,955억 원을 순매도했어요. 기관도 같은 SK하이닉스·삼성전자를 순매도 1·2위로 담으며 완벽하게 동조했어요. 지난 금요일과 정반대인 하루였어요.</description>
+  </item>
 
   <item>
     <title>역대급 폭락과 폭등이 함께 나온 주, 그런데도 결과는 하락</title>
