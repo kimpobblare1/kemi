@@ -143,6 +143,7 @@
   .index-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-bottom:22px; }
   .daily-badge{ font-size:10px; font-weight:700; color:var(--accent); background:var(--accent-soft); padding:2px 7px; border-radius:999px; }
   .credit-asof{ font-size:10.5px; color:var(--text-soft); margin:2px 0 10px; }
+  .credit-asof-stale{ color:var(--up); font-weight:700; }
   .credit-sub-row{ display:flex; gap:18px; border-top:1px solid var(--border); padding-top:8px; margin-top:2px; }
   .credit-sub-item .flow-label{ margin-bottom:3px; }
   .credit-sub-item .credit-sub-value{ font-size:12px; font-weight:700; color:var(--text); }
@@ -713,6 +714,16 @@ function fmtBsopDate(yyyymmdd){ // "20240430" -> "04/30 기준"
   const ymd = fmtYmd(yyyymmdd);
   return ymd ? `${ymd} 기준` : '';
 }
+function daysSinceYmdKST(yyyymmdd){ // "20240430" 형식 날짜가 오늘(KST) 기준 며칠 전인지 계산. 형식이 이상하면 null 반환
+  const s = String(yyyymmdd || '');
+  if (s.length !== 8) return null;
+  const y = Number(s.slice(0,4)), m = Number(s.slice(4,6)), d = Number(s.slice(6,8));
+  if (!y || !m || !d) return null;
+  const target = Date.UTC(y, m - 1, d);
+  const nowKst = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
+  const todayUtc = Date.UTC(nowKst.getFullYear(), nowKst.getMonth(), nowKst.getDate());
+  return Math.round((todayUtc - target) / 86400000);
+}
 function eok(rawWon){ // 원 -> 억원 (1억 미만이라 반올림하면 0이 되는 경우엔 소수점 둘째자리까지 표시)
   const num = Number(rawWon);
   if (isNaN(num)) return '-';
@@ -1012,7 +1023,17 @@ function render(data){
   if (data.marketCredit){
     const mc = data.marketCredit;
     document.getElementById('market-credit-value').textContent = fmtEokToJo(mc.creditLoanBalance);
-    document.getElementById('market-credit-asof').textContent = `⏰ ${fmtBsopDate(mc.date)} · 실시간 아님 (하루 1회 갱신)`;
+    const asofEl = document.getElementById('market-credit-asof');
+    const staleDays = daysSinceYmdKST(mc.date);
+    // 보통 주말을 끼면 최대 3일 정도 차이는 정상 범위(예: 월요일에 금요일자 표시)라, 4일 이상 벌어지면
+    // KIS 쪽 발표 자체가 지연되고 있다는 뜻으로 보고 눈에 띄게 경고 문구를 붙여줌
+    if (staleDays !== null && staleDays > 3) {
+      asofEl.innerHTML = `⚠️ ${fmtBsopDate(mc.date)} · 발표 지연 중 (실시간 아님, ${staleDays}일 전 데이터)`;
+      asofEl.classList.add('credit-asof-stale');
+    } else {
+      asofEl.textContent = `⏰ ${fmtBsopDate(mc.date)} · 실시간 아님 (하루 1회 갱신)`;
+      asofEl.classList.remove('credit-asof-stale');
+    }
     const el = document.getElementById('market-credit-change');
     if (mc.change === null){
       el.textContent = '전일 대비 데이터 없음';
