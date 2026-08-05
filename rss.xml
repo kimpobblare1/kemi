@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 04 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 05 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 +3.76% 급등, 외국인 매수가 이끌었다</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-05.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-05.html</guid>
+    <pubDate>Wed, 05 Aug 2026 20:00:00 +0900</pubDate>
+    <description>코스피·코스닥이 동반 급등했는데 상승 주체는 정반대였어요. 코스피는 외국인 순매수(+1조 4,464억), 코스닥은 개인 순매수(+3,941억)가 이끌었어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스만 동조, 나머지는 다 엇갈렸다</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-05.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-05.html</guid>
+    <pubDate>Wed, 05 Aug 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스는 기관·외국인 모두 순매수 1위로 완벽 동조했어요. 삼성전자·삼성전기·에이피알은 기관·외국인이 서로 반대로 움직이며 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>장중 급락 딛고 V자 반등, 코스닥은 3일 연속 매수 사이드카</title>
@@ -22,6 +38,14 @@
     <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-03.html</guid>
     <pubDate>Mon, 03 Aug 2026 20:00:00 +0900</pubDate>
     <description>지난 금요일 역대급 폭등 이후 차익실현 물량 출회. 개인은 홀로 순매수하며 방어했지만 외국인·기관은 SK하이닉스·삼성전자를 동반 순매도했어요. 신용잔고는 하루 만에 10% 급감했어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자만 정반대, SK하이닉스·삼성전기는 동조 매도</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-04.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-04.html</guid>
+    <pubDate>Tue, 04 Aug 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자는 외국인 순매수 1위(+1,073억)인데 기관은 순매도 1위(-4,620억)로 완전히 엇갈렸어요. SK하이닉스·삼성전기는 기관·외국인 모두 순매도로 동조했어요.</description>
   </item>
 
   <item>
