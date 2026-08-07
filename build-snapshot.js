@@ -45,6 +45,24 @@ function manwonToEok(manwon) {
   if (manwon === null || manwon === undefined || isNaN(manwon)) return null;
   return Math.round((Number(manwon) * 10000) / 100000000);
 }
+// 기관·외국인·개인 순매수금액은 "백만원" 단위로 내려옴 -> 억원으로 변환(÷100) 후 부호 포함 표시
+function fmtSignedEokFromMillion(millionWon) {
+  if (millionWon === null || millionWon === undefined || isNaN(millionWon)) return '-';
+  const eokVal = Number(millionWon) / 100;
+  const rounded = Math.round(eokVal);
+  return (rounded > 0 ? '+' : '') + rounded.toLocaleString('ko-KR') + '억';
+}
+// 억원 -> 조원 (예: 284180억 -> "28.4조원") — 신용잔고·고객예탁금처럼 큰 숫자 표시용
+function fmtEokToJo(eokVal) {
+  if (eokVal === null || eokVal === undefined || isNaN(eokVal)) return '-';
+  return (Number(eokVal) / 10000).toFixed(1) + '조원';
+}
+// "YYYYMMDD" -> "MM/DD"
+function fmtYmdShort(yyyymmdd) {
+  const s = String(yyyymmdd || '');
+  if (s.length !== 8) return s;
+  return `${s.slice(4, 6)}/${s.slice(6, 8)}`;
+}
 
 // ---------- 데이터 -> 스냅샷 HTML ----------
 function buildSnapshotHtml(data) {
@@ -73,9 +91,9 @@ function buildSnapshotHtml(data) {
       </div>
       ${flow ? `
       <div style="display:flex;gap:10px;margin-top:8px;font-size:11.5px;color:#8A8F98;">
-        <span>개인 ${fmtSigned(flow.individual?.amount)}</span>
-        <span>외국인 ${fmtSigned(flow.foreign?.amount)}</span>
-        <span>기관 ${fmtSigned(flow.institution?.amount)}</span>
+        <span>개인 ${fmtSignedEokFromMillion(flow.individual?.amount)}</span>
+        <span>외국인 ${fmtSignedEokFromMillion(flow.foreign?.amount)}</span>
+        <span>기관 ${fmtSignedEokFromMillion(flow.institution?.amount)}</span>
       </div>` : ''}
     </div>`;
 
@@ -106,9 +124,9 @@ function buildSnapshotHtml(data) {
       ${indexBox('KOSDAQ', kosdaq, kosdaqFlow)}
       <div style="flex:1;min-width:200px;background:#F6F7F9;border:1px solid #E8EAED;border-radius:12px;padding:14px 16px;">
         <div style="font-size:12px;font-weight:700;color:#8A8F98;">신용잔고 · 시장전체</div>
-        <div style="font-size:19px;font-weight:800;margin:4px 0;">${credit ? fmtNum(credit.creditLoanBalance) + '억' : '-'}</div>
+        <div style="font-size:19px;font-weight:800;margin:4px 0;">${credit ? fmtEokToJo(credit.creditLoanBalance) : '-'}</div>
         <div style="font-size:11.5px;color:#8A8F98;">
-          ${credit ? `${credit.date ?? ''} 기준 · 고객예탁금 ${fmtNum(credit.custDeposit)}억 · 미수금 ${fmtNum(credit.unsettledAmt)}억` : '-'}
+          ${credit ? `${fmtYmdShort(credit.date)} 기준 · 고객예탁금 ${fmtEokToJo(credit.custDeposit)} · 미수금 ${fmtNum(credit.unsettledAmt)}억` : '-'}
         </div>
       </div>
     </div>
