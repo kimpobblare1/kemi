@@ -148,8 +148,19 @@ function renderCreditRows(rows) {
     </tr>`).join('');
 }
 
+// ---------- 예전 v1 버전이 남긴 중복 섹션 제거 (있으면 삭제, 없으면 그대로 통과) ----------
+function removeLegacySnapshotSection(html) {
+  const start = html.indexOf('<!-- SSR_SNAPSHOT_START -->');
+  const end = html.indexOf('<!-- SSR_SNAPSHOT_END -->');
+  if (start === -1 || end === -1) return html; // 찌꺼기 없음 — 정상
+  const endFull = end + '<!-- SSR_SNAPSHOT_END -->'.length;
+  console.log('[build-snapshot] 예전 버전이 남긴 중복 섹션 발견 — 제거함');
+  return html.slice(0, start) + html.slice(endFull);
+}
+
 // ---------- 메인: index.html 안의 "빈 자리"들을 실제 값으로 채움 ----------
 function fillIndexHtml(html, data) {
+  html = removeLegacySnapshotSection(html);
   if (!data) return html; // 데이터 없으면 원본 그대로 (기존 "불러오는 중..." 유지)
 
   // KOSPI / KOSDAQ 지수 카드
