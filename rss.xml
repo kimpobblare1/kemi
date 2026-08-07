@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 06 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 07 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피·코스닥 동반 조정, 급락 다음 날 숨 고르기</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-07.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-07.html</guid>
+    <pubDate>Fri, 07 Aug 2026 20:00:00 +0900</pubDate>
+    <description>전일 급락 이후 코스피·코스닥이 나란히 소폭 조정을 받았어요. 외국인이 이틀 연속 순매도(-8,651억)했지만 개인·기관 매수로 낙폭은 제한적이었어요.</description>
+  </item>
+
+  <item>
+    <title>7개 종목이 겹친 날, 대부분 엇갈렸다</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-07.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-07.html</guid>
+    <pubDate>Fri, 07 Aug 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스·삼성전자·SK스퀘어·삼성전기·삼성생명은 기관·외국인이 서로 반대로 움직이며 엇갈렸어요. NAVER는 동조 매도, 삼성SDI는 동조 매수였어요.</description>
+  </item>
 
   <item>
     <title>코스피 -4.58% 급락, 외국인 3.3조 매도 폭탄</title>
