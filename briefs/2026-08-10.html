@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="alternate" type="application/rss+xml" title="개미데이터 시황분석 RSS" href="https://www.gemidata.co.kr/rss.xml">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M24%2027%20Q13%2025%208%2018%22/%3E%3Cpath%20d%3D%22M22%2032%20Q9%2032%205%2032%22/%3E%3Cpath%20d%3D%22M24%2037%20Q13%2041%209%2048%22/%3E%3Cpath%20d%3D%22M40%2027%20Q51%2025%2056%2018%22/%3E%3Cpath%20d%3D%22M42%2032%20Q55%2032%2059%2032%22/%3E%3Cpath%20d%3D%22M40%2037%20Q51%2041%2055%2048%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M27%2011%20Q22%204%2019%202%22/%3E%3Cpath%20d%3D%22M37%2011%20Q42%204%2045%202%22/%3E%3C/g%3E%3Ccircle%20cx%3D%2219%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2248.5%22%20rx%3D%2213.2%22%20ry%3D%2212.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%228.4%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2215%22%20r%3D%228.8%22%20fill%3D%22%230F9B8E%22/%3E%3C/svg%3E">
-<title>주간결산(8/3~8/7) — 코스피 롤러코스터 한 주, 코스닥은 나홀로 질주 | 개미데이터</title>
-<link rel="canonical" href="https://www.gemidata.co.kr/briefs/2026-08-07-weekly.html">
-<meta name="description" content="이번 주(8/4~8/7) 코스피는 화(+1.62%)→수(+3.76%)→목(-4.58%)→금(-0.60%) 롤러코스터를 탔지만 8/4 대비 8/7 종가는 -1.58%. 코스닥은 4거래일 내내 상승하며 +2.32%로 대조적인 흐름을 보였어요.">
+<title>2026.08.10 시황분석 — 코스닥 6.97% 폭등, 코스피는 소폭 반등 | 개미데이터</title>
+<link rel="canonical" href="https://www.gemidata.co.kr/briefs/2026-08-10.html">
+<meta name="description" content="8월 10일 코스피 6,299.66(+0.65%) 소폭 반등, 코스닥은 854.47(+6.97%) 폭등. 코스닥은 개인 매도(-6,729억)에도 외국인·기관이 함께 사며 급등을 주도했어요. 알테오젠은 기관·외국인 동시 순매수 1위였어요.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="주간결산(8/3~8/7) — 코스피 롤러코스터 한 주, 코스닥은 나홀로 질주 | 개미데이터">
-<meta property="og:description" content="이번 주(8/4~8/7) 코스피는 화(+1.62%)→수(+3.76%)→목(-4.58%)→금(-0.60%) 롤러코스터를 탔지만 8/4 대비 8/7 종가는 -1.58%. 코스닥은 4거래일 내내 상승하며 +2.32%로 대조적인 흐름을 보였어요.">
-<meta property="og:url" content="https://www.gemidata.co.kr/briefs/2026-08-07-weekly.html">
+<meta property="og:title" content="2026.08.10 시황분석 — 코스닥 6.97% 폭등, 코스피는 소폭 반등 | 개미데이터">
+<meta property="og:description" content="8월 10일 코스피 6,299.66(+0.65%) 소폭 반등, 코스닥은 854.47(+6.97%) 폭등. 코스닥은 개인 매도(-6,729억)에도 외국인·기관이 함께 사며 급등을 주도했어요.">
+<meta property="og:url" content="https://www.gemidata.co.kr/briefs/2026-08-10.html">
 <meta property="og:image" content="https://www.gemidata.co.kr/og-image.png">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
@@ -40,6 +40,11 @@
   strong{ font-weight:700; }
   .up{ color:var(--up); font-weight:700; }
   .down{ color:var(--down); font-weight:700; }
+  .index-summary{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:20px 0 28px; }
+  .index-box{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 18px; }
+  .index-box .name{ font-size:12px; font-weight:700; color:var(--text-soft); margin-bottom:6px; }
+  .index-box .value{ font-size:20px; font-weight:800; margin-bottom:4px; }
+  .index-box .chg{ font-size:13px; font-weight:700; }
   table{ width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:14px; }
   th, td{ padding:9px 10px; text-align:right; border-bottom:1px solid var(--border); }
   th:first-child, td:first-child{ text-align:left; }
@@ -83,23 +88,22 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "코스피 롤러코스터 한 주, 코스닥은 나홀로 질주",
-  "description": "이번 주(8/4~8/7) 코스피는 화(+1.62%)→수(+3.76%)→목(-4.58%)→금(-0.60%) 롤러코스터를 탔지만 8/4 대비 8/7 종가는 -1.58%. 코스닥은 4거래일 내내 상승하며 +2.32%로 대조적인 흐름을 보였어요.",
-  "datePublished": "2026-08-07T09:00:00+09:00",
-  "dateModified": "2026-08-07T09:00:00+09:00",
+  "headline": "코스닥 6.97% 폭등, 코스피는 소폭 반등",
+  "description": "8월 10일 코스피 6,299.66(+0.65%) 소폭 반등, 코스닥은 854.47(+6.97%) 폭등. 코스닥은 개인 매도(-6,729억)에도 외국인·기관이 함께 사며 급등을 주도했어요. 알테오젠은 기관·외국인 동시 순매수 1위였어요.",
+  "datePublished": "2026-08-10T20:00:00+09:00",
+  "dateModified": "2026-08-10T20:00:00+09:00",
   "author": { "@type": "Organization", "name": "개미데이터" },
   "publisher": {
     "@type": "Organization",
     "name": "개미데이터",
     "logo": { "@type": "ImageObject", "url": "https://www.gemidata.co.kr/og-image.png" }
   },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.gemidata.co.kr/briefs/2026-08-07-weekly.html" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.gemidata.co.kr/briefs/2026-08-10.html" },
   "image": "https://www.gemidata.co.kr/og-image.png"
 }
 </script>
-<meta property="article:published_time" content="2026-08-07T09:00:00+09:00">
-<link rel="prev" href="https://www.gemidata.co.kr/briefs/2026-08-07.html">
-<link rel="next" href="https://www.gemidata.co.kr/briefs/2026-08-10.html">
+<meta property="article:published_time" content="2026-08-10T20:00:00+09:00">
+<link rel="prev" href="https://www.gemidata.co.kr/briefs/2026-08-07-weekly.html">
 </head>
 <body>
 <header class="topbar">
@@ -143,112 +147,98 @@
 </header>
 <div class="wrap">
   <a class="back" href="/market-brief.html">← 시황분석 목록으로</a>
-  <div class="meta"><span class="tag">주간결산</span>2026.08.03~08.07</div>
-  <h1>코스피 롤러코스터 한 주, 코스닥은 나홀로 질주</h1>
+  <div class="meta"><span class="tag">시황분석</span>2026.08.10</div>
+  <h1>코스닥 6.97% 폭등, 코스피는 소폭 반등</h1>
 
-  <div class="example">
-    ★ 이번 주(8/3~8/7) 코스피·코스닥 시황을 한 주 단위로 결산한 글이에요. 매일자 시황은
-    <a href="/market-brief.html">시황분석 목록</a>에서 확인하실 수 있어요.
+  <div class="index-summary">
+    <div class="index-box">
+      <div class="name">KOSPI</div>
+      <div class="value">6,299.66</div>
+      <div class="chg up">▲ 40.89 (+0.65%)</div>
+    </div>
+    <div class="index-box">
+      <div class="name">KOSDAQ</div>
+      <div class="value">854.47</div>
+      <div class="chg up">▲ 55.66 (+6.97%)</div>
+    </div>
   </div>
 
   <p>
-    개미데이터가 정리하는 한 주간 코스피·코스닥 시황입니다. 이번 주(8/4~8/7)는
-    <strong>코스피가 하루가 멀다 하고 방향을 바꾼 롤러코스터 장세였던 반면, 코스닥은
-    4거래일 내내 상승하며 대조적인 흐름을 보였어요.</strong> 참고로 기관·외국인 종목별
-    매매 TOP5는 <a href="/flows.html">기관외국인분석</a> 코너의 별도 주간결산 글에서
-    다루고 있어 이 글에서는 지수·수급·공매도·신용잔고 위주로 정리했습니다.
+    개미데이터가 정리하는 오늘의 코스피·코스닥 시황입니다. 오늘(8/10)은 <strong>코스닥이
+    6.97% 폭등하며 이번 달 최대 상승폭을 기록</strong>한 하루였어요. 참고로 기관·외국인
+    종목별 매매 TOP5는 <a href="/flows.html">기관외국인분석</a> 코너에서 별도로 다루고
+    있어, 이 글에서는 지수·수급·공매도·신용잔고 위주로 정리했습니다.
   </p>
 
-  <h2>지수 · 수급 요약</h2>
-  <table>
-    <thead><tr><th>구분</th><th>종가</th><th>등락</th><th>등락률</th></tr></thead>
-    <tbody>
-      <tr><td>8/4(화)</td><td>6,358.95</td><td class="up">▲ 101.50</td><td class="up">+1.62%</td></tr>
-      <tr><td>8/5(수)</td><td>6,598.26</td><td class="up">▲ 239.31</td><td class="up">+3.76%</td></tr>
-      <tr><td>8/6(목)</td><td>6,296.38</td><td class="down">▼ 301.88</td><td class="down">-4.58%</td></tr>
-      <tr><td>8/7(금)</td><td>6,258.77</td><td class="down">▼ 37.61</td><td class="down">-0.60%</td></tr>
-    </tbody>
-  </table>
-
+  <h2>수급 동향 — 개인이 파는데 코스닥은 폭등</h2>
   <p>
-    코스피는 <strong>화요일 반등(+1.62%)을 시작으로 수요일 급등(+3.76%), 목요일 급락(-4.58%),
-    금요일 조정(-0.60%)까지 나흘 내내 방향이 바뀌었어요.</strong> 8/4 종가(6,358.95) 대비
-    8/7 종가(6,258.77)는 오히려 -1.58% 낮아져서, 큰 변동성에도 불구하고 결과적으로는
-    뒷걸음질한 한 주였어요. 코스닥은 정반대로 <strong>4거래일 내내 상승하며 8/4(780.72)
-    대비 8/7(798.81) +2.32%</strong>를 기록했어요. 8/4 매수 사이드카를 시작으로 반도체 외
-    종목 순환매가 코스닥을 꾸준히 밀어올린 한 주였어요.
+    코스피는 <strong>개인(+9,003억)·기관(+5,692억)이 매수했지만 외국인이 1조 4,909억 원을
+    순매도</strong>하며 상승폭을 제한했어요. 코스닥은 정반대로 <strong>개인이 6,729억 원을
+    순매도했는데도 외국인(+1,027억)·기관(+5,667억)이 함께 사며 6.97% 폭등</strong>했어요.
+    개인이 파는 와중에 수급 주체가 완전히 뒤바뀐 하루였어요.
   </p>
 
-  <h2>투자자별 순매수 (억 원)</h2>
   <table>
     <thead><tr><th>구분</th><th>개인</th><th>외국인</th><th>기관</th></tr></thead>
     <tbody>
-      <tr><td>8/4 코스피</td><td class="up">+8,187</td><td class="down">-3,716</td><td class="down">-5,385</td></tr>
-      <tr><td>8/4 코스닥</td><td class="down">-2,587</td><td class="down">-2,775</td><td class="up">+5,438</td></tr>
-      <tr><td>8/5 코스피</td><td class="down">-11,844</td><td class="up">+14,464</td><td class="down">-2,838</td></tr>
-      <tr><td>8/5 코스닥</td><td class="up">+3,941</td><td class="down">-2,979</td><td class="down">-1,101</td></tr>
-      <tr><td>8/6 코스피</td><td class="up">+33,367</td><td class="down">-32,893</td><td class="down">-1,214</td></tr>
-      <tr><td>8/6 코스닥</td><td class="up">+863</td><td class="down">-2,481</td><td class="up">+1,615</td></tr>
-      <tr><td>8/7 코스피</td><td class="up">+2,675</td><td class="down">-8,651</td><td class="up">+5,854</td></tr>
-      <tr><td>8/7 코스닥</td><td class="up">+3,402</td><td class="down">-2,522</td><td class="down">-1,044</td></tr>
+      <tr><td>코스피</td><td class="up">▲ 9,003억</td><td class="down">▼ 14,909억</td><td class="up">▲ 5,692억</td></tr>
+      <tr><td>코스닥</td><td class="down">▼ 6,729억</td><td class="up">▲ 1,027억</td><td class="up">▲ 5,667억</td></tr>
     </tbody>
   </table>
 
   <h2>공매도·신용잔고 현황</h2>
   <p>
-    한 주간 TOP5에 가장 자주 이름을 올린 종목들을 8/7(공매도)·8/6(신용잔고) 최신 기준으로
-    정리했어요.
+    공매도는 08/10 당일 확정치, 신용잔고는 08/07 기준(T+1 지연)이에요.
   </p>
 
   <table>
     <thead><tr><th>지표</th><th>수치</th><th>기준일</th></tr></thead>
     <tbody>
-      <tr><td>공매도 1위</td><td>삼성전자 5,462억(비중6.86%)</td><td>8/7 확정</td></tr>
-      <tr><td>공매도 2위</td><td>SK하이닉스 5,362억(비중4.10%)</td><td>8/7 확정</td></tr>
-      <tr><td>신용잔고 1위</td><td>현대차 7,147억</td><td>8/6 기준</td></tr>
-      <tr><td>신용잔고 2위</td><td>NAVER 5,459억</td><td>8/6 기준</td></tr>
-      <tr><td>신용융자잔고(시장전체)</td><td>27.4조 → 28.8조 원</td><td>8/4→8/6</td></tr>
+      <tr><td>신용융자잔고</td><td>29조 2,000억(+1.52%)</td><td>8/7 기준</td></tr>
+      <tr><td>고객예탁금</td><td>104조 2,000억</td><td>8/7 기준</td></tr>
+      <tr><td>미수금</td><td>1조 34억</td><td>8/7 기준</td></tr>
+      <tr><td>공매도 1위(금액)</td><td>SK하이닉스 3,158억</td><td>8/10 확정</td></tr>
+      <tr><td>신용잔고금액 1위</td><td>현대차 7,025억</td><td>8/7 기준</td></tr>
     </tbody>
   </table>
 
   <p>
-    한 주간 <strong>삼성전자·SK하이닉스는 매일 공매도·신용잔고 TOP5 단골로 등장</strong>했어요.
-    특히 8/6~8/7 이틀은 두 종목이 공매도 금액 1·2위를 나란히 차지하며 반도체 대형주에
-    매도 관심이 집중됐어요. 신용융자잔고는 27.4조 → 28.8조 원으로 한 주 내내 증가세를
-    이어갔는데, 특히 코스피가 -4.58% 급락했던 8/6에도 오히려 늘어난 점이 눈에 띄어요.
+    오늘은 <strong>알테오젠이 +16.39% 급등하며 공매도금액(346억)·신용잔고금액(4,015억)
+    TOP5에 동시에 등장</strong>했어요. HD현대중공업(공매도비중 27.48%)·한국항공우주
+    (37.26%)는 여전히 공매도 비중이 높은 수준이에요. 신용융자잔고는 29.2조 원으로
+    계속 늘고 있어요.
   </p>
 
-  <div class="caution">
-    ⚠️ 신용융자잔고가 급락장 속에서도 계속 늘어나고 있어요. 하락장에서 레버리지가 확대되는 건
-    추가 조정 시 반대매매 압력으로 이어질 수 있으니 다음 주에도 계속 지켜보시면 좋겠어요.
+  <div class="example">
+    ℹ️ 공매도·신용잔고 TOP30 상세 순위는 개미데이터 홈 화면의 "공매도"·"신용잔고" 탭에서
+    실시간으로 확인하실 수 있어요.
   </div>
 
-  <h2>이번 주, 어떻게 봐야 할까</h2>
+  <h2>오늘 하루, 어떻게 봐야 할까</h2>
   <p>
-    정리하면 이번 주는 <strong>코스피가 나흘 내내 방향을 바꾸며 롤러코스터를 탔지만,
-    결과적으로는 -1.58%로 마무리</strong>됐어요. 코스닥은 4거래일 연속 상승하며 +2.32%로
-    코스피와 대조적인 나홀로 강세를 보였고요. 신용융자잔고는 급락장 속에서도 오히려 늘어나며
-    한 주 내내 증가세를 이어갔어요 — 다음 주 변동성 관리 포인트로 계속 지켜보면 좋겠어요.
+    정리하면 오늘은 <strong>코스닥이 개인 매도에도 외국인·기관 매수로 6.97% 폭등한
+    하루</strong>였어요. 코스피는 외국인 대량 매도(-1조 4,909억) 속에서도 개인·기관
+    매수로 +0.65% 반등했고요. 알테오젠이 공매도·신용잔고·매수 열기를 동시에 받으며
+    오늘 가장 주목받은 종목이었어요.
   </p>
 
   <div class="caution">
-    ⚠️ 이 글은 개미데이터가 수집한 주간 시장 데이터를 바탕으로 한 시황 정리이며, 특정 종목이나
+    ⚠️ 이 글은 개미데이터가 수집한 당일 시장 데이터를 바탕으로 한 시황 정리이며, 특정 종목이나
     매매를 추천하는 내용이 아니에요. 투자 판단과 책임은 투자자 본인에게 있습니다.
   </div>
 
   <div class="disclaimer">
-    📊 이 글은 8/4~8/7 나흘간(월요일 8/3은 개별 지수 데이터 미확보) 데이터를 기준으로
-    작성했어요. 매일자 상세 데이터는 개미데이터 홈 화면과 시황분석 목록에서 확인하실 수
-    있어요.
+    📊 지수·수급·공매도 데이터는 당일(8/10) 기준, 신용잔고·고객예탁금·미수금은 직전(8/7)
+    발표치를 사용했어요. 실시간 데이터는 개미데이터 홈 화면에서 바로 확인하실 수 있어요.
   </div>
 
   <div class="disclaimer">
-    📝 이 글을 요약한 버전을 <a href="https://blog.naver.com/qrator_bin/224372327645" target="_blank" rel="noopener noreferrer">네이버 블로그</a>에서도 보실 수 있어요.
+    📝 이 글을 요약한 버전을 <a href="https://blog.naver.com/qrator_bin/224374408371" target="_blank" rel="noopener noreferrer">네이버 블로그</a>에서도 보실 수 있어요.
   </div>
 
   <div class="post-nav" style="display:flex;justify-content:space-between;gap:12px;margin-top:32px;padding-top:20px;border-top:1px solid var(--border);font-size:13.5px;">
-    <a href="/briefs/2026-08-07.html" style="color:var(--accent);text-decoration:none;">← 이전 글 (2026.08.07)</a>
-    <a href="/briefs/2026-08-10.html" style="color:var(--accent);text-decoration:none;">다음 글 (2026.08.10) →</a>
+    <a href="/briefs/2026-08-07-weekly.html" style="color:var(--accent);text-decoration:none;">← 이전 글 (2026.08.07 주간결산)</a>
+    <span></span>
   </div>
 
   <div class="footer-nav">
