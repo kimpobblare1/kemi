@@ -26,6 +26,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.gemidata.co.kr/briefs/2026-08-12.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.gemidata.co.kr/briefs/2026-08-11.html</loc>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -109,6 +114,11 @@
     <loc>https://www.gemidata.co.kr/flows.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/flows/2026-08-12.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.gemidata.co.kr/flows/2026-08-11.html</loc>

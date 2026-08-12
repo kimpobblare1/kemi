@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 11 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 12 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 3.68% 급등, 외국인 2.8조 매수 폭탄</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-12.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-12.html</guid>
+    <pubDate>Wed, 12 Aug 2026 20:00:00 +0900</pubDate>
+    <description>외국인이 2조 8,354억 원을 순매수하며 코스피 급등을 주도했어요. 개인은 3조 1,911억 매도로 차익실현했어요.</description>
+  </item>
+
+  <item>
+    <title>엇갈림 없이 전부 손잡고 샀다</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-12.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-12.html</guid>
+    <pubDate>Wed, 12 Aug 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자·SK하이닉스·LG전자·삼성전기 4개 종목 모두 기관·외국인이 동조 매수했어요.</description>
+  </item>
 
   <item>
     <title>코스피·코스닥 동반 상승, 연이틀 강세</title>
