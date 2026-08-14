@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 12 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 13 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 3.56% 급등, 사상 첫 6,800선 돌파</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-13.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-13.html</guid>
+    <pubDate>Thu, 13 Aug 2026 20:00:00 +0900</pubDate>
+    <description>코스피가 이틀 연속 급등하며 사상 처음 6,800선을 돌파했어요. 삼성전자 공매도금액이 7,737억으로 급증했어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자만 엇갈렸다</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-13.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-13.html</guid>
+    <pubDate>Thu, 13 Aug 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자는 외국인 순매수 1위(+14,461억)인데 기관은 순매도 4위였어요.</description>
+  </item>
 
   <item>
     <title>코스피 3.68% 급등, 외국인 2.8조 매수 폭탄</title>
