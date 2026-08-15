@@ -5,15 +5,31 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 13 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 14 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
 
   <item>
-    <title>코스피 3.56% 급등, 사상 첫 6,800선 돌파</title>
+    <title>코스피 2.42% 상승, 외국인 3조 매수 지속</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-14.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-14.html</guid>
+    <pubDate>Fri, 14 Aug 2026 20:00:00 +0900</pubDate>
+    <description>외국인이 코스피에서 3조 387억 원을 순매수하며 3거래일 연속 상승을 이끌었어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자·SK하이닉스, 기관·외국인 정반대</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-14.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-14.html</guid>
+    <pubDate>Fri, 14 Aug 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자·SK하이닉스는 외국인 대량 매수, 기관 대량 매도로 정확히 반대 방향이었어요.</description>
+  </item>
+
+  <item>
+    <title>코스피 3.56% 급등, 6,800선 돌파</title>
     <link>https://www.gemidata.co.kr/briefs/2026-08-13.html</link>
     <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-13.html</guid>
     <pubDate>Thu, 13 Aug 2026 20:00:00 +0900</pubDate>
-    <description>코스피가 이틀 연속 급등하며 사상 처음 6,800선을 돌파했어요. 삼성전자 공매도금액이 7,737억으로 급증했어요.</description>
+    <description>코스피가 이틀 연속 급등하며 6,800선을 돌파했어요. 삼성전자 공매도금액이 7,737억으로 급증했어요.</description>
   </item>
 
   <item>
@@ -45,7 +61,7 @@
     <link>https://www.gemidata.co.kr/briefs/2026-08-11.html</link>
     <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-11.html</guid>
     <pubDate>Tue, 11 Aug 2026 20:00:00 +0900</pubDate>
-    <description>코스피·코스닥이 전일에 이어 이틀 연속 동반 상승했어요. 신용융자잔고는 30.0조 원으로 사상 처음 30조 원을 돌파했어요.</description>
+    <description>코스피·코스닥이 전일에 이어 이틀 연속 동반 상승했어요. 신용융자잔고는 30.0조 원으로 늘어났어요.</description>
   </item>
 
   <item>
