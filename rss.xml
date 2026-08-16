@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 14 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 16 Aug 2026 09:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>한 주간 코스피 +11.49%, 코스닥 +8.24% 폭등</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-14-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-14-weekly.html</guid>
+    <pubDate>Sun, 16 Aug 2026 09:00:00 +0900</pubDate>
+    <description>코스피가 5거래일 내내 상승하며 한 주 만에 11%대 넘게 올랐어요. 신용융자잔고 증가와 대형주 쏠림의 의미, 다음 주 관전 포인트까지 분석했어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스, 2주째 매일 겹치는 종목</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-14-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-14-weekly.html</guid>
+    <pubDate>Sun, 16 Aug 2026 09:00:00 +0900</pubDate>
+    <description>SK하이닉스가 2주 연속으로 5거래일 내내 기관·외국인 TOP5에 동시 등장했어요. 외국인은 사고 기관은 파는 구도를 데이터로 분석했어요.</description>
+  </item>
 
   <item>
     <title>코스피 2.42% 상승, 외국인 3조 매수 지속</title>
