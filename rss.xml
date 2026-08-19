@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 18 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 19 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 5.80% 폭락, 개인 홀로 4.6조 순매수 방어</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-19.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-19.html</guid>
+    <pubDate>Wed, 19 Aug 2026 20:00:00 +0900</pubDate>
+    <description>코스피 6,471.17(-5.80%)로 대폭락. 개인이 홀로 4조 6,357억 원을 순매수하며 방어했지만 외국인·기관 동반 매도를 막기엔 역부족이었어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자·SK하이닉스, 이틀째 동반 매도</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-19.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-19.html</guid>
+    <pubDate>Wed, 19 Aug 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자를 기관·외국인이 나란히 순매도했어요. SK하이닉스는 외국인이 1조 170억 원을 순매도하며 오늘 최대 규모를 기록했어요.</description>
+  </item>
 
   <item>
     <title>코스피 1.55% 급락, 기관·외국인 동반 매도</title>
