@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 20 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 21 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 0.88% 상승, 코스닥은 4.63% 급락 — 엇갈린 하루</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-21.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-21.html</guid>
+    <pubDate>Fri, 21 Aug 2026 20:00:00 +0900</pubDate>
+    <description>코스피 6,912.95(+0.88%), 코스닥 801.94(-4.63%)로 두 시장이 정반대로 움직였어요. 코스피는 기관이, 코스닥은 개인이 순매수를 주도했어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자우·SK하이닉스, 기관·외국인 정반대</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-21.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-21.html</guid>
+    <pubDate>Fri, 21 Aug 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자우를 기관은 순매수, 외국인은 순매도로 정반대로 담았어요. SK하이닉스도 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>코스피 5.89% 급반등, 외국인 순매수 1.7조 주도</title>
