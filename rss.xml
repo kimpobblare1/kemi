@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 21 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 23 Aug 2026 09:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>한 주간 코스피 -0.93%, 극심한 변동성 속 혼조</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-21-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-21-weekly.html</guid>
+    <pubDate>Sun, 23 Aug 2026 09:00:00 +0900</pubDate>
+    <description>이번 주(8/18~8/21) 코스피는 나흘간 등락률 방향이 세 번 바뀌며 8/14 종가 대비 -0.93%, 코스닥은 -7.25% 내렸어요. 극심한 변동성 속에서도 신용융자잔고는 나흘 연속 증가했어요.</description>
+  </item>
 
   <item>
     <title>코스피 0.88% 상승, 코스닥은 4.63% 급락 — 엇갈린 하루</title>
