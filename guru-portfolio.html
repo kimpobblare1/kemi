@@ -116,8 +116,8 @@
   table{ width:100%; border-collapse:collapse; font-size:13px; }
   th, td{ padding:8px 10px; text-align:right; border-bottom:1px solid var(--border); }
   th:first-child, td:first-child{ text-align:left; }
+  th:nth-child(2), td.name-cell{ text-align:left; }
   th{ font-size:11.5px; color:var(--text-soft); font-weight:700; }
-  td.name-cell{ text-align:left; }
   td.name-cell .en{ display:block; font-size:11px; color:var(--text-soft); }
 
   .change-badge{
@@ -399,7 +399,7 @@ function renderDetail(key) {
       <span></span>
       <span class="col-name">종목명</span>
       <span class="col-pct">비중</span>
-      <span class="col-change">${hasComparison ? '변동내역' : ''}</span>
+      <span class="col-change">${hasComparison ? '전분기 대비' : ''}</span>
     </div>
   `;
 
