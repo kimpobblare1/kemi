@@ -88,25 +88,29 @@
 
   .top-holdings-title{ font-size:15px; font-weight:700; margin:0 0 2px; }
   .top-holdings-sub{ font-size:11.5px; color:var(--text-soft); margin:0 0 16px; }
-  .donut-wrap{ display:flex; gap:28px; align-items:center; flex-wrap:wrap; margin-bottom:22px; }
-  .donut-svg{ flex-shrink:0; }
-  .donut-legend{ flex:1; min-width:220px; display:flex; flex-direction:column; gap:0; }
-  .legend-row{
-    display:flex; align-items:center; gap:8px; padding:9px 0;
-    border-bottom:1px solid var(--border);
+  .donut-wrap{ display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap; margin-bottom:22px; }
+  .donut-svg{ flex-shrink:0; margin-top:20px; }
+  .donut-legend{ flex:1; min-width:280px; display:flex; flex-direction:column; gap:0; }
+
+  /* 종목명 / 비중 / 변동내역 세 컬럼 폭을 grid로 고정해서 항상 일렬로 맞춰요 */
+  .legend-header, .legend-row{
+    display:grid; grid-template-columns:20px minmax(0,1fr) 56px 128px; align-items:center; gap:8px;
   }
+  .legend-header{
+    padding:0 0 8px; border-bottom:1px solid var(--text); font-size:11px; font-weight:700; color:var(--text-soft);
+  }
+  .legend-header .col-pct, .legend-header .col-change{ text-align:right; }
+  .legend-row{ padding:9px 0; border-bottom:1px solid var(--border); }
   .legend-row:last-child{ border-bottom:none; }
-  .legend-swatch{ width:12px; height:12px; border-radius:3px; flex-shrink:0; }
-  .legend-name{ font-size:13.5px; font-weight:600; flex:0 1 auto; max-width:38%; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .legend-swatch{ width:12px; height:12px; border-radius:3px; }
+  .legend-name{ font-size:13.5px; font-weight:600; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .legend-name .en{ font-size:11px; color:var(--text-soft); font-weight:500; margin-left:4px; }
-  .legend-pct{ font-size:13.5px; font-weight:700; color:var(--text); flex-shrink:0; width:48px; text-align:right; }
-  .legend-spacer{ flex:1; min-width:8px; }
-  .legend-change{ flex-shrink:0; display:flex; flex-direction:column; align-items:flex-end; gap:2px; width:128px; }
+  .legend-pct{ font-size:13.5px; font-weight:700; color:var(--text); text-align:right; }
+  .legend-change{ display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
 
   @media (max-width:640px){
     .donut-wrap{ flex-direction:column; align-items:flex-start; }
-    .legend-name{ max-width:30%; }
-    .legend-change{ width:100px; }
+    .legend-header, .legend-row{ grid-template-columns:16px minmax(0,1fr) 48px 100px; }
   }
 
   table{ width:100%; border-collapse:collapse; font-size:13px; }
@@ -377,8 +381,7 @@ function renderDetail(key) {
       <span class="legend-swatch" style="background:${CHART_COLORS[i % CHART_COLORS.length]}"></span>
       <span class="legend-name">${h.nameKr || h.nameEn}${h.nameKr ? `<span class="en">${h.ticker || h.nameEn}</span>` : ''}</span>
       <span class="legend-pct">${h.weightPct}%</span>
-      <span class="legend-spacer"></span>
-      ${hasComparison ? `<span class="legend-change">${changeBadgeHtml(h)}</span>` : ''}
+      <span class="legend-change">${hasComparison ? changeBadgeHtml(h) : ''}</span>
     </div>
   `).join('');
 
@@ -387,9 +390,18 @@ function renderDetail(key) {
       <span class="legend-swatch" style="background:#D8DCE1"></span>
       <span class="legend-name">기타(11위 이하 ${rest.length}개 종목)</span>
       <span class="legend-pct">${restPct}%</span>
-      <span class="legend-spacer"></span>
+      <span class="legend-change"></span>
     </div>
   ` : '';
+
+  const legendHeaderHtml = `
+    <div class="legend-header">
+      <span></span>
+      <span class="col-name">종목명</span>
+      <span class="col-pct">비중</span>
+      <span class="col-change">${hasComparison ? '변동내역' : ''}</span>
+    </div>
+  `;
 
   const topHtml = `
     <p class="top-holdings-title">보유 비중 Top10</p>
@@ -399,7 +411,7 @@ function renderDetail(key) {
     </p>
     <div class="donut-wrap">
       ${donutChartSvg(top10, restPct)}
-      <div class="donut-legend">${legendHtml}${restLegendRow}</div>
+      <div class="donut-legend">${legendHeaderHtml}${legendHtml}${restLegendRow}</div>
     </div>
   `;
 
