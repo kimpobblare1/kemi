@@ -92,18 +92,21 @@
   .donut-svg{ flex-shrink:0; }
   .donut-legend{ flex:1; min-width:220px; display:flex; flex-direction:column; gap:0; }
   .legend-row{
-    display:flex; align-items:center; gap:10px; padding:9px 0;
+    display:flex; align-items:center; gap:8px; padding:9px 0;
     border-bottom:1px solid var(--border);
   }
   .legend-row:last-child{ border-bottom:none; }
   .legend-swatch{ width:12px; height:12px; border-radius:3px; flex-shrink:0; }
-  .legend-name{ font-size:13.5px; font-weight:600; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .legend-name{ font-size:13.5px; font-weight:600; flex:0 1 auto; max-width:38%; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .legend-name .en{ font-size:11px; color:var(--text-soft); font-weight:500; margin-left:4px; }
-  .legend-pct{ font-size:13.5px; font-weight:700; color:var(--text); flex-shrink:0; width:52px; text-align:right; }
-  .legend-change{ flex-shrink:0; text-align:right; min-width:110px; }
+  .legend-pct{ font-size:13.5px; font-weight:700; color:var(--text); flex-shrink:0; width:48px; text-align:right; }
+  .legend-spacer{ flex:1; min-width:8px; }
+  .legend-change{ flex-shrink:0; display:flex; flex-direction:column; align-items:flex-end; gap:2px; width:128px; }
 
   @media (max-width:640px){
     .donut-wrap{ flex-direction:column; align-items:flex-start; }
+    .legend-name{ max-width:30%; }
+    .legend-change{ width:100px; }
   }
 
   table{ width:100%; border-collapse:collapse; font-size:13px; }
@@ -115,13 +118,13 @@
 
   .change-badge{
     display:inline-flex; align-items:center; gap:3px; font-size:11px; font-weight:700;
-    padding:2px 7px; border-radius:999px; white-space:nowrap; float:right;
+    padding:2px 7px; border-radius:999px; white-space:nowrap;
   }
   .change-badge.new{ background:#E4F6F3; color:var(--accent); }
   .change-badge.increased{ background:#FDEAEA; color:var(--up); }
   .change-badge.decreased{ background:#EAF0FD; color:var(--down); }
   .change-badge.same{ background:var(--surface); color:var(--text-soft); }
-  .change-sub{ font-size:10.5px; color:var(--text-soft); margin-top:2px; text-align:right; }
+  .change-sub{ font-size:10.5px; color:var(--text-soft); white-space:nowrap; }
 
   .sold-out-section{ margin-top:24px; }
   .sold-out-section h3{ font-size:13.5px; margin:0 0 10px; }
@@ -317,7 +320,7 @@ function changeBadgeHtml(h) {
   const info = map[h.changeStatus] || map.same;
   const sub = h.changeStatus === 'new'
     ? ''
-    : `<div class="change-sub">직전 ${h.prevWeightPct}% → 이번 ${h.weightPct}%</div>`;
+    : `<span class="change-sub">${h.prevWeightPct}% → ${h.weightPct}%</span>`;
   return `<span class="change-badge ${h.changeStatus}">${info.icon} ${info.label}</span>${sub}`;
 }
 
@@ -374,6 +377,7 @@ function renderDetail(key) {
       <span class="legend-swatch" style="background:${CHART_COLORS[i % CHART_COLORS.length]}"></span>
       <span class="legend-name">${h.nameKr || h.nameEn}${h.nameKr ? `<span class="en">${h.ticker || h.nameEn}</span>` : ''}</span>
       <span class="legend-pct">${h.weightPct}%</span>
+      <span class="legend-spacer"></span>
       ${hasComparison ? `<span class="legend-change">${changeBadgeHtml(h)}</span>` : ''}
     </div>
   `).join('');
@@ -383,6 +387,7 @@ function renderDetail(key) {
       <span class="legend-swatch" style="background:#D8DCE1"></span>
       <span class="legend-name">기타(11위 이하 ${rest.length}개 종목)</span>
       <span class="legend-pct">${restPct}%</span>
+      <span class="legend-spacer"></span>
     </div>
   ` : '';
 
