@@ -255,11 +255,20 @@ function fmtDate(iso) {
   return `${y}.${m}.${d}`;
 }
 
+// 천달러(thousand USD) 단위 원본 값을 "약 OOO억 달러" 형태로 표시해요.
+// 천단위 콤마도 함께 넣어서 숫자를 한눈에 읽기 쉽게 했어요.
 function fmtUsd(thousandUsd) {
-  const usd = thousandUsd * 1000;
-  if (usd >= 1e11) return (usd / 1e8).toFixed(0) + '억 달러';
-  if (usd >= 1e8) return (usd / 1e8).toFixed(1) + '억 달러';
-  return (usd / 1e6).toFixed(0) + '백만 달러';
+  const usd = thousandUsd * 1000; // 실제 달러 금액
+  const eok = usd / 1e8; // 1억 달러 단위 (한국식 "억" 표현)
+
+  if (eok >= 1) {
+    // 정수부에 천단위 콤마를 넣어요. 예: 2,992억 달러
+    const rounded = Math.round(eok);
+    return rounded.toLocaleString('ko-KR') + '억 달러';
+  }
+  // 1억 달러 미만은 백만 달러 단위로
+  const million = Math.round(usd / 1e6);
+  return million.toLocaleString('ko-KR') + '백만 달러';
 }
 
 // 각 투자자의 실제 사진을 /images/investors/ 폴더에 올려뒀어요.
