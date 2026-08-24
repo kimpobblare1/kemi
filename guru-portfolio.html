@@ -57,20 +57,20 @@
   .intro-box .intro-title{ font-size:13.5px; font-weight:700; color:var(--accent); margin-bottom:6px; }
   .intro-box p{ font-size:13px; color:var(--text); line-height:1.7; margin:0; }
 
-  .investor-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:12px; margin-bottom:8px; }
+  .investor-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:12px; margin-bottom:8px; }
   .investor-card{
-    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px;
+    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px;
     cursor:pointer; transition:border-color .12s, transform .08s; text-align:left;
   }
   .investor-card:hover{ border-color:var(--accent); }
   .investor-card.active{ border-color:var(--accent); background:var(--accent-soft); }
   .investor-avatar{
-    width:56px; height:56px; border-radius:12px; background:var(--bg);
+    width:100%; aspect-ratio:1/1; border-radius:12px; background:var(--bg);
     border:1px solid var(--border); overflow:hidden;
-    display:block; margin-bottom:10px;
+    display:block; margin-bottom:12px;
   }
   .investor-avatar img{ width:100%; height:100%; display:block; object-fit:cover; }
-  .investor-name{ font-size:14px; font-weight:700; margin-bottom:2px; }
+  .investor-name{ font-size:15px; font-weight:700; margin-bottom:2px; }
   .investor-fund{ font-size:11.5px; color:var(--text-soft); margin-bottom:10px; }
   .investor-meta{ font-size:11px; color:var(--text-soft); line-height:1.6; }
   .investor-meta b{ color:var(--text); font-weight:700; }
@@ -83,7 +83,8 @@
   .detail-header{ display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:4px; }
   .detail-header h2{ font-size:17px; margin:0; }
   .detail-period{ font-size:12px; color:var(--text-soft); }
-  .detail-sub{ font-size:12.5px; color:var(--text-soft); margin-bottom:18px; }
+  .detail-sub{ font-size:12.5px; color:var(--text-soft); margin-bottom:18px; line-height:1.6; }
+  .detail-sub b{ color:var(--text); font-weight:700; }
 
   .top-holdings-title{ font-size:15px; font-weight:700; margin:0 0 2px; }
   .top-holdings-sub{ font-size:11.5px; color:var(--text-soft); margin:0 0 16px; }
@@ -96,10 +97,10 @@
   }
   .legend-row:last-child{ border-bottom:none; }
   .legend-swatch{ width:12px; height:12px; border-radius:3px; flex-shrink:0; }
-  .legend-name{ font-size:13.5px; font-weight:600; flex:1; }
+  .legend-name{ font-size:13.5px; font-weight:600; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .legend-name .en{ font-size:11px; color:var(--text-soft); font-weight:500; margin-left:4px; }
-  .legend-pct{ font-size:13.5px; font-weight:700; color:var(--text); }
-  .legend-change{ margin-left:8px; }
+  .legend-pct{ font-size:13.5px; font-weight:700; color:var(--text); flex-shrink:0; width:52px; text-align:right; }
+  .legend-change{ flex-shrink:0; text-align:right; min-width:110px; }
 
   @media (max-width:640px){
     .donut-wrap{ flex-direction:column; align-items:flex-start; }
@@ -114,13 +115,13 @@
 
   .change-badge{
     display:inline-flex; align-items:center; gap:3px; font-size:11px; font-weight:700;
-    padding:2px 7px; border-radius:999px; white-space:nowrap;
+    padding:2px 7px; border-radius:999px; white-space:nowrap; float:right;
   }
   .change-badge.new{ background:#E4F6F3; color:var(--accent); }
   .change-badge.increased{ background:#FDEAEA; color:var(--up); }
   .change-badge.decreased{ background:#EAF0FD; color:var(--down); }
   .change-badge.same{ background:var(--surface); color:var(--text-soft); }
-  .change-sub{ font-size:10.5px; color:var(--text-soft); margin-top:2px; }
+  .change-sub{ font-size:10.5px; color:var(--text-soft); margin-top:2px; text-align:right; }
 
   .sold-out-section{ margin-top:24px; }
   .sold-out-section h3{ font-size:13.5px; margin:0 0 10px; }
@@ -322,13 +323,12 @@ function changeBadgeHtml(h) {
 
 // 상위 10개 종목 비중으로 도넛 차트 SVG를 직접 그려요.
 // (외부 차트 라이브러리 없이 순수 SVG만으로 그려서 페이지가 가볍고 빨라요.)
-function donutChartSvg(top10) {
+// 상위 10개 비중 합이 100%에 못 미치는 만큼은 회색 "기타" 조각으로 채워요.
+function donutChartSvg(top10, restPct) {
   const size = 200, radius = 80, strokeWidth = 34;
   const cx = size / 2, cy = size / 2;
   const circumference = 2 * Math.PI * radius;
 
-  // 상위 10개 비중 합이 100%가 안 될 수 있어서(11위 이하 종목들 때문에),
-  // 도넛 안에서는 상위 10개 비중 그대로 순서대로 이어붙여요.
   let offset = 0;
   const arcs = top10.map((h, i) => {
     const pct = h.weightPct;
@@ -342,7 +342,18 @@ function donutChartSvg(top10) {
       transform="rotate(-90 ${cx} ${cy})" />`;
   }).join('');
 
-  return `<svg class="donut-svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${arcs}</svg>`;
+  // 나머지(기타) 조각 — 11위 이하 종목들을 합친 비중만큼 회색으로 채움
+  let restArc = '';
+  if (restPct > 0.05) {
+    const arcLength = (restPct / 100) * circumference;
+    const dasharray = `${arcLength} ${circumference - arcLength}`;
+    const dashoffset = -offset;
+    restArc = `<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#D8DCE1"
+      stroke-width="${strokeWidth}" stroke-dasharray="${dasharray}" stroke-dashoffset="${dashoffset}"
+      transform="rotate(-90 ${cx} ${cy})" />`;
+  }
+
+  return `<svg class="donut-svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${arcs}${restArc}</svg>`;
 }
 
 function renderDetail(key) {
@@ -354,6 +365,10 @@ function renderDetail(key) {
   const soldOut = inv.soldOut || [];
   const hasComparison = !!inv.previousPeriodOfReport;
 
+  // 11위 이하 종목들의 비중 합 = 도넛 차트에서 "기타"로 표시할 부분
+  const restPct = Math.round(rest.reduce((sum, h) => sum + h.weightPct, 0) * 10) / 10;
+  const smallestTop10Pct = top10.length ? top10[top10.length - 1].weightPct : 0;
+
   const legendHtml = top10.map((h, i) => `
     <div class="legend-row">
       <span class="legend-swatch" style="background:${CHART_COLORS[i % CHART_COLORS.length]}"></span>
@@ -363,12 +378,23 @@ function renderDetail(key) {
     </div>
   `).join('');
 
+  const restLegendRow = restPct > 0.05 ? `
+    <div class="legend-row">
+      <span class="legend-swatch" style="background:#D8DCE1"></span>
+      <span class="legend-name">기타(11위 이하 ${rest.length}개 종목)</span>
+      <span class="legend-pct">${restPct}%</span>
+    </div>
+  ` : '';
+
   const topHtml = `
     <p class="top-holdings-title">보유 비중 Top10</p>
-    <p class="top-holdings-sub">${fmtDate(inv.periodOfReport)} 기준 (출처: SEC 13F 공시)</p>
+    <p class="top-holdings-sub">
+      ${fmtDate(inv.periodOfReport)} 기준 (출처: SEC 13F 공시)
+      ${restPct > 0.05 ? `· 회색 "기타"는 비중 ${smallestTop10Pct}% 이하인 11위~${inv.holdingsCount}위 종목 ${rest.length}개를 합친 값이에요.` : ''}
+    </p>
     <div class="donut-wrap">
-      ${donutChartSvg(top10)}
-      <div class="donut-legend">${legendHtml}</div>
+      ${donutChartSvg(top10, restPct)}
+      <div class="donut-legend">${legendHtml}${restLegendRow}</div>
     </div>
   `;
 
@@ -406,7 +432,7 @@ function renderDetail(key) {
     </div>
     <div class="detail-sub">
       보유종목 ${inv.holdingsCount}개 · 총 운용규모 약 ${fmtUsd(inv.totalValueThousandUsd)}
-      ${hasComparison ? `<br>직전 분기(${fmtDate(inv.previousPeriodOfReport)} 기준) 대비 변동을 함께 표시했어요.` : ''}
+      ${hasComparison ? `<br>💡 아래 "직전"은 <b>${fmtDate(inv.previousPeriodOfReport)} 기준</b> 자료를 말해요. 그 다음 분기인 <b>${fmtDate(inv.periodOfReport)} 기준</b> 자료와 비교해서 변동을 표시했어요.` : ''}
     </div>
     ${topHtml}
     ${restHtml}
