@@ -77,7 +77,7 @@
 
   .detail-panel{
     display:none; margin-top:20px; border:1px solid var(--border); border-radius:14px; padding:20px;
-    background:var(--bg);
+    background:var(--bg); scroll-margin-top:72px;
   }
   .detail-panel.open{ display:block; }
   .detail-header{ display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:4px; }
@@ -320,7 +320,9 @@ function toggleDetail(key) {
   renderGrid();
   renderDetail(key);
   panel.classList.add('open');
-  setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  // 패널의 맨 위(투자자 이름이 보이는 부분)이 화면 상단에 오도록 스크롤해요.
+  // block:'start'로 지정해서 도넛차트가 아니라 이름/기준일이 먼저 보이게 해요.
+  setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
 }
 
 function changeBadgeHtml(h) {
