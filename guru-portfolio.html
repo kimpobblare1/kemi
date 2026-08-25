@@ -88,13 +88,15 @@
 
   .top-holdings-title{ font-size:15px; font-weight:700; margin:0 0 2px; }
   .top-holdings-sub{ font-size:11.5px; color:var(--text-soft); margin:0 0 16px; }
+  .hint-box{ background:var(--accent-soft); border-radius:10px; padding:10px 14px; margin:0 0 16px; font-size:12px; color:var(--text); line-height:1.6; }
+  .hint-box b{ color:var(--accent); font-weight:700; }
   .donut-wrap{ display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap; margin-bottom:22px; }
   .donut-svg{ flex-shrink:0; margin-top:20px; }
   .donut-legend{ flex:1; min-width:280px; display:flex; flex-direction:column; gap:0; }
 
   /* 종목명 / 비중 / 변동내역 세 컬럼 폭을 grid로 고정해서 항상 일렬로 맞춰요 */
   .legend-header, .legend-row{
-    display:grid; grid-template-columns:20px minmax(0,1fr) 56px 128px; align-items:center; gap:8px;
+    display:grid; grid-template-columns:20px minmax(0,1fr) 56px 160px; align-items:center; gap:8px;
   }
   .legend-header{
     padding:0 0 8px; border-bottom:1px solid var(--text); font-size:11px; font-weight:700; color:var(--text-soft);
@@ -106,7 +108,18 @@
   .legend-name{ font-size:13.5px; font-weight:600; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .legend-name .en{ font-size:11px; color:var(--text-soft); font-weight:500; margin-left:4px; }
   .legend-pct{ font-size:13.5px; font-weight:700; color:var(--text); text-align:right; }
-  .legend-change{ display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
+  .legend-change{ display:flex; flex-direction:column; align-items:flex-end; gap:3px; padding:4px 0; }
+  .change-badge{
+    display:inline-flex; align-items:center; justify-content:center; gap:3px; font-size:11px; font-weight:700;
+    padding:2px 7px; border-radius:999px; white-space:nowrap; min-width:76px; text-align:center;
+  }
+  .change-badge.new{ background:#E4F6F3; color:var(--accent); }
+  .change-badge.increased{ background:#FDEAEA; color:var(--up); }
+  .change-badge.decreased{ background:#EAF0FD; color:var(--down); }
+  .change-badge.same{ background:var(--surface); color:var(--text-soft); }
+  .change-sub{ font-size:10.5px; color:var(--text-soft); white-space:nowrap; width:76px; text-align:center; }
+  .shares-sub{ font-size:10px; color:var(--text-soft); text-align:right; line-height:1.5; }
+
 
   @media (max-width:640px){
     .donut-wrap{ flex-direction:column; align-items:flex-start; }
@@ -119,16 +132,6 @@
   th:nth-child(2), td.name-cell{ text-align:left; }
   th{ font-size:11.5px; color:var(--text-soft); font-weight:700; }
   td.name-cell .en{ display:block; font-size:11px; color:var(--text-soft); }
-
-  .change-badge{
-    display:inline-flex; align-items:center; gap:3px; font-size:11px; font-weight:700;
-    padding:2px 7px; border-radius:999px; white-space:nowrap;
-  }
-  .change-badge.new{ background:#E4F6F3; color:var(--accent); }
-  .change-badge.increased{ background:#FDEAEA; color:var(--up); }
-  .change-badge.decreased{ background:#EAF0FD; color:var(--down); }
-  .change-badge.same{ background:var(--surface); color:var(--text-soft); }
-  .change-sub{ font-size:10.5px; color:var(--text-soft); white-space:nowrap; }
 
   .sold-out-section{ margin-top:24px; }
   .sold-out-section h3{ font-size:13.5px; margin:0 0 10px; }
@@ -325,6 +328,20 @@ function toggleDetail(key) {
   setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
 }
 
+// 주식 수를 "1억 2,792만주" 같은 한국식 표현으로 축약해서 보여줘요.
+function fmtShares(shares) {
+  if (shares == null) return '';
+  if (shares >= 1e8) {
+    const eok = Math.floor(shares / 1e8);
+    const man = Math.round((shares % 1e8) / 1e4);
+    return man > 0 ? `${eok}억 ${man.toLocaleString('ko-KR')}만주` : `${eok}억주`;
+  }
+  if (shares >= 1e4) {
+    return Math.round(shares / 1e4).toLocaleString('ko-KR') + '만주';
+  }
+  return shares.toLocaleString('ko-KR') + '주';
+}
+
 function changeBadgeHtml(h) {
   const map = {
     new:       { icon: '🆕', label: '신규 편입' },
@@ -333,10 +350,26 @@ function changeBadgeHtml(h) {
     same:      { icon: '➖', label: '유지' },
   };
   const info = map[h.changeStatus] || map.same;
-  const sub = h.changeStatus === 'new'
+  const weightSub = h.changeStatus === 'new'
     ? ''
     : `<span class="change-sub">${h.prevWeightPct}% → ${h.weightPct}%</span>`;
-  return `<span class="change-badge ${h.changeStatus}">${info.icon} ${info.label}</span>${sub}`;
+
+  // 실제로 주식 수(보유량)가 어떻게 바뀌었는지도 함께 보여줘요.
+  // 비중은 줄었어도 주식 수가 그대로거나 늘었으면 "실제로는 안 팔았다"는 뜻이에요.
+  let sharesSub = '';
+  if (h.changeStatus !== 'new' && h.prevShares != null) {
+    const sharesMap = {
+      shares_increased: '📈 주식 수 증가',
+      shares_decreased: '📉 주식 수 감소',
+      same: '💬 주식 수 그대로',
+    };
+    const sharesLabel = sharesMap[h.sharesChangeStatus] || '';
+    if (sharesLabel) {
+      sharesSub = `<span class="shares-sub">${sharesLabel}<br>${fmtShares(h.prevShares)} → ${fmtShares(h.shares)}</span>`;
+    }
+  }
+
+  return `<span class="change-badge ${h.changeStatus}">${info.icon} ${info.label}</span>${weightSub}${sharesSub}`;
 }
 
 // 상위 10개 종목 비중으로 도넛 차트 SVG를 직접 그려요.
@@ -420,6 +453,13 @@ function renderDetail(key) {
       ${fmtDate(inv.periodOfReport)} 기준 (출처: SEC 13F 공시)
       ${restPct > 0.05 ? `· 회색 "기타"는 비중 ${smallestTop10Pct}% 이하인 11위~${inv.holdingsCount}위 종목 ${rest.length}개를 합친 값이에요.` : ''}
     </p>
+    ${hasComparison ? `
+    <div class="hint-box">
+      💬 "비중 확대·축소"는 보유 <b>비율(%)</b>이 바뀌었다는 뜻이에요. 다른 종목을 더 사서 상대적으로
+      비중이 줄었거나, 주가 자체가 변해서 비중이 바뀌었을 수도 있어요. 실제로 그 종목을 사고팔았는지는
+      뱃지 아래 <b>주식 수(shares) 변화</b>를 함께 확인하시면 더 정확해요.
+    </div>
+    ` : ''}
     <div class="donut-wrap">
       ${donutChartSvg(top10, restPct)}
       <div class="donut-legend">${legendHeaderHtml}${legendHtml}${restLegendRow}</div>
