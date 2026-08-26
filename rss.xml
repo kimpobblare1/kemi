@@ -5,8 +5,40 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Mon, 24 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 26 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 0.97% 상승, 코스닥은 보합</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-26.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-26.html</guid>
+    <pubDate>Wed, 26 Aug 2026 20:00:00 +0900</pubDate>
+    <description>코스피 6,808.21(+0.97%)로 상승, 코스닥은 826.87(-0.03%)로 보합에 머물렀어요. 기관 순매수가 코스피 상승을 이끌었어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자 동조 매수, SK이노베이션 동조 매도</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-26.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-26.html</guid>
+    <pubDate>Wed, 26 Aug 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자를 기관·외국인이 나란히 순매수했어요. SK이노베이션은 두 그룹 모두 순매도하며 주가도 12.96% 급락했어요.</description>
+  </item>
+
+  <item>
+    <title>코스피 0.68% 반등, 코스닥과 동반 상승</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-25.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-25.html</guid>
+    <pubDate>Tue, 25 Aug 2026 20:00:00 +0900</pubDate>
+    <description>코스피 6,742.74(+0.68%), 코스닥 827.15(+1.70%)로 이틀 만에 동반 상승했어요. 외국인이 3조 8,140억 원을 순매도했지만 기관 매수가 지수를 끌어올렸어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스·삼성전자, 기관·외국인 정반대</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-25.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-25.html</guid>
+    <pubDate>Tue, 25 Aug 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스·삼성전자를 기관은 순매수, 외국인은 순매도로 정반대로 담았어요. 외국인은 두 종목에서만 2조 2,209억 원을 순매도했어요.</description>
+  </item>
 
   <item>
     <title>코스피 3.12% 급락, 삼성전자 9% 폭락이 발목</title>
