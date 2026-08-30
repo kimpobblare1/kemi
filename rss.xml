@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 28 Aug 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 30 Aug 2026 09:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>한 주간 코스피 -1.79%, 코스닥은 +4.55% 반등</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-28-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-28-weekly.html</guid>
+    <pubDate>Sun, 30 Aug 2026 09:00:00 +0900</pubDate>
+    <description>이번 주(8/24~8/28) 코스피는 8/21 종가 대비 -1.79%로 소폭 하락했는데, 코스닥은 오히려 +4.55% 반등했어요. 반도체 대장주는 한 주 사이 두 차례나 수급 방향이 뒤바뀌었어요.</description>
+  </item>
 
   <item>
     <title>코스피 1.79% 급락, 코스닥은 보합</title>
