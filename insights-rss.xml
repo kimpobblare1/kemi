@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>개미데이터 — 경제인사이트</title>
+  <link>https://www.gemidata.co.kr/insights.html</link>
+  <description>개미데이터가 정리하는 경제 개념, 산업·기업 분석, 재테크 실전 팁 모음입니다.</description>
+  <language>ko-kr</language>
+  <lastBuildDate>Mon, 31 Aug 2026 21:00:00 +0900</lastBuildDate>
+  <atom:link href="https://www.gemidata.co.kr/insights-rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- ⬇⬇⬇ 새 글 발행시 이 자리(최상단)에 <item> 블록 추가 ⬇⬇⬇ -->
+
+  <item>
+    <title>9월 FOMC 일정 한국시간 언제? 금리 인상 확률 63%</title>
+    <link>https://www.gemidata.co.kr/insights/2026-09-fomc-schedule.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/insights/2026-09-fomc-schedule.html</guid>
+    <pubDate>Mon, 31 Aug 2026 21:00:00 +0900</pubDate>
+    <description>9월 FOMC는 한국시간으로 9월 17일 새벽 3시에 발표됩니다. 케빈 워시 의장의 잭슨홀 매파 발언 이후 기준금리 인상 확률이 63%까지 올라간 배경과 시장 전망을 정리했어요.</description>
+  </item>
+
+</channel>
+</rss>
