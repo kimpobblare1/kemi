@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Sun, 30 Aug 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Mon, 31 Aug 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 6,820선 강보합 마감, 삼전·SK하이닉스 자사주 매입이 하방 방어</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-31.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-31.html</guid>
+    <pubDate>Mon, 31 Aug 2026 20:00:00 +0900</pubDate>
+    <description>코스피 6,820.02(+0.46%)로 강보합 마감, 코스닥은 834.29(-0.49%)로 약보합이었어요. 개인·외국인·기관 모두 순매도했는데도 삼성전자·SK하이닉스 자사주 매입으로 지수가 방어됐어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스 엇갈림, 삼성전자 동조 매도</title>
+    <link>https://www.gemidata.co.kr/flows/2026-08-31.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-08-31.html</guid>
+    <pubDate>Mon, 31 Aug 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스는 기관 순매도·외국인 순매수로 엇갈렸어요. 삼성전자는 기관·외국인 모두 순매도했어요.</description>
+  </item>
 
   <item>
     <title>한 주간 코스피 -1.79%, 코스닥은 +4.55% 반등</title>
