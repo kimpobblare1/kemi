@@ -1014,13 +1014,33 @@ function showPage(id){
 
 // 외부 링크(예: 칼럼 글의 "홈에서 보기")가 특정 탭으로 바로 이동할 수 있도록 시작 시 해시 확인
 // (이 스크립트는 body 맨 끝에 있어 DOM이 이미 준비된 상태 — DOMContentLoaded를 기다릴 필요 없이 바로 실행)
-(function initFromHash(){
+function applyHash(){
   const validPages = ['home','shortflow','creditflow','cap','volume','fluctuation','instflow','foreignflow'];
   const hash = (location.hash || '').replace('#', '');
-  if (validPages.includes(hash) && hash !== 'home') {
+  if (validPages.includes(hash)) {
     showPage(hash);
+  } else if (!hash) {
+    showPage('home');
   }
-})();
+}
+applyHash();
+
+// nav 탭(href="/#xxx")을 클릭했을 때, 이미 홈 화면(index.html)에 있는 상태라면
+// 페이지를 새로 불러오지 않고 즉시 showPage()로 전환한다.
+// (홈이 아닌 다른 페이지에서 누른 경우엔 그냥 홈으로 이동 후 아래 hashchange가 처리)
+document.querySelectorAll('.tab-link[data-page]').forEach(function(link){
+  link.addEventListener('click', function(e){
+    const url = new URL(link.href, location.origin);
+    if (url.pathname === location.pathname || url.pathname === '/') {
+      e.preventDefault();
+      const id = link.getAttribute('data-page');
+      showPage(id);
+    }
+  });
+});
+
+// 뒤로가기/앞으로가기 등으로 해시만 바뀌는 경우도 반영
+window.addEventListener('hashchange', applyHash);
 
 function fmtNum(n){
   const num = Number(n);
