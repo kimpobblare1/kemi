@@ -37,7 +37,28 @@ jobs:
           git add index.html
           if git diff --cached --quiet; then
             echo "변경 없음 — 커밋 스킵"
-          else
-            git commit -m "chore: 홈페이지 데이터 스냅샷 자동 갱신"
-            git push
+            exit 0
+          fi
+
+          git commit -m "chore: 홈페이지 데이터 스냅샷 자동 갱신"
+
+          # 15분 주기 스케줄이라 실행이 겹치거나 그 사이 다른 push가 생기면
+          # 원격이 로컬보다 앞서 있어 push가 거부될 수 있음(fetch first).
+          # 그럴 때는 최신 커밋을 받아 rebase한 뒤 다시 push 시도.
+          n=0
+          until [ $n -ge 5 ]
+          do
+            if git push; then
+              echo "푸시 성공"
+              break
+            fi
+            n=$((n+1))
+            echo "푸시 실패, 재시도 ($n/5) — 원격 변경사항 받아오는 중"
+            git pull --rebase origin main
+            sleep 3
+          done
+
+          if [ $n -ge 5 ]; then
+            echo "5회 재시도 후에도 푸시 실패"
+            exit 1
           fi
