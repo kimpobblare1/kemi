@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 01 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 02 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 3.99% 급락, 중동 지정학 리스크에 유가·금리 동반 급등</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-02.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-02.html</guid>
+    <pubDate>Wed, 02 Sep 2026 20:00:00 +0900</pubDate>
+    <description>중동 지역 군사적 긴장 재고조와 국제유가·금리 동반 급등이라는 대외 악재에 코스피가 3.99% 급락했어요. 외국인·기관이 4조 원 넘게 순매도했어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자·SK하이닉스·현대차·SK스퀘어 동조 매도</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-02.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-02.html</guid>
+    <pubDate>Wed, 02 Sep 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자·SK하이닉스·현대차·SK스퀘어까지 4개 종목에서 기관·외국인이 동조 매도했어요. 알테오젠은 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>코스피 장중 1.28% 급락 후 강보합 반전, SK하이닉스·삼성전자가 낙폭 만회</title>
