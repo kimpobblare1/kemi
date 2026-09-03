@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 02 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 03 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 장중 6,439선까지 급락 후 강보합 반전, 코스닥은 1.71% 하락</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-03.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-03.html</guid>
+    <pubDate>Thu, 03 Sep 2026 20:00:00 +0900</pubDate>
+    <description>코스피가 장중 6,439선까지 급락했다가 6,682선까지 반등하는 큰 변동성 끝에 강보합 마감했어요. 개인은 순매도, 기관은 순매수했어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스 이틀째 동조 매도, 삼성중공업은 동조 매수</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-03.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-03.html</guid>
+    <pubDate>Thu, 03 Sep 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스는 기관·외국인 모두 순매도 1위로 이틀 연속 동조 매도했어요. 삼성중공업은 동조 매수했어요.</description>
+  </item>
 
   <item>
     <title>코스피 3.99% 급락, 중동 지정학 리스크에 유가·금리 동반 급등</title>
