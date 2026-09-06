@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 04 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 06 Sep 2026 09:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>주간결산(8/31~9/4) 코스피 -1.50%, 중동 리스크 급락 후 반도체 반등으로 낙폭 회복</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-08-31-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-08-31-weekly.html</guid>
+    <pubDate>Sun, 06 Sep 2026 09:00:00 +0900</pubDate>
+    <description>이번 주(8/31~9/4) 코스피는 8/28 종가 대비 -1.50%, 코스닥은 -2.97% 하락했어요. 수요일 중동 리스크 급락 후 목·금요일 반도체 반등으로 낙폭을 상당 부분 회복했어요.</description>
+  </item>
 
   <item>
     <title>코스피 1.64% 반등, 외국인·기관 쌍끌이 매수에 반도체 대형주 강세</title>
