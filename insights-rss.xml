@@ -5,10 +5,18 @@
   <link>https://www.gemidata.co.kr/insights.html</link>
   <description>개미데이터가 정리하는 경제 개념, 산업·기업 분석, 재테크 실전 팁 모음입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Mon, 31 Aug 2026 21:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 06 Sep 2026 10:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/insights-rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- ⬇⬇⬇ 새 글 발행시 이 자리(최상단)에 <item> 블록 추가 ⬇⬇⬇ -->
+
+  <item>
+    <title>원달러 환율 급락 이유와 전망, 국내·해외 투자자 대응법</title>
+    <link>https://www.gemidata.co.kr/insights/2026-09-06-won-dollar-fx.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/insights/2026-09-06-won-dollar-fx.html</guid>
+    <pubDate>Sun, 06 Sep 2026 10:00:00 +0900</pubDate>
+    <description>6월 1,561원까지 올랐던 원달러 환율이 두 달여 만에 1,340원대까지 급락했어요. 하락 배경과 9월 FOMC 이후 전망, 국내·해외 투자자별 대응 전략을 정리했어요.</description>
+  </item>
 
   <item>
     <title>9월 FOMC 일정 한국시간 언제? 금리 인상 확률 63%</title>
