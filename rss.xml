@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Sun, 06 Sep 2026 09:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Mon, 07 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 4.61% 폭등, 7,000선 목전…외국인·기관 쌍끌이 매수 2.6조씩</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-07.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-07.html</guid>
+    <pubDate>Mon, 07 Sep 2026 20:00:00 +0900</pubDate>
+    <description>외국인·기관이 나란히 2.6조 원 안팎을 순매수하며 코스피가 4.61% 폭등, 7,000선을 목전에 뒀어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스·삼성전자·LG전자·SK스퀘어 동조 매수</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-07.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-07.html</guid>
+    <pubDate>Mon, 07 Sep 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스·삼성전자·LG전자·SK스퀘어까지 4개 종목에서 기관·외국인이 매우 강하게 동조 매수했어요.</description>
+  </item>
 
   <item>
     <title>주간결산(8/31~9/4) 코스피 -1.50%, 중동 리스크 급락 후 반도체 반등으로 낙폭 회복</title>

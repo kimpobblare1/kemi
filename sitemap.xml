@@ -26,6 +26,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.gemidata.co.kr/briefs/2026-09-07.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/flows/2026-09-07.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.gemidata.co.kr/briefs/2026-08-31-weekly.html</loc>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -454,20 +464,5 @@
     <loc>https://www.gemidata.co.kr/privacy.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.gemidata.co.kr/insights.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gemidata.co.kr/insights/2026-09-06-won-dollar-fx.html</loc>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.gemidata.co.kr/insights/2026-09-fomc-schedule.html</loc>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
