@@ -5,10 +5,18 @@
   <link>https://www.gemidata.co.kr/insights.html</link>
   <description>개미데이터가 정리하는 경제 개념, 산업·기업 분석, 재테크 실전 팁 모음입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Sun, 06 Sep 2026 10:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 08 Sep 2026 21:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/insights-rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- ⬇⬇⬇ 새 글 발행시 이 자리(최상단)에 <item> 블록 추가 ⬇⬇⬇ -->
+
+  <item>
+    <title>앤트로픽 상장 일정·규모, 코스피 수혜주 TOP5와 수급 부담 전망</title>
+    <link>https://www.gemidata.co.kr/insights/2026-09-08-anthropic-ipo.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/insights/2026-09-08-anthropic-ipo.html</guid>
+    <pubDate>Tue, 08 Sep 2026 21:00:00 +0900</pubDate>
+    <description>앤트로픽이 이르면 10월, 기업가치 2조 달러·공모 규모 최대 1,000억 달러로 스페이스X 기록을 넘어설 초대형 IPO를 준비 중이에요. 국내 수혜주 TOP5와 수급 부담 가능성을 정리했어요.</description>
+  </item>
 
   <item>
     <title>원달러 환율 급락 이유와 전망, 국내·해외 투자자 대응법</title>
