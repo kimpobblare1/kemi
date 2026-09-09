@@ -5,10 +5,18 @@
   <link>https://www.gemidata.co.kr/insights.html</link>
   <description>개미데이터가 정리하는 경제 개념, 산업·기업 분석, 재테크 실전 팁 모음입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 08 Sep 2026 21:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 09 Sep 2026 21:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/insights-rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- ⬇⬇⬇ 새 글 발행시 이 자리(최상단)에 <item> 블록 추가 ⬇⬇⬇ -->
+
+  <item>
+    <title>네오사피엔스 공모주 청약 — 공모가 1만원 확정, 수요예측 219.56대 1</title>
+    <link>https://www.gemidata.co.kr/insights/2026-09-09-neosapiens-ipo.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/insights/2026-09-09-neosapiens-ipo.html</guid>
+    <pubDate>Wed, 09 Sep 2026 21:00:00 +0900</pubDate>
+    <description>대화형 AI 기업 네오사피엔스가 코스닥 상장 공모주 청약을 진행해요. 확정 공모가 10,000원, 수요예측 경쟁률 219.56대 1, 의무보유확약 비율 약 9%까지 정리했어요.</description>
+  </item>
 
   <item>
     <title>앤트로픽 상장 일정·규모, 코스피 수혜주 TOP5와 수급 부담 전망</title>
