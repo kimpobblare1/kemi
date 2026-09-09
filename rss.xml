@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 08 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 09 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 1.40% 상승, 33거래일 만에 7,000선 종가 탈환</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-09.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-09.html</guid>
+    <pubDate>Wed, 09 Sep 2026 20:00:00 +0900</pubDate>
+    <description>기관이 5거래일 연속 순매수하며 코스피가 33거래일 만에 종가 기준 7,000선을 회복했어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스·삼성전기 동조 매수, 삼성전자는 엇갈림</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-09.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-09.html</guid>
+    <pubDate>Wed, 09 Sep 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스·삼성전기는 기관·외국인 동조 매수했고, 삼성전자는 방향이 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>코스피 7,171 찍고 하락 반전, 15거래일 만의 7,000선 회복 실패</title>
