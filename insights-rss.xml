@@ -5,10 +5,18 @@
   <link>https://www.gemidata.co.kr/insights.html</link>
   <description>개미데이터가 정리하는 경제 개념, 산업·기업 분석, 재테크 실전 팁 모음입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 09 Sep 2026 21:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 10 Sep 2026 21:30:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/insights-rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- ⬇⬇⬇ 새 글 발행시 이 자리(최상단)에 <item> 블록 추가 ⬇⬇⬇ -->
+
+  <item>
+    <title>계양전기 유상증자 청약결과 — 청약률 743%, 흥행 성공 이유는?</title>
+    <link>https://www.gemidata.co.kr/insights/2026-09-10-gyeyang-rights-offering.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/insights/2026-09-10-gyeyang-rights-offering.html</guid>
+    <pubDate>Thu, 10 Sep 2026 21:30:00 +0900</pubDate>
+    <description>계양전기 유상증자 청약결과 청약률 743.38%로 흥행에 성공했어요. 신주 상장일, 로보틱스·전장사업 투자 계획, 경쟁률이 높았던 배경까지 정리했어요.</description>
+  </item>
 
   <item>
     <title>네오사피엔스 공모주 청약 — 공모가 1만원 확정, 수요예측 219.56대 1</title>
