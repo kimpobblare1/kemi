@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 09 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 10 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 0.25% 조정, 네 마녀의 날·美 PPI 발표 앞두고 숨고르기</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-10.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-10.html</guid>
+    <pubDate>Thu, 10 Sep 2026 20:00:00 +0900</pubDate>
+    <description>내일 네 마녀의 날과 미국 PPI 발표를 앞두고 코스피가 소폭 조정받았어요. 기관은 6거래일 연속 순매수했어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스 동조 매도, 한미반도체·테크윙·고영은 엇갈림</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-10.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-10.html</guid>
+    <pubDate>Thu, 10 Sep 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스는 기관·외국인 동조 매도했고, 한미반도체·테크윙·고영은 방향이 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>코스피 1.40% 상승, 33거래일 만에 7,000선 종가 탈환</title>
