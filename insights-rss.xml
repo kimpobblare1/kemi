@@ -5,10 +5,18 @@
   <link>https://www.gemidata.co.kr/insights.html</link>
   <description>개미데이터가 정리하는 경제 개념, 산업·기업 분석, 재테크 실전 팁 모음입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 10 Sep 2026 21:30:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 11 Sep 2026 21:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/insights-rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- ⬇⬇⬇ 새 글 발행시 이 자리(최상단)에 <item> 블록 추가 ⬇⬇⬇ -->
+
+  <item>
+    <title>SK디앤디12R이 뭐길래? 유상증자 일정·규모 총정리</title>
+    <link>https://www.gemidata.co.kr/insights/2026-09-11-skdnd-rights-offering.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/insights/2026-09-11-skdnd-rights-offering.html</guid>
+    <pubDate>Fri, 11 Sep 2026 21:00:00 +0900</pubDate>
+    <description>내 계좌에 갑자기 뜬 'SK디앤디12R', 정체가 궁금하신가요? SK디앤디 유상증자로 발행된 신주인수권증서예요. 발행 규모, 신주 발행가, 청약·상장 일정까지 정리했어요.</description>
+  </item>
 
   <item>
     <title>계양전기 유상증자 청약결과 — 청약률 743%, 흥행 성공 이유는?</title>
