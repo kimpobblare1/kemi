@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Mon, 14 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 15 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 0.85% 하락, 4거래일 연속 하락…美 금리 5%·유가 100달러</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-15.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-15.html</guid>
+    <pubDate>Tue, 15 Sep 2026 20:00:00 +0900</pubDate>
+    <description>FOMC 경계심·美 금리 5%·유가 100달러에 코스피가 0.85% 내리며 4거래일 연속 하락했어요.</description>
+  </item>
+
+  <item>
+    <title>SK하이닉스·삼성전자 동조 매도, KB금융·SK스퀘어는 엇갈림</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-15.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-15.html</guid>
+    <pubDate>Tue, 15 Sep 2026 20:00:00 +0900</pubDate>
+    <description>SK하이닉스·삼성전자는 기관·외국인 동조 매도했고, KB금융·SK스퀘어는 방향이 엇갈렸어요.</description>
+  </item>
 
   <item>
     <title>코스피 3.26% 급락, AI 속도조절론·CPI·유가 3중 악재</title>
