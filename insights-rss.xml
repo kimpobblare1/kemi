@@ -5,10 +5,18 @@
   <link>https://www.gemidata.co.kr/insights.html</link>
   <description>개미데이터가 정리하는 경제 개념, 산업·기업 분석, 재테크 실전 팁 모음입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 11 Sep 2026 21:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 17 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/insights-rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- ⬇⬇⬇ 새 글 발행시 이 자리(최상단)에 <item> 블록 추가 ⬇⬇⬇ -->
+
+  <item>
+    <title>에코프로비엠18R이 뭐길래? 보유·매도 판단부터 유상증자 일정까지 총정리</title>
+    <link>https://www.gemidata.co.kr/insights/2026-09-17-ecoprobm-rights-offering.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/insights/2026-09-17-ecoprobm-rights-offering.html</guid>
+    <pubDate>Thu, 17 Sep 2026 20:00:00 +0900</pubDate>
+    <description>내 계좌에 갑자기 뜬 '에코프로비엠18R', 정체가 궁금하신가요? 보유만 해도 되는지, 매도해야 하는지부터 매매·입고 일정까지 초보자 눈높이로 정리했어요.</description>
+  </item>
 
   <item>
     <title>SK디앤디12R이 뭐길래? 유상증자 일정·규모 총정리</title>
