@@ -26,6 +26,46 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.gemidata.co.kr/briefs/2026-09-17.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/flows/2026-09-17.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/briefs/2026-09-16.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/flows/2026-09-16.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/briefs/2026-09-15.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/flows/2026-09-15.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/briefs/2026-09-14.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/flows/2026-09-14.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.gemidata.co.kr/briefs/2026-09-11.html</loc>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -509,11 +549,6 @@
     <loc>https://www.gemidata.co.kr/insights.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gemidata.co.kr/insights/2026-09-17-ecoprobm-rights-offering.html</loc>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.gemidata.co.kr/insights/2026-09-11-skdnd-rights-offering.html</loc>

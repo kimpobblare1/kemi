@@ -5,8 +5,24 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 16 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 17 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 0.04% 약보합, 외국인 2조2,771억 매도에 6715선 지켜</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-17.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-17.html</guid>
+    <pubDate>Thu, 17 Sep 2026 20:00:00 +0900</pubDate>
+    <description>미국 기준금리 인상 여파로 외국인이 2조2,771억 원 순매도(7거래일 연속)하며 코스피가 0.04% 약보합 마감했어요.</description>
+  </item>
+
+  <item>
+    <title>한화엔진 동조 매수, SK하이닉스·삼성전자·삼성전기는 온도차</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-17.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-17.html</guid>
+    <pubDate>Thu, 17 Sep 2026 20:00:00 +0900</pubDate>
+    <description>한화엔진은 동조 매수했고, SK하이닉스는 엇갈렸으며 삼성전자·삼성전기는 동조 매도했어요.</description>
+  </item>
 
   <item>
     <title>코스피 1.37% 급반등, 기관 매수·반도체 강세로 6700선 회복</title>
