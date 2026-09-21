@@ -244,6 +244,12 @@
   }
   .flow-toggle-btn.active{ background:var(--accent); color:#fff; border-color:var(--accent); }
   .flow-toggle-row{ padding:0 16px; }
+  .market-toggle-row{ display:flex; gap:6px; margin-bottom:14px; padding:0 16px; }
+  .market-toggle-btn{
+    padding:5px 14px; border-radius:999px; border:1px solid var(--border); background:var(--surface);
+    color:var(--text-soft); font-weight:600; font-size:11.5px; cursor:pointer;
+  }
+  .market-toggle-btn.active{ background:var(--accent-soft); color:var(--accent); border-color:var(--accent); }
   #credit-trend-period-row{ padding:12px 16px 0; margin-bottom:8px; }
   .credit-trend-chart-block{ padding:8px 16px 16px; }
   .credit-trend-chart-label{ font-size:13px; font-weight:700; color:var(--text); margin-bottom:6px; }
@@ -1038,6 +1044,11 @@
     <h2 class="page-title">공매도 TOP 30</h2>
     <p class="page-sub" id="shortflow-sub">당일 거래량 대비 공매도 비중 기준</p>
     <div class="info-note">⏰ 공매도 데이터는 <span class="asof-ref" data-metric="short">-</span> 기준이에요</div>
+    <div class="market-toggle-row">
+      <button class="market-toggle-btn active" data-market-category="short" data-market="all" onclick="setMarketView('short','all')">전체</button>
+      <button class="market-toggle-btn" data-market-category="short" data-market="kospi" onclick="setMarketView('short','kospi')">코스피</button>
+      <button class="market-toggle-btn" data-market-category="short" data-market="kosdaq" onclick="setMarketView('short','kosdaq')">코스닥</button>
+    </div>
     <div class="flow-toggle-row">
       <button class="flow-toggle-btn active" data-category="short" data-view="ratio" onclick="setFlowView('short','ratio')">비중순</button>
       <button class="flow-toggle-btn" data-category="short" data-view="value" onclick="setFlowView('short','value')">금액순</button>
@@ -1058,6 +1069,11 @@
     <h2 class="page-title">신용잔고 TOP 30</h2>
     <p class="page-sub" id="creditflow-sub">융자 잔고 비율 기준</p>
     <div class="info-note">⏰ 신용잔고는 실시간이 아니라 하루 한 번 갱신되는 데이터예요</div>
+    <div class="market-toggle-row">
+      <button class="market-toggle-btn active" data-market-category="credit" data-market="all" onclick="setMarketView('credit','all')">전체</button>
+      <button class="market-toggle-btn" data-market-category="credit" data-market="kospi" onclick="setMarketView('credit','kospi')">코스피</button>
+      <button class="market-toggle-btn" data-market-category="credit" data-market="kosdaq" onclick="setMarketView('credit','kosdaq')">코스닥</button>
+    </div>
     <div class="flow-toggle-row">
       <button class="flow-toggle-btn active" data-category="credit" data-view="ratio" onclick="setFlowView('credit','ratio')">비율순</button>
       <button class="flow-toggle-btn" data-category="credit" data-view="value" onclick="setFlowView('credit','value')">금액순</button>
@@ -1733,6 +1749,8 @@ let foreignFlowView = 'buy';
 let shortFlowView = 'ratio';
 let creditFlowView = 'ratio';
 let fluctuationFlowView = 'up';
+let shortMarketView = 'all';   // 'all' | 'kospi' | 'kosdaq'
+let creditMarketView = 'all';  // 'all' | 'kospi' | 'kosdaq'
 let matchedFlowView = 'buy';
 let matchedExpanded = false;
 const MATCHED_COLLAPSED_COUNT = 5;
@@ -1796,17 +1814,31 @@ function renderFlowViews(data){
   renderInstForeignFlowRows('foreignflow-tbody', foreignFlowView === 'buy' ? data.foreignBuyTop : data.foreignSellTop, 'foreignNetBuyAmount');
   renderMatchedFlow(matchedFlowView === 'buy' ? data.matchedBuyTop : data.matchedSellTop, isMatchedFlowTooEarly(data));
 
-  // 공매도 - 비중순(기본) / 금액순(재정렬)
-  const shortByValue = [...(data.shortSaleTop || [])].sort((a, b) => Number(b.shortValue) - Number(a.shortValue));
-  renderShortFlow(shortFlowView === 'ratio' ? data.shortSaleTop : shortByValue);
+  // 공매도 - 전체/코스피/코스닥(시장 필터) → 비중순(기본)/금액순(재정렬)
+  // ⚠️ data.shortSaleTopByMarket은 백엔드 신버전에서만 내려옴. 구버전 캐시(재배포 직후 등)로
+  //    아직 이 필드가 없을 수 있어서, 없으면 '전체'만 동작하고 코스피/코스닥 선택 시 빈 배열로 안전하게 처리함.
+  const shortBase = shortMarketView === 'all'
+    ? (data.shortSaleTop || [])
+    : (data.shortSaleTopByMarket?.[shortMarketView] || []);
+  const shortByValue = [...shortBase].sort((a, b) => Number(b.shortValue) - Number(a.shortValue));
+  renderShortFlow(shortFlowView === 'ratio' ? shortBase : shortByValue);
   const shortSubEl = document.getElementById('shortflow-sub');
-  if (shortSubEl) shortSubEl.textContent = shortFlowView === 'ratio' ? '당일 거래량 대비 공매도 비중 기준' : '당일 공매도 거래대금이 큰 순서 기준';
+  if (shortSubEl) {
+    const marketLabel = shortMarketView === 'all' ? '' : (shortMarketView === 'kospi' ? '코스피 ' : '코스닥 ');
+    shortSubEl.textContent = marketLabel + (shortFlowView === 'ratio' ? '당일 거래량 대비 공매도 비중 기준' : '당일 공매도 거래대금이 큰 순서 기준');
+  }
 
-  // 신용잔고 - 비율순(기본) / 금액순(재정렬)
-  const creditByValue = [...(data.creditBalanceTop || [])].sort((a, b) => Number(b.loanBalanceAmt) - Number(a.loanBalanceAmt));
-  renderCreditFlow(creditFlowView === 'ratio' ? data.creditBalanceTop : creditByValue);
+  // 신용잔고 - 전체/코스피/코스닥(시장 필터) → 비율순(기본)/금액순(재정렬)
+  const creditBase = creditMarketView === 'all'
+    ? (data.creditBalanceTop || [])
+    : (data.creditBalanceTopByMarket?.[creditMarketView] || []);
+  const creditByValue = [...creditBase].sort((a, b) => Number(b.loanBalanceAmt) - Number(a.loanBalanceAmt));
+  renderCreditFlow(creditFlowView === 'ratio' ? creditBase : creditByValue);
   const creditSubEl = document.getElementById('creditflow-sub');
-  if (creditSubEl) creditSubEl.textContent = creditFlowView === 'ratio' ? '융자 잔고 비율 기준' : '신용융자 잔고 금액이 큰 순서 기준';
+  if (creditSubEl) {
+    const marketLabel = creditMarketView === 'all' ? '' : (creditMarketView === 'kospi' ? '코스피 ' : '코스닥 ');
+    creditSubEl.textContent = marketLabel + (creditFlowView === 'ratio' ? '융자 잔고 비율 기준' : '신용융자 잔고 금액이 큰 순서 기준');
+  }
 
   // 등락률 - 상승률(기본) / 하락률
   renderFlowRows('fluctuation-tbody', fluctuationFlowView === 'up' ? data.fluctuationUpTop : data.fluctuationDownTop);
@@ -1820,6 +1852,15 @@ function setFlowView(category, view){
   else if (category === 'fluctuation') fluctuationFlowView = view;
   document.querySelectorAll(`.flow-toggle-btn[data-category="${category}"]`).forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.view === view);
+  });
+  renderFlowViews(lastAntData);
+}
+
+function setMarketView(category, market){
+  if (category === 'short') shortMarketView = market;
+  else if (category === 'credit') creditMarketView = market;
+  document.querySelectorAll(`.market-toggle-btn[data-market-category="${category}"]`).forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.market === market);
   });
   renderFlowViews(lastAntData);
 }
