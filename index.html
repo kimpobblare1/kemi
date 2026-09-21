@@ -207,6 +207,35 @@
     border-top:1px solid var(--border); background:var(--surface-2);
   }
 
+  /* ---------- GLOSSARY (용어 해설) ---------- */
+  .glossary-section .page-sub{ margin-bottom:18px; }
+  .glossary-card{ margin-bottom:14px; }
+  .glossary-card .panel-head h3{
+    display:flex; align-items:center; gap:9px; font-size:14px;
+  }
+  .glossary-num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:20px; height:20px; border-radius:50%; background:var(--accent-soft); color:var(--accent);
+    font-size:11px; font-weight:800; flex-shrink:0;
+  }
+  .glossary-body{ padding:14px 16px 16px; }
+  .glossary-body p{ margin:0 0 12px; font-size:12.5px; line-height:1.7; color:var(--text); }
+  .glossary-body p:last-child{ margin-bottom:0; }
+  .glossary-formula{
+    background:var(--surface-2); border-radius:8px; padding:9px 13px; font-size:12px;
+    color:var(--text-soft); font-family:var(--font-mono); margin-bottom:12px;
+  }
+  .glossary-howto{
+    background:var(--accent-soft); border-radius:8px; padding:11px 13px; margin-bottom:12px;
+  }
+  .glossary-howto p{ margin:0; color:var(--text); }
+  .glossary-label{ color:var(--accent); font-weight:700; font-size:11px; display:block; margin-bottom:5px; }
+  .glossary-caveat{
+    font-size:11.5px; color:var(--text-soft); background:var(--surface-2); border-radius:8px;
+    padding:10px 13px; margin:0;
+  }
+  .glossary-caveat strong{ color:var(--text); }
+
   .app-footer{ text-align:center; font-size:11px; color:var(--text-soft); padding:28px 0 4px; }
   .flow-toggle-row{ display:flex; gap:8px; margin-bottom:16px; }
   .flow-toggle-btn{
@@ -862,6 +891,145 @@
         </div>
         <p class="metric-note">신용잔고비율 = 상장주식 수 대비 신용거래(빚내서 매수)로 보유 중인 주식 수의 비율이에요. 시총대비 = 신용잔고금액 ÷ 실시간 시가총액으로 계산한 참고용 보조 지표예요.</p>
       </div>
+    </div>
+
+    <!-- ================= 용어 해설 · 실전 활용법 ================= -->
+    <div class="glossary-section">
+      <h2 class="page-title" style="margin-top:32px;">📖 처음 보는 용어, 이렇게 활용하세요</h2>
+      <p class="page-sub">
+        위에 뜨는 신용잔고·공매도·예탁금 숫자, 처음엔 낯설 수 있어요.
+        각 지표가 무엇을 뜻하는지, 실전에서는 어떻게 참고하면 좋은지 정리했어요.
+        더 자세한 설명은 <a href="/guide.html" style="color:var(--accent); font-weight:700;">용어 가이드</a>에서도 보실 수 있어요.
+      </p>
+
+      <div class="panel glossary-card">
+        <div class="panel-head">
+          <h3><span class="glossary-num">1</span>신용잔고 (신용잔고비율)</h3>
+        </div>
+        <div class="glossary-body">
+          <p>
+            투자자가 증권사에서 돈을 빌려(신용융자) 주식을 산 뒤, 아직 갚지 않고 남아있는
+            물량이에요. 쉽게 말해 <strong>"빚내서 산 주식이 얼마나 남아있는가"</strong>를
+            보여주는 지표예요.
+          </p>
+          <p class="glossary-formula">신용잔고비율(%) = 신용으로 산 주식 수 ÷ 상장주식 수 × 100</p>
+          <div class="glossary-howto">
+            <span class="glossary-label">💡 실전에서는 이렇게 봐요</span>
+            <p>
+              신용잔고비율이 높다는 건 그만큼 빚으로 주식을 산 사람이 많다는 뜻이에요.
+              이런 종목은 주가가 하락할 때 <strong>반대매매(담보 부족으로 증권사가
+              강제로 파는 것)</strong>가 한꺼번에 몰릴 위험이 있어서, 하락이 하락을
+              부르는 악순환이 생길 수 있어요. 반대로 신용잔고가 꾸준히 줄고 있다면
+              빚투 압박이 해소되고 있다는 신호로 볼 수 있어요.
+            </p>
+          </div>
+          <p class="glossary-caveat">
+            ⚠️ "몇 %부터 위험하다"는 업계 공식 기준은 따로 없어요. <strong>절대
+            수치보다 평소 그 종목의 신용잔고비율과 비교해 갑자기 튀었는지, 며칠째
+            늘고 있는지 추이를 보는 게 더 중요해요.</strong> 위 신용잔고 TOP10에서
+            순위가 급상승한 종목은 눈여겨볼 만해요.
+          </p>
+        </div>
+      </div>
+
+      <div class="panel glossary-card">
+        <div class="panel-head">
+          <h3><span class="glossary-num">2</span>공매도 (공매도 비중)</h3>
+        </div>
+        <div class="glossary-body">
+          <p>
+            갖고 있지 않은 주식을 먼저 빌려서 판 다음, 나중에 더 싼 가격에 사서 갚는
+            투자 기법이에요. <strong>주가가 떨어질 것이라는 쪽에 베팅</strong>하는
+            거래라고 보면 돼요.
+          </p>
+          <p class="glossary-formula">공매도 비중(%) = 당일 공매도 거래량 ÷ 당일 전체 거래량 × 100</p>
+          <div class="glossary-howto">
+            <span class="glossary-label">💡 실전에서는 이렇게 봐요</span>
+            <p>
+              공매도 비중이 높다는 건 "이 주식, 곧 떨어진다"에 베팅한 투자자(주로
+              기관·외국인)가 많다는 뜻이에요. 참고로 (위에서 보여드리는 '당일 거래량
+              대비 비중'과는 별개로) 유통주식 수 대비 누적 공매도 잔고가 20%를
+              넘어가면 숏스퀴즈(공매도한 사람들이 손실을 줄이려 급하게 되사면서
+              주가가 오히려 급등하는 현상) 가능성을 함께 염두에 두는 경우가 많아요.
+              다만 공매도 비중이 높다고 반드시 주가가 떨어지는 건 아니에요 — 위
+              공매도 TOP10에서도 비중 상위 종목이 오히려 상승한 날이 자주 보여요.
+            </p>
+          </div>
+          <p class="glossary-caveat">
+            ⚠️ 공매도는 실적 우려·밸류에이션 부담 등을 반영하는 경우가 많지만,
+            단순히 헤지(위험 회피) 목적의 거래일 수도 있어요. <strong>공매도 비중
+            하나만 보고 판단하기보다는, 그날 주가 등락률과 함께 봐야 의미가
+            명확해져요.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="panel glossary-card">
+        <div class="panel-head">
+          <h3><span class="glossary-num">3</span>고객예탁금 · 미수금</h3>
+        </div>
+        <div class="glossary-body">
+          <p>
+            <strong>고객예탁금</strong>은 투자자가 주식을 사려고 증권 계좌에 넣어둔
+            대기 자금이에요. <strong>미수금</strong>은 주식을 산 뒤 아직 결제(대금
+            납입)를 못 끝낸 금액이에요.
+          </p>
+          <div class="glossary-howto">
+            <span class="glossary-label">💡 실전에서는 이렇게 봐요</span>
+            <p>
+              고객예탁금이 꾸준히 늘어나면 증시로 들어올 준비가 된 대기 자금이
+              쌓이고 있다는 뜻으로, 시장에 대한 관심이 커지고 있다는 신호로
+              해석되곤 해요. 반대로 예탁금이 줄어들면 투자자들이 관망세로
+              돌아섰거나 자금을 다른 곳으로 옮기고 있다는 뜻일 수 있어요. 미수금이
+              갑자기 늘어나는 건 그만큼 공격적으로(외상으로) 주식을 사는 투자자가
+              늘었다는 의미라, 신용잔고와 함께 시장 과열 정도를 가늠하는 보조
+              지표로 쓰여요.
+            </p>
+          </div>
+          <p class="glossary-caveat">
+            ⚠️ 예탁금·미수금도 하루 단위로만 보면 의미를 읽기 어려워요.
+            <strong>최소 1~2주 흐름을 이어서 보면서 늘어나는 추세인지 줄어드는
+            추세인지 확인하는 게 실전에서 더 유용해요.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="panel glossary-card">
+        <div class="panel-head">
+          <h3><span class="glossary-num">4</span>기관·외국인 순매수·순매도</h3>
+        </div>
+        <div class="glossary-body">
+          <p>
+            하루 동안 기관투자자(연기금·보험사·자산운용사 등)나 외국인 투자자가
+            특정 종목을 <strong>얼마나 사고(매수) 팔았는지(매도)의 차액</strong>을
+            보여주는 지표예요. 순매수가 양수(+)면 사는 쪽이 더 많았다는 뜻이에요.
+          </p>
+          <div class="glossary-howto">
+            <span class="glossary-label">💡 실전에서는 이렇게 봐요</span>
+            <p>
+              개인 투자자보다 정보력과 자금력이 큰 기관·외국인의 매매 방향은
+              시장의 큰 흐름을 읽는 참고 지표로 많이 활용돼요. 특히 기관과
+              외국인이 같은 종목을 동시에 사거나(동조 매수) 동시에
+              팔 때(동조 매도)는 그 방향에 힘이 실렸다는 신호로, 두 주체가
+              반대로 움직일 때(엇갈림)는 시장의 시각이 아직 갈리고 있다는 뜻으로
+              해석할 수 있어요. 위 '수급 일치 종목' 패널에서 바로 확인하실 수
+              있어요.
+            </p>
+          </div>
+          <p class="glossary-caveat">
+            ⚠️ 기관·외국인도 틀릴 때가 있고, 하루짜리 수급만으로 주가의 방향이
+            결정되지는 않아요. <strong>여러 날에 걸친 누적 순매수·순매도 추이를
+            함께 봐야 신뢰도가 높아져요.</strong>
+          </p>
+        </div>
+      </div>
+
+      <p class="metric-note" style="border-radius:8px; border:1px solid var(--border);">
+        ※ 위 설명은 각 지표의 정의와 일반적인 해석 방법을 안내하는 참고 자료이며,
+        특정 수치를 매수·매도 신호로 단정하거나 투자를 권유하는 내용이 아니에요.
+        실제 투자 판단은 여러 지표를 종합적으로 고려해 본인의 책임 하에 신중하게
+        내리셔야 합니다.
+      </p>
     </div>
   </section>
 
