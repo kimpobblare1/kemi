@@ -5,8 +5,40 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 17 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 22 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 7100선 넘봤지만…개인 1조6천억 매도에 상승폭 반납, 7017 강보합</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-22.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-22.html</guid>
+    <pubDate>Tue, 22 Sep 2026 20:00:00 +0900</pubDate>
+    <description>개인 1조5,627억 원 순매도에 장 초반 상승분을 대부분 반납했지만 코스피는 7000선을 지켰어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자·삼성전기·LG전자 동조 매수, SK하이닉스는 엇갈림·삼성전자우는 동조 매도</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-22.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-22.html</guid>
+    <pubDate>Tue, 22 Sep 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자·삼성전기·LG전자는 동조 매수했고, SK하이닉스는 엇갈렸으며 삼성전자우는 동조 매도했어요.</description>
+  </item>
+
+  <item>
+    <title>코스피 1.65% 급등, 7000선 재탈환…반도체 대형주가 이끌었다</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-21.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-21.html</guid>
+    <pubDate>Mon, 21 Sep 2026 20:00:00 +0900</pubDate>
+    <description>기관 1조5,190억 원 순매수와 반도체 대형주 강세에 코스피가 1.65% 급등하며 7000선을 재탈환했어요.</description>
+  </item>
+
+  <item>
+    <title>삼성전자·SK스퀘어 동조 매수, SK하이닉스는 엇갈림·현대차는 동조 매도</title>
+    <link>https://www.gemidata.co.kr/flows/2026-09-21.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/flows/2026-09-21.html</guid>
+    <pubDate>Mon, 21 Sep 2026 20:00:00 +0900</pubDate>
+    <description>삼성전자·SK스퀘어는 동조 매수했고, SK하이닉스는 엇갈렸으며 현대차는 동조 매도했어요.</description>
+  </item>
 
   <item>
     <title>코스피 0.04% 약보합, 외국인 2조2,771억 매도에 6715선 지켜</title>
