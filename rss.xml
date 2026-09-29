@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Mon, 28 Sep 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 29 Sep 2026 20:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 6870선 약보합…외국인 2.9조 매도 속 반도체 대형주 팔고 소부장 담았다</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-09-29.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-09-29.html</guid>
+    <pubDate>Tue, 29 Sep 2026 20:00:00 +0900</pubDate>
+    <description>외국인 2조9,046억 원 순매도에도 개인·기관 방어로 코스피는 0.27% 하락에 그쳤어요. 한미반도체 동조 매수, SK하이닉스·삼성전자는 이틀째 동조 매도했어요.</description>
+  </item>
 
   <item>
     <title>코스피 2.7% 급락해 7000선 반납…외국인·기관 4조 동반 매도, 반도체 투톱에 집중</title>
