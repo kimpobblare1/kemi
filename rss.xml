@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 02 Oct 2026 20:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 06 Oct 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스닥 65거래일 만에 900선 탈환…코스피는 외국인 SK하이닉스 1조 매도에 7000선 내줘</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-10-06.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-10-06.html</guid>
+    <pubDate>Tue, 06 Oct 2026 18:00:00 +0900</pubDate>
+    <description>코스닥은 65거래일 만에 900선을 넘었고, 코스피는 외국인의 반도체 투톱 매도에 7000선을 내줬어요. 삼성전기·삼성SDI·LG전자는 기관·외국인 동조 매수였어요.</description>
+  </item>
 
   <item>
     <title>코스피 5거래일 만에 7000선 탈환…기관 이틀째 매수, 외국인은 정유주로 눈 돌려</title>
