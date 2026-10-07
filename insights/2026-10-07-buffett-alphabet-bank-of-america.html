@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="alternate" type="application/rss+xml" title="개미데이터 경제인사이트 RSS" href="https://www.gemidata.co.kr/insights-rss.xml">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M24%2027%20Q13%2025%208%2018%22/%3E%3Cpath%20d%3D%22M22%2032%20Q9%2032%205%2032%22/%3E%3Cpath%20d%3D%22M24%2037%20Q13%2041%209%2048%22/%3E%3Cpath%20d%3D%22M40%2027%20Q51%2025%2056%2018%22/%3E%3Cpath%20d%3D%22M42%2032%20Q55%2032%2059%2032%22/%3E%3Cpath%20d%3D%22M40%2037%20Q51%2041%2055%2048%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M27%2011%20Q22%204%2019%202%22/%3E%3Cpath%20d%3D%22M37%2011%20Q42%204%2045%202%22/%3E%3C/g%3E%3Ccircle%20cx%3D%2219%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2248.5%22%20rx%3D%2213.2%22%20ry%3D%2212.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%228.4%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2215%22%20r%3D%228.8%22%20fill%3D%22%230F9B8E%22/%3E%3C/svg%3E">
+
+<title>버핏은 왜 알파벳을 83% 더 샀을까? 2분기 13F로 본 버크셔 포트폴리오 변화 | 개미데이터</title>
+<link rel="canonical" href="https://www.gemidata.co.kr/insights/2026-10-07-buffett-alphabet-bank-of-america.html">
+<meta name="description" content="버크셔 해서웨이가 2026년 2분기 알파벳 보유 주식을 83% 늘려 3대 보유종목으로 올렸어요. 반면 뱅크오브아메리카는 계속 줄이고 있어요. SEC 13F 공시 데이터로 매수 배경과 은행주 축소 흐름, 13F를 읽을 때 주의할 점까지 정리했어요.">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="버핏은 왜 알파벳을 83% 더 샀을까? 2분기 13F로 본 버크셔 포트폴리오 변화 | 개미데이터">
+<meta property="og:description" content="버크셔가 알파벳은 83% 늘리고 뱅크오브아메리카는 계속 줄인 이유를 13F 데이터로 정리했어요.">
+<meta property="og:url" content="https://www.gemidata.co.kr/insights/2026-10-07-buffett-alphabet-bank-of-america.html">
+<meta property="og:image" content="https://www.gemidata.co.kr/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F6F7F9; --border:#E8EAED;
+    --text:#16181C; --text-soft:#8A8F98; --accent:#0F9B8E; --accent-soft:#E4F6F3;
+    --up:#E5484D; --down:#3B82F6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Pretendard', -apple-system, sans-serif; line-height:1.85; font-size:15.5px;
+  }
+  .wrap{ max-width:700px; margin:0 auto; padding:32px 20px 80px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--text-soft); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:24px; }
+  .back:hover{ color:var(--accent); }
+  .meta{ font-size:12.5px; color:var(--text-soft); margin-bottom:10px; display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+  .meta .tag{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  .meta .cat{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  h1{ font-size:25px; font-weight:800; margin:0 0 20px; line-height:1.4; }
+  h2{ font-size:19px; font-weight:800; margin:34px 0 12px; }
+  h3{ font-size:16px; font-weight:700; margin:22px 0 10px; color:var(--accent); }
+  p{ margin:0 0 18px; }
+  strong{ font-weight:700; }
+  ul, ol{ margin:0 0 18px; padding-left:22px; }
+  li{ margin-bottom:8px; }
+  .up{ color:var(--up); font-weight:700; }
+  .down{ color:var(--down); font-weight:700; }
+  table{ width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:14px; }
+  th, td{ padding:9px 10px; text-align:left; border-bottom:1px solid var(--border); }
+  th{ font-size:12px; color:var(--text-soft); font-weight:700; }
+  .example{ background:var(--surface); border-left:3px solid var(--accent); border-radius:8px; padding:14px 18px; font-size:14px; color:var(--text); margin:16px 0; }
+  .example b{ color: var(--accent); }
+  .caution{ background:#FDECEC; border-left:3px solid var(--up); border-radius:8px; padding:14px 18px; font-size:14px; margin:16px 0; }
+  .insight-box{ background:var(--accent-soft); border-radius:12px; padding:20px 22px; margin:20px 0; }
+  .insight-box h2, .insight-box h3{ margin-top:0; }
+  .disclaimer{ font-size:12.5px; color:var(--text-soft); background:var(--surface); border-radius:8px; padding:12px 16px; margin:28px 0 0; }
+  a{ color:var(--accent); }
+  .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; flex-wrap:wrap; }
+  .footer-nav a{ color:var(--text-soft); text-decoration:none; }
+  .footer-nav a:hover{ color:var(--accent); }
+  .post-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:32px; padding-top:20px; border-top:1px solid var(--border); font-size:13.5px; }
+  .post-nav a{ color:var(--accent); text-decoration:none; }
+  .topbar{ position:sticky; top:0; z-index:50; background:var(--surface); border-bottom:1px solid var(--border); }
+  .topbar-inner{ max-width:1000px; margin:0 auto; padding:14px 20px 12px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:8px; }
+  .brand-mark{ width:22px; height:22px; flex-shrink:0; display:block; }
+  .brand-name{ font-weight:800; font-size:16px; color:var(--text); letter-spacing:-0.01em; }
+  .brand-tag{ font-size:11.5px; color:var(--text-soft); }
+  .tab-nav{ background:var(--surface); border-bottom:1px solid var(--border); }
+  .tab-nav-inner{ max-width:1000px; margin:0 auto; padding:0 20px; display:flex; gap:22px; overflow-x:auto; scrollbar-width:none; }
+  .tab-nav-inner::-webkit-scrollbar{ display:none; }
+  .tab-link{
+    background:none; border:none; white-space:nowrap; flex-shrink:0;
+    padding:12px 2px; font-size:13.5px; font-weight:600; color:var(--text-soft);
+    border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .12s, border-color .12s;
+    text-decoration:none; display:inline-block; position:relative;
+  }
+  .new-badge{
+    position:absolute; top:2px; right:-22px; background:var(--up); color:#fff;
+    font-size:9px; font-weight:800; padding:1.5px 4px; border-radius:6px; letter-spacing:.02em; line-height:1.4;
+  }
+  .tab-link:hover{ color:var(--text); }
+  .tab-link.active{ color:var(--text); border-bottom-color:var(--text); font-weight:700; }
+  @media (max-width:640px){
+    .topbar-inner{ padding:12px 14px 10px; }
+    .tab-nav-inner{ padding:0 14px; gap:16px; }
+  }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9496300145102373" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "버핏은 왜 알파벳을 83% 더 샀을까? 2분기 13F로 본 버크셔 포트폴리오 변화",
+  "description": "버크셔 해서웨이가 2026년 2분기 알파벳 보유 주식을 83% 늘려 3대 보유종목으로 올렸어요. 반면 뱅크오브아메리카는 계속 줄이고 있어요. SEC 13F 공시 데이터로 매수 배경과 은행주 축소 흐름, 13F를 읽을 때 주의할 점까지 정리했어요.",
+  "datePublished": "2026-10-07T21:00:00+09:00",
+  "dateModified": "2026-10-07T21:00:00+09:00",
+  "author": { "@type": "Organization", "name": "개미데이터" },
+  "publisher": {
+    "@type": "Organization", "name": "개미데이터",
+    "logo": { "@type": "ImageObject", "url": "https://www.gemidata.co.kr/og-image.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.gemidata.co.kr/insights/2026-10-07-buffett-alphabet-bank-of-america.html" },
+  "image": "https://www.gemidata.co.kr/og-image.png"
+}
+</script>
+<meta property="article:published_time" content="2026-10-07T21:00:00+09:00">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" style="text-decoration:none;"><div class="brand"><span class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+  <g stroke="#0F9B8E" stroke-width="4.2" stroke-linecap="round" fill="none">
+    <path d="M24 27 Q13 25 8 18"/>
+    <path d="M22 32 Q9 32 5 32"/>
+    <path d="M24 37 Q13 41 9 48"/>
+    <path d="M40 27 Q51 25 56 18"/>
+    <path d="M42 32 Q55 32 59 32"/>
+    <path d="M40 37 Q51 41 55 48"/>
+  </g>
+  <g stroke="#0F9B8E" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M27 11 Q22 4 19 2"/>
+    <path d="M37 11 Q42 4 45 2"/>
+  </g>
+  <circle cx="19" cy="2" r="2.6" fill="#0F9B8E"/>
+  <circle cx="45" cy="2" r="2.6" fill="#0F9B8E"/>
+  <ellipse cx="32" cy="48.5" rx="13.2" ry="12.6" fill="#0F9B8E"/>
+  <circle cx="32" cy="31" r="8.4" fill="#0F9B8E"/>
+  <circle cx="32" cy="15" r="8.8" fill="#0F9B8E"/>
+</svg></span><span class="brand-name">개미데이터</span></div></a>
+    <span class="brand-tag">데일리 코스피 공매도 순위·신용잔고 보는 사이트</span>
+  </div>
+  <nav class="tab-nav">
+    <div class="tab-nav-inner">
+      <a class="tab-link" href="/">홈</a>
+      <a class="tab-link" href="/#shortflow">공매도</a>
+      <a class="tab-link" href="/#creditflow">신용잔고</a>
+      <a class="tab-link" href="/#cap">시가총액</a>
+      <a class="tab-link" href="/#volume">거래량</a>
+      <a class="tab-link" href="/#fluctuation">등락률</a>
+      <a class="tab-link" href="/#instflow">기관매매</a>
+      <a class="tab-link" href="/#foreignflow">외국인매매</a>
+      <a class="tab-link" href="/market-brief.html">시황분석<span class="new-badge">NEW</span></a>
+      <a class="tab-link" href="/flow-archive.html">TOP5 조회</a>
+      <a class="tab-link" href="/guru-portfolio.html">주식고수 따라잡기<span class="new-badge">NEW</span></a>
+      <a class="tab-link active" href="/insights.html">경제인사이트<span class="new-badge">NEW</span></a>
+    </div>
+  </nav>
+</header>
+<div class="wrap">
+  <a class="back" href="/insights.html">← 인사이트 목록으로</a>
+  <div class="meta"><span class="cat">해외주식</span>2026.10.07</div>
+
+  <h1>버핏은 왜 알파벳을 83% 더 샀을까? 2분기 13F로 본 버크셔 포트폴리오 변화</h1>
+
+  <div class="insight-box" style="margin-top:0;">
+    <h3 style="margin-bottom:12px;">📌 3줄 요약</h3>
+    <ol style="margin:0; padding-left:20px;">
+      <li style="margin-bottom:10px;">버크셔 해서웨이는 2분기에 알파벳 주식을 <strong>약 5,780만 주에서 약 1억600만 주로 83% 늘려</strong>, 애플·아메리칸 익스프레스에 이어 3대 보유종목으로 올렸어요.</li>
+      <li style="margin-bottom:10px;">늘어난 물량의 상당 부분은 6월 초 알파벳의 <strong>AI 인프라 자금 조달에 100억 달러를 직접 투자</strong>한 비공개 지분 매입에서 나왔어요.</li>
+      <li style="margin-bottom:0;">반면 <strong>뱅크오브아메리카는 3,023만 주(5.9%)를 더 팔아</strong>, 2024년 7월 매도를 시작하기 전 약 10억3천만 주에서 절반 이하로 줄었어요.</li>
+    </ol>
+  </div>
+
+  <p>
+    미국에서 운용자산 1억 달러 이상인 기관투자자는 분기마다 보유 주식 현황을 SEC(미국 증권거래위원회)에
+    <strong>13F 보고서</strong>로 공시해야 해요. 개미데이터는 이 공시를 직접 수집해
+    <a href="/guru-portfolio.html">주식고수 따라잡기</a>에서 워런 버핏 등 6명의 포트폴리오를 보여주고 있어요.
+    이 글은 그 데이터 가운데 <strong>2026년 6월 30일 기준(8월 14일 공시)</strong> 버크셔 해서웨이의 변화를 깊이 들여다본 분석이에요.
+  </p>
+
+  <h2>숫자로 보는 버크셔의 2분기 변화</h2>
+  <p>버크셔의 13F 포트폴리오는 29개 종목, 약 2,993억 달러예요. 상위 5개 종목의 직전 분기(3월 말) 대비 변화는 이래요.</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>종목</th><th>비중 (3월 말 → 6월 말)</th><th>주식 수 (3월 말 → 6월 말)</th><th>실제 매매</th></tr></thead>
+    <tbody>
+      <tr><td>애플</td><td>22% → 22%</td><td>2억2,792만 → 2억2,792만</td><td>변화 없음</td></tr>
+      <tr><td>아메리칸 익스프레스</td><td>17.4% → 17.1%</td><td>1억5,161만 → 1억5,161만</td><td>변화 없음</td></tr>
+      <tr><td>코카콜라</td><td>11.6% → 10.9%</td><td>4억 → 4억</td><td>변화 없음</td></tr>
+      <tr><td><strong>알파벳 A주</strong></td><td class="up"><strong>5.9% → 9.4%</strong></td><td class="up"><strong>5,425만 → 7,879만 (+45%)</strong></td><td class="up"><strong>매수</strong></td></tr>
+      <tr><td><strong>뱅크오브아메리카</strong></td><td class="down"><strong>9.5% → 9.2%</strong></td><td class="down"><strong>5억1,362만 → 4억8,339만 (-5.9%)</strong></td><td class="down"><strong>매도</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    여기서 눈여겨볼 점은 <strong>아메리칸 익스프레스와 코카콜라의 비중은 줄었지만 주식 수는 한 주도 변하지 않았다</strong>는 거예요.
+    버크셔가 이 종목들을 판 게 아니라, 알파벳을 대량으로 사면서 다른 종목의 상대적인 비중이 줄어든 거예요.
+    그래서 13F를 볼 때는 "비중이 줄었다 = 팔았다"로 읽으면 안 되고, 반드시 주식 수 변화를 함께 확인해야 해요.
+  </p>
+
+  <h2>45%일까, 83%일까? 알파벳 숫자가 두 개인 이유</h2>
+  <p>
+    위 표에서 알파벳 증가율은 45%인데, 언론은 83%라고 보도했어요. 둘 다 맞는 숫자예요.
+    알파벳은 상장 주식이 두 종류이기 때문이에요.
+  </p>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>구분</th><th>티커</th><th>특징</th><th>버크셔 보유 (3월 말 → 6월 말)</th></tr></thead>
+    <tbody>
+      <tr><td>A주</td><td>GOOGL</td><td>1주당 의결권 1개</td><td>5,425만 → 7,879만 주</td></tr>
+      <tr><td>C주</td><td>GOOG</td><td>의결권 없음</td><td>약 355만 → 약 2,720만 주</td></tr>
+      <tr><td><strong>합계</strong></td><td></td><td></td><td class="up"><strong>약 5,780만 → 약 1억600만 주 (+83%)</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    13F 보고서는 종목코드(CUSIP) 단위로 작성돼서 A주와 C주가 따로 표시돼요. 개미데이터 주식고수 따라잡기의
+    비중 Top10에도 A주(9.4%)만 보이고, C주는 11위 아래 "기타"에 들어가 있어요. 두 종류를 합친 알파벳
+    보유액은 약 378억 달러로, 포트폴리오의 약 12.6%를 차지해요. C주 수치는 보도된 합계에서 A주를 뺀 추정치예요.
+  </p>
+
+  <h2>버크셔는 왜 알파벳을 이렇게 많이 샀을까?</h2>
+  <p><strong>① AI 인프라 자금 조달에 직접 참여했어요.</strong>
+    알파벳은 대규모 AI 인프라 구축 자금을 마련하려고 약 800억 달러 규모의 주식 발행에 나섰고,
+    버크셔는 6월 1일 이 가운데 100억 달러어치를 인수했어요. 시장에서 조금씩 사 모은 게 아니라 회사로부터
+    큰 물량을 한 번에 받은 거라, 주가에 충격을 주지 않고 단번에 비중을 끌어올릴 수 있었어요.
+  </p>
+  <p><strong>② 14분기 만에 "사는 버크셔"로 돌아섰어요.</strong>
+    버크셔는 2분기에 주식 235억 달러어치를 사고 37억 달러어치를 팔았어요. 매수가 매도보다 많았던 건
+    14개 분기 만이에요. 오랫동안 쌓아둔 현금을 다시 주식으로 옮기기 시작했고, 그 첫 번째 대형 투자처가 알파벳이었어요.
+  </p>
+  <p><strong>③ 버핏이 직접 주도한 투자예요.</strong>
+    버핏은 2026년 1월 최고경영자(CEO) 자리를 그레그 에이블에게 넘기고 회장으로 남았어요. 그런데 이번 알파벳
+    투자는 에이블의 지지 속에 자신이 직접 주도했다고 밝혔어요. 버핏은 과거 주주총회에서 구글 투자 기회를
+    놓친 것을 실수로 인정한 적이 있어서, 이번 매수는 그 아쉬움을 AI 시대에 만회하는 결정으로도 해석돼요.
+  </p>
+
+  <h2>뱅크오브아메리카는 왜 계속 줄일까?</h2>
+  <p>버크셔는 2011년 금융위기 여파 속에 뱅크오브아메리카에 50억 달러를 투자하며 최대 주주가 됐어요. 그런데 2024년 여름부터는 꾸준히 지분을 줄이고 있어요.</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>시점</th><th>보유 주식 수</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td>2024년 7월 매도 시작 전</td><td>약 10억3,200만 주</td><td>버크셔 보유 2위 종목</td></tr>
+      <tr><td>2024년 7월 첫 매도 공시 후</td><td>약 9억9,800만 주</td><td>3,390만 주 매각</td></tr>
+      <tr><td>2025년 3월 말</td><td>약 6억3,160만 주</td><td>3분기 연속 축소</td></tr>
+      <tr><td>2026년 3월 말</td><td>5억1,362만 주</td><td></td></tr>
+      <tr><td><strong>2026년 6월 말</strong></td><td class="down"><strong>4억8,339만 주</strong></td><td class="down"><strong>3,023만 주(5.9%) 추가 매도</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    버크셔가 매도 이유를 공식적으로 밝힌 적은 없어요. 다만 시장에서는 몇 가지 배경을 꼽아요.
+    첫째, 15년 가까이 보유하며 큰 수익을 낸 만큼 <strong>차익을 단계적으로 실현</strong>하는 것으로 볼 수 있어요.
+    둘째, 은행 지분이 10%를 넘으면 매매할 때마다 빠르게 공시해야 하는 등 규제 부담이 큰데, 버크셔는 2024년 하반기에 지분을 10% 아래로 낮췄어요.
+    셋째, 이번 분기에도 캐피털원·앨리 파이낸셜 같은 금융주 지분을 함께 줄여, <strong>금융주 전반의 비중을 낮추는 흐름</strong>이 이어지고 있어요.
+  </p>
+
+  <h2>13F를 투자에 참고할 때 꼭 알아둘 점</h2>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>주의할 점</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td>최대 45일 늦은 정보</td><td>6월 30일 기준 내용이 8월 14일에 공시돼요. 공시를 보는 시점엔 이미 매매가 바뀌었을 수 있어요.</td></tr>
+      <tr><td>일부만 보여줘요</td><td>미국 상장 주식의 보유분만 나와요. 현금·채권·비상장 투자·공매도 포지션은 빠져 있어요.</td></tr>
+      <tr><td>비중 ≠ 매매</td><td>비중은 주가 변동만으로도 바뀌어요. 실제 매매는 주식 수 변화로 확인해야 해요.</td></tr>
+      <tr><td>같은 회사, 여러 코드</td><td>알파벳 A·C주처럼 한 회사가 여러 줄로 나올 수 있어 합산해서 봐야 해요.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    다음 13F(9월 30일 기준)는 <strong>11월 중순</strong>까지 공시될 예정이에요. 버크셔가 3분기에도 알파벳 매수를
+    이어갔는지, 뱅크오브아메리카를 더 줄였는지는 공시가 나오는 대로
+    <a href="/guru-portfolio.html">주식고수 따라잡기</a>에 반영돼요.
+  </p>
+
+  <div class="insight-box">
+    <h3>💡 핵심 정리</h3>
+    <p>
+      버크셔 해서웨이는 2026년 2분기에 알파벳 보유 주식을 약 83% 늘려 3대 보유종목으로 올렸고, 그 중심에는
+      알파벳의 AI 인프라 자금 조달에 참여한 100억 달러 투자가 있었어요. 14분기 만에 순매수로 돌아선 버크셔의
+      첫 대형 베팅이 AI 핵심 기업이라는 점이 상징적이에요. 반대로 뱅크오브아메리카는 2년 넘게 꾸준히 줄여 절반
+      이하가 됐어요. 13F를 볼 때는 비중보다 <strong>주식 수 변화</strong>를, 종목 하나보다 <strong>회사 단위 합계</strong>를 확인하는 습관이 중요해요.
+    </p>
+  </div>
+
+  <h2>함께 보면 좋은 글</h2>
+  <p>
+    버핏·캐시 우드·드러켄밀러 등 6명의 최신 포트폴리오는 <a href="/guru-portfolio.html">주식고수 따라잡기</a>에서
+    전분기 대비 변화와 함께 볼 수 있어요. 국내 증시 수급은 <a href="/market-brief.html">시황분석</a>에서
+    매일 업데이트하고 있어요.
+  </p>
+
+  <div class="disclaimer">
+    📊 개미데이터(gemidata.co.kr)는 코스피·코스닥 시황과 경제 인사이트를 함께
+    다루는 사이트예요. 매일 업데이트되는 시황 데이터는
+    <a href="/market-brief.html">시황분석</a>에서 확인하실 수 있어요.
+  </div>
+
+  <div class="caution">
+    ⚠️ 이 글은 SEC에 제출된 버크셔 해서웨이의 13F 보고서(2026.06.30 기준, 2026.08.14 공시)와 관련 보도를
+    근거로 작성했으며, 특정 종목에 대한 투자 권유가 아니에요. 13F는 공시 시점과 실제 매매 시점 사이에
+    시차가 있으니, 투자 판단은 최신 정보를 직접 확인하신 뒤 본인의 책임 하에 신중하게 결정하셔야 합니다.
+  </div>
+
+  <div class="footer-nav">
+    <a href="/">홈</a>
+    <a href="/insights.html">인사이트 목록</a>
+    <a href="/market-brief.html">시황분석 목록</a>
+    <a href="/guru-portfolio.html">주식고수 따라잡기</a>
+  </div>
+</div>
+</body></html>
