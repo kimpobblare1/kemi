@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="alternate" type="application/rss+xml" title="개미데이터 경제인사이트 RSS" href="https://www.gemidata.co.kr/insights-rss.xml">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M24%2027%20Q13%2025%208%2018%22/%3E%3Cpath%20d%3D%22M22%2032%20Q9%2032%205%2032%22/%3E%3Cpath%20d%3D%22M24%2037%20Q13%2041%209%2048%22/%3E%3Cpath%20d%3D%22M40%2027%20Q51%2025%2056%2018%22/%3E%3Cpath%20d%3D%22M42%2032%20Q55%2032%2059%2032%22/%3E%3Cpath%20d%3D%22M40%2037%20Q51%2041%2055%2048%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M27%2011%20Q22%204%2019%202%22/%3E%3Cpath%20d%3D%22M37%2011%20Q42%204%2045%202%22/%3E%3C/g%3E%3Ccircle%20cx%3D%2219%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2248.5%22%20rx%3D%2213.2%22%20ry%3D%2212.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%228.4%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2215%22%20r%3D%228.8%22%20fill%3D%22%230F9B8E%22/%3E%3C/svg%3E">
+
+<title>코스피 10월 -13.8%, 왜 떨어지고 언제 반등할까? 외국인·신용잔고·공매도 데이터로 본 하락 이유와 5가지 반등 신호 | 개미데이터</title>
+<link rel="canonical" href="https://www.gemidata.co.kr/insights/2026-10-14-kospi-october-selloff-rebound-signals.html">
+<meta name="description" content="10/2 7,003에서 10/13 6,035까지 5거래일간 13.83% 빠진 코스피를 개미데이터의 외국인 매매·공매도·신용잔고 데이터로 분석했어요. 외국인 매도의 77%가 반도체 투톱에 몰린 이유, 공매도보다 현물 매도가 문제인 이유, 늘어난 빚의 위험, 반등에 필요한 5가지 신호와 상황별 포지션 점검법을 정리했어요.">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="코스피 10월 -13.8%, 왜 떨어지고 언제 반등할까? 외국인·신용잔고·공매도 데이터로 본 하락 이유와 5가지 반등 신호 | 개미데이터">
+<meta property="og:description" content="외국인 매도의 77%가 반도체 투톱, 공매도는 낮고 빚은 늘었다. 데이터로 본 코스피 하락 이유와 반등 신호예요.">
+<meta property="og:url" content="https://www.gemidata.co.kr/insights/2026-10-14-kospi-october-selloff-rebound-signals.html">
+<meta property="og:image" content="https://www.gemidata.co.kr/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F6F7F9; --border:#E8EAED;
+    --text:#16181C; --text-soft:#8A8F98; --accent:#0F9B8E; --accent-soft:#E4F6F3;
+    --up:#E5484D; --down:#3B82F6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Pretendard', -apple-system, sans-serif; line-height:1.85; font-size:15.5px;
+  }
+  .wrap{ max-width:700px; margin:0 auto; padding:32px 20px 80px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--text-soft); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:24px; }
+  .back:hover{ color:var(--accent); }
+  .meta{ font-size:12.5px; color:var(--text-soft); margin-bottom:10px; display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+  .meta .tag{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  .meta .cat{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  h1{ font-size:25px; font-weight:800; margin:0 0 20px; line-height:1.4; }
+  h2{ font-size:19px; font-weight:800; margin:34px 0 12px; }
+  h3{ font-size:16px; font-weight:700; margin:22px 0 10px; color:var(--accent); }
+  p{ margin:0 0 18px; }
+  strong{ font-weight:700; }
+  ul, ol{ margin:0 0 18px; padding-left:22px; }
+  li{ margin-bottom:8px; }
+  .up{ color:var(--up); font-weight:700; }
+  .down{ color:var(--down); font-weight:700; }
+  table{ width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:14px; }
+  th, td{ padding:9px 10px; text-align:left; border-bottom:1px solid var(--border); }
+  th{ font-size:12px; color:var(--text-soft); font-weight:700; }
+  .example{ background:var(--surface); border-left:3px solid var(--accent); border-radius:8px; padding:14px 18px; font-size:14px; color:var(--text); margin:16px 0; }
+  .example b{ color: var(--accent); }
+  .caution{ background:#FDECEC; border-left:3px solid var(--up); border-radius:8px; padding:14px 18px; font-size:14px; margin:16px 0; }
+  .insight-box{ background:var(--accent-soft); border-radius:12px; padding:20px 22px; margin:20px 0; }
+  .insight-box h2, .insight-box h3{ margin-top:0; }
+  .disclaimer{ font-size:12.5px; color:var(--text-soft); background:var(--surface); border-radius:8px; padding:12px 16px; margin:28px 0 0; }
+  a{ color:var(--accent); }
+  .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; flex-wrap:wrap; }
+  .footer-nav a{ color:var(--text-soft); text-decoration:none; }
+  .footer-nav a:hover{ color:var(--accent); }
+  .post-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:32px; padding-top:20px; border-top:1px solid var(--border); font-size:13.5px; }
+  .post-nav a{ color:var(--accent); text-decoration:none; }
+  .topbar{ position:sticky; top:0; z-index:50; background:var(--surface); border-bottom:1px solid var(--border); }
+  .topbar-inner{ max-width:1000px; margin:0 auto; padding:14px 20px 12px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:8px; }
+  .brand-mark{ width:22px; height:22px; flex-shrink:0; display:block; }
+  .brand-name{ font-weight:800; font-size:16px; color:var(--text); letter-spacing:-0.01em; }
+  .brand-tag{ font-size:11.5px; color:var(--text-soft); }
+  .tab-nav{ background:var(--surface); border-bottom:1px solid var(--border); }
+  .tab-nav-inner{ max-width:1000px; margin:0 auto; padding:0 20px; display:flex; gap:22px; overflow-x:auto; scrollbar-width:none; }
+  .tab-nav-inner::-webkit-scrollbar{ display:none; }
+  .tab-link{
+    background:none; border:none; white-space:nowrap; flex-shrink:0;
+    padding:12px 2px; font-size:13.5px; font-weight:600; color:var(--text-soft);
+    border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .12s, border-color .12s;
+    text-decoration:none; display:inline-block; position:relative;
+  }
+  .new-badge{
+    position:absolute; top:2px; right:-22px; background:var(--up); color:#fff;
+    font-size:9px; font-weight:800; padding:1.5px 4px; border-radius:6px; letter-spacing:.02em; line-height:1.4;
+  }
+  .tab-link:hover{ color:var(--text); }
+  .tab-link.active{ color:var(--text); border-bottom-color:var(--text); font-weight:700; }
+  @media (max-width:640px){
+    .topbar-inner{ padding:12px 14px 10px; }
+    .tab-nav-inner{ padding:0 14px; gap:16px; }
+  }
+  table.num th, table.num td{ white-space:nowrap; }
+  .bars{ margin:8px 0 22px; }
+  .bar-row{ display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:13px; }
+  .bar-label{ width:44px; color:var(--text-soft); font-weight:600; flex-shrink:0; }
+  .bar-track{ flex:1; background:var(--surface); border-radius:4px; height:16px; overflow:hidden; }
+  .bar{ display:block; height:100%; background:var(--down); border-radius:4px; }
+  .bar-val{ width:62px; text-align:right; font-weight:700; color:var(--down); flex-shrink:0; }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9496300145102373" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "코스피 10월 -13.8%, 왜 떨어지고 언제 반등할까? 외국인·신용잔고·공매도 데이터로 본 하락 이유와 5가지 반등 신호",
+  "description": "10/2 7,003에서 10/13 6,035까지 5거래일간 13.83% 빠진 코스피를 개미데이터의 외국인 매매·공매도·신용잔고 데이터로 분석했어요. 외국인 매도의 77%가 반도체 투톱에 몰린 이유, 공매도보다 현물 매도가 문제인 이유, 늘어난 빚의 위험, 반등에 필요한 5가지 신호와 상황별 포지션 점검법을 정리했어요.",
+  "datePublished": "2026-10-14T12:00:00+09:00",
+  "dateModified": "2026-10-14T12:00:00+09:00",
+  "author": { "@type": "Organization", "name": "개미데이터" },
+  "publisher": {
+    "@type": "Organization", "name": "개미데이터",
+    "logo": { "@type": "ImageObject", "url": "https://www.gemidata.co.kr/og-image.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.gemidata.co.kr/insights/2026-10-14-kospi-october-selloff-rebound-signals.html" },
+  "image": "https://www.gemidata.co.kr/og-image.png"
+}
+</script>
+<meta property="article:published_time" content="2026-10-14T12:00:00+09:00">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" style="text-decoration:none;"><div class="brand"><span class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+  <g stroke="#0F9B8E" stroke-width="4.2" stroke-linecap="round" fill="none">
+    <path d="M24 27 Q13 25 8 18"/>
+    <path d="M22 32 Q9 32 5 32"/>
+    <path d="M24 37 Q13 41 9 48"/>
+    <path d="M40 27 Q51 25 56 18"/>
+    <path d="M42 32 Q55 32 59 32"/>
+    <path d="M40 37 Q51 41 55 48"/>
+  </g>
+  <g stroke="#0F9B8E" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M27 11 Q22 4 19 2"/>
+    <path d="M37 11 Q42 4 45 2"/>
+  </g>
+  <circle cx="19" cy="2" r="2.6" fill="#0F9B8E"/>
+  <circle cx="45" cy="2" r="2.6" fill="#0F9B8E"/>
+  <ellipse cx="32" cy="48.5" rx="13.2" ry="12.6" fill="#0F9B8E"/>
+  <circle cx="32" cy="31" r="8.4" fill="#0F9B8E"/>
+  <circle cx="32" cy="15" r="8.8" fill="#0F9B8E"/>
+</svg></span><span class="brand-name">개미데이터</span></div></a>
+    <span class="brand-tag">데일리 코스피 공매도 순위·신용잔고 보는 사이트</span>
+  </div>
+  <nav class="tab-nav">
+    <div class="tab-nav-inner">
+      <a class="tab-link" href="/">홈</a>
+      <a class="tab-link" href="/#shortflow">공매도</a>
+      <a class="tab-link" href="/#creditflow">신용잔고</a>
+      <a class="tab-link" href="/#cap">시가총액</a>
+      <a class="tab-link" href="/#volume">거래량</a>
+      <a class="tab-link" href="/#fluctuation">등락률</a>
+      <a class="tab-link" href="/#instflow">기관매매</a>
+      <a class="tab-link" href="/#foreignflow">외국인매매</a>
+      <a class="tab-link" href="/market-brief.html">시황분석<span class="new-badge">NEW</span></a>
+      <a class="tab-link" href="/flow-archive.html">TOP5 조회</a>
+      <a class="tab-link" href="/guru-portfolio.html">주식고수 따라잡기<span class="new-badge">NEW</span></a>
+      <a class="tab-link active" href="/insights.html">경제인사이트<span class="new-badge">NEW</span></a>
+    </div>
+  </nav>
+</header>
+<div class="wrap">
+  <a class="back" href="/insights.html">← 인사이트 목록으로</a>
+  <div class="meta"><span class="cat">국내증시</span>2026.10.14</div>
+
+  <h1>코스피 10월 -13.8%, 왜 떨어지고 언제 반등할까? 외국인·신용잔고·공매도 데이터로 본 하락 이유와 5가지 반등 신호</h1>
+
+  <div class="insight-box" style="margin-top:0;">
+    <h3 style="margin-bottom:12px;">📌 3줄 요약</h3>
+    <ol style="margin:0; padding-left:20px;">
+      <li style="margin-bottom:10px;">10/6~10/13 5거래일 동안 외국인은 코스피에서 <strong>12조9,042억 원</strong>을 순매도했고, 이 가운데 약 <strong>77%(9조8,771억 원)가 SK하이닉스·삼성전자</strong> 두 종목에서 나왔어요. 지수 하락은 사실상 "외국인의 반도체 투톱 매도"예요.</li>
+      <li style="margin-bottom:10px;">반도체 투톱의 공매도 비중은 2~6%대로 낮아요. 이번 하락은 공매도보다 <strong>보유 주식을 실제로 파는 매도</strong>가 만든 거라, 공매도 청산(숏커버)으로 반등하기는 어려운 구조예요.</li>
+      <li style="margin-bottom:0;">가장 큰 위험은 <strong>떨어지는 중에 늘어난 빚</strong>이에요. 신용융자잔고는 10/7 33.5조 원에서 10/12 34.3조 원으로 늘었어요. 반등하려면 ① 외국인 매도 둔화 ② 10월 말 반도체 실적 ③ 반대매매 소화, 이 세 가지가 함께 확인돼야 해요.</li>
+    </ol>
+  </div>
+
+  <p>
+    이 글은 개미데이터가 매일 정리하는 <a href="/market-brief.html">시황분석</a>의 10월 데이터(외국인·기관·개인 순매수, 공매도, 신용잔고)를 한데 모아 분석한 거예요.
+    "왜 이렇게 빠지는지", "무엇이 바뀌어야 반등하는지", 그리고 <strong>지금 주식을 들고 있는 사람이 자기 포지션을 어떻게 점검하면 좋을지</strong>를 데이터로 정리했어요.
+    기준 시점은 <strong>2026년 10월 13일 종가</strong>예요.
+  </p>
+
+  <h2>1. 숫자로 본 10월 코스피: 7거래일 만에 -11.7%</h2>
+  <p>9월 말 6,838.04였던 코스피는 10/2에 7,003.74로 7000선을 되찾았어요. 그런데 그 뒤 5거래일 연속 하락해 10/13에는 6,035.35까지 내려왔어요. 10월 거래일별 흐름은 이래요.</p>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>날짜</th><th>코스피 종가</th><th>등락률</th><th>외국인</th><th>개인</th><th>기관</th></tr></thead>
+    <tbody>
+      <tr><td>10/1</td><td>6,971.35</td><td class="up">+1.95%</td><td class="down">-5,473억</td><td class="down">-1조4,315억</td><td class="up">+3,343억</td></tr>
+      <tr><td>10/2</td><td>7,003.74</td><td class="up">+0.46%</td><td class="down">-1,438억</td><td class="down">-1조7,206억</td><td class="up">+3,814억</td></tr>
+      <tr><td>10/6</td><td>6,941.39</td><td class="down">-0.89%</td><td class="down">-1조7,525억</td><td class="up">+7,421억</td><td class="down">-20억</td></tr>
+      <tr><td>10/7</td><td>6,803.90</td><td class="down">-1.98%</td><td class="down">-2조6,087억</td><td class="up">+2조5,570억</td><td class="down">-6,684억</td></tr>
+      <tr><td>10/8</td><td>6,625.93</td><td class="down">-2.62%</td><td class="down">-1조9,921억</td><td class="up">+2조9,061억</td><td class="down">-1조6,714억</td></tr>
+      <tr><td>10/12</td><td>6,384.24</td><td class="down">-3.65%</td><td class="down">-2조250억</td><td class="up">+1조4,674억</td><td class="down">-1,107억</td></tr>
+      <tr><td>10/13</td><td>6,035.35</td><td class="down">-5.46%</td><td class="down">-4조5,259억</td><td class="up">+2조2,271억</td><td class="up">+1조6,903억</td></tr>
+      <tr><td><strong>10월 합계</strong></td><td><strong>-802.69p</strong></td><td class="down"><strong>-11.74%</strong></td><td class="down"><strong>-13조5,953억</strong></td><td class="up"><strong>+6조7,476억</strong></td><td class="down"><strong>-465억</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:13px; color:var(--text-soft); margin-top:-12px;">※ 9/30 종가(6,838.04) 대비. 투자자별 순매수는 코스피 정규장, 한국거래소 마감 집계 기준이에요.</p>
+
+  <p>외국인 순매도 규모만 막대로 그려 보면, 하락 폭이 커질수록 외국인 매도도 커졌다는 게 한눈에 보여요.</p>
+  <div class="bars">
+    <div class="bar-row"><span class="bar-label">10/1</span><span class="bar-track"><span class="bar" style="width:12.1%"></span></span><span class="bar-val">-0.55조</span></div>
+    <div class="bar-row"><span class="bar-label">10/2</span><span class="bar-track"><span class="bar" style="width:3.2%"></span></span><span class="bar-val">-0.14조</span></div>
+    <div class="bar-row"><span class="bar-label">10/6</span><span class="bar-track"><span class="bar" style="width:38.7%"></span></span><span class="bar-val">-1.75조</span></div>
+    <div class="bar-row"><span class="bar-label">10/7</span><span class="bar-track"><span class="bar" style="width:57.6%"></span></span><span class="bar-val">-2.61조</span></div>
+    <div class="bar-row"><span class="bar-label">10/8</span><span class="bar-track"><span class="bar" style="width:44.0%"></span></span><span class="bar-val">-1.99조</span></div>
+    <div class="bar-row"><span class="bar-label">10/12</span><span class="bar-track"><span class="bar" style="width:44.7%"></span></span><span class="bar-val">-2.03조</span></div>
+    <div class="bar-row"><span class="bar-label">10/13</span><span class="bar-track"><span class="bar" style="width:100%"></span></span><span class="bar-val">-4.53조</span></div>
+  </div>
+  <p>
+    10/13 하루에만 외국인이 4조5,259억 원을 팔았고, 장중에는 코스피가 5,911.11(-7.41%)까지 밀리며 매도 사이드카가 발동됐어요.
+    6월 초 8,800선 고점과 비교하면 지금 지수는 약 30% 낮은 수준이에요.
+  </p>
+
+  <h2>2. 왜 떨어졌나: 데이터가 가리키는 4가지 원인</h2>
+
+  <h3>① 외국인이 반도체 투톱을 집중적으로 팔았어요</h3>
+  <p>
+    5거래일(10/6~10/13) 동안 외국인 순매도 12조9,042억 원 가운데 <strong>SK하이닉스 7조170억 원, 삼성전자 2조8,601억 원</strong>,
+    합계 9조8,771억 원(약 77%)이 두 종목에서 나왔어요. 하루 단위로 보면 집중도가 더 높아요.
+    10/6에는 외국인 매도의 약 90%, 10/13에는 82%가 두 종목이었어요.
+  </p>
+  <p>
+    이 흐름은 10월에 갑자기 시작된 게 아니에요. 9/1~10/2 22거래일 동안에도 외국인은 코스피에서 20조 원 넘게 팔았고,
+    그중 SK하이닉스가 12조 원이었어요. 그 결과 SK하이닉스의 외국인 보유율은 10/2 기준 49.76%로 약 3년 4개월 만에 가장 낮아졌어요.
+    현대차증권 집계로는 올해 외국인 코스피 누적 순매도 약 203조 원 가운데 <strong>약 86%(176조 원)가 삼성전자·SK하이닉스</strong>예요.
+  </p>
+  <div class="example">
+    <b>💡 개미데이터 관점</b><br>
+    코스피 시가총액에서 두 종목 비중이 워낙 커서, <b>외국인이 두 종목을 팔면 지수 전체가 빠지는 구조</b>예요.
+    그래서 지금 코스피를 볼 때는 지수보다 "외국인의 SK하이닉스·삼성전자 순매도 금액"을 먼저 보는 게 더 정확해요.
+  </div>
+
+  <h3>② 실적이 아니라 "이 이익이 얼마나 오래 갈까"를 의심하고 있어요</h3>
+  <p>
+    10/8 삼성전자는 3분기 영업이익 <strong>107조4천억 원</strong>을 발표했어요. 국내 기업 최초로 분기 영업이익 100조 원을 넘었는데,
+    그날 코스피는 2.62% 빠졌고 기관은 삼성전자를 2,538억 원 순매도했어요. <strong>좋은 실적에도 주가가 빠졌다</strong>는 건 시장이
+    지금 이익보다 "앞으로도 이 이익이 유지될까"를 걱정하고 있다는 뜻이에요.
+  </p>
+  <p>그 걱정을 키운 소식들은 이래요.</p>
+  <ul>
+    <li><strong>중국 CXMT</strong>: 10/10 더 작은 셀 구조의 차세대 D램(4F2)을 연내 양산하고 서버용 제품도 내놓겠다고 발표했어요. 10/13 SK하이닉스는 -10.09%, 삼성전자는 -7.39%를 기록했어요.</li>
+    <li><strong>AI 수익성 논란</strong>: 오픈AI의 연환산 매출을 두고 기존 700억 달러와 다른 500억 달러 보도가 나오면서 AI 투자금 회수에 대한 의문이 커졌어요.</li>
+    <li><strong>수요 둔화 신호</strong>: 애플이 아이폰18 부품 주문을 기존 요청보다 15~20% 줄였다는 보도도 나왔어요.</li>
+  </ul>
+  <p>
+    KB증권은 이 상황을 "반도체를 다시 <strong>경기순환주</strong>로 보기 시작했다"고 해석했어요. 상반기엔 성장주처럼 높은 PER을 받았는데,
+    이익의 지속성을 의심받으면서 PER이 빠르게 낮아지고 있다는 거예요.
+    다만 반대 의견도 있어요. 해외 운용사들은 CXMT 기술이 HBM(고대역폭메모리)과는 관계가 없고 아직 대량 생산 능력이 증명되지 않았다며,
+    <strong>그동안 많이 오른 반도체주의 차익실현 핑계</strong>에 가깝다고 봤어요.
+  </p>
+
+  <h3>③ 지수를 받쳐주던 손이 사라졌어요</h3>
+  <p>
+    8월부터 코스피를 받쳐준 건 삼성전자·SK하이닉스의 <strong>자사주 매입</strong>이었어요. 수급표에서는 "기타법인" 순매수로 나타나요.
+    10/2에는 기타법인이 1조4,830억 원을 사며 7000선을 지켰지만, 10/7에는 7,090억 원으로 최근 하루 평균(약 1조6천억 원)의 절반에도 못 미쳤어요.
+    이후 자사주 매입이 사실상 마무리되면서 <strong>외국인 매도를 받아줄 큰손이 개인밖에 남지 않았어요</strong>.
+  </p>
+
+  <h3>④ 금리와 대외 변수도 우호적이지 않아요</h3>
+  <p>
+    미국 10년물 국채금리가 5.3%대까지 올랐고, 연준 인사(존 윌리엄스 뉴욕연은 총재)가 "연내 한 번 더 인상이 적절할 수 있다"고 언급할 만큼
+    긴축 우려가 남아 있어요. 중동 지정학 리스크와 유가도 반등을 제약하는 요인으로 꼽혀요.
+    금리가 높을수록 미래 이익에 기대는 성장주(반도체 포함)의 가치는 낮게 평가돼요.
+  </p>
+
+  <h2>3. 공매도 데이터가 말해주는 것: 이번 하락은 "공매도 공격"이 아니에요</h2>
+  <p>
+    급락장마다 "공매도 때문"이라는 말이 나오지만, 개미데이터의 공매도 TOP5를 보면 이번엔 다르게 읽혀요.
+  </p>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>날짜</th><th>SK하이닉스 공매도 비중</th><th>삼성전자 공매도 비중</th><th>외국인 순매도 (코스피 전체)</th></tr></thead>
+    <tbody>
+      <tr><td>10/6</td><td>6.18%</td><td>4.17%</td><td>-1조7,525억</td></tr>
+      <tr><td>10/7</td><td>3.72%</td><td>3.04%</td><td>-2조6,087억</td></tr>
+      <tr><td>10/8</td><td>3.85%</td><td>4.53%</td><td>-1조9,921억</td></tr>
+      <tr><td>10/12</td><td>5.26%</td><td>2.68%</td><td>-2조250억</td></tr>
+      <tr><td><strong>10/13</strong></td><td><strong>2.31%</strong></td><td><strong>2.73%</strong></td><td class="down"><strong>-4조5,259억</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    외국인 매도가 가장 컸던 10/13에 SK하이닉스 공매도 비중은 오히려 2.31%로 10월 중 가장 낮았어요.
+    두 종목 모두 하루 거래대금 중 공매도는 2~6% 수준이에요. 즉 <strong>주가를 끌어내린 건 빌린 주식을 판 공매도가 아니라, 갖고 있던 주식을 실제로 판 외국인의 현물 매도</strong>예요.
+  </p>
+  <p>이게 중요한 이유는 두 가지예요.</p>
+  <ol>
+    <li><strong>"숏커버 반등"을 기대하기 어려워요.</strong> 공매도가 많이 쌓였다면 주가가 반등할 때 공매도 청산 매수가 반등 연료가 되지만, 반도체 투톱은 그 연료가 크지 않아요.</li>
+    <li><strong>반등의 열쇠는 결국 외국인의 현물 매수 복귀</strong>예요. 그래서 아래 반등 신호에서도 외국인 순매수를 가장 먼저 봐야 해요.</li>
+  </ol>
+  <p>반면 공매도 비중이 높은 종목은 따로 있어요. 하락에 베팅하는 자금이 몰린 곳이에요.</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>종목</th><th>공매도 비중 (10월 TOP5 기록)</th><th>의미</th></tr></thead>
+    <tbody>
+      <tr><td>포스코퓨처엠</td><td>16.20%(10/7) → 23.48%(10/12)</td><td>2차전지 소재, 하락 베팅 확대</td></tr>
+      <tr><td>LG에너지솔루션</td><td>22.08%(10/13)</td><td>2차전지, 공매도 금액 3위</td></tr>
+      <tr><td>한미반도체</td><td>18.27%(10/8), 15.19%(10/13)</td><td>반도체 장비, 꾸준히 높음</td></tr>
+      <tr><td>두산에너빌리티</td><td>10.72~17.18%</td><td>10월 내내 공매도 금액 TOP5 단골</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    이런 종목은 악재가 나오면 하락이 커질 수 있지만, 반대로 호재가 나오면 공매도 청산이 몰리며 <strong>반등 폭이 커질 수 있는</strong> 양면성이 있어요.
+    보유 중이라면 <a href="/#shortflow">공매도 탭</a>에서 비중이 계속 오르는지 확인해 보세요.
+  </p>
+
+  <h2>4. 가장 위험한 신호: 떨어지는데 늘어나는 빚</h2>
+  <p>이번 하락에서 개인은 10월 7거래일 동안 6조7,476억 원을 순매수했어요. 문제는 그 돈의 일부가 빚이라는 점이에요.</p>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>기준일</th><th>신용융자잔고</th><th>미수금</th><th>고객예탁금</th><th>코스피</th></tr></thead>
+    <tbody>
+      <tr><td>10/2</td><td>33.6조</td><td>9,883억</td><td>100.8조</td><td>7,003.74</td></tr>
+      <tr><td>10/6</td><td>33.6조</td><td>9,601억</td><td>101.0조</td><td>6,941.39</td></tr>
+      <tr><td>10/7</td><td>33.5조</td><td>9,316억</td><td>100.4조</td><td>6,803.90</td></tr>
+      <tr><td>10/8</td><td>33.8조 안팎 (+2,946억)</td><td>9,915억</td><td>-</td><td>6,625.93</td></tr>
+      <tr><td><strong>10/12</strong></td><td class="up"><strong>34.3조</strong></td><td class="up"><strong>1조635억</strong></td><td>100.4조</td><td>6,384.24</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:13px; color:var(--text-soft); margin-top:-12px;">※ 금융투자협회 통계는 하루 늦게 나와요. 10/13 폭락일 수치는 아직 반영 전이에요.</p>
+  <p>
+    지수가 7,003에서 6,384로 약 9% 빠지는 동안 신용융자잔고는 오히려 약 7천억 원 늘었고, 미수금도 다시 1조 원을 넘었어요.
+    개인은 5거래일 동안 삼성전자·SK하이닉스를 7조4,650억 원 사들였고, <strong>레버리지 ETF도 1조359억 원</strong> 순매수했어요.
+    "떨어졌으니 싸다"는 매수가 빚과 레버리지로 이뤄졌다는 뜻이에요.
+  </p>
+  <div class="caution">
+    <strong>⚠️ 6월의 교훈</strong><br>
+    올해 6월 급락 때 신용융자잔고는 38조 원으로 사상 최고였고, 코스피가 6/5(-5.54%), 6/8(-8.29%) 연속 급락하자
+    6/5·8·9 사흘간 <strong>반대매매만 4,751억 원</strong>이 쏟아졌어요. 6/9에는 미수금 대비 반대매매 비중이 10.5%로 올해 최고였어요.
+    반대매매는 주가가 빠질수록 강제로 매도 물량을 만들어 <strong>하락을 더 키우는 악순환</strong>을 만들어요.
+    지금 신용잔고(34.3조)는 6월 고점의 약 90% 수준이에요.
+  </div>
+  <p>
+    그래서 10/13 폭락 이후 <strong>10/14~10/16에 나오는 반대매매 금액과 신용잔고 통계</strong>가 이번 주 가장 중요한 숫자예요.
+    반대매매가 크게 나온 뒤 신용잔고가 줄어들기 시작하면, 오히려 "팔 사람은 다 팔았다"는 바닥 신호가 될 수 있어요.
+  </p>
+
+  <h2>5. 반등하려면 무엇이 필요할까: 개미데이터로 확인하는 5가지 신호</h2>
+  <p>원인을 거꾸로 뒤집으면 반등 조건이 나와요. 아래 신호를 개미데이터에서 직접 확인할 수 있어요.</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th style="min-width:96px;">신호</th><th style="min-width:180px;">반등 쪽으로 바뀌는 모습</th><th style="min-width:72px;">어디서 확인</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 외국인 매도 둔화</strong></td><td>하루 순매도가 1조 원 아래로 줄고, 매도 중 반도체 투톱 비중이 절반 아래로 내려가요. 순매수 전환이면 가장 강한 신호예요.</td><td><a href="/#foreignflow">외국인매매</a>·<a href="/market-brief.html">시황분석</a></td></tr>
+      <tr><td><strong>② 반도체 실적·주주환원</strong></td><td>10월 하순 삼성전자·SK하이닉스 실적 발표에서 메모리 이익 지속성, CXMT에 대한 설명, 추가 자사주 매입이 나와요.</td><td>실적 발표 당일 시황분석</td></tr>
+      <tr><td><strong>③ 반대매매 소화</strong></td><td>반대매매가 한 번 크게 나온 뒤 신용융자잔고·미수금이 줄어드는 쪽으로 돌아서요.</td><td><a href="/#creditflow">신용잔고</a>·시황분석</td></tr>
+      <tr><td><strong>④ 기관의 방향</strong></td><td>10/13처럼 기관이 반도체를 사는 날이 이어져요(10/13 기관 +1조6,903억). 외국인 매도를 개인 혼자가 아니라 기관과 나눠 받아야 해요.</td><td><a href="/#instflow">기관매매</a></td></tr>
+      <tr><td><strong>⑤ 금리·변동성 진정</strong></td><td>미국 10년물 금리가 5.3%대에서 내려오고, 장중 50을 넘었던 공포지수(VKOSPI)가 낮아져요.</td><td>뉴스·시황분석</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>📅 앞으로 확인할 일정</h3>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>시점</th><th>이벤트</th><th>왜 중요한가</th></tr></thead>
+    <tbody>
+      <tr><td>10/14~16</td><td>10/13 폭락분 반대매매·신용잔고 통계</td><td>빚 매물이 얼마나 쏟아졌는지 확인</td></tr>
+      <tr><td>10월 중순</td><td>미국 9월 소비자물가(CPI)</td><td>연준 추가 인상 여부, 금리 방향</td></tr>
+      <tr><td>10월 하순</td><td>삼성전자·SK하이닉스 3분기 실적 발표</td><td>이익 지속성·주주환원, 외국인 복귀의 계기</td></tr>
+      <tr><td>10/27~28 (미국 시간)</td><td>FOMC 금리 결정</td><td>긴축 우려 해소 여부</td></tr>
+      <tr><td>11/3</td><td>미국 중간선거</td><td>정치·중동 불확실성 완화 가능성</td></tr>
+      <tr><td>11월 중순 (예정)</td><td>앤트로픽 상장</td><td>AI 수익성 논란과 해외 자금 흐름에 영향</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    현대차증권은 "외국인 매도를 한 번에 되돌릴 이벤트는 아직 없지만, 10월 말 실적·미국 선거·앤트로픽 상장을 거치며 점진적으로 순매수가 돌아올 것"으로 봤어요.
+    KB증권은 지금을 <strong>"W자 반등의 두 번째 바닥을 찾는 과정"</strong>으로 보고, 코스피 5,600~6,000 초반(12개월 선행 PBR 1.1~1.2배)을 매수 대응 구간으로 제시했어요.
+    참고로 직전 저점은 7월 30일 종가 5,593.56이에요. 반면 "반도체 투톱이 무너져 내년 상반기까지 박스권에 갇힐 것"이라는 신중론도 함께 나오고 있어요.
+  </p>
+
+  <h2>6. 지금 내 포지션, 이렇게 점검해 보세요</h2>
+  <p>
+    같은 하락장이라도 어떤 방식으로 투자하고 있느냐에 따라 먼저 챙길 게 달라요. 아래는 매수·매도 추천이 아니라,
+    <strong>스스로 점검해 볼 질문과 계산법</strong>이에요.
+  </p>
+
+  <h3>A. 신용·미수를 쓰고 있다면: 담보비율부터 계산하세요</h3>
+  <p>증권사마다 다르지만 보통 담보비율이 140% 안팎 아래로 내려가면 추가 담보를 요구받고, 못 채우면 반대매매가 나가요.</p>
+  <div class="example">
+    <b>예시)</b> 내 돈 1,000만 원 + 신용 1,000만 원으로 2,000만 원어치를 샀어요.<br>
+    → 주가가 <b>30% 빠지면</b> 평가액 1,400만 원 ÷ 대출 1,000만 원 = 담보비율 <b>140%</b><br>
+    → SK하이닉스는 10/2 종가 이후 5거래일 만에 약 20% 빠졌어요. 이런 급락이 조금만 더 이어져도 경계선에 닿을 수 있어요.
+  </div>
+  <p>
+    하락장에서 빚은 시간을 내 편이 아니라 상대편으로 만들어요. 반등을 기다리는 동안 반대매매가 먼저 오면 손실이 확정되기 때문이에요.
+    이 경우 <strong>"얼마나 더 살까"보다 "레버리지를 얼마나 줄일까"</strong>가 먼저예요.
+  </p>
+
+  <h3>B. 반도체 투톱 비중이 크다면: "이유가 깨졌나, 가격만 빠졌나"</h3>
+  <p>처음 산 이유를 적어 보고, 10월 말 실적 발표에서 아래 세 가지를 확인해 보세요.</p>
+  <ul>
+    <li>메모리 가격과 HBM 수요 전망이 유지되는가</li>
+    <li>CXMT 등 중국 업체와의 기술 격차를 회사가 어떻게 설명하는가</li>
+    <li>자사주 매입 같은 추가 주주환원이 나오는가</li>
+  </ul>
+  <p>
+    이유가 그대로라면 지금 하락은 "가격 문제"고, 이유가 흔들렸다면 "투자 논리의 문제"예요.
+    추가 매수(물타기)를 고민한다면 한 번에 하기보다 <strong>실적 발표·FOMC처럼 불확실성이 하나씩 풀리는 시점마다 나눠서</strong> 판단하는 방법이 있어요.
+    또 계좌에서 두 종목 비중이 지나치게 높다면, 지수가 외국인의 두 종목 매매에 좌우되는 지금 구조에서는 변동성도 그만큼 크게 받는다는 점을 기억하세요.
+  </p>
+
+  <h3>C. 레버리지 ETF를 들고 있다면: 박스권에서는 시간이 비용이에요</h3>
+  <div class="example">
+    <b>예시)</b> 지수가 -10% 빠졌다가 +11.1% 올라 제자리(100)로 돌아왔어요.<br>
+    → 2배 레버리지는 -20%(80) 후 +22.2%로 <b>97.8</b>. 지수는 본전인데 레버리지는 2.2% 손실이에요.
+  </div>
+  <p>
+    레버리지 ETF는 매일 수익률의 2배를 따라가서, 오르내림이 반복되는 장에서는 손실이 쌓여요.
+    증권가에서 박스권 가능성을 거론하는 지금은 <strong>보유 기간과 손절 기준을 미리 정해 두는 것</strong>이 특히 중요해요.
+  </p>
+
+  <h3>D. 현금을 들고 기다리고 있다면: 가격보다 신호로 나누기</h3>
+  <p>
+    "어디가 바닥일까"를 맞히기보다, 위의 반등 신호가 하나씩 켜질 때마다 나눠서 들어가는 방법이 있어요.
+    예를 들어 ① 반대매매 소화 확인 ② 반도체 실적 발표 ③ 외국인 순매수 전환처럼 <strong>가격이 아니라 사건을 기준으로</strong> 나누면,
+    급락이 더 이어지더라도 남은 현금으로 대응할 여지가 생겨요.
+  </p>
+
+  <h3>📊 시나리오별 정리</h3>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>시나리오</th><th>이렇게 되면</th><th>데이터로 보이는 모습</th></tr></thead>
+    <tbody>
+      <tr><td class="up"><strong>반등</strong></td><td>실적에서 이익 지속성 확인 + 주주환원 + 금리 진정</td><td>외국인 반도체 순매수 전환, 신용잔고 감소, 기관 동반 매수</td></tr>
+      <tr><td><strong>박스권</strong></td><td>실적은 좋지만 AI·중국 우려가 계속 남음</td><td>외국인 매도 규모는 줄지만 순매수 전환은 안 됨, 개인·기관이 번갈아 받침</td></tr>
+      <tr><td class="down"><strong>추가 하락</strong></td><td>실적 가이던스 실망 또는 금리 추가 상승</td><td>외국인 하루 2조 원 이상 매도 지속, 반대매매 확대, 신용잔고 계속 증가</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight-box">
+    <h3>💡 핵심 정리</h3>
+    <p>
+      10월 코스피 하락은 외국인이 SK하이닉스·삼성전자를 집중적으로 판 결과예요. 실적이 나빠서라기보다 이익이 얼마나 오래 갈지 의심받고,
+      자사주 매입이라는 받침대가 사라진 탓이 커요. 공매도 비중이 낮아 숏커버 반등을 기대하기 어렵기 때문에,
+      반등은 <strong>외국인 현물 매수 복귀</strong>에서 시작될 가능성이 높아요. 그 사이 가장 큰 위험은 하락 중에 늘어난
+      <strong>신용잔고와 반대매매</strong>예요. 지금 할 일은 지수를 맞히는 게 아니라 <strong>빚 → 집중도 → 레버리지 → 현금</strong> 순서로
+      내 포지션을 점검하고, 10월 말 실적과 외국인 수급을 확인하는 거예요.
+    </p>
+  </div>
+
+  <h2>함께 보면 좋은 글</h2>
+  <p>
+    <a href="/briefs/2026-10-13.html">10/13 시황: 외국인 4.5조 매도 중 82%가 반도체 투톱</a>,
+    <a href="/briefs/2026-10-11-weekly.html">10월 둘째 주 수급 결산</a>에서 날짜별 기관·외국인 TOP5와 공매도·신용잔고 순위를 자세히 볼 수 있어요.
+    매일 업데이트되는 수급은 <a href="/market-brief.html">시황분석</a>에서 확인하세요.
+  </p>
+
+  <div class="disclaimer">
+    📊 개미데이터(gemidata.co.kr)는 코스피·코스닥의 실제 수급 데이터를 바탕으로 시황과 경제 인사이트를 함께
+    다루는 사이트예요. 공매도·신용잔고·기관·외국인 매매는 <a href="/">홈</a>의 각 탭에서 매일 확인하실 수 있어요.
+  </div>
+
+  <div class="caution">
+    ⚠️ 이 글은 한국거래소·금융투자협회 통계와 개미데이터 일간 시황 데이터, 관련 보도를 근거로 2026년 10월 13일 종가 기준으로 작성했으며,
+    특정 종목이나 상품에 대한 투자 권유가 아니에요. 증권사 전망은 각 사의 의견을 소개한 것이고, 담보비율 등 조건은 증권사마다 달라요.
+    투자 판단은 최신 정보를 직접 확인하신 뒤 본인의 책임 하에 신중하게 결정하셔야 합니다.
+  </div>
+
+  <div class="footer-nav">
+    <a href="/">홈</a>
+    <a href="/insights.html">인사이트 목록</a>
+    <a href="/market-brief.html">시황분석 목록</a>
+    <a href="/guru-portfolio.html">주식고수 따라잡기</a>
+  </div>
+</div>
+</body></html>
