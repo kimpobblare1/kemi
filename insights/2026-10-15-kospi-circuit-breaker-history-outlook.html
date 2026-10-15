@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="alternate" type="application/rss+xml" title="개미데이터 경제인사이트 RSS" href="https://www.gemidata.co.kr/insights-rss.xml">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M24%2027%20Q13%2025%208%2018%22/%3E%3Cpath%20d%3D%22M22%2032%20Q9%2032%205%2032%22/%3E%3Cpath%20d%3D%22M24%2037%20Q13%2041%209%2048%22/%3E%3Cpath%20d%3D%22M40%2027%20Q51%2025%2056%2018%22/%3E%3Cpath%20d%3D%22M42%2032%20Q55%2032%2059%2032%22/%3E%3Cpath%20d%3D%22M40%2037%20Q51%2041%2055%2048%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M27%2011%20Q22%204%2019%202%22/%3E%3Cpath%20d%3D%22M37%2011%20Q42%204%2045%202%22/%3E%3C/g%3E%3Ccircle%20cx%3D%2219%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2248.5%22%20rx%3D%2213.2%22%20ry%3D%2212.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%228.4%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2215%22%20r%3D%228.8%22%20fill%3D%22%230F9B8E%22/%3E%3C/svg%3E">
+
+<title>코스피 서킷브레이커 16번의 기록: 발동 다음 날과 한 달 뒤 시장은 어떻게 움직였고, 이번엔 어디로 갈까 | 개미데이터</title>
+<link rel="canonical" href="https://www.gemidata.co.kr/insights/2026-10-15-kospi-circuit-breaker-history-outlook.html">
+<meta name="description" content="코스피 서킷브레이커는 2000~2024년 6번, 2026년에만 10번 발동됐어요. 과거엔 다음 날 6번 중 4번 반등하고 한 달 남짓이면 낙폭을 회복했지만, 올해는 발동이 몇 주 사이 묶음으로 나오며 다음 날 반등 공식이 깨졌어요. 역대 사례와 수급·신용 데이터로 10/15 이후 시나리오를 정리했어요.">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="코스피 서킷브레이커 16번의 기록: 발동 다음 날과 한 달 뒤 시장은 어떻게 움직였고, 이번엔 어디로 갈까 | 개미데이터">
+<meta property="og:description" content="서킷브레이커 이후 시장은 어떻게 움직였을까? 역대 16번의 기록과 이번 하락의 시나리오를 데이터로 정리했어요.">
+<meta property="og:url" content="https://www.gemidata.co.kr/insights/2026-10-15-kospi-circuit-breaker-history-outlook.html">
+<meta property="og:image" content="https://www.gemidata.co.kr/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F6F7F9; --border:#E8EAED;
+    --text:#16181C; --text-soft:#8A8F98; --accent:#0F9B8E; --accent-soft:#E4F6F3;
+    --up:#E5484D; --down:#3B82F6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Pretendard', -apple-system, sans-serif; line-height:1.85; font-size:15.5px;
+  }
+  .wrap{ max-width:700px; margin:0 auto; padding:32px 20px 80px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--text-soft); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:24px; }
+  .back:hover{ color:var(--accent); }
+  .meta{ font-size:12.5px; color:var(--text-soft); margin-bottom:10px; display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+  .meta .tag{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  .meta .cat{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  h1{ font-size:25px; font-weight:800; margin:0 0 20px; line-height:1.4; }
+  h2{ font-size:19px; font-weight:800; margin:34px 0 12px; }
+  h3{ font-size:16px; font-weight:700; margin:22px 0 10px; color:var(--accent); }
+  p{ margin:0 0 18px; }
+  strong{ font-weight:700; }
+  ul, ol{ margin:0 0 18px; padding-left:22px; }
+  li{ margin-bottom:8px; }
+  .up{ color:var(--up); font-weight:700; }
+  .down{ color:var(--down); font-weight:700; }
+  table{ width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:14px; }
+  th, td{ padding:9px 10px; text-align:left; border-bottom:1px solid var(--border); }
+  th{ font-size:12px; color:var(--text-soft); font-weight:700; }
+  .example{ background:var(--surface); border-left:3px solid var(--accent); border-radius:8px; padding:14px 18px; font-size:14px; color:var(--text); margin:16px 0; }
+  .example b{ color: var(--accent); }
+  .caution{ background:#FDECEC; border-left:3px solid var(--up); border-radius:8px; padding:14px 18px; font-size:14px; margin:16px 0; }
+  .insight-box{ background:var(--accent-soft); border-radius:12px; padding:20px 22px; margin:20px 0; }
+  .insight-box h2, .insight-box h3{ margin-top:0; }
+  .disclaimer{ font-size:12.5px; color:var(--text-soft); background:var(--surface); border-radius:8px; padding:12px 16px; margin:28px 0 0; }
+  a{ color:var(--accent); }
+  .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; flex-wrap:wrap; }
+  .footer-nav a{ color:var(--text-soft); text-decoration:none; }
+  .footer-nav a:hover{ color:var(--accent); }
+  .post-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:32px; padding-top:20px; border-top:1px solid var(--border); font-size:13.5px; }
+  .post-nav a{ color:var(--accent); text-decoration:none; }
+  .topbar{ position:sticky; top:0; z-index:50; background:var(--surface); border-bottom:1px solid var(--border); }
+  .topbar-inner{ max-width:1000px; margin:0 auto; padding:14px 20px 12px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:8px; }
+  .brand-mark{ width:22px; height:22px; flex-shrink:0; display:block; }
+  .brand-name{ font-weight:800; font-size:16px; color:var(--text); letter-spacing:-0.01em; }
+  .brand-tag{ font-size:11.5px; color:var(--text-soft); }
+  .tab-nav{ background:var(--surface); border-bottom:1px solid var(--border); }
+  .tab-nav-inner{ max-width:1000px; margin:0 auto; padding:0 20px; display:flex; gap:22px; overflow-x:auto; scrollbar-width:none; }
+  .tab-nav-inner::-webkit-scrollbar{ display:none; }
+  .tab-link{
+    background:none; border:none; white-space:nowrap; flex-shrink:0;
+    padding:12px 2px; font-size:13.5px; font-weight:600; color:var(--text-soft);
+    border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .12s, border-color .12s;
+    text-decoration:none; display:inline-block; position:relative;
+  }
+  .new-badge{
+    position:absolute; top:2px; right:-22px; background:var(--up); color:#fff;
+    font-size:9px; font-weight:800; padding:1.5px 4px; border-radius:6px; letter-spacing:.02em; line-height:1.4;
+  }
+  .tab-link:hover{ color:var(--text); }
+  .tab-link.active{ color:var(--text); border-bottom-color:var(--text); font-weight:700; }
+  @media (max-width:640px){
+    .topbar-inner{ padding:12px 14px 10px; }
+    .tab-nav-inner{ padding:0 14px; gap:16px; }
+  }
+  table.num th, table.num td{ white-space:nowrap; }
+  .bars{ margin:8px 0 22px; }
+  .bar-row{ display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:13px; }
+  .bar-label{ width:44px; color:var(--text-soft); font-weight:600; flex-shrink:0; }
+  .bar-track{ flex:1; background:var(--surface); border-radius:4px; height:16px; overflow:hidden; }
+  .bar{ display:block; height:100%; background:var(--down); border-radius:4px; }
+  .bar-val{ width:62px; text-align:right; font-weight:700; color:var(--down); flex-shrink:0; }
+  table:not(.num) td:first-child, table:not(.num) th:first-child{ min-width:84px; }
+  .dbars{ margin:8px 0 6px; }
+  .dbar-row{ display:flex; align-items:center; gap:6px; margin-bottom:5px; font-size:12.5px; }
+  .dbar-label{ width:74px; color:var(--text-soft); font-weight:600; flex-shrink:0; }
+  .dbar-neg, .dbar-pos{ flex:1; height:14px; display:flex; background:var(--surface); }
+  .dbar-neg{ justify-content:flex-end; border-radius:4px 0 0 4px; border-right:1px solid var(--text-soft); }
+  .dbar-pos{ border-radius:0 4px 4px 0; }
+  .dbar-neg .bar, .dbar-pos .bar{ display:block; height:100%; }
+  .bar.up{ background:var(--up); } .bar.down{ background:var(--down); }
+  .dbar-val{ width:56px; text-align:right; font-weight:700; flex-shrink:0; }
+  .dbar-sep{ font-size:12px; font-weight:700; color:var(--accent); margin:10px 0 6px; }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9496300145102373" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "코스피 서킷브레이커 16번의 기록: 발동 다음 날과 한 달 뒤 시장은 어떻게 움직였고, 이번엔 어디로 갈까",
+  "description": "코스피 서킷브레이커는 2000~2024년 6번, 2026년에만 10번 발동됐어요. 과거엔 다음 날 6번 중 4번 반등하고 한 달 남짓이면 낙폭을 회복했지만, 올해는 발동이 몇 주 사이 묶음으로 나오며 다음 날 반등 공식이 깨졌어요. 역대 사례와 수급·신용 데이터로 10/15 이후 시나리오를 정리했어요.",
+  "datePublished": "2026-10-15T23:00:00+09:00",
+  "dateModified": "2026-10-15T23:00:00+09:00",
+  "author": { "@type": "Organization", "name": "개미데이터" },
+  "publisher": {
+    "@type": "Organization", "name": "개미데이터",
+    "logo": { "@type": "ImageObject", "url": "https://www.gemidata.co.kr/og-image.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.gemidata.co.kr/insights/2026-10-15-kospi-circuit-breaker-history-outlook.html" },
+  "image": "https://www.gemidata.co.kr/og-image.png"
+}
+</script>
+<meta property="article:published_time" content="2026-10-15T23:00:00+09:00">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" style="text-decoration:none;"><div class="brand"><span class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+  <g stroke="#0F9B8E" stroke-width="4.2" stroke-linecap="round" fill="none">
+    <path d="M24 27 Q13 25 8 18"/>
+    <path d="M22 32 Q9 32 5 32"/>
+    <path d="M24 37 Q13 41 9 48"/>
+    <path d="M40 27 Q51 25 56 18"/>
+    <path d="M42 32 Q55 32 59 32"/>
+    <path d="M40 37 Q51 41 55 48"/>
+  </g>
+  <g stroke="#0F9B8E" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M27 11 Q22 4 19 2"/>
+    <path d="M37 11 Q42 4 45 2"/>
+  </g>
+  <circle cx="19" cy="2" r="2.6" fill="#0F9B8E"/>
+  <circle cx="45" cy="2" r="2.6" fill="#0F9B8E"/>
+  <ellipse cx="32" cy="48.5" rx="13.2" ry="12.6" fill="#0F9B8E"/>
+  <circle cx="32" cy="31" r="8.4" fill="#0F9B8E"/>
+  <circle cx="32" cy="15" r="8.8" fill="#0F9B8E"/>
+</svg></span><span class="brand-name">개미데이터</span></div></a>
+    <span class="brand-tag">데일리 코스피 공매도 순위·신용잔고 보는 사이트</span>
+  </div>
+  <nav class="tab-nav">
+    <div class="tab-nav-inner">
+      <a class="tab-link" href="/">홈</a>
+      <a class="tab-link" href="/#shortflow">공매도</a>
+      <a class="tab-link" href="/#creditflow">신용잔고</a>
+      <a class="tab-link" href="/#cap">시가총액</a>
+      <a class="tab-link" href="/#volume">거래량</a>
+      <a class="tab-link" href="/#fluctuation">등락률</a>
+      <a class="tab-link" href="/#instflow">기관매매</a>
+      <a class="tab-link" href="/#foreignflow">외국인매매</a>
+      <a class="tab-link" href="/market-brief.html">시황분석<span class="new-badge">NEW</span></a>
+      <a class="tab-link" href="/flow-archive.html">TOP5 조회</a>
+      <a class="tab-link" href="/guru-portfolio.html">주식고수 따라잡기<span class="new-badge">NEW</span></a>
+      <a class="tab-link active" href="/insights.html">경제인사이트<span class="new-badge">NEW</span></a>
+    </div>
+  </nav>
+</header>
+<div class="wrap">
+  <a class="back" href="/insights.html">← 인사이트 목록으로</a>
+  <div class="meta"><span class="cat">국내증시</span>2026.10.15</div>
+
+  <h1>코스피 서킷브레이커 16번의 기록: 발동 다음 날과 한 달 뒤 시장은 어떻게 움직였고, 이번엔 어디로 갈까</h1>
+
+  <div class="insight-box" style="margin-top:0;">
+    <h3 style="margin-bottom:12px;">📌 3줄 요약</h3>
+    <ol style="margin:0; padding-left:20px;">
+      <li style="margin-bottom:10px;">코스피 서킷브레이커는 제도 도입 이후 <strong>16번</strong> 발동됐어요. 2000~2024년에 6번이었는데, <strong>올해에만 10번</strong>이에요. 오늘(10/15)이 열 번째예요.</li>
+      <li style="margin-bottom:10px;">2024년까지는 <strong>발동 다음 날 6번 중 4번 반등</strong>했고, 평균 한 달 남짓이면 발동일 낙폭을 되찾았어요. 하지만 올해는 다음 날 결과가 확인된 5번 중 <strong>3번이 추가 하락</strong>했어요.</li>
+      <li style="margin-bottom:0;">올해 서킷브레이커는 <strong>몇 주 사이에 몰려서</strong> 나왔고, 묶음이 끝난 뒤에야 큰 반등이 왔어요. 이번에도 "하루 반등"보다 <strong>바닥을 다지는 구간이 얼마나 길어질지</strong>가 더 중요한 질문이에요.</li>
+    </ol>
+  </div>
+
+  <p>
+    10월 15일 낮 12시 38분, 코스피가 전날보다 8% 넘게 떨어진 상태가 1분 이상 이어지자 <strong>1단계 서킷브레이커</strong>가 발동돼 20분간 모든 거래가 멈췄어요.
+    코스피는 결국 7.57% 내린 5,554.22로 마감했어요. 이 글은 과거 서킷브레이커 이후 시장이 실제로 어떻게 움직였는지 데이터로 되짚고,
+    개미데이터의 수급·신용 데이터를 더해 앞으로의 흐름을 시나리오로 정리한 거예요.
+  </p>
+
+  <div class="example">
+    <b>💡 서킷브레이커란?</b><br>
+    지수가 급락할 때 투자자들이 냉정을 찾도록 시장 전체 거래를 잠시 멈추는 제도예요. 코스피는 전일 대비 <b>8%(1단계)·15%(2단계)·20%(3단계)</b> 이상 떨어진 상태가 1분 넘게 이어지면 발동돼요.
+    1·2단계는 20분간 거래를 멈추고, 3단계는 그날 장을 끝내요. 1단계 기준은 2015년 6월 가격제한폭 확대와 함께 10%에서 8%로 낮아졌어요.
+    비슷한 장치인 <b>사이드카</b>는 선물 가격이 급변할 때 프로그램 매매만 5분간 멈추는 거라 서킷브레이커보다 한 단계 약한 조치예요.
+  </div>
+
+  <h2>1. 2024년까지의 서킷브레이커 6번: "다음 날 반등, 한 달 뒤 회복"</h2>
+  <p>코스피에서 서킷브레이커가 처음 발동된 2000년부터 2024년까지는 25년 동안 6번뿐이었어요.</p>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>발동일</th><th>당일 등락률</th><th>다음 날</th><th>원인</th></tr></thead>
+    <tbody>
+      <tr><td>2000.04.17</td><td class="down">-11.63%</td><td class="up">+5.74%</td><td>미국 닷컴버블 붕괴</td></tr>
+      <tr><td>2000.09.18</td><td class="down">-8.06%</td><td class="down">-1.75%</td><td>닷컴 후유증·대우차 매각 무산</td></tr>
+      <tr><td>2001.09.12</td><td class="down">-12.02%</td><td class="up">+4.97%</td><td>9·11 테러</td></tr>
+      <tr><td>2020.03.13</td><td class="down">-3.43%</td><td class="down">-3.19%</td><td>코로나19 1차 충격</td></tr>
+      <tr><td>2020.03.19</td><td class="down">-8.39%</td><td class="up">+7.44%</td><td>코로나19 2차 충격·환율 급등</td></tr>
+      <tr><td>2024.08.05</td><td class="down">-8.77%</td><td class="up">+3.30%</td><td>엔캐리 트레이드 청산</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:13px; color:var(--text-soft); margin-top:-12px;">※ 2020.03.13은 장중 8% 넘게 빠져 발동됐지만 종가는 -3.43%로 낙폭을 줄였어요. 등락률은 언론 보도 기준이에요.</p>
+  <p>이 6번에서 보이는 패턴은 세 가지예요.</p>
+  <ol>
+    <li><strong>다음 날은 대체로 반등했어요.</strong> 6번 중 4번 올랐고, 하락한 두 번(2000년 9월, 2020년 3월 13일)은 하락장이 더 이어지던 중간 지점이었어요.</li>
+    <li><strong>평균 한 달 남짓이면 발동일 낙폭을 되찾았어요.</strong> 대신증권 분석으로는 발동 후 평균 약 30거래일에 9.9%, 60거래일 전후에 20% 가까이 반등했어요.</li>
+    <li><strong>회복 기간은 원인에 따라 크게 달랐어요.</strong> 발동 전 수준을 되찾기까지 2020년 3월 19일 이후는 5일, 2024년 8월은 11일, 9·11 테러는 42일이 걸렸어요. 반면 닷컴버블이 꺼지던 2000년 9월은 253일이 걸렸어요.</li>
+  </ol>
+  <div class="example">
+    <b>💡 개미데이터 관점</b><br>
+    빨리 회복한 경우(코로나·엔캐리·9·11)는 <b>외부 충격</b>이었고, 시장이 그 충격을 소화하자 제자리를 찾았어요.
+    오래 걸린 경우(2000년 닷컴)는 <b>성장 산업의 가치 자체가 다시 매겨지던 시기</b>였어요. 지금 코스피가 어느 쪽에 더 가까운지가 핵심이에요.
+  </div>
+
+  <h2>2. 2026년의 서킷브레이커 10번: 공식이 깨진 해</h2>
+  <p>올해는 서킷브레이커가 25년 동안의 기록보다 더 많이 나왔어요. 발동일과 이후 흐름을 정리하면 이래요.</p>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>발동일</th><th>당일 종가 (등락률)</th><th>다음 날 이후</th><th>배경</th></tr></thead>
+    <tbody>
+      <tr><td>03.04</td><td>5,093.54 <span class="down">(-12.06%)</span></td><td class="up">다음 날 +9.63%</td><td>미국·이스라엘의 이란 공습</td></tr>
+      <tr><td>03.09</td><td>장중 -8.1%</td><td>-</td><td>이란 전쟁·미국 고용지표</td></tr>
+      <tr><td>06.08</td><td>7,484.41 <span class="down">(-8.29%)</span></td><td class="up">다음 날 +8.18%</td><td>반도체 급락</td></tr>
+      <tr><td>06.23</td><td>약 8,204 <span class="down">(-9.99%)</span></td><td class="up">이틀 뒤 8,930선</td><td>사상 최고치(6/22) 다음 날 급락</td></tr>
+      <tr><td>06.26</td><td>8,411.21 <span class="down">(-5.81%)</span></td><td>-</td><td>메모리 수요 둔화 우려</td></tr>
+      <tr><td>07.07</td><td>7,656.31 <span class="down">(-4.91%)</span></td><td class="down">다음 날 -5.4%</td><td>외국인·기관 동반 매도</td></tr>
+      <tr><td>07.13</td><td>6,806.93 <span class="down">(-8.95%)</span></td><td class="down">다음 날 장중 -5% 이상</td><td>미국·이란 충돌 재부각</td></tr>
+      <tr><td>07.28</td><td>6,023.66 <span class="down">(-10.84%)</span></td><td class="down">다음 날 -5.98% (또 발동)</td><td>중국 반도체 우려·AI 의구심</td></tr>
+      <tr><td>07.29</td><td>5,663.24 <span class="down">(-5.98%)</span></td><td class="down">다음 날 -1.23%, 그다음 날 +17.91%</td><td>이틀 연속 발동은 처음</td></tr>
+      <tr><td><strong>10.15</strong></td><td><strong>5,554.22 <span class="down">(-7.57%)</span></strong></td><td>?</td><td>미국 9월 CPI 상회·AI 신용 불안</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:13px; color:var(--text-soft); margin-top:-12px;">※ 언론 보도를 모아 정리했어요. "-"는 확인 가능한 보도가 없는 항목이고, 6/23 종가는 6/22 종가(9,114.55)와 등락률로 계산한 값이에요.</p>
+
+  <p>발동 다음 날 등락률이 확인되는 11번을 막대로 비교하면 차이가 뚜렷해요.</p>
+  <div class="dbars">
+    <div class="dbar-row"><span class="dbar-label">2000.04</span><span class="dbar-neg"></span><span class="dbar-pos"><span class="bar up" style="width:31.9%"></span></span><span class="dbar-val up">+5.74%</span></div>
+    <div class="dbar-row"><span class="dbar-label">2000.09</span><span class="dbar-neg"><span class="bar down" style="width:9.7%"></span></span><span class="dbar-pos"></span><span class="dbar-val down">-1.75%</span></div>
+    <div class="dbar-row"><span class="dbar-label">2001.09</span><span class="dbar-neg"></span><span class="dbar-pos"><span class="bar up" style="width:27.6%"></span></span><span class="dbar-val up">+4.97%</span></div>
+    <div class="dbar-row"><span class="dbar-label">2020.03.13</span><span class="dbar-neg"><span class="bar down" style="width:17.7%"></span></span><span class="dbar-pos"></span><span class="dbar-val down">-3.19%</span></div>
+    <div class="dbar-row"><span class="dbar-label">2020.03.19</span><span class="dbar-neg"></span><span class="dbar-pos"><span class="bar up" style="width:41.3%"></span></span><span class="dbar-val up">+7.44%</span></div>
+    <div class="dbar-row"><span class="dbar-label">2024.08</span><span class="dbar-neg"></span><span class="dbar-pos"><span class="bar up" style="width:18.3%"></span></span><span class="dbar-val up">+3.30%</span></div>
+    <div class="dbar-sep">2026년</div>
+    <div class="dbar-row"><span class="dbar-label">03.04</span><span class="dbar-neg"></span><span class="dbar-pos"><span class="bar up" style="width:53.5%"></span></span><span class="dbar-val up">+9.63%</span></div>
+    <div class="dbar-row"><span class="dbar-label">06.08</span><span class="dbar-neg"></span><span class="dbar-pos"><span class="bar up" style="width:45.4%"></span></span><span class="dbar-val up">+8.18%</span></div>
+    <div class="dbar-row"><span class="dbar-label">07.07</span><span class="dbar-neg"><span class="bar down" style="width:30%"></span></span><span class="dbar-pos"></span><span class="dbar-val down">-5.40%</span></div>
+    <div class="dbar-row"><span class="dbar-label">07.28</span><span class="dbar-neg"><span class="bar down" style="width:33.2%"></span></span><span class="dbar-pos"></span><span class="dbar-val down">-5.98%</span></div>
+    <div class="dbar-row"><span class="dbar-label">07.29</span><span class="dbar-neg"><span class="bar down" style="width:6.8%"></span></span><span class="dbar-pos"></span><span class="dbar-val down">-1.23%</span></div>
+  </div>
+  <p style="font-size:13px; color:var(--text-soft);">※ 막대 길이는 ±18%를 끝으로 한 비율이에요. 6/23은 다음 날 등락률이 따로 보도되지 않아 뺐어요.</p>
+
+  <p>올해 데이터에서 읽히는 건 세 가지예요.</p>
+  <h3>① 서킷브레이커가 "묶음"으로 왔어요</h3>
+  <p>
+    3월에는 3/4·3/9로 일주일 사이 두 번, 6월에는 6/8·6/23·6/26으로 한 달 사이 세 번, 7월에는 7/7·7/13·7/28·7/29로 4주 사이 네 번 나왔어요.
+    한 번 나오면 그걸로 끝나지 않고, <strong>몇 주 동안 비슷한 급락이 반복되는 구간</strong>이 이어졌어요.
+  </p>
+  <h3>② 다음 날 반등은 더 이상 공식이 아니에요</h3>
+  <p>
+    2024년까지는 다음 날 6번 중 4번 올랐지만, 올해는 다음 날 결과가 확인되는 5번 중 2번만 올랐어요.
+    특히 7월 묶음에서는 <strong>다음 날 흐름이 확인된 세 번 모두 또 빠졌어요</strong>. 7/28 발동 뒤 다음 날 또 서킷브레이커가 걸린 게 대표적이에요.
+  </p>
+  <h3>③ 하지만 묶음이 끝난 뒤의 반등은 컸어요</h3>
+  <p>
+    3월 묶음 뒤 코스피는 5,093.54(3/4 종가)에서 6월 22일 사상 최고 종가 9,114.55까지 약 79% 올랐어요.
+    7월 묶음 뒤에는 7월 30일 종가 5,593.56에서 바로 다음 날 하루 <strong>+17.91%</strong>(코스피 역사상 최대 상승률)를 기록했고,
+    10월 2일 7,003.74까지 약 25% 반등했어요. <strong>"바닥은 묶음의 끝에서 나왔다"</strong>는 게 올해의 패턴이에요.
+  </p>
+
+  <h2>3. 올해 서킷브레이커가 이렇게 잦은 이유</h2>
+  <p>증권가 분석과 개미데이터 데이터를 함께 보면, 올해 급락이 유독 깊어진 구조적 이유가 보여요.</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>원인</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td><strong>반도체 쏠림</strong></td><td>6월 기준 삼성전자·SK하이닉스가 코스피 시가총액의 50%를 넘었어요. 두 종목이 흔들리면 지수 전체가 흔들려요.</td></tr>
+      <tr><td><strong>레버리지 확대</strong></td><td>5월 말 단일종목 레버리지 ETF가 상장됐고, 신용융자잔고는 5월 말 38조 원으로 사상 최고였어요. 급락 때 반대매매가 매물을 키워요.</td></tr>
+      <tr><td><strong>외국인 대량 매도</strong></td><td>10월에만 외국인이 코스피에서 17조 원 넘게 순매도했어요. 오늘(10/15) 하루만 3조6천억 원대예요.</td></tr>
+      <tr><td><strong>자사주 매입 종료</strong></td><td>8월부터 지수를 받친 삼성전자·SK하이닉스 자사주 매입이 끝나 매도를 받아줄 큰손이 줄었어요.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    유안타증권은 7월 급락을 두고 "하락의 계기는 실적과 투자의견 변화였지만, 실제 낙폭은 레버리지 ETF·파생 포지션·외국인 바스켓 매도가 키웠다"고 분석했어요.
+    악재 자체보다 <strong>시장 구조가 충격을 증폭</strong>시키고 있다는 뜻이에요.
+  </p>
+
+  <h2>4. 이번 서킷브레이커는 어디에 가까울까</h2>
+  <p>오늘의 상황을 과거와 올해 사례에 비춰 보면 이래요.</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>비교 항목</th><th>10/15 상황</th><th>시사점</th></tr></thead>
+    <tbody>
+      <tr><td>원인 성격</td><td>미국 물가(9월 CPI 3.7%, 예상 3.6%)·AI 인프라 기업 자금 조달 불안·중국 메모리 추격</td><td>외부 충격과 반도체 가치 재평가가 섞여 있어, 2000년형(긴 조정)과 2024년형(빠른 회복)의 중간</td></tr>
+      <tr><td>하락 속도</td><td>10/2 7,003.74 → 7거래일 만에 -20.70%</td><td>7월 묶음(7/7~7/30)과 비슷한 속도</td></tr>
+      <tr><td>직전 저점</td><td>7/30 종가 5,593.56을 오늘 하회</td><td>다음 기준선은 3월 저점권(3/4 종가 5,093.54, 장중 5,059)</td></tr>
+      <tr><td>빚 정리</td><td>신용융자잔고 10/14 하루 -5,472억 원(33.7조), 미수금은 1조3,575억 원으로 증가</td><td>반대매매가 이제 막 시작된 단계일 수 있어요</td></tr>
+      <tr><td>수급</td><td>외국인 현물 대량 매도, 선물은 3,281억 원 순매수. 기관은 사흘째 순매수</td><td>현물 매도가 멈추는지가 첫 신호</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    올해 패턴을 그대로 적용하면, 오늘은 <strong>새 묶음의 첫 번째 발동</strong>일 가능성을 열어둬야 해요.
+    7월에도 첫 발동(7/7) 이후 3주 넘게 급락이 반복됐고, 바닥(7/30)은 네 번째 발동 다음 날 나왔어요.
+  </p>
+
+  <h2>5. 앞으로의 시나리오</h2>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>시나리오</th><th>이런 흐름</th><th>필요한 조건 / 확인 신호</th></tr></thead>
+    <tbody>
+      <tr><td class="up"><strong>① 빠른 V자 반등</strong><br><span style="font-size:12px; color:var(--text-soft);">2024년 8월·7월 31일형</span></td><td>며칠 안에 급반등해 6000선 회복을 시도</td><td>외국인 현물 순매수 전환, 10월 하순 삼성전자·SK하이닉스 실적에서 이익 지속성 확인, 미국 금리 진정</td></tr>
+      <tr><td><strong>② 묶음 속 바닥 다지기</strong><br><span style="font-size:12px; color:var(--text-soft);">7월·3월형</span></td><td>2~4주 동안 급락·급반등을 반복하며 5,000~5,600선에서 바닥 탐색</td><td>반대매매가 한 번 크게 나온 뒤 신용잔고가 꾸준히 줄고, 외국인 매도 규모가 하루 1조 원 아래로 축소</td></tr>
+      <tr><td class="down"><strong>③ 긴 조정</strong><br><span style="font-size:12px; color:var(--text-soft);">2000년 9월형</span></td><td>3월 저점(5,000선 초반)을 깨고 몇 달에 걸친 하락</td><td>반도체 실적 가이던스 실망, FOMC(10/27~28) 추가 긴축 신호, AI 기업 자금 조달 문제 확산</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    개미데이터는 지금 데이터만 놓고 보면 <strong>②번 "묶음 속 바닥 다지기"에 가장 가까운 출발</strong>이라고 봐요.
+    빚 정리가 이제 시작됐고(신용잔고 감소 시작, 미수금은 아직 증가), 외국인 현물 매도도 아직 멈추지 않았기 때문이에요.
+    증권가에서도 5,000선을 단기 지지선으로 보는 시각과 약세장 진입을 경계하는 시각이 함께 나오고 있어요.
+    다만 올해 두 번의 묶음이 모두 <strong>끝난 뒤 큰 반등</strong>으로 이어졌다는 점도 같은 데이터가 보여주는 사실이에요.
+  </p>
+
+  <h3>📅 방향을 가를 일정</h3>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>시점</th><th>이벤트</th><th>볼 것</th></tr></thead>
+    <tbody>
+      <tr><td>10/16~</td><td>10/15 폭락분 신용·미수금·반대매매 통계</td><td>빚 정리 속도</td></tr>
+      <tr><td>10월 중순~</td><td>금융당국 시장 안정 조치</td><td>긴급 점검회의 이후 대책 여부</td></tr>
+      <tr><td>10월 하순</td><td>삼성전자·SK하이닉스 3분기 실적 발표</td><td>메모리 이익 지속성, 중국 경쟁 대응, 주주환원</td></tr>
+      <tr><td>10/27~28 (미국 시간)</td><td>FOMC</td><td>추가 인상 여부, 금리 경로</td></tr>
+      <tr><td>11/3</td><td>미국 중간선거</td><td>정책·지정학 불확실성</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>6. 서킷브레이커 장에서 개인 투자자가 기억할 것</h2>
+  <ul>
+    <li><strong>"다음 날 반등"에 베팅하지 마세요.</strong> 올해는 다음 날 추가 하락이 더 많았어요. 하루 반등보다 묶음이 끝나는 신호(신용잔고 감소 지속, 외국인 매도 축소)를 확인하는 게 데이터상 더 유효했어요.</li>
+    <li><strong>빚부터 점검하세요.</strong> 하루 8%씩 빠지는 장에서는 담보비율이 순식간에 무너져요. 계산법은 <a href="/insights/2026-10-14-kospi-october-selloff-rebound-signals.html">10월 코스피 급락 인사이트</a>의 포지션 점검 파트에 정리했어요.</li>
+    <li><strong>거래 재개 직후 주문을 조심하세요.</strong> 서킷브레이커로 멈춘 20분 동안은 새 주문을 받지 않고(취소는 가능), 재개 뒤 10분간 주문을 모아 한 가격(단일가)으로 체결해요. 공포에 시장가 주문을 던지면 원치 않는 가격에 체결될 수 있어요.</li>
+    <li><strong>분할의 기준을 가격이 아니라 신호로 잡으세요.</strong> 올해 바닥은 "지수 몇 포인트"가 아니라 "묶음이 끝난 시점"에 나왔어요.</li>
+  </ul>
+
+  <div class="insight-box">
+    <h3>💡 핵심 정리</h3>
+    <p>
+      2024년까지 코스피 서킷브레이커는 "다음 날 반등, 한 달 남짓 뒤 회복"이 대체로 맞았어요. 하지만 반도체 쏠림·레버리지·외국인 대량 매도가 겹친 2026년에는
+      서킷브레이커가 몇 주 사이 묶음으로 나왔고, 다음 날 반등 공식도 깨졌어요. 대신 <strong>묶음이 끝난 뒤의 반등은 매번 컸어요</strong>.
+      오늘(10/15)은 새 묶음의 시작일 수 있는 만큼, 하루하루의 등락보다 <strong>신용잔고가 줄어드는 속도와 외국인 현물 매도가 멈추는 시점</strong>을 확인하는 게 중요해요.
+      개미데이터는 이 두 숫자를 <a href="/market-brief.html">시황분석</a>에서 매일 추적할게요.
+    </p>
+  </div>
+
+  <h2>함께 보면 좋은 글</h2>
+  <p>
+    <a href="/briefs/2026-10-15.html">10/15 시황: 사이드카·서킷브레이커 발동, 외국인 3조 매도</a>,
+    <a href="/insights/2026-10-14-kospi-october-selloff-rebound-signals.html">코스피 10월 -13.8%, 왜 떨어지고 언제 반등할까</a>에서 수급과 반등 신호를 자세히 볼 수 있어요.
+  </p>
+
+  <div class="disclaimer">
+    📊 개미데이터(gemidata.co.kr)는 코스피·코스닥의 실제 수급 데이터를 바탕으로 시황과 경제 인사이트를 함께
+    다루는 사이트예요. 공매도·신용잔고·기관·외국인 매매는 <a href="/">홈</a>의 각 탭에서 매일 확인하실 수 있어요.
+  </div>
+
+  <div class="caution">
+    ⚠️ 이 글은 한국거래소 통계와 언론 보도(과거 서킷브레이커 기록, 증권사 분석), 개미데이터 일간 시황 데이터를 근거로 2026년 10월 15일 종가 기준으로 작성했어요.
+    일부 과거 수치는 보도 간에 소수점 차이가 있을 수 있어요. 시나리오는 과거 데이터에 근거한 참고용 해석이며 특정 종목이나 상품의 매수·매도를 권유하지 않아요.
+    투자 판단은 최신 정보를 직접 확인하신 뒤 본인의 책임 하에 신중하게 결정하셔야 합니다.
+  </div>
+
+  <div class="footer-nav">
+    <a href="/">홈</a>
+    <a href="/insights.html">인사이트 목록</a>
+    <a href="/market-brief.html">시황분석 목록</a>
+    <a href="/guru-portfolio.html">주식고수 따라잡기</a>
+  </div>
+</div>
+</body></html>
