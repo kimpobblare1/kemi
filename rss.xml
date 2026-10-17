@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 16 Oct 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 18 Oct 2026 17:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>외국인 닷새간 11조 순매도, 4분의 3이 반도체 투톱…코스피 한 주 -14.46%, 10월 셋째 주 수급 결산</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-10-18-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-10-18-weekly.html</guid>
+    <pubDate>Sun, 18 Oct 2026 17:00:00 +0900</pubDate>
+    <description>코스피가 한 주 동안 14.46% 내려 5,668.05로 마감했어요. 외국인 11조104억 원 순매도의 반도체 투톱 비중, 교차 종목 24건, 신용잔고 1조5천억 원 감소를 주간 단위로 정리했어요.</description>
+  </item>
 
   <item>
     <title>외국인 SK하이닉스 6,869억 팔고도 순매수 전환…코스피 2.05% 반등 5668, 코스닥은 매수 사이드카</title>
