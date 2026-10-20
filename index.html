@@ -1944,8 +1944,8 @@ function setMarketView(category, market){
 
 loadAntData();
 // [2026-10-20 비용 절감] 예전: 30초마다 무조건 서버 호출 → 창을 띄워두기만 해도 Cloud Run 비용 발생.
-// 지금: ① 평일 08:00~20:05(한국시간, 넥스트레이드 포함)이면서 ② 사용자가 화면을 보고 있을 때만 3분마다 갱신.
-//       (데이터 자체는 GitHub Actions가 08~20시 5분마다 만들어요)
+// 지금: ① 평일 08:00~23:05(한국시간, 넥스트레이드 + 21시 이후 공매도·신용잔고 갱신 포함)이면서 ② 사용자가 화면을 보고 있을 때만 3분마다 갱신.
+//       (데이터 자체는 GitHub Actions가 08~23시 5분마다 만들어요)
 //       장 마감 후·주말·다른 탭으로 가 있을 때는 서버를 부르지 않음.
 //       다른 탭에 있다가 돌아왔고 마지막 갱신 후 3분이 지났으면 그때 한 번만 다시 불러옴.
 const ANT_REFRESH_MS = 180000; // 3분
@@ -1954,7 +1954,7 @@ function isMarketHoursKST(){
   const day = kst.getUTCDay();
   if (day === 0 || day === 6) return false; // 토·일
   const mins = kst.getUTCHours() * 60 + kst.getUTCMinutes();
-  return mins >= 480 && mins <= 1205; // 08:00 ~ 20:05
+  return mins >= 480 && mins <= 1385; // 08:00 ~ 23:05
 }
 setInterval(() => {
   if (document.visibilityState === 'visible' && isMarketHoursKST()) loadAntData();
