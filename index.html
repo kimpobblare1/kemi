@@ -423,7 +423,7 @@
     </div>
   </nav>
 </header>
-<div class="status-bar" id="status-bar">🔄 캐시 데이터 · 기준시각 2026. 9. 21. 오후 12:28:13</div>
+<div class="status-bar" id="status-bar">⏳ 데이터 불러오는 중...</div>
 
 <main class="main-content">
 
@@ -1463,8 +1463,9 @@ async function loadAntData(){
     lastAntData = json.data;
     lastLoadAt = Date.now();
     render(json.data);
-    const updated = new Date(json.data.updatedAt).toLocaleString('ko-KR');
-    bar.textContent = (json.cached ? '🔄 ' : '● ') + 'LIVE · 기준시각 ' + updated;
+    // [2026-10-20] 5분 간격 수집이라 시:분까지 보이면 "늦다"는 오해가 생겨 날짜만 표시 (한국시간 기준)
+    const updated = new Date(json.data.updatedAt).toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+    bar.textContent = '● 데이터 기준일 · ' + updated;
   } catch (err) {
     console.error(err);
     bar.textContent = '⚠ 데이터를 불러오지 못했어요: ' + err.message;
