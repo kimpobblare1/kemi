@@ -193,6 +193,8 @@
 
 <script>
 const FLOW_ARCHIVE_API_URL = 'https://kemidata-flowarchive-813625362143.asia-northeast3.run.app';
+// [2026-10-20] GitHub Actions가 만드는 날짜별 JSON을 먼저 보고, 없으면(10/20 이전 날짜 등) 예전 Cloud Run 주소로 조회
+const GEMI_DATA_BASE = 'https://raw.githubusercontent.com/kimpobblare1/gemidata-data/data';
 
 function fmtDateInput(d){ // Date -> 'YYYY-MM-DD'
   const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
@@ -255,8 +257,15 @@ async function loadFlowArchive(ymd){
   dateLabel.textContent = fmtDateLabel(ymd);
   content.innerHTML = '<div class="status-note">불러오는 중...</div>';
   try {
-    const res = await fetch(`${FLOW_ARCHIVE_API_URL}?date=${ymd}`);
-    const json = await res.json();
+    let json = null;
+    try {
+      const r1 = await fetch(`${GEMI_DATA_BASE}/flow-archive/${ymd}.json`);
+      if (r1.ok) json = await r1.json();
+    } catch (e) { json = null; }
+    if (!json || !json.ok) {
+      const res = await fetch(`${FLOW_ARCHIVE_API_URL}?date=${ymd}`);
+      json = await res.json();
+    }
     if (!json.ok) {
       content.innerHTML = `<div class="status-note">⏰ ${json.error || '해당 날짜 데이터가 없어요.'}</div>`;
       return;
