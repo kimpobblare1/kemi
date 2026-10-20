@@ -1248,7 +1248,9 @@ async function fetchJsonWithFallback(urls){
   let lastErr = null;
   for (const url of urls) {
     try {
-      const res = await fetch(url);
+      // GitHub 파일 주소는 최대 5분 캐시가 걸려 있어서, 주소 끝에 "현재 분"을 붙여 1분 단위로 새 파일을 받음
+      const fetchUrl = url.startsWith(GEMI_DATA_BASE) ? url + '?t=' + Math.floor(Date.now() / 60000) : url;
+      const res = await fetch(fetchUrl, { cache: 'no-store' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const json = await res.json();
       if (json && json.ok) return json;

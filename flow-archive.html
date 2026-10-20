@@ -259,7 +259,7 @@ async function loadFlowArchive(ymd){
   try {
     let json = null;
     try {
-      const r1 = await fetch(`${GEMI_DATA_BASE}/flow-archive/${ymd}.json`);
+      const r1 = await fetch(`${GEMI_DATA_BASE}/flow-archive/${ymd}.json?t=${Math.floor(Date.now() / 60000)}`, { cache: 'no-store' });
       if (r1.ok) json = await r1.json();
     } catch (e) { json = null; }
     if (!json || !json.ok) {
