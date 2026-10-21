@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Mon, 19 Oct 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 20 Oct 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>기관 반도체 투톱 5,313억 매도에 이틀 반등 반납…코스피 3.73% 급락 5552, 방산주 하루 시총 10조 증발</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-10-20.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-10-20.html</guid>
+    <pubDate>Tue, 20 Oct 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 3.73% 급락해 5,552.74로 이틀 반등분을 반납했어요. 기관의 반도체 투톱 5,313억 원 매도, 방산주 급락, 7거래일 외국인 매매 추적, 하루 1조 원 넘게 줄어든 신용잔고를 정리했어요.</description>
+  </item>
 
   <item>
     <title>외국인 SK하이닉스 매도 443억으로 급감, 삼성전자는 3,496억 순매수…코스피 3% 급락 출발 뒤 1.76% 반등 5768</title>
