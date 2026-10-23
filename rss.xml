@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 22 Oct 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 23 Oct 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 장중 4% 급락 딛고 5550 반등…기관 7,955억 매수 vs 외국인 1조938억 매도, SK하이닉스 4.42% 상승</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-10-23.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-10-23.html</guid>
+    <pubDate>Fri, 23 Oct 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 장중 4% 급락을 딛고 5,550.30으로 마감했어요. 솔리다임 상장 중단에 반등한 SK하이닉스, 4종목 모두 엇갈림이 된 교차 종목, 10거래일 외국인 매매 추적, 8거래일 만에 늘어난 신용잔고를 정리했어요.</description>
+  </item>
 
   <item>
     <title>기관 4,621억 매도에 코스피 3.52% 급락 5533, 하루 만에 반등분 반납…삼성E&amp;A만 기관·외국인 동시 매수 1위</title>
