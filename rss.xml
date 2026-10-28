@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 27 Oct 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>SK하이닉스 83조 서프라이즈에 코스피 6.63% 폭등 6012, 10거래일 만에 6천선…외국인·기관 반도체 투톱 이틀째 동반 매수</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-10-28.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-10-28.html</guid>
+    <pubDate>Wed, 28 Oct 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 6.63% 올라 6,012.44로 6,000선을 회복했어요. SK하이닉스 실적 서프라이즈와 주주환원, 이틀 연속 매수 사이드카, 반도체 투톱 동조 매수, 13거래일 수급 추적, 30조 원 아래로 내려온 신용잔고를 정리했어요.</description>
+  </item>
 
   <item>
     <title>외국인·기관 반도체 투톱 동시 매수에 코스피 3.09% 반등 5638, 매수 사이드카…삼성전기 10거래일 매도 행진 끝</title>
