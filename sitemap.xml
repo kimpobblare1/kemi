@@ -536,19 +536,25 @@
   </url>
   <url>
     <loc>https://www.gemidata.co.kr/insights.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.gemidata.co.kr/insights/2026-10-28-sk-hynix-q3-earnings-result-dividend-buyback.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.gemidata.co.kr/insights/2026-10-26-samsung-skhynix-q3-earnings-consensus-kospi.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.gemidata.co.kr/insights/2026-10-25-sk-hynix-q3-earnings-preview-solidigm.html</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
