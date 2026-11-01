@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 30 Oct 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 01 Nov 2026 17:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>실적 시즌 롤러코스터, 외국인 반도체 투톱 동반 순매수 전환…코스피 한 주 +3.25%, 10월 다섯째 주 수급 결산</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-01-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-01-weekly.html</guid>
+    <pubDate>Sun, 01 Nov 2026 17:00:00 +0900</pubDate>
+    <description>코스피가 한 주 동안 3.25% 올라 5,730.74로 마감했어요. 사이드카 3번, 삼전닉스 실적과 주주환원별 주가 반응, 외국인 반도체 투톱 순매수 전환, 교차 종목 22건, 30조 원 아래로 내려온 신용잔고를 주간 단위로 정리했어요.</description>
+  </item>
 
   <item>
     <title>美 빅테크 실적 쇼크에 외국인 1.6조 매도, 코스피 3.48% 급락 5730…매도 사이드카, SK하이닉스 7% 하락</title>
