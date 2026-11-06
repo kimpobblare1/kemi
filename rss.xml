@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 05 Nov 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 06 Nov 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>검은 금요일, 코스피 6.02% 폭락 5059…서킷브레이커에 장중 4911, 외국인 2.8조 매도</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-06.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-06.html</guid>
+    <pubDate>Fri, 06 Nov 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 6.02% 내려 5,059.69로 간신히 5,000선을 지켰어요. 서킷브레이커·사이드카가 걸린 장중 흐름, 미국 반도체 12% 폭락, 외국인 6거래일 연속 매도와 기관 매수, 급락에도 늘어난 신용잔고를 정리했어요.</description>
+  </item>
 
   <item>
     <title>블루웨이브 쇼크에 코스피 5.28% 폭락 5383…외국인 3.4조 매도, 양 시장 매도 사이드카</title>
