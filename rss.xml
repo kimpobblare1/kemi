@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 11 Nov 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 12 Nov 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>장중 5458 찍고 밀린 옵션 만기일, 코스피 0.61% 하락 5342…외국인 삼성전자 사고 SK하이닉스 팔았다</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-12.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-12.html</guid>
+    <pubDate>Thu, 12 Nov 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 0.61% 내려 5,342.73으로 마감했어요. 옵션 만기일 기관 매도, 엔비디아 경영진 관련 보도에 갈린 반도체 투톱, 삼성바이오로직스 공매도 비중 52%, 사흘째 줄어든 신용잔고를 정리했어요.</description>
+  </item>
 
   <item>
     <title>외국인 SK하이닉스 매도 1위→매수 1위, 코스피 2.60% 상승 5375…신용잔고 하루 1.5조 급감 연중 최저</title>
