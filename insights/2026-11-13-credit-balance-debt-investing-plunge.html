@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="alternate" type="application/rss+xml" title="개미데이터 경제인사이트 RSS" href="https://www.gemidata.co.kr/insights-rss.xml">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2064%2064%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M24%2027%20Q13%2025%208%2018%22/%3E%3Cpath%20d%3D%22M22%2032%20Q9%2032%205%2032%22/%3E%3Cpath%20d%3D%22M24%2037%20Q13%2041%209%2048%22/%3E%3Cpath%20d%3D%22M40%2027%20Q51%2025%2056%2018%22/%3E%3Cpath%20d%3D%22M42%2032%20Q55%2032%2059%2032%22/%3E%3Cpath%20d%3D%22M40%2037%20Q51%2041%2055%2048%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%230F9B8E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M27%2011%20Q22%204%2019%202%22/%3E%3Cpath%20d%3D%22M37%2011%20Q42%204%2045%202%22/%3E%3C/g%3E%3Ccircle%20cx%3D%2219%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%222%22%20r%3D%222.6%22%20fill%3D%22%230F9B8E%22/%3E%3Cellipse%20cx%3D%2232%22%20cy%3D%2248.5%22%20rx%3D%2213.2%22%20ry%3D%2212.6%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%228.4%22%20fill%3D%22%230F9B8E%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2215%22%20r%3D%228.8%22%20fill%3D%22%230F9B8E%22/%3E%3C/svg%3E">
+
+<title>신용잔고 34조→25.9조, 한 달 새 빚투 8.4조가 사라졌다…개미데이터로 본 신용융자·반대매매·미수금 흐름 | 개미데이터</title>
+<link rel="canonical" href="https://www.gemidata.co.kr/insights/2026-11-13-credit-balance-debt-investing-plunge.html">
+<meta name="description" content="신용잔고가 한 달 새 8.4조 원(-24.4%) 줄어 1년 만의 최저가 됐어요. 개미데이터가 매일 수집한 신용융자잔고·예탁금·미수금으로 빚투가 줄어든 세 단계, 반등일 1.5조 상환, 8월과의 비교, 남아 있는 미수금 1조 원을 정리했어요.">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="신용잔고 34조→25.9조, 한 달 새 빚투 8.4조가 사라졌다…개미데이터로 본 신용융자·반대매매·미수금 흐름 | 개미데이터">
+<meta property="og:description" content="개미데이터가 매일 모은 신용잔고 데이터로 이번 급락장 빚투 8.4조 원이 줄어든 순서와 타이밍을 정리했어요.">
+<meta property="og:url" content="https://www.gemidata.co.kr/insights/2026-11-13-credit-balance-debt-investing-plunge.html">
+<meta property="og:image" content="https://www.gemidata.co.kr/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F6F7F9; --border:#E8EAED;
+    --text:#16181C; --text-soft:#8A8F98; --accent:#0F9B8E; --accent-soft:#E4F6F3;
+    --up:#E5484D; --down:#3B82F6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Pretendard', -apple-system, sans-serif; line-height:1.85; font-size:15.5px;
+  }
+  .wrap{ max-width:700px; margin:0 auto; padding:32px 20px 80px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--text-soft); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:24px; }
+  .back:hover{ color:var(--accent); }
+  .meta{ font-size:12.5px; color:var(--text-soft); margin-bottom:10px; display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+  .meta .tag{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  .meta .cat{ background:var(--accent-soft); color:var(--accent); font-weight:700; padding:2px 9px; border-radius:999px; }
+  h1{ font-size:25px; font-weight:800; margin:0 0 20px; line-height:1.4; }
+  h2{ font-size:19px; font-weight:800; margin:34px 0 12px; }
+  h3{ font-size:16px; font-weight:700; margin:22px 0 10px; color:var(--accent); }
+  p{ margin:0 0 18px; }
+  strong{ font-weight:700; }
+  ul, ol{ margin:0 0 18px; padding-left:22px; }
+  li{ margin-bottom:8px; }
+  .up{ color:var(--up); font-weight:700; }
+  .down{ color:var(--down); font-weight:700; }
+  table{ width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:14px; }
+  th, td{ padding:9px 10px; text-align:left; border-bottom:1px solid var(--border); }
+  th{ font-size:12px; color:var(--text-soft); font-weight:700; }
+  .example{ background:var(--surface); border-left:3px solid var(--accent); border-radius:8px; padding:14px 18px; font-size:14px; color:var(--text); margin:16px 0; }
+  .example b{ color: var(--accent); }
+  .caution{ background:#FDECEC; border-left:3px solid var(--up); border-radius:8px; padding:14px 18px; font-size:14px; margin:16px 0; }
+  .insight-box{ background:var(--accent-soft); border-radius:12px; padding:20px 22px; margin:20px 0; }
+  .insight-box h2, .insight-box h3{ margin-top:0; }
+  .disclaimer{ font-size:12.5px; color:var(--text-soft); background:var(--surface); border-radius:8px; padding:12px 16px; margin:28px 0 0; }
+  a{ color:var(--accent); }
+  .footer-nav{ margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--text-soft); display:flex; gap:16px; flex-wrap:wrap; }
+  .footer-nav a{ color:var(--text-soft); text-decoration:none; }
+  .footer-nav a:hover{ color:var(--accent); }
+  .post-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:32px; padding-top:20px; border-top:1px solid var(--border); font-size:13.5px; }
+  .post-nav a{ color:var(--accent); text-decoration:none; }
+  .topbar{ position:sticky; top:0; z-index:50; background:var(--surface); border-bottom:1px solid var(--border); }
+  .topbar-inner{ max-width:1000px; margin:0 auto; padding:14px 20px 12px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:8px; }
+  .brand-mark{ width:22px; height:22px; flex-shrink:0; display:block; }
+  .brand-name{ font-weight:800; font-size:16px; color:var(--text); letter-spacing:-0.01em; }
+  .brand-tag{ font-size:11.5px; color:var(--text-soft); }
+  .tab-nav{ background:var(--surface); border-bottom:1px solid var(--border); }
+  .tab-nav-inner{ max-width:1000px; margin:0 auto; padding:0 20px; display:flex; gap:22px; overflow-x:auto; scrollbar-width:none; }
+  .tab-nav-inner::-webkit-scrollbar{ display:none; }
+  .tab-link{
+    background:none; border:none; white-space:nowrap; flex-shrink:0;
+    padding:12px 2px; font-size:13.5px; font-weight:600; color:var(--text-soft);
+    border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .12s, border-color .12s;
+    text-decoration:none; display:inline-block; position:relative;
+  }
+  .new-badge{
+    position:absolute; top:2px; right:-22px; background:var(--up); color:#fff;
+    font-size:9px; font-weight:800; padding:1.5px 4px; border-radius:6px; letter-spacing:.02em; line-height:1.4;
+  }
+  .tab-link:hover{ color:var(--text); }
+  .tab-link.active{ color:var(--text); border-bottom-color:var(--text); font-weight:700; }
+  @media (max-width:640px){
+    .topbar-inner{ padding:12px 14px 10px; }
+    .tab-nav-inner{ padding:0 14px; gap:16px; }
+  }
+  table.num th, table.num td{ white-space:nowrap; }
+  .bars{ margin:8px 0 22px; }
+  .bar-row{ display:flex; align-items:center; gap:10px; margin-bottom:6px; font-size:13px; }
+  .bar-label{ width:44px; color:var(--text-soft); font-weight:600; flex-shrink:0; }
+  .bar-track{ flex:1; background:var(--surface); border-radius:4px; height:16px; overflow:hidden; }
+  .bar{ display:block; height:100%; background:var(--down); border-radius:4px; }
+  .bar-val{ width:62px; text-align:right; font-weight:700; color:var(--down); flex-shrink:0; }
+  table:not(.num) td:first-child, table:not(.num) th:first-child{ min-width:84px; }
+  .dbars{ margin:8px 0 6px; }
+  .dbar-row{ display:flex; align-items:center; gap:6px; margin-bottom:5px; font-size:12.5px; }
+  .dbar-label{ width:74px; color:var(--text-soft); font-weight:600; flex-shrink:0; }
+  .dbar-neg, .dbar-pos{ flex:1; height:14px; display:flex; background:var(--surface); }
+  .dbar-neg{ justify-content:flex-end; border-radius:4px 0 0 4px; border-right:1px solid var(--text-soft); }
+  .dbar-pos{ border-radius:0 4px 4px 0; }
+  .dbar-neg .bar, .dbar-pos .bar{ display:block; height:100%; }
+  .bar.up{ background:var(--up); } .bar.down{ background:var(--down); }
+  .dbar-val{ width:56px; text-align:right; font-weight:700; flex-shrink:0; }
+  .dbar-sep{ font-size:12px; font-weight:700; color:var(--accent); margin:10px 0 6px; }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9496300145102373" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "신용잔고 34조→25.9조, 한 달 새 빚투 8.4조가 사라졌다…개미데이터로 본 신용융자·반대매매·미수금 흐름",
+  "description": "신용잔고가 한 달 새 8.4조 원(-24.4%) 줄어 1년 만의 최저가 됐어요. 개미데이터가 매일 수집한 신용융자잔고·예탁금·미수금으로 빚투가 줄어든 세 단계, 반등일 1.5조 상환, 8월과의 비교, 남아 있는 미수금 1조 원을 정리했어요.",
+  "datePublished": "2026-11-13T09:00:00+09:00",
+  "dateModified": "2026-11-13T09:00:00+09:00",
+  "author": { "@type": "Organization", "name": "개미데이터" },
+  "publisher": {
+    "@type": "Organization", "name": "개미데이터",
+    "logo": { "@type": "ImageObject", "url": "https://www.gemidata.co.kr/og-image.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.gemidata.co.kr/insights/2026-11-13-credit-balance-debt-investing-plunge.html" },
+  "image": "https://www.gemidata.co.kr/og-image.png"
+}
+</script>
+<meta property="article:published_time" content="2026-11-13T09:00:00+09:00">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" style="text-decoration:none;"><div class="brand"><span class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+  <g stroke="#0F9B8E" stroke-width="4.2" stroke-linecap="round" fill="none">
+    <path d="M24 27 Q13 25 8 18"/>
+    <path d="M22 32 Q9 32 5 32"/>
+    <path d="M24 37 Q13 41 9 48"/>
+    <path d="M40 27 Q51 25 56 18"/>
+    <path d="M42 32 Q55 32 59 32"/>
+    <path d="M40 37 Q51 41 55 48"/>
+  </g>
+  <g stroke="#0F9B8E" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M27 11 Q22 4 19 2"/>
+    <path d="M37 11 Q42 4 45 2"/>
+  </g>
+  <circle cx="19" cy="2" r="2.6" fill="#0F9B8E"/>
+  <circle cx="45" cy="2" r="2.6" fill="#0F9B8E"/>
+  <ellipse cx="32" cy="48.5" rx="13.2" ry="12.6" fill="#0F9B8E"/>
+  <circle cx="32" cy="31" r="8.4" fill="#0F9B8E"/>
+  <circle cx="32" cy="15" r="8.8" fill="#0F9B8E"/>
+</svg></span><span class="brand-name">개미데이터</span></div></a>
+    <span class="brand-tag">데일리 코스피 공매도 순위·신용잔고 보는 사이트</span>
+  </div>
+  <nav class="tab-nav">
+    <div class="tab-nav-inner">
+      <a class="tab-link" href="/">홈</a>
+      <a class="tab-link" href="/#shortflow">공매도</a>
+      <a class="tab-link" href="/#creditflow">신용잔고</a>
+      <a class="tab-link" href="/#cap">시가총액</a>
+      <a class="tab-link" href="/#volume">거래량</a>
+      <a class="tab-link" href="/#fluctuation">등락률</a>
+      <a class="tab-link" href="/#instflow">기관매매</a>
+      <a class="tab-link" href="/#foreignflow">외국인매매</a>
+      <a class="tab-link" href="/market-brief.html">시황분석<span class="new-badge">NEW</span></a>
+      <a class="tab-link" href="/flow-archive.html">TOP5 조회</a>
+      <a class="tab-link" href="/guru-portfolio.html">주식고수 따라잡기<span class="new-badge">NEW</span></a>
+      <a class="tab-link active" href="/insights.html">경제인사이트<span class="new-badge">NEW</span></a>
+    </div>
+  </nav>
+</header>
+<div class="wrap">
+  <a class="back" href="/insights.html">← 인사이트 목록으로</a>
+  <div class="meta"><span class="cat">국내증시</span>2026.11.13</div>
+
+  <h1>신용잔고 34조→25.9조, 한 달 새 빚투 8.4조가 사라졌다…개미데이터로 본 신용융자·반대매매·미수금 흐름</h1>
+
+  <div class="insight-box" style="margin-top:0;">
+    <h3 style="margin-bottom:12px;">📌 3줄 요약</h3>
+    <ol style="margin:0; padding-left:20px;">
+      <li style="margin-bottom:10px;">시장 전체 <strong>신용융자잔고</strong>는 10/12 34.3조 원에서 11/11 25.9조 원으로 한 달 만에 <strong>8.4조 원(-24.4%)</strong> 줄었어요. 같은 기간 코스피 하락률(-15.8%)보다 빚이 더 빨리 줄었어요.</li>
+      <li style="margin-bottom:10px;">빚은 한꺼번에 줄지 않았어요. <strong>① 서서히 줄고 → ② 급락장에선 오히려 버티다가 → ③ 반등한 날 한 번에 1.5조 원</strong>이 빠졌어요.</li>
+      <li style="margin-bottom:0;">신용잔고는 1년 만에 가장 낮지만, <strong>미수금은 1조 원대</strong>에 머물러 있어요. "장기 빚"은 줄었는데 "단기 외상"은 아직 남아 있는 상태예요.</li>
+    </ol>
+  </div>
+
+  <p>
+    개미데이터는 매일 시장 전체 <strong>신용융자잔고·고객예탁금·미수금</strong>을 수집해 홈 화면에 보여주고 있어요. 이 글은 그 데이터를 한 달 치 이어 붙여서
+    "이번 급락장에서 개인의 빚투(빚내서 투자)는 어떻게 움직였나"를 정리한 거예요. 뉴스에서는 하루치 숫자만 나오지만, 날짜별로 이어 보면 <strong>빚이 줄어드는 순서와 타이밍</strong>이 보여요.
+    수치는 금융투자협회 공표 기준(개미데이터 수집값)이고, 코스피 종가는 개미데이터 일간 시황 기준이에요.
+  </p>
+
+  <h2>1. 신용잔고·예탁금·미수금, 먼저 뜻부터</h2>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>지표</th><th>뜻</th><th>늘어나면</th></tr></thead>
+    <tbody>
+      <tr><td>신용융자잔고</td><td>증권사에서 돈을 빌려 산 주식의 남은 빚</td><td>빚투가 늘었다는 뜻</td></tr>
+      <tr><td>고객예탁금</td><td>주식을 사려고 증권 계좌에 넣어둔 현금</td><td>살 준비가 된 돈이 늘었다는 뜻</td></tr>
+      <tr><td>미수금</td><td>증거금만 내고 산 뒤 아직 안 낸 결제대금(외상)</td><td>단기 외상 매수가 늘었다는 뜻</td></tr>
+      <tr><td>반대매매</td><td>담보가 부족하거나 미수를 못 갚으면 증권사가 강제로 파는 것</td><td>하락장에서 매물이 더 쏟아짐</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>신용융자는 보통 몇 달까지 빌리는 "장기 빚"이고, 미수금은 이틀 안에 갚아야 하는 "단기 외상"이에요. 두 숫자를 따로 봐야 하는 이유예요.</p>
+
+  <h2>2. 한 달 동안 빚은 얼마나 줄었나</h2>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>기준일</th><th>코스피</th><th>신용융자잔고</th><th>고객예탁금</th><th>미수금</th></tr></thead>
+    <tbody>
+      <tr><td>10/12</td><td>6,384.24</td><td>34.29조</td><td>100.4조</td><td>1조635억</td></tr>
+      <tr><td>10/15</td><td>5,554.22</td><td>32.75조</td><td>96.9조</td><td>1조3,926억</td></tr>
+      <tr><td>10/30</td><td>5,730.74</td><td>29.07조</td><td>90.2조</td><td>8,723억</td></tr>
+      <tr><td>11/5</td><td>5,383.80</td><td>28.77조</td><td>88.5조</td><td>9,041억</td></tr>
+      <tr><td>11/6</td><td>5,059.69</td><td>28.39조</td><td>90.3조</td><td>9,066억</td></tr>
+      <tr><td>11/9</td><td>5,018.85</td><td>28.07조</td><td>88.3조</td><td>1조1,051억</td></tr>
+      <tr><td>11/10</td><td>5,239.13</td><td class="down">26.55조</td><td class="down">85.2조</td><td>1조881억</td></tr>
+      <tr><td>11/11</td><td>5,375.36</td><td class="down">25.93조</td><td>85.5조</td><td>1조762억</td></tr>
+      <tr><td><strong>변화</strong></td><td class="down"><strong>-15.8%</strong></td><td class="down"><strong>-8.4조 (-24.4%)</strong></td><td class="down"><strong>-14.9조</strong></td><td>+127억</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    10/12 이후 한 달 동안 코스피는 15.8% 내렸는데, 신용융자잔고는 <strong>24.4%</strong> 줄었어요. 지수보다 빚이 더 빨리 줄어든 거예요.
+    11/11 잔고 25.9조 원은 <strong>2025년 11월 초 이후 약 1년 만에 가장 낮은 수준</strong>이고, 올해 최고였던 6/24(38.6조 원)보다는 12.7조 원(-33%) 적어요.
+    고객예탁금도 85.2조 원(11/10)으로 2025년 12월 이후 가장 적고, 올해 최고였던 6/4(139.7조 원)의 61% 수준이에요.
+  </p>
+
+  <h2>3. 개미데이터가 찾은 패턴: 빚은 "세 단계"로 줄었다</h2>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>구간</th><th>코스피</th><th>신용잔고 변화</th><th>무슨 일이 있었나</th></tr></thead>
+    <tbody>
+      <tr><td>① 10/12→10/30</td><td class="down">-10.2%</td><td class="down">-5.2조</td><td>실적 시즌 롤러코스터 속 꾸준한 상환</td></tr>
+      <tr><td>② 10/30→11/5</td><td class="down">-6.1%</td><td>-0.3조 (거의 그대로)</td><td>블루웨이브 급락에도 빚은 안 줄어</td></tr>
+      <tr><td>③ 11/5→11/11</td><td>-0.2%</td><td class="down">-2.8조</td><td>서킷브레이커 뒤 반대매매 + 반등일 대거 상환</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="example">
+    <b>💡 가장 흥미로운 장면: 반등한 날 빚이 가장 많이 줄었다</b><br>
+    코스피가 5.28% 폭락한 11/5에는 신용잔고가 오히려 <strong>1,269억 원 늘었어요</strong>. 떨어질 때 빚을 내 저가 매수에 나선 투자자가 있었다는 뜻이에요.
+    반대로 코스피가 4.39% 급등한 11/10에는 하루에 <strong>1조5,211억 원</strong>이 줄었어요. 개미데이터 수집 기록상 올해 두 번째로 큰 하루 감소폭이에요.
+    떨어질 때는 버티고, <strong>반등이 오자 빚부터 갚고 빠져나온</strong> 모습이에요. 같은 날 미수금을 못 갚아 강제로 팔린 미수 반대매매도 630억 원으로 11/6(70억 원)의 9배였어요(알파경제·뉴스1 보도).
+  </div>
+
+  <h2>4. 올해 이미 한 번 비슷한 장면이 있었다</h2>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>기준일</th><th>신용융자잔고</th><th>변화</th></tr></thead>
+    <tbody>
+      <tr><td>7/29</td><td>33.00조</td><td>-</td></tr>
+      <tr><td>7/31</td><td class="down">28.94조</td><td class="down">이틀 새 -4.1조</td></tr>
+      <tr><td>8/4</td><td class="down">27.40조</td><td class="down">저점 (7/29 대비 -16.9%)</td></tr>
+      <tr><td>8/10</td><td class="up">30.02조</td><td class="up">4거래일 만에 +2.6조</td></tr>
+      <tr><td>9/1</td><td class="up">33.43조</td><td class="up">한 달 만에 저점 대비 +6.0조</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    개미데이터 기록을 보면 올해 7월 말~8월 초에도 신용잔고가 며칠 새 5.6조 원 줄었던 적이 있어요. 7/31 하루 감소폭(-3.2조 원)은 올해 가장 컸어요.
+    그런데 그때는 <strong>저점 뒤 4거래일 만에 2.6조 원, 한 달 만에 6조 원</strong>이 다시 늘었어요. 빚이 크게 줄어든 뒤 다시 빚투가 빠르게 돌아온 거예요.
+    이번에도 같은 흐름이 나올지는 알 수 없지만, <strong>"신용잔고가 다시 늘기 시작하는 날"</strong>은 개인 투자심리가 돌아오는 신호로 볼 수 있어 매일 확인할 만한 지점이에요.
+  </p>
+
+  <h2>5. 종목별로 보면: 신용 비율 1위가 바뀌었다</h2>
+  <div style="overflow-x:auto;">
+  <table class="num">
+    <thead><tr><th>종목</th><th>11/3</th><th>11/12</th><th>메모</th></tr></thead>
+    <tbody>
+      <tr><td>제주반도체 (신용 비율)</td><td>3.71% (1위)</td><td>TOP10 밖</td><td>몇 주간 지킨 1위에서 이탈</td></tr>
+      <tr><td>삼성전기 (신용 금액)</td><td>8,019억 (1위)</td><td>7,669억 (1위)</td><td>11/6 8,658억 정점 뒤 감소</td></tr>
+      <tr><td>NAVER (신용 금액)</td><td>5,663억</td><td>5,059억</td><td>9일 새 604억 감소</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>
+    시장 전체만 줄어든 게 아니라 <strong>빚투가 몰렸던 종목에서도 빚이 빠지고 있어요</strong>. 신용 비율 1위를 지키던 제주반도체가 11/12 TOP10 밖으로 내려갔고,
+    신용 금액 1위 삼성전기도 11/6 정점(8,658억 원) 뒤 줄고 있어요. 삼성전기는 같은 기간 공매도가 663억 → 2,359억 원(11/4→11/6)으로 급증해, 빚투와 공매도가 가장 크게 맞섰던 종목이에요.
+    종목별 신용 비율·금액 순위는 <a href="/">개미데이터 홈</a>의 신용잔고 탭에서 매일 확인할 수 있어요.
+  </p>
+
+  <h2>6. 아직 남아 있는 것: 미수금 1조 원</h2>
+  <p>
+    신용융자잔고는 1년 만의 최저인데, <strong>미수금은 11/9 1조1,051억 원, 11/11 1조762억 원</strong>으로 1조 원대를 지키고 있어요. 10/30(8,723억 원)보다 오히려 많아요.
+    급락한 11/9 장중에 이틀짜리 외상으로 저가 매수에 나선 투자자가 많았다는 뜻이에요.
+    정부는 11/9부터 내년 1/31까지 증권사 신용융자 담보비율(140%) 유지 의무를 면제했지만, <strong>이 완화는 신용융자에만 적용되고 미수 반대매매는 그대로</strong>예요.
+    미수 거래를 한다면 결제일(매수 이틀 뒤) 전에 꼭 돈을 채워야 해요.
+  </p>
+
+  <h2>7. 개미 투자자가 이 데이터를 어떻게 쓰면 좋을까</h2>
+  <ul>
+    <li><strong>신용잔고 감소 = 매물 부담 감소</strong>: 빚으로 산 주식이 정리될수록 반대매매로 쏟아질 물량은 줄어요. 다만 그 자체가 상승 신호는 아니에요.</li>
+    <li><strong>신용잔고가 다시 늘기 시작하는 날을 체크</strong>: 8월처럼 빠르게 다시 늘면 개인 심리가 돌아온다는 뜻이에요. 반대로 너무 빨리 늘면 다음 하락 때 반대매매 위험도 커져요.</li>
+    <li><strong>예탁금도 같이 보기</strong>: 빚은 줄었는데 예탁금도 줄고 있다면 "살 돈"도 함께 빠지고 있다는 뜻이라 반등 힘이 약할 수 있어요.</li>
+    <li><strong>미수금 1조 원은 단기 경고등</strong>: 미수금이 다시 줄어드는지, 반대매매 금액이 늘어나는지 함께 봐야 해요.</li>
+  </ul>
+
+  <h2>체크리스트: 내 계좌는 괜찮을까?</h2>
+  <ul>
+    <li>신용으로 산 종목의 <strong>담보유지비율</strong>을 증권사 앱에서 확인했나요? (증권사별로 130~140%)</li>
+    <li>미수가 있다면 <strong>결제일과 필요한 금액</strong>을 알고 있나요?</li>
+    <li>신용 만기일이 다가오는 종목이 있나요? 연장 가능 여부를 확인했나요?</li>
+    <li>한 종목에 빚이 몰려 있지 않나요?</li>
+  </ul>
+
+  <div class="insight-box">
+    <h3>💡 핵심 정리</h3>
+    <p>
+      이번 급락장에서 개인의 빚투는 <strong>한 달 새 8.4조 원(-24.4%)</strong> 줄어 신용잔고가 1년 만의 최저(25.9조 원)가 됐어요.
+      빚은 급락한 날보다 <strong>반등한 날(11/10, -1.5조 원)</strong>에 가장 많이 줄었고, 그 사이 반대매매도 크게 늘었어요.
+      장기 빚은 많이 정리됐지만 단기 외상인 미수금은 1조 원대에 남아 있어요. 올해 8월처럼 빚투가 빠르게 돌아올지, 이번엔 다를지는 앞으로 매일의 신용잔고 숫자가 알려줄 거예요.
+    </p>
+  </div>
+
+  <h2>함께 보면 좋은 글</h2>
+  <p>
+    이번 급락장의 흐름은 <a href="/briefs/2026-11-07-weekly.html">11월 첫째 주 수급 결산</a>, 신용잔고가 하루 1.5조 원 줄어든 날의 분석은 <a href="/briefs/2026-11-11.html">11/11 시황</a>,
+    미수금이 1조 원을 넘은 날은 <a href="/briefs/2026-11-10.html">11/10 시황</a>에서 볼 수 있어요. 매일의 신용·공매도 순위는 <a href="/market-brief.html">시황분석</a>에 정리하고 있어요.
+  </p>
+
+  <div class="disclaimer">
+    📊 개미데이터(gemidata.co.kr)는 코스피·코스닥의 실제 수급 데이터를 바탕으로 시황과 경제 인사이트를 함께
+    다루는 사이트예요. 공매도·신용잔고·기관·외국인 매매는 <a href="/">홈</a>의 각 탭에서 매일 확인하실 수 있어요.
+  </div>
+
+  <div class="caution">
+    ⚠️ 신용융자잔고·고객예탁금·미수금은 금융투자협회 공표 수치를 개미데이터가 수집한 값이며, 하루 늦게 공표돼요. 반대매매 금액과 담보비율 완화 내용은 알파경제·뉴스1(2026.11.11) 보도를 참고했어요.
+    이 글은 과거 데이터를 정리한 참고 자료이며, 특정 종목이나 지수의 매수·매도를 권유하지 않아요. 신용·미수 거래는 원금 이상의 손실이 날 수 있으니 투자 판단은 본인의 책임 하에 신중하게 결정하셔야 합니다.
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "최근 신용잔고는 얼마나 줄었나요?",
+       "acceptedAnswer": {"@type": "Answer", "text": "시장 전체 신용융자잔고는 2026년 10월 12일 34.3조 원에서 11월 11일 25.9조 원으로 한 달 새 약 8.4조 원(24.4%) 줄어, 약 1년 만에 가장 낮은 수준이 됐어요."}},
+      {"@type": "Question", "name": "신용잔고가 줄면 주가에 좋은 신호인가요?",
+       "acceptedAnswer": {"@type": "Answer", "text": "빚으로 산 주식이 정리돼 반대매매로 나올 매물이 줄어든다는 점에서는 부담이 덜어진 거예요. 다만 그 자체가 상승 신호는 아니고, 예탁금과 미수금 흐름을 함께 봐야 해요."}},
+      {"@type": "Question", "name": "미수금과 신용융자는 무엇이 다른가요?",
+       "acceptedAnswer": {"@type": "Answer", "text": "신용융자는 증권사에서 돈을 빌려 주식을 사고 몇 달 안에 갚는 빚이고, 미수금은 증거금만 내고 산 뒤 이틀 안에 내야 하는 외상 결제대금이에요. 미수를 못 갚으면 다음 날 반대매매가 나가요."}},
+      {"@type": "Question", "name": "담보비율 완화로 반대매매가 모두 멈추나요?",
+       "acceptedAnswer": {"@type": "Answer", "text": "아니에요. 정부의 담보비율 유지 의무 면제(2026년 11월 9일~2027년 1월 31일)는 신용융자에만 적용되고, 미수금 반대매매는 그대로 적용돼요."}}
+    ]
+  }
+  </script>
+
+  <div class="footer-nav">
+    <a href="/">홈</a>
+    <a href="/insights.html">인사이트 목록</a>
+    <a href="/market-brief.html">시황분석 목록</a>
+    <a href="/guru-portfolio.html">주식고수 따라잡기</a>
+  </div>
+</div>
+</body></html>
