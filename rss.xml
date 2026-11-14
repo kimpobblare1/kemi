@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 12 Nov 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 13 Nov 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>젠슨 황 퇴진에 장중 5504 찍고 반전, 코스피 0.98% 하락 5290…외국인 7천억 매도·한전 어닝쇼크</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-13.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-13.html</guid>
+    <pubDate>Fri, 13 Nov 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 0.98% 내려 5,290.53으로 마감했어요. 젠슨 황 엔비디아 CEO 퇴진, 한국전력 어닝쇼크, SK하이닉스 이틀 연속 동조 매도, 기업은행 공매도 비중 42%, 하루 6.7조 원 늘어난 예탁금을 정리했어요.</description>
+  </item>
 
   <item>
     <title>장중 5458 찍고 밀린 옵션 만기일, 코스피 0.61% 하락 5342…외국인 삼성전자 사고 SK하이닉스 팔았다</title>
