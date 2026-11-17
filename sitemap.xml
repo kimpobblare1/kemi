@@ -632,9 +632,15 @@
   </url>
   <url>
     <loc>https://www.gemidata.co.kr/insights.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.gemidata.co.kr/insights/2026-11-17-13f-q3-guru-portfolio-moves.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.gemidata.co.kr/insights/2026-11-13-credit-balance-debt-investing-plunge.html</loc>
