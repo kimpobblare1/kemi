@@ -365,38 +365,24 @@ function fmtShares(shares) {
 }
 
 function changeBadgeHtml(h) {
-  const map = {
-    new:       { icon: '🆕', label: '신규 편입' },
-    increased: { icon: '🔺', label: '비중 확대' },
-    decreased: { icon: '🔻', label: '비중 축소' },
-    same:      { icon: '➖', label: '유지' },
-  };
-  const info = map[h.changeStatus] || map.same;
-  const weightSub = h.changeStatus === 'new'
-    ? ''
-    : `<span class="change-sub">${h.prevWeightPct}% → ${h.weightPct}%</span>`;
-
-  // 실제로 주식 수(보유량)가 어떻게 바뀌었는지도 함께 보여줘요.
-  // 비중은 줄었어도 주식 수가 그대로거나 늘었으면 "실제로는 안 팔았다"는 뜻이에요.
-  let sharesSub = '';
-  if (h.changeStatus !== 'new' && h.prevShares != null) {
-    const prev = Number(h.prevShares), cur = Number(h.shares);
-    const pct = prev > 0 ? ((cur - prev) / prev) * 100 : 0;
-    const pctTxt = Math.abs(pct) >= 10 ? Math.abs(pct).toFixed(0) : Math.abs(pct).toFixed(1);
-    let badge = '';
-    if (h.sharesChangeStatus === 'shares_increased') {
-      badge = `<span class="shares-badge sh-up">📈 주식 수 +${pctTxt}% 매수</span>`;
-    } else if (h.sharesChangeStatus === 'shares_decreased') {
-      badge = `<span class="shares-badge sh-down">📉 주식 수 -${pctTxt}% 매도</span>`;
-    } else if (h.sharesChangeStatus === 'same') {
-      badge = `<span class="shares-badge sh-same">✋ 주식 수 그대로</span>`;
-    }
-    if (badge) {
-      sharesSub = `<span class="shares-sub">${badge}<span class="shares-count">${fmtShares(prev)} → ${fmtShares(cur)}</span></span>`;
-    }
+  // 비중(%) 확대·축소는 주가 변화만으로도 바뀌어 헷갈리기 쉬워서 빼고,
+  // 실제로 사고판 "주식 수" 변화만 보여줘요.
+  if (h.changeStatus === 'new') {
+    return `<span class="shares-sub"><span class="change-badge new">🆕 신규 편입</span><span class="shares-count">${fmtShares(Number(h.shares))}</span></span>`;
   }
-
-  return `<span class="change-badge ${h.changeStatus}">${info.icon} ${info.label}</span>${weightSub}${sharesSub}`;
+  if (h.prevShares == null) return '';
+  const prev = Number(h.prevShares), cur = Number(h.shares);
+  const pct = prev > 0 ? ((cur - prev) / prev) * 100 : 0;
+  const pctTxt = Math.abs(pct) >= 10 ? Math.abs(pct).toFixed(0) : Math.abs(pct).toFixed(1);
+  let badge = '';
+  if (h.sharesChangeStatus === 'shares_increased') {
+    badge = `<span class="shares-badge sh-up">📈 +${pctTxt}% 매수</span>`;
+  } else if (h.sharesChangeStatus === 'shares_decreased') {
+    badge = `<span class="shares-badge sh-down">📉 -${pctTxt}% 매도</span>`;
+  } else {
+    badge = `<span class="shares-badge sh-same">✋ 그대로</span>`;
+  }
+  return `<span class="shares-sub">${badge}<span class="shares-count">${fmtShares(prev)} → ${fmtShares(cur)}</span></span>`;
 }
 
 // 상위 10개 종목 비중으로 도넛 차트 SVG를 직접 그려요.
@@ -470,7 +456,7 @@ function renderDetail(key) {
       <span></span>
       <span class="col-name">종목명</span>
       <span class="col-pct">비중</span>
-      <span class="col-change">${hasComparison ? '전분기 대비' : ''}</span>
+      <span class="col-change">${hasComparison ? '주식 수 변화' : ''}</span>
     </div>
   `;
 
@@ -482,9 +468,8 @@ function renderDetail(key) {
     </p>
     ${hasComparison ? `
     <div class="hint-box">
-      💬 "비중 확대·축소"는 보유 <b>비율(%)</b>이 바뀌었다는 뜻이에요. 다른 종목을 더 사서 상대적으로
-      비중이 줄었거나, 주가 자체가 변해서 비중이 바뀌었을 수도 있어요. 실제로 그 종목을 사고팔았는지는
-      뱃지 아래 <b>주식 수 뱃지</b>(📈 매수 · 📉 매도 · ✋ 그대로)를 함께 확인하시면 더 정확해요.
+      💬 오른쪽은 직전 분기보다 <b>주식 수</b>를 실제로 얼마나 사고팔았는지 보여줘요.
+      <b>📈 매수</b> · <b>📉 매도</b> · <b>✋ 그대로</b> · <b>🆕 신규 편입</b>
     </div>
     ` : ''}
     <div class="donut-wrap">
@@ -495,7 +480,7 @@ function renderDetail(key) {
 
   const restHtml = rest.length ? `
     <table>
-      <thead><tr><th>순위</th><th>종목명</th><th>비중</th>${hasComparison ? '<th>전분기 대비</th>' : ''}</tr></thead>
+      <thead><tr><th>순위</th><th>종목명</th><th>비중</th>${hasComparison ? '<th>주식 수 변화</th>' : ''}</tr></thead>
       <tbody>
         ${rest.map((h, i) => `
           <tr>
