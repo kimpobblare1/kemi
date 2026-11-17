@@ -118,12 +118,23 @@
   .change-badge.decreased{ background:#EAF0FD; color:var(--down); }
   .change-badge.same{ background:var(--surface); color:var(--text-soft); }
   .change-sub{ font-size:10.5px; color:var(--text-soft); white-space:nowrap; width:76px; text-align:center; }
-  .shares-sub{ font-size:10px; color:var(--text-soft); text-align:right; line-height:1.5; }
+  .shares-sub{ display:flex; flex-direction:column; align-items:flex-end; gap:2px; margin-top:2px; }
+  /* 주식 수 변화 뱃지: 실제로 사고팔았는지 한눈에 보이도록 색·테두리로 강조 */
+  .shares-badge{
+    display:inline-block; font-size:11.5px; font-weight:800; padding:3px 8px; border-radius:6px;
+    border:1.5px solid; white-space:nowrap; line-height:1.3;
+  }
+  .shares-badge.sh-up{ color:var(--up); background:#FFF3F3; border-color:#F2B8B8; }
+  .shares-badge.sh-down{ color:var(--down); background:#F1F5FF; border-color:#B9CBF3; }
+  .shares-badge.sh-same{ color:#4A5058; background:#F2F3F5; border-color:#D5D9DE; }
+  .shares-count{ font-size:11px; font-weight:600; color:var(--text); white-space:nowrap; }
 
 
   @media (max-width:640px){
     .donut-wrap{ flex-direction:column; align-items:flex-start; }
-    .legend-header, .legend-row{ grid-template-columns:16px minmax(0,1fr) 48px 100px; }
+    .legend-header, .legend-row{ grid-template-columns:16px minmax(0,1fr) 48px 118px; }
+    .shares-badge{ font-size:11px; padding:2px 6px; }
+    .shares-count{ font-size:10.5px; }
   }
 
   table{ width:100%; border-collapse:collapse; font-size:13px; }
@@ -262,6 +273,15 @@ function fmtDate(iso) {
 // ⚠️ SEC는 2023년부터 13F 금액(value)을 "1달러" 단위로 보고해요(이전엔 천 달러 단위).
 //    서버 필드 이름은 valueThousandUsd로 남아 있지만 실제 값은 "달러"라서 ×1000을 하지 않아요.
 // 천단위 콤마도 함께 넣어서 숫자를 한눈에 읽기 쉽게 했어요.
+// ⚠️ 일부 운용사(예: 바우포스트·듀케인)는 지금도 13F 금액을 '천 달러' 단위로 보고해요.
+//    주당 평균 금액이 0.5달러 미만이면 천 달러 단위로 보고한 것으로 보고 ×1000 해요.
+function investorTotalUsd(inv) {
+  const total = Number(inv.totalValueThousandUsd) || 0;
+  const shares = (inv.holdings || []).reduce((sum, h) => sum + (Number(h.shares) || 0), 0);
+  if (shares > 0 && total / shares < 0.5) return total * 1000;
+  return total;
+}
+
 function fmtUsd(rawUsd) {
   const usd = Number(rawUsd) || 0; // 실제 달러 금액 (SEC 원본 그대로)
   const eok = usd / 1e8; // 1억 달러 단위 (한국식 "억" 표현)
@@ -360,14 +380,19 @@ function changeBadgeHtml(h) {
   // 비중은 줄었어도 주식 수가 그대로거나 늘었으면 "실제로는 안 팔았다"는 뜻이에요.
   let sharesSub = '';
   if (h.changeStatus !== 'new' && h.prevShares != null) {
-    const sharesMap = {
-      shares_increased: '📈 주식 수 증가',
-      shares_decreased: '📉 주식 수 감소',
-      same: '💬 주식 수 그대로',
-    };
-    const sharesLabel = sharesMap[h.sharesChangeStatus] || '';
-    if (sharesLabel) {
-      sharesSub = `<span class="shares-sub">${sharesLabel}<br>${fmtShares(h.prevShares)} → ${fmtShares(h.shares)}</span>`;
+    const prev = Number(h.prevShares), cur = Number(h.shares);
+    const pct = prev > 0 ? ((cur - prev) / prev) * 100 : 0;
+    const pctTxt = Math.abs(pct) >= 10 ? Math.abs(pct).toFixed(0) : Math.abs(pct).toFixed(1);
+    let badge = '';
+    if (h.sharesChangeStatus === 'shares_increased') {
+      badge = `<span class="shares-badge sh-up">📈 주식 수 +${pctTxt}% 매수</span>`;
+    } else if (h.sharesChangeStatus === 'shares_decreased') {
+      badge = `<span class="shares-badge sh-down">📉 주식 수 -${pctTxt}% 매도</span>`;
+    } else if (h.sharesChangeStatus === 'same') {
+      badge = `<span class="shares-badge sh-same">✋ 주식 수 그대로</span>`;
+    }
+    if (badge) {
+      sharesSub = `<span class="shares-sub">${badge}<span class="shares-count">${fmtShares(prev)} → ${fmtShares(cur)}</span></span>`;
     }
   }
 
@@ -459,7 +484,7 @@ function renderDetail(key) {
     <div class="hint-box">
       💬 "비중 확대·축소"는 보유 <b>비율(%)</b>이 바뀌었다는 뜻이에요. 다른 종목을 더 사서 상대적으로
       비중이 줄었거나, 주가 자체가 변해서 비중이 바뀌었을 수도 있어요. 실제로 그 종목을 사고팔았는지는
-      뱃지 아래 <b>주식 수(shares) 변화</b>를 함께 확인하시면 더 정확해요.
+      뱃지 아래 <b>주식 수 뱃지</b>(📈 매수 · 📉 매도 · ✋ 그대로)를 함께 확인하시면 더 정확해요.
     </div>
     ` : ''}
     <div class="donut-wrap">
@@ -501,7 +526,7 @@ function renderDetail(key) {
       <span class="detail-period">${fmtDate(inv.periodOfReport)} 기준 (${fmtDate(inv.filingDate)} 공시)</span>
     </div>
     <div class="detail-sub">
-      보유종목 ${inv.holdingsCount}개 · 총 운용규모 약 ${fmtUsd(inv.totalValueThousandUsd)}
+      보유종목 ${inv.holdingsCount}개 · 총 운용규모 약 ${fmtUsd(investorTotalUsd(inv))}
       ${hasComparison ? `<br>💡 아래 "직전"은 <b>${fmtDate(inv.previousPeriodOfReport)} 기준</b> 자료를 말해요. 그 다음 분기인 <b>${fmtDate(inv.periodOfReport)} 기준</b> 자료와 비교해서 변동을 표시했어요.` : ''}
     </div>
     ${topHtml}
