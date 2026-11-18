@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 17 Nov 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>엔비디아 호실적에 코스피 하루 만에 5000선 회복, 1.99% 상승 5067…SK하이닉스 기관·외국인 동조 매수</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-18.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-18.html</guid>
+    <pubDate>Wed, 18 Nov 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 1.99% 올라 5,067.44로 마감, 하루 만에 5,000선을 회복했어요. 엔비디아 실적, SK하이닉스 동조 매수, 삼성전기 공매도 123% 급증, 사흘째 늘어난 신용잔고를 정리했어요.</description>
+  </item>
 
   <item>
     <title>코스피 9개월 만에 5000선 붕괴, 2.59% 하락 4968…외국인 1.4조 매도·기관은 SK하이닉스 샀다</title>
