@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Fri, 20 Nov 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Sat, 21 Nov 2026 17:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>엔비디아 쇼크·앤트로픽 상장에 코스피 한 주 -7.95%, 외국인 4.7조 매도…11월 셋째 주 수급 결산</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-21-weekly.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-21-weekly.html</guid>
+    <pubDate>Sat, 21 Nov 2026 17:00:00 +0900</pubDate>
+    <description>코스피가 한 주 동안 7.95% 내려 4,869.96으로 마감했어요. 엔비디아 경영진 교체와 앤트로픽 상장 뒤 AI 반도체 매도, 외국인 4조7천억 원 순매도, 교차 종목 26건, SK하이닉스 공매도 잔고 42배, 신용잔고 흐름을 주간 단위로 정리했어요.</description>
+  </item>
 
   <item>
     <title>검은 금요일 코스피 5.21% 급락 4869…앤트로픽 상장 뒤 반도체 투매, 외국인·기관 2조 매도</title>
