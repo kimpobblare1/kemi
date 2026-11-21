@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Thu, 19 Nov 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Fri, 20 Nov 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>검은 금요일 코스피 5.21% 급락 4869…앤트로픽 상장 뒤 반도체 투매, 외국인·기관 2조 매도</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-20.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-20.html</guid>
+    <pubDate>Fri, 20 Nov 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 5.21% 내려 4,869.96으로 마감했어요. 양대 시장 매도 사이드카, 앤트로픽 상장의 역설, SK하이닉스 공매도 144% 급증, 이번 주 외국인 4조7천억 원 순매도를 정리했어요.</description>
+  </item>
 
   <item>
     <title>수능날 장중 5000선 내줬다 되찾은 코스피, 1.39% 상승 5137…한중 FTA에 하이브·삼성전기 동조 매수</title>
