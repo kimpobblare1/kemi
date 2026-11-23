@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Sat, 21 Nov 2026 17:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Mon, 23 Nov 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 3.31% 내려 4708…엔비디아 쇼크에 장중 4600 붕괴, 외국인 7일째 매도</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-23.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-23.html</guid>
+    <pubDate>Mon, 23 Nov 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 3.31% 내려 4,708.54로 마감했어요. 엔비디아 SEC 조사 보도발 반도체 폭락, 이틀 연속 매도 사이드카, 외국인 SK하이닉스 집중 매도, 공매도 외국인 비중 80%를 정리했어요.</description>
+  </item>
 
   <item>
     <title>엔비디아 쇼크·앤트로픽 상장에 코스피 한 주 -7.95%, 외국인 4.7조 매도…11월 셋째 주 수급 결산</title>
