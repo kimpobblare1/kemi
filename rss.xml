@@ -5,8 +5,16 @@
   <link>https://www.gemidata.co.kr/</link>
   <description>개미데이터가 매일 코스피·코스닥 지수, 개인·외국인·기관 수급, 신용잔고 현황을 데이터로 정리하는 시황분석입니다.</description>
   <language>ko-kr</language>
-  <lastBuildDate>Wed, 25 Nov 2026 18:00:00 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 26 Nov 2026 18:00:00 +0900</lastBuildDate>
   <atom:link href="https://www.gemidata.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>코스피 0.29% 오른 4711…금리 3.25% 인상에 4800 찍고 반납, 기관 7500억 매수</title>
+    <link>https://www.gemidata.co.kr/briefs/2026-11-26.html</link>
+    <guid isPermaLink="true">https://www.gemidata.co.kr/briefs/2026-11-26.html</guid>
+    <pubDate>Thu, 26 Nov 2026 18:00:00 +0900</pubDate>
+    <description>코스피가 0.29% 오른 4,711.21로 마감했어요. 기준금리 3.25% 인상, 반도체 3종목 동조 매수, 공매도 36% 감소, 신용잔고 4,654억 감소와 미수금 1조 원 재돌파를 정리했어요.</description>
+  </item>
 
   <item>
     <title>코스피 6.16% 급락 4697…하루 만에 급등분 반납, 외국인 1.9조 매도에 삼성전자 시총 1000조 붕괴</title>
